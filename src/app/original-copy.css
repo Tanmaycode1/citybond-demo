@@ -1,0 +1,83 @@
+.original-copy {
+  max-width: 1000px;
+  padding-top: 35px;
+  padding-bottom: 80px;
+}
+.original-copy > h2 {
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 1.12;
+  margin: 60px 0 24px;
+}
+.original-copy > h3 {
+  font-family: var(--font-sans);
+  font-size: 23px;
+  line-height: 1.4;
+  margin: 32px 0 14px;
+}
+.original-copy > :first-child {
+  margin-top: 0;
+}
+.original-copy p,
+.original-copy li {
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--brand-charcoal);
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+.original-copy p {
+  margin: 0 0 22px;
+}
+.original-copy ul,
+.original-copy ol {
+  padding-left: 25px;
+  margin: 0 0 28px;
+}
+.original-copy li {
+  padding-left: 7px;
+  margin-bottom: 9px;
+}
+.original-link a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+.original-table {
+  max-width: 100%;
+  overflow: auto;
+  margin: 25px 0 40px;
+}
+.original-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+}
+.original-table th,
+.original-table td {
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--line);
+  padding: 16px;
+  min-width: 110px;
+  white-space: pre-line;
+}
+.original-table th {
+  background: var(--ink);
+  color: white;
+}
+.original-table tbody tr:nth-child(even) {
+  background: var(--paper);
+}
+@media (max-width: 760px) {
+  .original-copy {
+    padding-top: 20px;
+    padding-bottom: 50px;
+  }
+  .original-copy p,
+  .original-copy li {
+    font-size: 17px;
+  }
+  .original-copy > h2 {
+    margin-top: 40px;
+  }
+}

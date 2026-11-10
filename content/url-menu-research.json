@@ -1,0 +1,2109 @@
+{
+  "researchedAt": "2026-10-17",
+  "scope": "Research only for a later URL/menu implementation phase. No routes, website source content, deployment or domain settings were changed.",
+  "sources": [
+    {
+      "url": "https://citybond.in/",
+      "checkedAt": "2026-10-17",
+      "method": "Current live HTML navigation and official page viewed through web tool; the raw header includes Contact even though the web text extraction omits it."
+    },
+    {
+      "path": "/tmp/citybond-route-audit/audit-data.json",
+      "checkedAt": "2026-10-16",
+      "commit": "ca51c89",
+      "method": "Existing discovery and local HTTP audit; its response statuses were not re-run in this research."
+    },
+    {
+      "path": "content/source-audit.json",
+      "method": "64 source page summaries and official URLs from prior content audit."
+    },
+    {
+      "paths": [
+        "src/lib/routes.ts",
+        "src/app/[[...path]]/page.tsx",
+        "src/app/sitemap.ts",
+        "src/app/robots.ts",
+        "src/app/layout.tsx",
+        "src/data/site.json"
+      ],
+      "checkedAt": "2026-10-17",
+      "method": "Current source inspection confirms redirect-oriented legacy route handling and new nested routes."
+    },
+    {
+      "url": "https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes",
+      "checkedAt": "2026-10-17",
+      "purpose": "Primary SEO migration guidance."
+    },
+    {
+      "url": "https://developers.google.com/search/docs/crawling-indexing/301-redirects",
+      "checkedAt": "2026-10-17",
+      "purpose": "Permanent versus temporary redirect guidance."
+    },
+    {
+      "path": "../outputs/citybond-route-audit-20261016/CityBond Route Comparison.xlsx",
+      "sheet": "Original website",
+      "crossCheckedAt": "2026-10-17",
+      "method": "Read final XLSX stored worksheet values without modifying the workbook; 179 rows match audit-data.json and export-inspection.ndjson."
+    }
+  ],
+  "originalNavigation": {
+    "logo": {
+      "originalHref": "/",
+      "path": "/"
+    },
+    "topLevel": [
+      {
+        "label": "Our Story",
+        "originalHref": "#",
+        "absoluteUrl": "https://citybond.in/#",
+        "path": "/",
+        "type": "dropdown",
+        "items": [
+          {
+            "label": "About CityBond",
+            "originalHref": "about",
+            "absoluteUrl": "https://citybond.in/about",
+            "path": "/about"
+          },
+          {
+            "label": "Vision & Mission",
+            "originalHref": "vision",
+            "absoluteUrl": "https://citybond.in/vision",
+            "path": "/vision"
+          },
+          {
+            "label": "Management Team",
+            "originalHref": "our-management",
+            "absoluteUrl": "https://citybond.in/our-management",
+            "path": "/our-management"
+          },
+          {
+            "label": "Clientele",
+            "originalHref": "corporate#client",
+            "absoluteUrl": "https://citybond.in/corporate#client",
+            "path": "/corporate#client"
+          },
+          {
+            "label": "Network",
+            "originalHref": "network",
+            "absoluteUrl": "https://citybond.in/network",
+            "path": "/network"
+          },
+          {
+            "label": "Infrastructure",
+            "originalHref": "infrastructure",
+            "absoluteUrl": "https://citybond.in/infrastructure",
+            "path": "/infrastructure"
+          }
+        ]
+      },
+      {
+        "label": "Our Products",
+        "originalHref": "#",
+        "absoluteUrl": "https://citybond.in/#",
+        "path": "/",
+        "type": "mega-menu",
+        "groups": [
+          {
+            "label": "ACP Series",
+            "items": [
+              {
+                "label": "Lamio Series",
+                "originalHref": "lamio-series",
+                "absoluteUrl": "https://citybond.in/lamio-series",
+                "path": "/lamio-series"
+              },
+              {
+                "label": "Exclusive Series",
+                "originalHref": "exclusive-series",
+                "absoluteUrl": "https://citybond.in/exclusive-series",
+                "path": "/exclusive-series"
+              },
+              {
+                "label": "Marble Series",
+                "originalHref": "marble-series",
+                "absoluteUrl": "https://citybond.in/marble-series",
+                "path": "/marble-series"
+              },
+              {
+                "label": "Wooden Series",
+                "originalHref": "wooden-series",
+                "absoluteUrl": "https://citybond.in/wooden-series",
+                "path": "/wooden-series"
+              },
+              {
+                "label": "3D ACP Panels",
+                "originalHref": "3d-panels-series",
+                "absoluteUrl": "https://citybond.in/3d-panels-series",
+                "path": "/3d-panels-series"
+              },
+              {
+                "label": "Sparkles Series",
+                "originalHref": "sparkle-series",
+                "absoluteUrl": "https://citybond.in/sparkle-series",
+                "path": "/sparkle-series"
+              }
+            ]
+          },
+          {
+            "label": "",
+            "items": [
+              {
+                "label": "Mirror Series",
+                "originalHref": "mirror-series",
+                "absoluteUrl": "https://citybond.in/mirror-series",
+                "path": "/mirror-series"
+              },
+              {
+                "label": "Gloss Series",
+                "originalHref": "gloss-series",
+                "absoluteUrl": "https://citybond.in/gloss-series",
+                "path": "/gloss-series"
+              },
+              {
+                "label": "HPL Sheet",
+                "originalHref": "hpl-sheet",
+                "absoluteUrl": "https://citybond.in/hpl-sheet",
+                "path": "/hpl-sheet"
+              },
+              {
+                "label": "Satin Series",
+                "originalHref": "satin-series",
+                "absoluteUrl": "https://citybond.in/satin-series",
+                "path": "/satin-series"
+              },
+              {
+                "label": "Solid Series",
+                "originalHref": "solid-series",
+                "absoluteUrl": "https://citybond.in/solid-series",
+                "path": "/solid-series"
+              },
+              {
+                "label": "Metallic Series",
+                "originalHref": "metallic-series",
+                "absoluteUrl": "https://citybond.in/metallic-series",
+                "path": "/metallic-series"
+              }
+            ]
+          },
+          {
+            "label": "By Thickness",
+            "items": [
+              {
+                "label": "3 MM ACP Sheet",
+                "originalHref": "3mm-acp-sheet",
+                "absoluteUrl": "https://citybond.in/3mm-acp-sheet",
+                "path": "/3mm-acp-sheet"
+              },
+              {
+                "label": "4 MM ACP Sheet",
+                "originalHref": "4mm-acp-sheet",
+                "absoluteUrl": "https://citybond.in/4mm-acp-sheet",
+                "path": "/4mm-acp-sheet"
+              },
+              {
+                "label": "6 MM ACP Sheet",
+                "originalHref": "6mm-acp-sheet",
+                "absoluteUrl": "https://citybond.in/6mm-acp-sheet",
+                "path": "/6mm-acp-sheet"
+              }
+            ]
+          },
+          {
+            "label": "By ACP Core",
+            "items": [
+              {
+                "label": "Fire Retardant",
+                "originalHref": "fire-retardent",
+                "absoluteUrl": "https://citybond.in/fire-retardent",
+                "path": "/fire-retardent"
+              },
+              {
+                "label": "Low-Density Polyethylene",
+                "originalHref": "low-density-poly-ethylene",
+                "absoluteUrl": "https://citybond.in/low-density-poly-ethylene",
+                "path": "/low-density-poly-ethylene"
+              }
+            ]
+          },
+          {
+            "label": "By Application",
+            "items": [
+              {
+                "label": "Exterior Facade",
+                "originalHref": "exterior-facade",
+                "absoluteUrl": "https://citybond.in/exterior-facade",
+                "path": "/exterior-facade"
+              },
+              {
+                "label": "Interior Design",
+                "originalHref": "interior-design",
+                "absoluteUrl": "https://citybond.in/interior-design",
+                "path": "/interior-design"
+              },
+              {
+                "label": "Brand Identity",
+                "originalHref": "brand-identity",
+                "absoluteUrl": "https://citybond.in/brand-identity",
+                "path": "/brand-identity"
+              }
+            ]
+          },
+          {
+            "label": "Other Products",
+            "items": [
+              {
+                "label": "Metacity Decor",
+                "originalHref": "https://citybond.in/metacity/",
+                "absoluteUrl": "https://citybond.in/metacity/",
+                "path": "/metacity/"
+              },
+              {
+                "label": "Soffite Panels",
+                "originalHref": "https://citybond.in/soffit-panels/",
+                "absoluteUrl": "https://citybond.in/soffit-panels/",
+                "path": "/soffit-panels/"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Partners",
+        "originalHref": "#",
+        "absoluteUrl": "https://citybond.in/#",
+        "path": "/",
+        "type": "dropdown",
+        "items": [
+          {
+            "label": "Citybond for\n                                    Architects",
+            "originalHref": "architects",
+            "absoluteUrl": "https://citybond.in/architects",
+            "path": "/architects"
+          },
+          {
+            "label": "Dealership Enquiry",
+            "originalHref": "dealership",
+            "absoluteUrl": "https://citybond.in/dealership",
+            "path": "/dealership"
+          },
+          {
+            "label": "Corporate",
+            "originalHref": "corporate",
+            "absoluteUrl": "https://citybond.in/corporate",
+            "path": "/corporate"
+          }
+        ]
+      },
+      {
+        "label": "Blog",
+        "originalHref": "https://citybond.in/blog/",
+        "absoluteUrl": "https://citybond.in/blog/",
+        "path": "/blog/",
+        "type": "link"
+      },
+      {
+        "label": "Contact",
+        "originalHref": "#",
+        "absoluteUrl": "https://citybond.in/#",
+        "path": "/",
+        "type": "dropdown",
+        "items": [
+          {
+            "label": "Contact Us",
+            "originalHref": "contact",
+            "absoluteUrl": "https://citybond.in/contact",
+            "path": "/contact"
+          },
+          {
+            "label": "Third Eye View",
+            "originalHref": "third-eye-view",
+            "absoluteUrl": "https://citybond.in/third-eye-view",
+            "path": "/third-eye-view"
+          },
+          {
+            "label": "Career",
+            "originalHref": "career",
+            "absoluteUrl": "https://citybond.in/career",
+            "path": "/career"
+          }
+        ]
+      },
+      {
+        "label": "Enquiry",
+        "originalHref": "#",
+        "absoluteUrl": "https://citybond.in/#",
+        "path": "/",
+        "type": "modal-action",
+        "target": "#enquireNow-modal"
+      }
+    ],
+    "notes": [
+      "The blank second ACP Series heading is a visual continuation column, not a separate product taxonomy. Combine the two columns under ACP Series while preserving link order.",
+      "Top-level Our Story, Our Products, Partners and Contact are dropdown triggers with href #, not independent page URLs.",
+      "Enquiry launches #enquireNow-modal; it is not a page URL.",
+      "Retain corporate#client as a working anchor on /corporate.",
+      "Use root-relative equivalents for internal links so original relative hrefs do not resolve under nested routes. Preserve the original public paths.",
+      "Original header has accessibility markup but also a script that prevents dropdown-item navigation below 992px; reproduce the grouping, not this interaction defect."
+    ]
+  },
+  "preservationRequirement": {
+    "userIntent": "Serve the original citybond.in content at its existing public URLs. A redirect to a renamed or broader page is not the same as preserving that original URL.",
+    "recommendedPrimaryPolicy": "Original public paths return 200 with their corresponding substantive content and self-referencing canonical URLs; new route aliases can redirect to original canonical paths if retained.",
+    "domain": "Production should retain citybond.in when the domain migration is authorized. The current Vercel preview domain is not a replacement canonical domain merely because it hosts the implementation.",
+    "literalPathsToRetain": [
+      "/fire-retardent",
+      "/download-our-quatarly-acp-magazine",
+      "/vijyawada",
+      "/corporate#client",
+      "/metacity/",
+      "/soffit-panels/",
+      "/blog/",
+      "/sitemap.html"
+    ],
+    "coverageLimit": "179 discovered URLs are an audit inventory, not a guarantee of all indexed URLs. Include original CMS exports, all sitemaps, Search Console, access logs, media/downloads and URL variants before claiming complete preservation."
+  },
+  "baselineSummary": {
+    "date": "2026-10-16",
+    "commit": "ca51c89",
+    "discoveredUrls": 179,
+    "localHttpCounts": {
+      "307": 54,
+      "200": 7,
+      "404": 118
+    },
+    "handlingCounts": {
+      "Missing redirect": 11,
+      "HTTP 307 redirect": 54,
+      "Direct page": 6,
+      "No destination": 108
+    },
+    "categoryCounts": {
+      "Blog article": 68,
+      "City page": 18,
+      "Main / legacy page": 36,
+      "Product": 14,
+      "Blog category": 12,
+      "Pagination": 9,
+      "Stories index": 1,
+      "Web story": 21
+    },
+    "directPreservedPaths": [
+      "/",
+      "/about",
+      "/contact",
+      "/network",
+      "/projects",
+      "/terms"
+    ],
+    "anomaly": "The /index record has HTTP200 in both raw audit and final workbook, while handling is Missing redirect. A200 response alone is not proof of equivalent content or preserved canonical URL. Current routing source lacks explicit /index support; recheck body/canonical in subsequent implementation.",
+    "alreadyBrokenOriginals": [
+      "/acp-sheet-design-catalogue-pdf-download",
+      "/clients/Metacity/index.php",
+      "/hpl-acp-sheet-series"
+    ],
+    "interpretationCounts": {
+      "temporaryRedirects": 54,
+      "directPreservedPages": 6,
+      "missingRedirectOrNoDestination": 119
+    },
+    "reconciliation": {
+      "crossCheckedAt": "2026-10-17",
+      "agreement": "audit-data.json legacy[].http, audit-data.json checks, export-inspection.ndjson and final XLSX Original website HTTP now values all contain 54 status307,7 status200,118 status404.",
+      "discrepancyCause": "The handling categories are assigned from known route membership and replacement/location presence, not only status. The 11 Missing redirect plus108 No destination records total119 migration gaps, but one of those (/index) is HTTP200. Therefore119 is not the raw HTTP404 count.",
+      "indexEvidence": {
+        "path": "/index",
+        "auditLegacyHttp": 200,
+        "auditChecksHttp": 200,
+        "finalWorkbookHttpNow": 200,
+        "handling": "Missing redirect",
+        "suggestedReplacement": "/",
+        "originalHttp": 200
+      },
+      "safeSummary": "179 inventoried URLs:6 direct pages,54 temporary redirects,119 other preservation gaps. Separately, raw local HTTP results are7 status200,54 status307,118 status404.",
+      "temporalLimit": "All HTTP observations belong to the Oct16 ca51c89 audit, not a fresh Oct17 network test. The discrepancy is classification versus response status within the same evidence, not an alternate observation timestamp."
+    }
+  },
+  "gaps": [
+    {
+      "area": "Product URLs",
+      "finding": "All 14 audited product paths redirect to /products/{slug}; original paths are not canonical direct pages.",
+      "requiredLater": "Render each original product path directly and keep its metadata and relevant surface/specification content."
+    },
+    {
+      "area": "Thickness and core URLs",
+      "paths": [
+        "/3mm-acp-sheet",
+        "/4mm-acp-sheet",
+        "/6mm-acp-sheet",
+        "/fire-retardent",
+        "/low-density-poly-ethylene"
+      ],
+      "finding": "These distinct pages currently redirect to the generic /products page.",
+      "requiredLater": "Restore dedicated, editable pages matching each original topic."
+    },
+    {
+      "area": "Application URLs",
+      "paths": [
+        "/exterior-facade",
+        "/interior-design",
+        "/brand-identity"
+      ],
+      "finding": "These pages redirect to /projects, losing the individual application topic.",
+      "requiredLater": "Restore dedicated application pages and link related product/project content."
+    },
+    {
+      "area": "Company, partners and resources",
+      "finding": "Original company, founder, awards, service and resource paths mostly redirect to renamed or merged routes.",
+      "requiredLater": "Serve matching content at /vision, /our-management, /infrastructure, /lalit-mittal, /mohit-mittal, /awards, /architects, /dealership, /corporate, /career, /third-eye-view, /catalogue-download, /download-our-quatarly-acp-magazine and /privacy-policy."
+    },
+    {
+      "area": "Regional pages",
+      "finding": "17 original city URLs redirect to /network; /vijyawada is 404 because the code derives the differently spelled vijayawada alias.",
+      "requiredLater": "Restore all 18 original regional pages with real source-backed regional content; retain the original vijyawada spelling in the URL."
+    },
+    {
+      "area": "Blog and Web Stories",
+      "finding": "The /blog index redirects to /resources. The audit includes 68 article URLs, 12 category URLs, 21 Web Story URLs, nine pagination URLs and a story index; these content families are largely absent. Even the three imported articles have no working original /blog/{slug}/ path.",
+      "requiredLater": "Import or retain the existing blog and stories system at its original paths, including category, pagination, article and story URLs; do not replace these with generic index redirects."
+    },
+    {
+      "area": "Other aliases and sitemap",
+      "finding": "The inventory includes /contact.php, /hpl-series, /index, /sitemap.html and three already-broken original URLs.",
+      "requiredLater": "Verify original response/body/canonical for aliases, restore the HTML sitemap as HTML, and handle truly replaced aliases with explicit one-to-one permanent redirects only where appropriate."
+    },
+    {
+      "area": "Canonical host and sitemap",
+      "finding": "Current metadataBase, sitemap and robots sitemap URL hardcode citybond-studio.vercel.app; the route metadata code does not set per-page canonical URLs.",
+      "requiredLater": "Set the authorized production origin consistently; publish original-path canonicals, sitemap entries, internal links and structured metadata. Preserve noindex protections for portal/API/preview."
+    },
+    {
+      "area": "Media and downloads",
+      "finding": "The 179-page inventory excludes a complete legacy asset URL map; current curated assets use new /citybond/*.webp paths.",
+      "requiredLater": "Inventory old image/PDF/video addresses and retain or permanently map them individually. Preserve existing download destinations and links."
+    }
+  ],
+  "recommendedLaterSequence": [
+    "Freeze this phase to the requested brand/PDF changes; use this research as implementation input later.",
+    "Build one explicit canonical route manifest from the full original URL inventory, separating content pages, intentional aliases, anchor targets, pagination and media.",
+    "Make original URLs primary for existing content. Reuse components and CMS records without redirecting away from old canonical addresses. Add missing application, thickness, core, city, founder, award and editorial records.",
+    "Implement editable desktop dropdown/mega menus and mobile accordions using the original groups and exact destination paths. Support keyboard activation, Escape, visible focus, touch and reduced motion.",
+    "Point modern route aliases to the restored original canonicals where needed; use one-hop permanent redirects for approved URL changes, not blanket redirects to broad index pages.",
+    "Generate internal links, canonicals and XML/HTML sitemaps from the same manifest and production origin.",
+    "Run a full crawl and compare every original URL: response, redirect chain, title, canonical, heading, content identity, images, anchors, structured data and mobile menu reachability.",
+    "At authorized production cutover, retain host/domain configuration, verify Search Console and monitor indexing/404s; do not claim preservation solely from the new preview site working."
+  ],
+  "urlInventory": [
+    {
+      "originalUrl": "https://citybond.in/blog/acp-sheet-thickness-guide-3mm-vs-4mm-vs-6mm-acp/",
+      "path": "/blog/acp-sheet-thickness-guide-3mm-vs-4mm-vs-6mm-acp",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "Missing redirect",
+      "replacement": "/resources/acp-sheet-thickness-guide-3mm-vs-4mm-vs-6mm-acp",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/how-to-choose-the-best-acp-sheet-for-building-facades-a-complete-guide/",
+      "path": "/blog/how-to-choose-the-best-acp-sheet-for-building-facades-a-complete-guide",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "Missing redirect",
+      "replacement": "/resources/how-to-choose-the-best-acp-sheet-for-building-facades-a-complete-guide",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/top-acp-sheets-for-petrol-pump-canopies/",
+      "path": "/blog/top-acp-sheets-for-petrol-pump-canopies",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "Missing redirect",
+      "replacement": "/resources/top-acp-sheets-for-petrol-pump-canopies",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/bengaluru",
+      "path": "/bengaluru",
+      "group": "City page",
+      "baselineStatus": 307,
+      "baselineHandling": "HTTP 307 redirect",
+      "replacement": "/network",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/chennai",
+      "path": "/chennai",
+      "group": "City page",
+      "baselineStatus": 307,
+      "baselineHandling": "HTTP 307 redirect",
+      "replacement": "/network",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/cuttack",
+      "path": "/cuttack",
+      "group": "City page",
+      "baselineStatus": 307,
+      "baselineHandling": "HTTP 307 redirect",
+      "replacement": "/network",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/delhi",
+      "path": "/delhi",
+      "group": "City page",
+      "baselineStatus": 307,
+      "baselineHandling": "HTTP 307 redirect",
+      "replacement": "/network",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/gwalior",
+      "path": "/gwalior",
+      "group": "City page",
+      "baselineStatus": 307,
+      "baselineHandling": "HTTP 307 redirect",
+      "replacement": "/network",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/hisar",
+      "path": "/hisar",
+      "group": "City page",
+      "baselineStatus": 307,
+      "baselineHandling": "HTTP 307 redirect",
+      "replacement": "/network",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/hyderabad",
+      "path": "/hyderabad",
+      "group": "City page",
+      "baselineStatus": 307,
+      "baselineHandling": "HTTP 307 redirect",
+      "replacement": "/network",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/indore",
+      "path": "/indore",
+      "group": "City page",
+      "baselineStatus": 307,
+      "baselineHandling": "HTTP 307 redirect",
+      "replacement": "/network",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/jaipur",
+      "path": "/jaipur",
+      "group": "City page",
+      "baselineStatus": 307,
+      "baselineHandling": "HTTP 307 redirect",
+      "replacement": "/network",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/jammu",
+      "path": "/jammu",
+      "group": "City page",
+      "baselineStatus": 307,
+      "baselineHandling": "HTTP 307 redirect",
+      "replacement": "/network",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/kolkata",
+      "path": "/kolkata",
+      "group": "City page",
+      "baselineStatus": 307,
+      "baselineHandling": "HTTP 307 redirect",
+      "replacement": "/network",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/lucknow",
+      "path": "/lucknow",
+      "group": "City page",
+      "baselineStatus": 307,
+      "baselineHandling": "HTTP 307 redirect",
+      "replacement": "/network",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/ludhiana",
+      "path": "/ludhiana",
+      "group": "City page",
+      "baselineStatus": 307,
+      "baselineHandling": "HTTP 307 redirect",
+      "replacement": "/network",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/mohali",
+      "path": "/mohali",
+      "group": "City page",
+      "baselineStatus": 307,
+      "baselineHandling": "HTTP 307 redirect",
+      "replacement": "/network",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/nagpur",
+      "path": "/nagpur",
+      "group": "City page",
+      "baselineStatus": 307,
+      "baselineHandling": "HTTP 307 redirect",
+      "replacement": "/network",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/raipur",
+      "path": "/raipur",
+      "group": "City page",
+      "baselineStatus": 307,
+      "baselineHandling": "HTTP 307 redirect",
+      "replacement": "/network",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/ranchi",
+      "path": "/ranchi",
+      "group": "City page",
+      "baselineStatus": 307,
+      "baselineHandling": "HTTP 307 redirect",
+      "replacement": "/network",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/vijyawada",
+      "path": "/vijyawada",
+      "group": "City page",
+      "baselineStatus": 404,
+      "baselineHandling": "Missing redirect",
+      "replacement": "/network",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/",
+      "path": "/",
+      "group": "Main / legacy page",
+      "baselineStatus": 200,
+      "baselineHandling": "Direct page",
+      "replacement": "/",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/3mm-acp-sheet",
+      "path": "/3mm-acp-sheet",
+      "group": "Main / legacy page",
+      "baselineStatus": 307,
+      "baselineHandling": "HTTP 307 redirect",
+      "replacement": "/products",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/4mm-acp-sheet",
+      "path": "/4mm-acp-sheet",
+      "group": "Main / legacy page",
+      "baselineStatus": 307,
+      "baselineHandling": "HTTP 307 redirect",
+      "replacement": "/products",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/6mm-acp-sheet",
+      "path": "/6mm-acp-sheet",
+      "group": "Main / legacy page",
+      "baselineStatus": 307,
+      "baselineHandling": "HTTP 307 redirect",
+      "replacement": "/products",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/about",
+      "path": "/about",
+      "group": "Main / legacy page",
+      "baselineStatus": 200,
+      "baselineHandling": "Direct page",
+      "replacement": "/about",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/architects",
+      "path": "/architects",
+      "group": "Main / legacy page",
+      "baselineStatus": 307,
+      "baselineHandling": "HTTP 307 redirect",
+      "replacement": "/for/architect",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/awards",
+      "path": "/awards",
+      "group": "Main / legacy page",
+      "baselineStatus": 307,
+      "baselineHandling": "HTTP 307 redirect",
+      "replacement": "/about",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/",
+      "path": "/blog",
+      "group": "Main / legacy page",
+      "baselineStatus": 307,
+      "baselineHandling": "HTTP 307 redirect",
+      "replacement": "/resources",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/brand-identity",
+      "path": "/brand-identity",
+      "group": "Main / legacy page",
+      "baselineStatus": 307,
+      "baselineHandling": "HTTP 307 redirect",
+      "replacement": "/projects",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/career",
+      "path": "/career",
+      "group": "Main / legacy page",
+      "baselineStatus": 307,
+      "baselineHandling": "HTTP 307 redirect",
+      "replacement": "/careers",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/catalogue-download",
+      "path": "/catalogue-download",
+      "group": "Main / legacy page",
+      "baselineStatus": 307,
+      "baselineHandling": "HTTP 307 redirect",
+      "replacement": "/resources/product-catalogue",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/contact",
+      "path": "/contact",
+      "group": "Main / legacy page",
+      "baselineStatus": 200,
+      "baselineHandling": "Direct page",
+      "replacement": "/contact",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/corporate",
+      "path": "/corporate",
+      "group": "Main / legacy page",
+      "baselineStatus": 307,
+      "baselineHandling": "HTTP 307 redirect",
+      "replacement": "/for/brand-manager",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/dealership",
+      "path": "/dealership",
+      "group": "Main / legacy page",
+      "baselineStatus": 307,
+      "baselineHandling": "HTTP 307 redirect",
+      "replacement": "/become-a-dealer",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/download-our-quatarly-acp-magazine",
+      "path": "/download-our-quatarly-acp-magazine",
+      "group": "Main / legacy page",
+      "baselineStatus": 307,
+      "baselineHandling": "HTTP 307 redirect",
+      "replacement": "/resources/growth-magazine",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/exterior-facade",
+      "path": "/exterior-facade",
+      "group": "Main / legacy page",
+      "baselineStatus": 307,
+      "baselineHandling": "HTTP 307 redirect",
+      "replacement": "/projects",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/fire-retardent",
+      "path": "/fire-retardent",
+      "group": "Main / legacy page",
+      "baselineStatus": 307,
+      "baselineHandling": "HTTP 307 redirect",
+      "replacement": "/products",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/infrastructure",
+      "path": "/infrastructure",
+      "group": "Main / legacy page",
+      "baselineStatus": 307,
+      "baselineHandling": "HTTP 307 redirect",
+      "replacement": "/about/infrastructure",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/interior-design",
+      "path": "/interior-design",
+      "group": "Main / legacy page",
+      "baselineStatus": 307,
+      "baselineHandling": "HTTP 307 redirect",
+      "replacement": "/projects",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/lalit-mittal",
+      "path": "/lalit-mittal",
+      "group": "Main / legacy page",
+      "baselineStatus": 307,
+      "baselineHandling": "HTTP 307 redirect",
+      "replacement": "/about/leadership",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/low-density-poly-ethylene",
+      "path": "/low-density-poly-ethylene",
+      "group": "Main / legacy page",
+      "baselineStatus": 307,
+      "baselineHandling": "HTTP 307 redirect",
+      "replacement": "/products",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/mohit-mittal",
+      "path": "/mohit-mittal",
+      "group": "Main / legacy page",
+      "baselineStatus": 307,
+      "baselineHandling": "HTTP 307 redirect",
+      "replacement": "/about/leadership",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/network",
+      "path": "/network",
+      "group": "Main / legacy page",
+      "baselineStatus": 200,
+      "baselineHandling": "Direct page",
+      "replacement": "/network",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/our-management",
+      "path": "/our-management",
+      "group": "Main / legacy page",
+      "baselineStatus": 307,
+      "baselineHandling": "HTTP 307 redirect",
+      "replacement": "/about/leadership",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/privacy-policy",
+      "path": "/privacy-policy",
+      "group": "Main / legacy page",
+      "baselineStatus": 307,
+      "baselineHandling": "HTTP 307 redirect",
+      "replacement": "/privacy",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/projects",
+      "path": "/projects",
+      "group": "Main / legacy page",
+      "baselineStatus": 200,
+      "baselineHandling": "Direct page",
+      "replacement": "/projects",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/terms",
+      "path": "/terms",
+      "group": "Main / legacy page",
+      "baselineStatus": 200,
+      "baselineHandling": "Direct page",
+      "replacement": "/terms",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/third-eye-view",
+      "path": "/third-eye-view",
+      "group": "Main / legacy page",
+      "baselineStatus": 307,
+      "baselineHandling": "HTTP 307 redirect",
+      "replacement": "/visualiser",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/vision",
+      "path": "/vision",
+      "group": "Main / legacy page",
+      "baselineStatus": 307,
+      "baselineHandling": "HTTP 307 redirect",
+      "replacement": "/about/vision-mission",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/3d-panels-series",
+      "path": "/3d-panels-series",
+      "group": "Product",
+      "baselineStatus": 307,
+      "baselineHandling": "HTTP 307 redirect",
+      "replacement": "/products/3d-panels-series",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/exclusive-series",
+      "path": "/exclusive-series",
+      "group": "Product",
+      "baselineStatus": 307,
+      "baselineHandling": "HTTP 307 redirect",
+      "replacement": "/products/exclusive-series",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/gloss-series",
+      "path": "/gloss-series",
+      "group": "Product",
+      "baselineStatus": 307,
+      "baselineHandling": "HTTP 307 redirect",
+      "replacement": "/products/gloss-series",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/hpl-sheet",
+      "path": "/hpl-sheet",
+      "group": "Product",
+      "baselineStatus": 307,
+      "baselineHandling": "HTTP 307 redirect",
+      "replacement": "/products/hpl-sheet",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/lamio-series",
+      "path": "/lamio-series",
+      "group": "Product",
+      "baselineStatus": 307,
+      "baselineHandling": "HTTP 307 redirect",
+      "replacement": "/products/lamio-series",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/marble-series",
+      "path": "/marble-series",
+      "group": "Product",
+      "baselineStatus": 307,
+      "baselineHandling": "HTTP 307 redirect",
+      "replacement": "/products/marble-series",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/metacity/",
+      "path": "/metacity",
+      "group": "Product",
+      "baselineStatus": 307,
+      "baselineHandling": "HTTP 307 redirect",
+      "replacement": "/products/metacity",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/metallic-series",
+      "path": "/metallic-series",
+      "group": "Product",
+      "baselineStatus": 307,
+      "baselineHandling": "HTTP 307 redirect",
+      "replacement": "/products/metallic-series",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/mirror-series",
+      "path": "/mirror-series",
+      "group": "Product",
+      "baselineStatus": 307,
+      "baselineHandling": "HTTP 307 redirect",
+      "replacement": "/products/mirror-series",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/satin-series",
+      "path": "/satin-series",
+      "group": "Product",
+      "baselineStatus": 307,
+      "baselineHandling": "HTTP 307 redirect",
+      "replacement": "/products/satin-series",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/soffit-panels/",
+      "path": "/soffit-panels",
+      "group": "Product",
+      "baselineStatus": 307,
+      "baselineHandling": "HTTP 307 redirect",
+      "replacement": "/products/soffit-panels",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/solid-series",
+      "path": "/solid-series",
+      "group": "Product",
+      "baselineStatus": 307,
+      "baselineHandling": "HTTP 307 redirect",
+      "replacement": "/products/solid-series",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/sparkle-series",
+      "path": "/sparkle-series",
+      "group": "Product",
+      "baselineStatus": 307,
+      "baselineHandling": "HTTP 307 redirect",
+      "replacement": "/products/sparkle-series",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/wooden-series",
+      "path": "/wooden-series",
+      "group": "Product",
+      "baselineStatus": 307,
+      "baselineHandling": "HTTP 307 redirect",
+      "replacement": "/products/wooden-series",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/acp-best-choice-eco-friendly-construction/",
+      "path": "/blog/acp-best-choice-eco-friendly-construction",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/acp-can-transform-your-interiors/",
+      "path": "/blog/acp-can-transform-your-interiors",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/acp-facade-cladding/",
+      "path": "/blog/acp-facade-cladding",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/acp-sheet-false-ceiling-innovative-design-ideas/",
+      "path": "/blog/acp-sheet-false-ceiling-innovative-design-ideas",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/acp-sheet-price-in-india-dont-buy-before-reading-this-complete-guide-2026/",
+      "path": "/blog/acp-sheet-price-in-india-dont-buy-before-reading-this-complete-guide-2026",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/acp-sheet-selection-guide-for-hospitals-and-healthcare-facilities/",
+      "path": "/blog/acp-sheet-selection-guide-for-hospitals-and-healthcare-facilities",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/acp-sheets-for-commercial-projects/",
+      "path": "/blog/acp-sheets-for-commercial-projects",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/acp-sheets-in-interior-design/",
+      "path": "/blog/acp-sheets-in-interior-design",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/acp-sheets-vs-hpl-vs-solid-wood-vs-stone-cladding-whats-best/",
+      "path": "/blog/acp-sheets-vs-hpl-vs-solid-wood-vs-stone-cladding-whats-best",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/acp-vs-wpc-louvers-which-is-good-for-your-project/",
+      "path": "/blog/acp-vs-wpc-louvers-which-is-good-for-your-project",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/acps-for-modern-architecture/",
+      "path": "/blog/acps-for-modern-architecture",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/advantages-of-citybond-acp-sheets-for-building-exterior/",
+      "path": "/blog/advantages-of-citybond-acp-sheets-for-building-exterior",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/applications-in-modern-architecture/",
+      "path": "/blog/applications-in-modern-architecture",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/avoid-these-5-costly-acp-cladding-mistakes-save-your-money-time/",
+      "path": "/blog/avoid-these-5-costly-acp-cladding-mistakes-save-your-money-time",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/benefits-of-acps/",
+      "path": "/blog/benefits-of-acps",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/benefits-of-hpl-cladding-for-commercial-buildings/",
+      "path": "/blog/benefits-of-hpl-cladding-for-commercial-buildings",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/best-acp-sheet-for-exterior-in-india-weather-resistant-options-explained/",
+      "path": "/blog/best-acp-sheet-for-exterior-in-india-weather-resistant-options-explained",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/best-acp-sheets-for-commercial-buildings-showrooms-in-india/",
+      "path": "/blog/best-acp-sheets-for-commercial-buildings-showrooms-in-india",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/best-acp-sheets-for-exterior-in-india-strong-stylish-weather-proof-options/",
+      "path": "/blog/best-acp-sheets-for-exterior-in-india-strong-stylish-weather-proof-options",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/best-acp-sheets-for-shopping-mall-facades/",
+      "path": "/blog/best-acp-sheets-for-shopping-mall-facades",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/choose-right-acp-for-your-project/",
+      "path": "/blog/choose-right-acp-for-your-project",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/choosing-the-right-acp-sheet/",
+      "path": "/blog/choosing-the-right-acp-sheet",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/choosing-the-right-acp-sheet-7-expert-tips-you-should-never-ignore/",
+      "path": "/blog/choosing-the-right-acp-sheet-7-expert-tips-you-should-never-ignore",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/citybond-has-launched-new-shades-of-acp-sheets-with-unique-natural-textures/",
+      "path": "/blog/citybond-has-launched-new-shades-of-acp-sheets-with-unique-natural-textures",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/cleaning-maintenance-tips-for-acp-sheets-to-keep-them-looking-new/",
+      "path": "/blog/cleaning-maintenance-tips-for-acp-sheets-to-keep-them-looking-new",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/common-problems-in-acp-cladding-how-to-avoid-them-expert-tips/",
+      "path": "/blog/common-problems-in-acp-cladding-how-to-avoid-them-expert-tips",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/comparing-acps-to-cladding-materials/",
+      "path": "/blog/comparing-acps-to-cladding-materials",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/confused-between-acp-hpl-pvc-panels-heres-the-truth-no-one-tells-you/",
+      "path": "/blog/confused-between-acp-hpl-pvc-panels-heres-the-truth-no-one-tells-you",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/everything-about-wooden-acp-sheets/",
+      "path": "/blog/everything-about-wooden-acp-sheets",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/fire-rated-acp-for-hospitals-schools-and-commercial-buildings/",
+      "path": "/blog/fire-rated-acp-for-hospitals-schools-and-commercial-buildings",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/fire-rated-acp-sheets/",
+      "path": "/blog/fire-rated-acp-sheets",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/fire-rated-guide-of-acp-for-high-rise-commercial-projects/",
+      "path": "/blog/fire-rated-guide-of-acp-for-high-rise-commercial-projects",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/fire-retardant-acp-sheets-are-they-really-worth-it-full-guide-inside/",
+      "path": "/blog/fire-retardant-acp-sheets-are-they-really-worth-it-full-guide-inside",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/fire-retardant-acp-sheets-why-builders-prefer-them-in-high-rise-projects/",
+      "path": "/blog/fire-retardant-acp-sheets-why-builders-prefer-them-in-high-rise-projects",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/fire-retardant-acp-vs-normal-acp-complete-buyers-guide/",
+      "path": "/blog/fire-retardant-acp-vs-normal-acp-complete-buyers-guide",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/future-of-building-facades-why-acp-sheets-will-dominate/",
+      "path": "/blog/future-of-building-facades-why-acp-sheets-will-dominate",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/how-acp-sheets-improve-energy-efficiency-in-buildings/",
+      "path": "/blog/how-acp-sheets-improve-energy-efficiency-in-buildings",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/how-aluminium-composite-panels-green-building-movement/",
+      "path": "/blog/how-aluminium-composite-panels-green-building-movement",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/how-aluminum-composite-panels-transform-buildings-exterior/",
+      "path": "/blog/how-aluminum-composite-panels-transform-buildings-exterior",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/how-to-choose-the-right-aluminium-composite-panel-manufacturer-in-india-2/",
+      "path": "/blog/how-to-choose-the-right-aluminium-composite-panel-manufacturer-in-india-2",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/installation-tips-and-best-practices-for-acps/",
+      "path": "/blog/installation-tips-and-best-practices-for-acps",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/low-maintenance-exterior-cladding-acp-sheets/",
+      "path": "/blog/low-maintenance-exterior-cladding-acp-sheets",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/modern-acp-sheet-front-elevation-design/",
+      "path": "/blog/modern-acp-sheet-front-elevation-design",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/modern-facade-design-resource-center/",
+      "path": "/blog/modern-facade-design-resource-center",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/right-acp-color/",
+      "path": "/blog/right-acp-color",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/right-acp-sheet-colours/",
+      "path": "/blog/right-acp-sheet-colours",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/sustainability-practices-in-acp-sheet-companies/",
+      "path": "/blog/sustainability-practices-in-acp-sheet-companies",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/sustainable-green-building-solutions/",
+      "path": "/blog/sustainable-green-building-solutions",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/the-ultimate-guide-to-exterior-cladding-materials/",
+      "path": "/blog/the-ultimate-guide-to-exterior-cladding-materials",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/top-10-acp-sheet-company-in-india/",
+      "path": "/blog/top-10-acp-sheet-company-in-india",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/top-10-stunning-acp-sheet-designs-that-will-transform-your-building-instantly/",
+      "path": "/blog/top-10-stunning-acp-sheet-designs-that-will-transform-your-building-instantly",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/top-5-reasons-why-citybond-is-considered-the-best-acp-brand-in-india/",
+      "path": "/blog/top-5-reasons-why-citybond-is-considered-the-best-acp-brand-in-india",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/top-acp-sheet-brands-in-india-which-one-should-you-buy-in-2026/",
+      "path": "/blog/top-acp-sheet-brands-in-india-which-one-should-you-buy-in-2026",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/top-acp-sheet-exterior-elevation-ideas-for-homes/",
+      "path": "/blog/top-acp-sheet-exterior-elevation-ideas-for-homes",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/top-acp-sheet-exterior-elevation-ideas-for-homes-2/",
+      "path": "/blog/top-acp-sheet-exterior-elevation-ideas-for-homes-2",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/top-architect-and-design-firms-of-india/",
+      "path": "/blog/top-architect-and-design-firms-of-india",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/uv-resistance-and-strength-acp/",
+      "path": "/blog/uv-resistance-and-strength-acp",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/what-architects-seeks-in-a-facade-material/",
+      "path": "/blog/what-architects-seeks-in-a-facade-material",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/what-are-new-trends-in-facades-or-exteriors-of-modern-homes/",
+      "path": "/blog/what-are-new-trends-in-facades-or-exteriors-of-modern-homes",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/what-quality-should-you-expect-from-hpl-sheet-manufacturers/",
+      "path": "/blog/what-quality-should-you-expect-from-hpl-sheet-manufacturers",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/whats-new-in-acp-sheet-design-in-2026-3d-digital-print-antibacterial-etc/",
+      "path": "/blog/whats-new-in-acp-sheet-design-in-2026-3d-digital-print-antibacterial-etc",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/why-are-acp-sheets-available-in-various-thicknesses-and-sizes/",
+      "path": "/blog/why-are-acp-sheets-available-in-various-thicknesses-and-sizes",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/why-contractors-are-choosing-citybond-over-other-brands/",
+      "path": "/blog/why-contractors-are-choosing-citybond-over-other-brands",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/wood-vs-acp-cladding-which-is-better-for-your-home/",
+      "path": "/blog/wood-vs-acp-cladding-which-is-better-for-your-home",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/wood-vs-metallic-vs-stone-finish-acp-sheets-which-suits-your-home-best/",
+      "path": "/blog/wood-vs-metallic-vs-stone-finish-acp-sheets-which-suits-your-home-best",
+      "group": "Blog article",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/category/acp/",
+      "path": "/blog/category/acp",
+      "group": "Blog category",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/category/acp-brands/",
+      "path": "/blog/category/acp-brands",
+      "group": "Blog category",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/category/acp-sheet-companies/",
+      "path": "/blog/category/acp-sheet-companies",
+      "group": "Blog category",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/category/acp-sheet-manufacturer/",
+      "path": "/blog/category/acp-sheet-manufacturer",
+      "group": "Blog category",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/category/aluminium-composite-panels/",
+      "path": "/blog/category/aluminium-composite-panels",
+      "group": "Blog category",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/category/architects/",
+      "path": "/blog/category/architects",
+      "group": "Blog category",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/category/building-exteriors/",
+      "path": "/blog/category/building-exteriors",
+      "group": "Blog category",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/category/designs/",
+      "path": "/blog/category/designs",
+      "group": "Blog category",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/category/home-design/",
+      "path": "/blog/category/home-design",
+      "group": "Blog category",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/category/hpl/",
+      "path": "/blog/category/hpl",
+      "group": "Blog category",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/category/interior-design/",
+      "path": "/blog/category/interior-design",
+      "group": "Blog category",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/category/modern-architecture/",
+      "path": "/blog/category/modern-architecture",
+      "group": "Blog category",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/acp-sheet-design-catalogue-pdf-download",
+      "path": "/acp-sheet-design-catalogue-pdf-download",
+      "group": "Main / legacy page",
+      "baselineStatus": 404,
+      "baselineHandling": "Missing redirect",
+      "replacement": "/resources/product-catalogue",
+      "originalStatus": 404
+    },
+    {
+      "originalUrl": "https://citybond.in/clients/Metacity/index.php",
+      "path": "/clients/Metacity/index.php",
+      "group": "Main / legacy page",
+      "baselineStatus": 404,
+      "baselineHandling": "Missing redirect",
+      "replacement": "/products/metacity",
+      "originalStatus": 404
+    },
+    {
+      "originalUrl": "https://citybond.in/contact.php",
+      "path": "/contact.php",
+      "group": "Main / legacy page",
+      "baselineStatus": 404,
+      "baselineHandling": "Missing redirect",
+      "replacement": "/contact",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/hpl-acp-sheet-series",
+      "path": "/hpl-acp-sheet-series",
+      "group": "Main / legacy page",
+      "baselineStatus": 404,
+      "baselineHandling": "Missing redirect",
+      "replacement": "/products/hpl-sheet",
+      "originalStatus": 404
+    },
+    {
+      "originalUrl": "https://citybond.in/hpl-series",
+      "path": "/hpl-series",
+      "group": "Main / legacy page",
+      "baselineStatus": 404,
+      "baselineHandling": "Missing redirect",
+      "replacement": "/products/hpl-sheet",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/index",
+      "path": "/index",
+      "group": "Main / legacy page",
+      "baselineStatus": 200,
+      "baselineHandling": "Missing redirect",
+      "replacement": "/",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/sitemap.html",
+      "path": "/sitemap.html",
+      "group": "Main / legacy page",
+      "baselineStatus": 404,
+      "baselineHandling": "Missing redirect",
+      "replacement": "/sitemap.xml",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/page/2/",
+      "path": "/blog/page/2",
+      "group": "Pagination",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/page/3/",
+      "path": "/blog/page/3",
+      "group": "Pagination",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/page/4/",
+      "path": "/blog/page/4",
+      "group": "Pagination",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/page/5/",
+      "path": "/blog/page/5",
+      "group": "Pagination",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/page/6/",
+      "path": "/blog/page/6",
+      "group": "Pagination",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/page/7/",
+      "path": "/blog/page/7",
+      "group": "Pagination",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/page/8/",
+      "path": "/blog/page/8",
+      "group": "Pagination",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/page/9/",
+      "path": "/blog/page/9",
+      "group": "Pagination",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/web-stories/page/2/",
+      "path": "/blog/web-stories/page/2",
+      "group": "Pagination",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/web-stories/",
+      "path": "/blog/web-stories",
+      "group": "Stories index",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/web-stories/5-acp-cladding-mistakes-to-avoid/",
+      "path": "/blog/web-stories/5-acp-cladding-mistakes-to-avoid",
+      "group": "Web story",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/web-stories/669/",
+      "path": "/blog/web-stories/669",
+      "group": "Web story",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/web-stories/acp-sheet-design-2026-3d-digital-antibacterial/",
+      "path": "/blog/web-stories/acp-sheet-design-2026-3d-digital-antibacterial",
+      "group": "Web story",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/web-stories/acp-sheet-thickness-guide-3mm-vs-4mm-vs-6mm-acp-sheets/",
+      "path": "/blog/web-stories/acp-sheet-thickness-guide-3mm-vs-4mm-vs-6mm-acp-sheets",
+      "group": "Web story",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/web-stories/acp-sheets-for-hospitals-healthcare-facilities-citybond/",
+      "path": "/blog/web-stories/acp-sheets-for-hospitals-healthcare-facilities-citybond",
+      "group": "Web story",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/web-stories/best-acp-sheets-for-commercial-buildings-showrooms-in-india-3/",
+      "path": "/blog/web-stories/best-acp-sheets-for-commercial-buildings-showrooms-in-india-3",
+      "group": "Web story",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/web-stories/best-acp-sheets-for-petrol-pump-canopies-durable-weather-resistant/",
+      "path": "/blog/web-stories/best-acp-sheets-for-petrol-pump-canopies-durable-weather-resistant",
+      "group": "Web story",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/web-stories/building-facade-trends-in-india-2026/",
+      "path": "/blog/web-stories/building-facade-trends-in-india-2026",
+      "group": "Web story",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/web-stories/choosing-the-right-acp-sheet-7-expert-tips-before-you-buy/",
+      "path": "/blog/web-stories/choosing-the-right-acp-sheet-7-expert-tips-before-you-buy",
+      "group": "Web story",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/web-stories/citybond-at-media-expo-mumbai-quality-acp-panels/",
+      "path": "/blog/web-stories/citybond-at-media-expo-mumbai-quality-acp-panels",
+      "group": "Web story",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/web-stories/cleaning-maintenance-tips-for-acp-sheets-keep-acp-panels-looking-new-copy/",
+      "path": "/blog/web-stories/cleaning-maintenance-tips-for-acp-sheets-keep-acp-panels-looking-new-copy",
+      "group": "Web story",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/web-stories/fire-rated-acp-guide-for-high-rise-commercial-buildings-citybond/",
+      "path": "/blog/web-stories/fire-rated-acp-guide-for-high-rise-commercial-buildings-citybond",
+      "group": "Web story",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/web-stories/fire-retardant-acp-vs-normal-acp-complete-buyers-guide-citybond-acp-blogs/",
+      "path": "/blog/web-stories/fire-retardant-acp-vs-normal-acp-complete-buyers-guide-citybond-acp-blogs",
+      "group": "Web story",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/web-stories/fire-retardant-acp-vs-normal-acp-key-differences-citybond/",
+      "path": "/blog/web-stories/fire-retardant-acp-vs-normal-acp-key-differences-citybond",
+      "group": "Web story",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/web-stories/latest-acp-sheet-design-trends-in-2026/",
+      "path": "/blog/web-stories/latest-acp-sheet-design-trends-in-2026",
+      "group": "Web story",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/web-stories/meta-title-top-building-facade-trends-in-india-2026-modern-design-ideas/",
+      "path": "/blog/web-stories/meta-title-top-building-facade-trends-in-india-2026-modern-design-ideas",
+      "group": "Web story",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/web-stories/modern-facade-design-guide/",
+      "path": "/blog/web-stories/modern-facade-design-guide",
+      "group": "Web story",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/web-stories/top-10-acp-sheet-designs-for-buildings-citybond/",
+      "path": "/blog/web-stories/top-10-acp-sheet-designs-for-buildings-citybond",
+      "group": "Web story",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/web-stories/top-acp-sheet-exterior-elevation-ideas-for-modern-homes/",
+      "path": "/blog/web-stories/top-acp-sheet-exterior-elevation-ideas-for-modern-homes",
+      "group": "Web story",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/web-stories/top-acp-sheet-exterior-ideas-for-modern-homes/",
+      "path": "/blog/web-stories/top-acp-sheet-exterior-ideas-for-modern-homes",
+      "group": "Web story",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    },
+    {
+      "originalUrl": "https://citybond.in/blog/web-stories/ultimate-guide-to-exterior-cladding-materials-for-buildings/",
+      "path": "/blog/web-stories/ultimate-guide-to-exterior-cladding-materials-for-buildings",
+      "group": "Web story",
+      "baselineStatus": 404,
+      "baselineHandling": "No destination",
+      "replacement": "",
+      "originalStatus": 200
+    }
+  ]
+}

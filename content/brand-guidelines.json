@@ -1,0 +1,32 @@
+{
+  "source": "Citybond Rebranding - Logo, Color & Fonts.pdf",
+  "sourceSha256": "45a48170afdd3c97c6902e70b51a7a29a4c14b8a0e8123cd028410fc105dbe4d",
+  "palette": {
+    "primary": ["#201E57", "#DA1F1C", "#FFFFFF", "#000000"],
+    "secondary": ["#333542", "#616160", "#61607F", "#B5B4DB", "#444456"],
+    "sourcePage": 4,
+    "note": "Uses printed HEX labels; neutral surfaces are white/lavender tints."
+  },
+  "logos": {
+    "wordmark": {
+      "asset": "/citybond/brand-wordmark.svg",
+      "sourcePage": 2,
+      "embeddedImage": "Image21.png"
+    },
+    "lockup": {
+      "asset": "/citybond/brand-lockup.svg",
+      "sourcePage": 3,
+      "embeddedImage": "Image7.png"
+    },
+    "note": "Original embedded PNG artwork inside SVG viewports; transparent padding omitted, artwork not redrawn. Favicon crops the approved C glyph."
+  },
+  "typography": {
+    "sourcePage": 5,
+    "requested": ["ND Logos", "Bebas Neue Pro"],
+    "status": "Temporary review fonts; exact webfont files were not supplied in the PDF or workspace.",
+    "reviewDisplay": "Bebas Neue",
+    "reviewBody": "Roboto Condensed",
+    "specialText": "The guide shows a Signature specimen; exact font identity and file are still needed.",
+    "replacement": "Load licensed local webfonts in src/app/layout.tsx, then set --font-heading and --font-sans to the supplied font variables."
+  }
+}

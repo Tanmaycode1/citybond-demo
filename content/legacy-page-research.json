@@ -1,0 +1,3443 @@
+{
+  "researchedAt": "2026-10-17",
+  "inputFile": "../citybond-url-discovery/citybond-live-pages.txt",
+  "counts": {
+    "totalUniqueUrls": 184,
+    "excludedBlogUrls": 115,
+    "nonBlogUrls": 69,
+    "nonBlogClassification": {
+      "company / partner / resource / legal": 20,
+      "product collection": 14,
+      "thickness specification": 3,
+      "city landing page": 18,
+      "application": 3,
+      "duplicate content URL": 7,
+      "core specification": 2,
+      "HTML sitemap": 1,
+      "transactional confirmation": 1
+    },
+    "liveFetchStatus": {
+      "200": 69
+    },
+    "changedFinalUrls": 0
+  },
+  "scope": "Research only. Exact supplied non-blog URL strings retained. No application code, seed, routing, or deployment changes.",
+  "metadataNote": "Original titles and metadata excerpts share a 25-word-per-page quotation budget. Truncated descriptions are flagged; retrieve full originals from source URLs when implementing with owner authorization.",
+  "pages": [
+    {
+      "url": "https://citybond.in/",
+      "exactPath": "/",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/",
+      "sourceTitle": "Best Aluminium Composite Panel in India | CityBond ACP",
+      "sourceMetaDescriptionExcerpt": "Buy CityBond aluminium composite panels. Designed for superior quality and unique textures and shades ideal for",
+      "metaExcerptTruncated": true,
+      "sourceCanonical": "https://citybond.in/",
+      "summary": "CityBond manufactures aluminium composite panels for architectural cladding and signage. The website presents surface collections, application guidance and a nationwide partner network.",
+      "facts": [
+        "Product categories span twelve ACP surface collections, three thickness categories, two core categories, Metacity and soffit panels.",
+        "The site identifies Unistone Panels Pvt. Ltd. in its copyright notice."
+      ],
+      "warnings": [],
+      "images": [
+        {
+          "url": "https://citybond.in/assets/images/image-preview/b.jpg",
+          "alt": "Before-Image"
+        },
+        {
+          "url": "https://citybond.in/assets/images/image-preview/a.jpg",
+          "alt": "After-Image"
+        },
+        {
+          "url": "https://citybond.in/assets/images/image-preview/drag.svg",
+          "alt": "drag-Image"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/home-citybond.jpg",
+          "alt": "About City Bond"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/exclusive.png",
+          "alt": "Playwood & Blockboards"
+        }
+      ],
+      "bodyHash": "b05315e6dc735e39b87c42bfbf4f04cb8ffca03d6b0a157aacce3df470d01897",
+      "suggestedCopy": {
+        "title": "Best Aluminium Composite Panel in India | CityBond ACP",
+        "description": "CityBond manufactures aluminium composite panels for architectural cladding and signage. The website presents surface collections, application guidance and a nationwide partner network.",
+        "sections": []
+      },
+      "classification": "company / partner / resource / legal",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/3d-panels-series",
+      "exactPath": "/3d-panels-series",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/3d-panels-series",
+      "sourceTitle": "3D Textured ACP Panels for Modern Facades | CityBond 3D Series",
+      "sourceMetaDescriptionExcerpt": "Explore the CityBond 3D ACP Series — textured, dimensional aluminium composite panels engineered for",
+      "metaExcerptTruncated": true,
+      "sourceCanonical": "https://citybond.in/3d-panels-series",
+      "summary": "This collection uses embossed and patterned surfaces to give panels a dimensional appearance that changes with light.",
+      "facts": [
+        "Applications described include facades, interior feature walls, ceilings, partitions and signage."
+      ],
+      "warnings": [],
+      "images": [
+        {
+          "url": "https://citybond.in/assets/images/products/3d-panel/bannar-image.png",
+          "alt": "3D ACP Panels Series"
+        },
+        {
+          "url": "https://citybond.in/assets/images/products/3d-panel/CT-291%20Dholpur%20Pink.jpg",
+          "alt": "CT-291 Dholpur Pink 3D Panel"
+        },
+        {
+          "url": "https://citybond.in/assets/images/products/3d-panel/CT-292%20Italian%20Grey.jpg",
+          "alt": "CT-292 Italian Grey 3D Panel"
+        },
+        {
+          "url": "https://citybond.in/assets/images/products/3d-panel/CT-293%20Grey%20White.jpg",
+          "alt": "CT-293 Grey White 3D Panel"
+        },
+        {
+          "url": "https://citybond.in/assets/images/products/3d-panel/CT-294-%20Premium%20Teak.jpg",
+          "alt": "CT-294 Premium Teak 3D Panel"
+        }
+      ],
+      "bodyHash": "bc0f82a388dcf93dd0cca79db7fad12dc9d52fe0f6936ec3bb2f43ac59f8c657",
+      "suggestedCopy": {
+        "title": "3 D Textured ACP Panels for Modern Facades | CityBond 3 D Series",
+        "description": "This collection uses embossed and patterned surfaces to give panels a dimensional appearance that changes with light.",
+        "sections": []
+      },
+      "classification": "product collection",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/3mm-acp-sheet",
+      "exactPath": "/3mm-acp-sheet",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/3mm-acp-sheet",
+      "sourceTitle": "3mm ACP Sheet Price | Top Quality ACP | CityBond ACP",
+      "sourceMetaDescriptionExcerpt": "Explore CityBond’s 3mm ACP sheets, offering top-quality aluminium composite panels designed for durability and",
+      "metaExcerptTruncated": true,
+      "sourceCanonical": "https://citybond.in/3mm-acp-sheet",
+      "summary": "The 3 mm panel category introduces a lighter panel option for project-specific interior, signage and cladding needs.",
+      "facts": [
+        "The source describes a 3 mm overall panel.",
+        "Published construction uses two 0.25 mm aluminium skins with an LDPE or mineral-compound core.",
+        "Applications discussed: interior walls, partitions, suspended ceilings and signage."
+      ],
+      "warnings": [
+        "Do not treat thickness alone as a safety classification or proof of suitability. Confirm current technical documentation before specification.",
+        "Published price bands omit a clear unit and commercial conditions; request a quote rather than republish as current pricing."
+      ],
+      "images": [
+        {
+          "url": "https://citybond.in/assets/images/products/others/3mm.webp",
+          "alt": "3mm ACP Series"
+        }
+      ],
+      "bodyHash": "fd80315409e23817e86db2aebbfa0cf4531209cd9fc085f3c9399bfb65f43cdc",
+      "suggestedCopy": {
+        "title": "3 mm ACP sheets",
+        "description": "Find the right balance of surface, panel thickness and construction for your project. Explore 3 mm aluminium composite panels with the CityBond team.",
+        "sections": [
+          {
+            "title": "Start with the application",
+            "body": "Interior walls, partitions, suspended ceilings and signage. Confirm the complete panel grade, coating and fixing system against the project specification."
+          },
+          {
+            "title": "Make it your own",
+            "body": "Explore colour and finish options, then request samples and project-specific technical information."
+          }
+        ]
+      },
+      "classification": "thickness specification",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/4mm-acp-sheet",
+      "exactPath": "/4mm-acp-sheet",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/4mm-acp-sheet",
+      "sourceTitle": "4mm ACP Sheet Price | Get Best Price | CityBond ACP",
+      "sourceMetaDescriptionExcerpt": "Discover CityBond’s competitive 4mm ACP Sheet Price. Get the best deals and expert advice",
+      "metaExcerptTruncated": true,
+      "sourceCanonical": "https://citybond.in/4mm-acp-sheet",
+      "summary": "The 4 mm category covers panels for architectural cladding, interior features, canopies and signage.",
+      "facts": [
+        "The source describes a 4 mm overall panel.",
+        "Published construction uses two 0.5 mm aluminium skins with an LDPE or mineral-compound core.",
+        "Applications discussed: facade cladding, canopies, wall panels and signage."
+      ],
+      "warnings": [
+        "Do not treat thickness alone as a safety classification or proof of suitability. Confirm current technical documentation before specification.",
+        "Published price bands omit a clear unit and commercial conditions; request a quote rather than republish as current pricing."
+      ],
+      "images": [
+        {
+          "url": "https://citybond.in/assets/images/products/others/4mm.webp",
+          "alt": "3mm ACP Series"
+        }
+      ],
+      "bodyHash": "df23b5ea267f088c855daedfab6e695e2dfb63c00b5477821f5a53e5c46e7af3",
+      "suggestedCopy": {
+        "title": "4 mm ACP sheets",
+        "description": "Find the right balance of surface, panel thickness and construction for your project. Explore 4 mm aluminium composite panels with the CityBond team.",
+        "sections": [
+          {
+            "title": "Start with the application",
+            "body": "Facade cladding, canopies, wall panels and signage. Confirm the complete panel grade, coating and fixing system against the project specification."
+          },
+          {
+            "title": "Make it your own",
+            "body": "Explore colour and finish options, then request samples and project-specific technical information."
+          }
+        ]
+      },
+      "classification": "thickness specification",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/6mm-acp-sheet",
+      "exactPath": "/6mm-acp-sheet",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/6mm-acp-sheet",
+      "sourceTitle": "6mm ACP Sheet Price | Durable ACP Sheet | CityBond ACP",
+      "sourceMetaDescriptionExcerpt": "Check out CityBond’s 6mm ACP Sheet Price, offering exceptional durability and quality. Contact us",
+      "metaExcerptTruncated": true,
+      "sourceCanonical": "https://citybond.in/6mm-acp-sheet",
+      "summary": "The 6 mm category focuses on thicker panels for architectural and exterior applications.",
+      "facts": [
+        "The source describes a 6 mm overall panel.",
+        "Published construction uses two 0.25 mm aluminium skins with an LDPE or mineral-compound core.",
+        "Applications discussed: exterior cladding, larger architectural surfaces and signage."
+      ],
+      "warnings": [
+        "Do not treat thickness alone as a safety classification or proof of suitability. Confirm current technical documentation before specification.",
+        "Published price bands omit a clear unit and commercial conditions; request a quote rather than republish as current pricing."
+      ],
+      "images": [
+        {
+          "url": "https://citybond.in/assets/images/products/others/6mm.webp",
+          "alt": "3mm ACP Series"
+        }
+      ],
+      "bodyHash": "b461e246e15c41bc77260b3123e191dfb9dcaed341ab96560d3922597c575cb6",
+      "suggestedCopy": {
+        "title": "6 mm ACP sheets",
+        "description": "Find the right balance of surface, panel thickness and construction for your project. Explore 6 mm aluminium composite panels with the CityBond team.",
+        "sections": [
+          {
+            "title": "Start with the application",
+            "body": "Exterior cladding, larger architectural surfaces and signage. Confirm the complete panel grade, coating and fixing system against the project specification."
+          },
+          {
+            "title": "Make it your own",
+            "body": "Explore colour and finish options, then request samples and project-specific technical information."
+          }
+        ]
+      },
+      "classification": "thickness specification",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/about",
+      "exactPath": "/about",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/about",
+      "sourceTitle": "About Us |Top ACP Brands In India | CityBond ACP",
+      "sourceMetaDescriptionExcerpt": "Top ACP Brands In India - CityBond! Discover our journey and commitment to quality, innovation,",
+      "metaExcerptTruncated": true,
+      "sourceCanonical": "https://citybond.in/about",
+      "summary": "The company story connects the Mittal family’s business background with ACP manufacturing in Raipur and later expansion into distribution and project supply.",
+      "facts": [
+        "Lalit Mittal and Mohit Mittal are the founders.",
+        "The chronology records production beginning in August 2015."
+      ],
+      "warnings": [
+        "Homepage and brand-identity page mention 2014, whereas the about chronology says 2015; do not silently resolve this conflict."
+      ],
+      "images": [
+        {
+          "url": "https://citybond.in/assets/images/about/about/DV Mittal.jpg",
+          "alt": "DV Mittal established his CA firm in 1981"
+        },
+        {
+          "url": "https://citybond.in/assets/images/about/about/DV Mittal.jpg",
+          "alt": "DV Mittal established his CA firm in 1981"
+        },
+        {
+          "url": "https://citybond.in/assets/images/about/about/1987.jpg",
+          "alt": "Mittal Chemplast founded in 1987"
+        },
+        {
+          "url": "https://citybond.in/assets/images/about/about/1987.jpg",
+          "alt": "Mittal Chemplast founded in 1987"
+        },
+        {
+          "url": "https://citybond.in/assets/images/about/about/2001.png",
+          "alt": "Lalit Mittal joined DV Mittal and Co in 2001"
+        }
+      ],
+      "bodyHash": "eb59ca4aa4a742e526778fed7730f1ac5aba50eada49dc681e2e43dde751de82",
+      "suggestedCopy": {
+        "title": "About Us |Top ACP Brands In India | CityBond ACP",
+        "description": "The company story connects the Mittal family’s business background with ACP manufacturing in Raipur and later expansion into distribution and project supply.",
+        "sections": []
+      },
+      "classification": "company / partner / resource / legal",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/architects",
+      "exactPath": "/architects",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/architects",
+      "sourceTitle": "Top-Tier Architectural Solutions | CityBond ACP",
+      "sourceMetaDescriptionExcerpt": "Discover CityBond's range of innovative exterior surface tailored for architectural projects. From premium ACP panels to versatile HPL sheets.",
+      "metaExcerptTruncated": true,
+      "sourceCanonical": "https://citybond.in/architects",
+      "summary": "Architect services combine ACP selection, design collaboration, technical support and project enquiries.",
+      "facts": [
+        "The page offers a scheduled callback form."
+      ],
+      "warnings": [],
+      "images": [
+        {
+          "url": "https://citybond.in/assets/images/architects/architect.jpg",
+          "alt": "architech"
+        },
+        {
+          "url": "https://citybond.in/assets/images/architects/architect-2.jpg",
+          "alt": "architech"
+        },
+        {
+          "url": "https://citybond.in/assets/images/architects/samanu.png",
+          "alt": "Anurag Shroff"
+        },
+        {
+          "url": "https://citybond.in/assets/images/architects/ankush.png",
+          "alt": "Syed"
+        }
+      ],
+      "bodyHash": "129b498beb971cba5b840a9f765bfe9d4e7839be0ec90f14112af4b0bafb5282",
+      "suggestedCopy": {
+        "title": "Top-Tier Architectural Solutions | CityBond ACP",
+        "description": "Architect services combine ACP selection, design collaboration, technical support and project enquiries.",
+        "sections": []
+      },
+      "classification": "company / partner / resource / legal",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/awards",
+      "exactPath": "/awards",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/awards",
+      "sourceTitle": null,
+      "sourceMetaDescriptionExcerpt": "",
+      "metaExcerptTruncated": false,
+      "sourceCanonical": "https://citybond.in/awards",
+      "summary": "An image gallery records award ceremonies, trade events and company appearances.",
+      "facts": [
+        "The official gallery includes the Make in India Icons Award 2023.",
+        "It also shows India’s Brand and Leading Awards 2018, ADF Aluminium Expo 2018 and Archex 2022.",
+        "The gallery mixes awards with event appearances."
+      ],
+      "warnings": [
+        "Label exhibitions as events, not awards. Source spellings are inconsistent; do not invent issuing bodies, rankings or certifications."
+      ],
+      "images": [
+        {
+          "url": "https://citybond.in/assets/images/awards/Make In India Icon Award-1b.webp",
+          "alt": ""
+        },
+        {
+          "url": "https://citybond.in/assets/images/awards/Make In India Icon Award-2b.webp",
+          "alt": ""
+        },
+        {
+          "url": "https://citybond.in/assets/images/awards/Make In India Icon Award-1-lion.webp",
+          "alt": ""
+        },
+        {
+          "url": "https://citybond.in/assets/images/awards/Award-citybond-2b.webp",
+          "alt": ""
+        },
+        {
+          "url": "https://citybond.in/assets/images/awards/Award-citybond-5b.webp",
+          "alt": ""
+        }
+      ],
+      "bodyHash": "a4b56ceb381a9e6060acc48880a3910e34499eb4da8f3e199d1c42636c507ea8",
+      "suggestedCopy": {
+        "title": "Recognition, along the way",
+        "description": "A record of CityBond awards, exhibitions and industry appearances.",
+        "sections": [
+          {
+            "title": "Make in India Icons Award",
+            "body": "CityBond’s official gallery documents recognition received in 2023."
+          },
+          {
+            "title": "Meeting the industry",
+            "body": "Exhibitions and industry events provide opportunities to share materials, ideas and company developments."
+          }
+        ]
+      },
+      "classification": "company / partner / resource / legal",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/bengaluru",
+      "exactPath": "/bengaluru",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/bengaluru",
+      "sourceTitle": "Premium ACP Sheets Bengaluru | Aesthetic & Durable | CityBond",
+      "sourceMetaDescriptionExcerpt": "CityBond provides premium Aluminium Composite Panels in Bengaluru, perfect for enhancing the aesthetics and durability",
+      "metaExcerptTruncated": true,
+      "sourceCanonical": "https://citybond.in/bengaluru",
+      "summary": "The Bengaluru page introduces CityBond ACP availability and connects visitors with product ranges and enquiry support.",
+      "facts": [
+        "Bengaluru is listed in CityBond’s official presence directory.",
+        "The local page discusses IT campuses, residential developments and surface choices for varied architectural styles.",
+        "The page offers a callback request to the national sales team."
+      ],
+      "warnings": [
+        "This is a regional product landing page, not a verified individual dealer listing; do not invent a local street address or dealer name.",
+        "No local dealer street address or city-specific telephone was verified on this page. Do not use the central contact as a fictional local office.",
+        "Do not reproduce generic climate statistics, universal performance guarantees or installation lead times as confirmed project commitments."
+      ],
+      "images": [
+        {
+          "url": "https://citybond.in/assets/images/homepage/about-citybond_old.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-1.jpg",
+          "alt": "Partner brand logo"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-2.jpg",
+          "alt": "Partner brand logo"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-3.jpg",
+          "alt": "Partner brand logo"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-4.jpg",
+          "alt": "Partner brand logo"
+        }
+      ],
+      "bodyHash": "f95656a0afddb71a8851428d72883e1f86cf18743e3b519b4c065c845897561b",
+      "suggestedCopy": {
+        "title": "ACP surfaces in Bengaluru",
+        "description": "Explore CityBond architectural panels for your Bengaluru project.",
+        "sections": [
+          {
+            "title": "Start with your project",
+            "body": "Share the building type, dimensions, preferred finishes and site conditions to discuss suitable options."
+          },
+          {
+            "title": "A material conversation",
+            "body": "Explore ACP collections, request samples and plan the next step with CityBond."
+          }
+        ]
+      },
+      "verifiedContact": {
+        "phone": "+916264913414",
+        "kind": "national enquiry line shown on the page",
+        "localAddress": null,
+        "localEmail": null
+      },
+      "classification": "city landing page",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/brand-identity",
+      "exactPath": "/brand-identity",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/brand-identity",
+      "sourceTitle": "Signage and Brand Identity with best ACP solutions | CityBond",
+      "sourceMetaDescriptionExcerpt": "Elevate brand identity with CityBond's premium ACP solutions. Our high-quality aluminium composite panels ensure a",
+      "metaExcerptTruncated": true,
+      "sourceCanonical": "https://citybond.in/brand-identity",
+      "summary": "ACP surfaces support commercial signage and retail visual identity through colour and facade treatments.",
+      "facts": [
+        "The source positions ACP for commercial brand expression.",
+        "The corporate and project pages identify retail and signage work for brands including Amul, Samsung and Tata Motors."
+      ],
+      "warnings": [
+        "Network counts differ from the dedicated network page; prefer the dedicated page when quoting counts.",
+        "Do not infer project-specific products or brand approval for every collection. Source network metrics conflict; prefer dedicated network page if quoting."
+      ],
+      "images": [
+        {
+          "url": "https://citybond.in/assets/images/brand/igl.jpg",
+          "alt": "Brand Identity ACP in Indraprastha CNG Plants"
+        },
+        {
+          "url": "https://citybond.in/assets/images/brand/iocl.jpg",
+          "alt": "Brand Identity ACP IOCL Pumps"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-1.jpg",
+          "alt": "Partner brand logo"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-2.jpg",
+          "alt": "Partner brand logo"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-3.jpg",
+          "alt": "Partner brand logo"
+        }
+      ],
+      "bodyHash": "77cdd8e985c478b932cbbf8c764feaca29b658a9aea67912d5f3258d132099ad",
+      "suggestedCopy": {
+        "title": "Make your brand visible",
+        "description": "ACP surfaces for recognisable signage, storefronts and retail environments.",
+        "sections": [
+          {
+            "title": "Consistent from one site to the next",
+            "body": "Discuss the colours, finishes and exterior details that express your visual identity."
+          },
+          {
+            "title": "Explore brand applications",
+            "body": "See the original project gallery for examples of corporate signage and storefront treatments."
+          }
+        ]
+      },
+      "classification": "application",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/career",
+      "exactPath": "/career",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/career",
+      "sourceTitle": "Career | Top ACP Company | CityBond ACP",
+      "sourceMetaDescriptionExcerpt": "Join CityBond, a Top ACP Company, and advance your career in the dynamic world of aluminium composite",
+      "metaExcerptTruncated": true,
+      "sourceCanonical": "https://citybond.in/career",
+      "summary": "The careers page introduces the team and invites applications for sales roles.",
+      "facts": [
+        "Recruitment email: hrd@citybond.in.",
+        "Listed vacancies should be reconfirmed before publication."
+      ],
+      "warnings": [],
+      "images": [
+        {
+          "url": "https://citybond.in/assets/images/career/career.jpg",
+          "alt": "career-img"
+        }
+      ],
+      "bodyHash": "3abef49867518cca629c26f1768ef3b980f57f0f43e24c0ba990a7506be1dbd9",
+      "suggestedCopy": {
+        "title": "Career | Top ACP Company | CityBond ACP",
+        "description": "The careers page introduces the team and invites applications for sales roles.",
+        "sections": []
+      },
+      "classification": "company / partner / resource / legal",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/catalogue-download",
+      "exactPath": "/catalogue-download",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/catalogue-download",
+      "sourceTitle": "ACP Sheet Design Catalogue PDF Download | CityBond",
+      "sourceMetaDescriptionExcerpt": "Discover beautiful ACP sheet designs and variety of vibrant colors chart in our ACP sheet e-catalogue. Download",
+      "metaExcerptTruncated": true,
+      "sourceCanonical": "https://citybond.in/catalogue-download",
+      "summary": "The catalogue route offers a product brochure and colour-chart resource through an enquiry form.",
+      "facts": [
+        "The source describes finishes, sizes, specifications and full-sheet views.",
+        "No public direct PDF link was present in the fetched page."
+      ],
+      "warnings": [],
+      "images": [
+        {
+          "url": "https://citybond.in/assets/images/homepage/brochure.png",
+          "alt": "Brochure"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/brochure.png",
+          "alt": "Brochure"
+        },
+        {
+          "url": "https://citybond.in/assets/images/location/delhi.png",
+          "alt": "best offers"
+        },
+        {
+          "url": "https://citybond.in/assets/images/location/lucknow.png",
+          "alt": "best offers"
+        },
+        {
+          "url": "https://citybond.in/assets/images/location/mohali.png",
+          "alt": "best offers"
+        }
+      ],
+      "bodyHash": "8756775089a80991b3db3496eb8482d5a3abd98930d4191d1d19b8ec6e729b39",
+      "suggestedCopy": {
+        "title": "ACP Sheet Design Catalogue PDF Download | CityBond",
+        "description": "The catalogue route offers a product brochure and colour-chart resource through an enquiry form.",
+        "sections": []
+      },
+      "classification": "company / partner / resource / legal",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/chennai",
+      "exactPath": "/chennai",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/chennai",
+      "sourceTitle": null,
+      "sourceMetaDescriptionExcerpt": "",
+      "metaExcerptTruncated": false,
+      "sourceCanonical": "https://citybond.in/chennai",
+      "summary": "The Chennai page introduces CityBond ACP availability and connects visitors with product ranges and enquiry support.",
+      "facts": [
+        "Chennai is listed in CityBond’s official presence directory.",
+        "The local page discusses coastal exposure, maintenance and finishes for contemporary and traditional design.",
+        "The page offers a callback request to the national sales team."
+      ],
+      "warnings": [
+        "This is a regional product landing page, not a verified individual dealer listing; do not invent a local street address or dealer name.",
+        "No local dealer street address or city-specific telephone was verified on this page. Do not use the central contact as a fictional local office.",
+        "Do not reproduce generic climate statistics, universal performance guarantees or installation lead times as confirmed project commitments."
+      ],
+      "images": [
+        {
+          "url": "https://citybond.in/assets/images/homepage/about-citybond_old.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-1.jpg",
+          "alt": "Partner brand logo"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-2.jpg",
+          "alt": "Partner brand logo"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-3.jpg",
+          "alt": "Partner brand logo"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-4.jpg",
+          "alt": "Partner brand logo"
+        }
+      ],
+      "bodyHash": "e2d1d0dd2c313b093ba9e5f07a4cf2edffabb34540c6554952ed3e1772b5f033",
+      "suggestedCopy": {
+        "title": "ACP surfaces in Chennai",
+        "description": "Explore CityBond architectural panels for your Chennai project.",
+        "sections": [
+          {
+            "title": "Start with your project",
+            "body": "Share the building type, dimensions, preferred finishes and site conditions to discuss suitable options."
+          },
+          {
+            "title": "A material conversation",
+            "body": "Explore ACP collections, request samples and plan the next step with CityBond."
+          }
+        ]
+      },
+      "verifiedContact": {
+        "phone": "+916264913414",
+        "kind": "national enquiry line shown on the page",
+        "localAddress": null,
+        "localEmail": null
+      },
+      "classification": "city landing page",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/contact",
+      "exactPath": "/contact",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/contact",
+      "sourceTitle": "Customer Care | ACP & HPL Panels | Contact CityBond ACP",
+      "sourceMetaDescriptionExcerpt": "Reach out to CityBond for all your ACP and HPL panel needs. Whether you",
+      "metaExcerptTruncated": true,
+      "sourceCanonical": "https://citybond.in/contact",
+      "summary": "The contact page provides Delhi head-office and Raipur manufacturing addresses, enquiry channels and a city presence directory.",
+      "facts": [
+        "Email: info@citybond.in",
+        "Phone: +91 8822101010; +91 6264913414",
+        "Head office: 71/6 F, Rama Road Industrial Area, Najafgarh Road, New Delhi 110015, India.",
+        "Manufacturing: Plot No. 5 A, Bhanpuri Industrial Area, Raipur, Chhattisgarh 493221, India."
+      ],
+      "warnings": [],
+      "images": [],
+      "bodyHash": "fd8717c7fc812d559038eca98052269ec0405481bc3b1cf878d80455e36809de",
+      "suggestedCopy": {
+        "title": "Customer Care | ACP & HPL Panels | Contact CityBond ACP",
+        "description": "The contact page provides Delhi head-office and Raipur manufacturing addresses, enquiry channels and a city presence directory.",
+        "sections": []
+      },
+      "classification": "company / partner / resource / legal",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/contact.php",
+      "exactPath": "/contact.php",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/contact.php",
+      "sourceTitle": "Customer Care | ACP & HPL Panels | Contact CityBond ACP",
+      "sourceMetaDescriptionExcerpt": "Reach out to CityBond for all your ACP and HPL panel needs. Whether you",
+      "metaExcerptTruncated": true,
+      "sourceCanonical": "https://citybond.in/contact",
+      "summary": "The contact page provides Delhi head-office and Raipur manufacturing addresses, enquiry channels and a city presence directory.",
+      "facts": [
+        "Email: info@citybond.in",
+        "Phone: +91 8822101010; +91 6264913414",
+        "Head office: 71/6 F, Rama Road Industrial Area, Najafgarh Road, New Delhi 110015, India.",
+        "Manufacturing: Plot No. 5 A, Bhanpuri Industrial Area, Raipur, Chhattisgarh 493221, India."
+      ],
+      "warnings": [
+        "The original serves HTTP 200 at this exact URL and canonicals to /contact. Serve matching content here if preserving every supplied path; do not assume a redirect preserves its literal URL."
+      ],
+      "images": [],
+      "bodyHash": "fd8717c7fc812d559038eca98052269ec0405481bc3b1cf878d80455e36809de",
+      "suggestedCopy": {
+        "title": "Customer Care | ACP & HPL Panels | Contact CityBond ACP",
+        "description": "The contact page provides Delhi head-office and Raipur manufacturing addresses, enquiry channels and a city presence directory.",
+        "sections": []
+      },
+      "duplicateOf": "/contact",
+      "sameFetchedBodyAsCanonical": true,
+      "classification": "duplicate content URL",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/corporate",
+      "exactPath": "/corporate",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/corporate",
+      "sourceTitle": "Premium ACP Sheets for Brand Signages and Retail Visual Identity",
+      "sourceMetaDescriptionExcerpt": "CityBond provides top-quality aluminium composite panels for corporate clients. Low quality ACP sheet can harm",
+      "metaExcerptTruncated": true,
+      "sourceCanonical": "https://citybond.in/corporate",
+      "summary": "Corporate services focus on brand signage and retail visual identity using CityBond ACP surfaces.",
+      "facts": [
+        "The source lists Amul, Tata Motors, Samsung, SBI, Canon, V Mart and Senco among its client references.",
+        "Corporate enquiries are directed to a callback with the national sales team.",
+        "The original page contains a client section at /corporate#client."
+      ],
+      "warnings": [
+        "Keep the client anchor id=client. Client references are source claims, not blanket endorsements of every product."
+      ],
+      "images": [
+        {
+          "url": "https://citybond.in/assets/images/coorporate/samsung.jpg",
+          "alt": "architech"
+        },
+        {
+          "url": "https://citybond.in/assets/images/coorporate/sbi.jpg",
+          "alt": "architech"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-1.jpg",
+          "alt": "Partner brand logo"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-2.jpg",
+          "alt": "Partner brand logo"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-3.jpg",
+          "alt": "Partner brand logo"
+        }
+      ],
+      "bodyHash": "dd286f541256657213a265abb67c7f625920adc03e537946e22dd13162f44af6",
+      "suggestedCopy": {
+        "title": "One identity. Across every space.",
+        "description": "Architectural panels and signage surfaces for corporate and retail brands.",
+        "sections": [
+          {
+            "title": "For your next rollout",
+            "body": "Share the brand brief, locations and material requirements to start a conversation with the CityBond team."
+          },
+          {
+            "title": "Clientele",
+            "body": "Explore organisations named in CityBond’s official corporate portfolio."
+          }
+        ]
+      },
+      "classification": "company / partner / resource / legal",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/cuttack",
+      "exactPath": "/cuttack",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/cuttack",
+      "sourceTitle": "Elegant & High-Quality ACP Sheets in Cuttack | CityBond",
+      "sourceMetaDescriptionExcerpt": "Get ready to be engrossed with Citybons' elegant Aluminium Composite Panels in Cuttack. We deliver quality",
+      "metaExcerptTruncated": true,
+      "sourceCanonical": "https://citybond.in/cuttack",
+      "summary": "The Cuttack page introduces CityBond ACP availability and connects visitors with product ranges and enquiry support.",
+      "facts": [
+        "Cuttack is listed in CityBond’s official presence directory.",
+        "The local page discusses colour and cultural context, with coating and environmental exposure to consider.",
+        "The page offers a callback request to the national sales team."
+      ],
+      "warnings": [
+        "This is a regional product landing page, not a verified individual dealer listing; do not invent a local street address or dealer name.",
+        "No local dealer street address or city-specific telephone was verified on this page. Do not use the central contact as a fictional local office.",
+        "Do not reproduce generic climate statistics, universal performance guarantees or installation lead times as confirmed project commitments."
+      ],
+      "images": [
+        {
+          "url": "https://citybond.in/assets/images/homepage/about-citybond_old.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-1.jpg",
+          "alt": "Partner brand logo"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-2.jpg",
+          "alt": "Partner brand logo"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-3.jpg",
+          "alt": "Partner brand logo"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-4.jpg",
+          "alt": "Partner brand logo"
+        }
+      ],
+      "bodyHash": "c1dac7af63e86f4f23601118e7df05a4bf2e8f6f64b36aea32153f8d04f783a1",
+      "suggestedCopy": {
+        "title": "ACP surfaces in Cuttack",
+        "description": "Explore CityBond architectural panels for your Cuttack project.",
+        "sections": [
+          {
+            "title": "Start with your project",
+            "body": "Share the building type, dimensions, preferred finishes and site conditions to discuss suitable options."
+          },
+          {
+            "title": "A material conversation",
+            "body": "Explore ACP collections, request samples and plan the next step with CityBond."
+          }
+        ]
+      },
+      "verifiedContact": {
+        "phone": "+916264913414",
+        "kind": "national enquiry line shown on the page",
+        "localAddress": null,
+        "localEmail": null
+      },
+      "classification": "city landing page",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/dealership",
+      "exactPath": "/dealership",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/dealership",
+      "sourceTitle": "Become a CityBond Dealer | Premium ACP and HPL Sheets",
+      "sourceMetaDescriptionExcerpt": "Join CityBond as a dealer and offer premium building materials. Benefit from competitive aluminium panel",
+      "metaExcerptTruncated": true,
+      "sourceCanonical": "https://citybond.in/dealership",
+      "summary": "The dealership route invites prospective distribution partners to discuss product supply and commercial support with the sales team.",
+      "facts": [
+        "The enquiry page requests contact information and offers a callback."
+      ],
+      "warnings": [],
+      "images": [
+        {
+          "url": "https://citybond.in/assets/images/products/others/dealership.jpg",
+          "alt": "Dealership"
+        },
+        {
+          "url": "https://citybond.in/assets/images/testimonial/abhishek.png",
+          "alt": "Abhishek Kumar Singh"
+        },
+        {
+          "url": "https://citybond.in/assets/images/testimonial/anurag.png",
+          "alt": "Anurag"
+        }
+      ],
+      "bodyHash": "254403f1beda04d92b68babab124f83e46d9f8cc9a66903690904f9cb3022440",
+      "suggestedCopy": {
+        "title": "Become a CityBond Dealer | Premium ACP and HPL Sheets",
+        "description": "The dealership route invites prospective distribution partners to discuss product supply and commercial support with the sales team.",
+        "sections": []
+      },
+      "classification": "company / partner / resource / legal",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/delhi",
+      "exactPath": "/delhi",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/delhi",
+      "sourceTitle": "Top Quality ACP Sheets in Delhi | CityBond",
+      "sourceMetaDescriptionExcerpt": "Discover the pinnacle of ACP services in Delhi with CityBond Aluminium Composite Panels! We ensure top-notch quality",
+      "metaExcerptTruncated": true,
+      "sourceCanonical": "https://citybond.in/delhi",
+      "summary": "The Delhi page introduces CityBond ACP availability and connects visitors with product ranges and enquiry support.",
+      "facts": [
+        "Delhi is listed in CityBond’s official presence directory.",
+        "The local page discusses seasonal temperature changes, finish customisation and installation support.",
+        "The page offers a callback request to the national sales team."
+      ],
+      "warnings": [
+        "This is a regional product landing page, not a verified individual dealer listing; do not invent a local street address or dealer name.",
+        "No local dealer street address or city-specific telephone was verified on this page. Do not use the central contact as a fictional local office.",
+        "Do not reproduce generic climate statistics, universal performance guarantees or installation lead times as confirmed project commitments."
+      ],
+      "images": [
+        {
+          "url": "https://citybond.in/assets/images/homepage/about-citybond_old.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-1.jpg",
+          "alt": "Partner brand logo"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-2.jpg",
+          "alt": "Partner brand logo"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-3.jpg",
+          "alt": "Partner brand logo"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-4.jpg",
+          "alt": "Partner brand logo"
+        }
+      ],
+      "bodyHash": "29748767b4ea8d57af81e2639c961e6d9f18301aac518d2eeea100b85fe82263",
+      "suggestedCopy": {
+        "title": "ACP surfaces in Delhi",
+        "description": "Explore CityBond architectural panels for your Delhi project.",
+        "sections": [
+          {
+            "title": "Start with your project",
+            "body": "Share the building type, dimensions, preferred finishes and site conditions to discuss suitable options."
+          },
+          {
+            "title": "A material conversation",
+            "body": "Explore ACP collections, request samples and plan the next step with CityBond."
+          }
+        ]
+      },
+      "verifiedContact": {
+        "phone": "+916264913414",
+        "kind": "national enquiry line shown on the page",
+        "localAddress": null,
+        "localEmail": null,
+        "officeFromContactPage": {
+          "kind": "head office",
+          "address": "71/6 F, Rama Road Industrial Area, Najafgarh Road, New Delhi 110015, India",
+          "source": "https://citybond.in/contact"
+        }
+      },
+      "classification": "city landing page",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/download-our-quatarly-acp-magazine",
+      "exactPath": "/download-our-quatarly-acp-magazine",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/download-our-quatarly-acp-magazine",
+      "sourceTitle": "Download CityBond's Quartarly ACP Magazine",
+      "sourceMetaDescriptionExcerpt": "Download CityBond's latest quarterly ACP magazine update and stay informed with the newest insights,trends,and industry news.Get your copy now!",
+      "metaExcerptTruncated": false,
+      "sourceCanonical": "https://citybond.in/download-our-quatarly-acp-magazine",
+      "summary": "The Growth magazine provides company and product reading alongside architectural inspiration and ACP selection guidance.",
+      "facts": [
+        "The live HTML fetched for this audit lists January–March and April–June 2024 editions.",
+        "Downloads are offered through forms; no direct PDF link was present."
+      ],
+      "warnings": [
+        "Search index showed later issues, while direct current HTML returned only two 2024 editions; do not label either issue as latest."
+      ],
+      "images": [
+        {
+          "url": "https://citybond.in/assets/images/magazine/magazine-jan-march.jpg",
+          "alt": "The Growth Magazine Jan-March 2024"
+        },
+        {
+          "url": "https://citybond.in/assets/images/magazine/magazine-april-june.jpg",
+          "alt": "The Growth Magazine April-June 2024"
+        },
+        {
+          "url": "https://citybond.in/assets/images/1.png",
+          "alt": "online"
+        },
+        {
+          "url": "https://citybond.in/assets/images/2.png",
+          "alt": "dealer"
+        }
+      ],
+      "bodyHash": "3b9bf6fc35ff484215719ba955236a835d73245e5a5b24963e55d420c5363200",
+      "suggestedCopy": {
+        "title": "Download CityBond's Quartarly ACP Magazine",
+        "description": "The Growth magazine provides company and product reading alongside architectural inspiration and ACP selection guidance.",
+        "sections": []
+      },
+      "classification": "company / partner / resource / legal",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/exclusive-series",
+      "exactPath": "/exclusive-series",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/exclusive-series",
+      "sourceTitle": "Luxury ACP Sheets For Exteriors| Exclusive Series | CityBond",
+      "sourceMetaDescriptionExcerpt": "Discover CityBond's exclusive ACP series of luxury aluminium panels for sophisticated exteriors. Our ACP panels offer",
+      "metaExcerptTruncated": true,
+      "sourceCanonical": "https://citybond.in/exclusive-series",
+      "summary": "The Exclusive collection brings varied mineral and industrial textures to architectural surfaces, including a weathered-steel appearance.",
+      "facts": [
+        "CT-278 Corten Steel appears in the collection.",
+        "Specification table lists 3 mm, 4 mm and 6 mm panels."
+      ],
+      "warnings": [],
+      "images": [
+        {
+          "url": "https://citybond.in/assets/images/products/exclusive/exclusice-1.jpg",
+          "alt": "Exclusive ACP Series"
+        },
+        {
+          "url": "https://citybond.in/assets/images/products/exclusive/exclusice-2.jpg",
+          "alt": "Exclusive ACP Series"
+        },
+        {
+          "url": "https://citybond.in/assets/images/products/exclusive/CT-278%20CORTEN%20STEEL.webp",
+          "alt": "CT-278 CORTEN STEEL ACP Sheet"
+        },
+        {
+          "url": "https://citybond.in/assets/images/products/exclusive/CT-271%20Alaska%20Brown.webp",
+          "alt": "CT-271 Alaska Brown ACP Sheet"
+        },
+        {
+          "url": "https://citybond.in/assets/images/products/exclusive/CT-272%20Armani%20Grey.webp",
+          "alt": "CT-272 Armani Grey ACP Sheet"
+        }
+      ],
+      "bodyHash": "6ca187dcfd3745208181fc09c979d868d1a59740debe59e07cc69fe5313ba031",
+      "suggestedCopy": {
+        "title": "Luxury ACP Sheets For Exteriors| Exclusive Series | CityBond",
+        "description": "The Exclusive collection brings varied mineral and industrial textures to architectural surfaces, including a weathered-steel appearance.",
+        "sections": []
+      },
+      "classification": "product collection",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/exterior-facade",
+      "exactPath": "/exterior-facade",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/exterior-facade",
+      "sourceTitle": "Exterior Facade Solutions | ACP Panel Facade | CityBond ACP",
+      "sourceMetaDescriptionExcerpt": "Enhance the look of your building with CityBond’s ACP Panel Facade! Get top-quality protection and",
+      "metaExcerptTruncated": true,
+      "sourceCanonical": "https://citybond.in/exterior-facade",
+      "summary": "Facade applications combine ACP and aluminium-based HPL surfaces to develop building envelopes in varied colours and textures.",
+      "facts": [
+        "The source presents aluminium composite panels and aluminium-based HPL for exterior facades.",
+        "Surface choices span multiple colours, patterns and textures."
+      ],
+      "warnings": [],
+      "images": [
+        {
+          "url": "https://citybond.in/assets/images/exterior/exterior-b.jpg",
+          "alt": "Exterior ACP Facade"
+        },
+        {
+          "url": "https://citybond.in/assets/images/exterior/exterior-a.jpg",
+          "alt": "Exterior ACP Facade"
+        }
+      ],
+      "bodyHash": "a70c419e3c391a63b6d11eafa875c0570cdc03684ce2cf1714e5efa48fc75e7c",
+      "suggestedCopy": {
+        "title": "A new face for your building",
+        "description": "Architectural surfaces for entrances, elevations and building envelopes.",
+        "sections": [
+          {
+            "title": "Shape the elevation",
+            "body": "Use surface finish, panel layout and architectural detailing to bring a consistent character to the building."
+          },
+          {
+            "title": "See the possibilities",
+            "body": "Explore the project gallery and request a Third Eye View design preview using your building photograph or drawing."
+          }
+        ]
+      },
+      "classification": "application",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/fire-retardent",
+      "exactPath": "/fire-retardent",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/fire-retardent",
+      "sourceTitle": "Fire Retardant Panels | High-Safety Solutions | CityBond",
+      "sourceMetaDescriptionExcerpt": "Ensure safety and durability with CityBond’s fire retardant panels. Designed for superior fire resistance, our panels provide",
+      "metaExcerptTruncated": true,
+      "sourceCanonical": "https://citybond.in/fire-retardent",
+      "summary": "CityBond presents mineral-core ACP options and a technical comparison table. Project specifications should be checked against the relevant tested assembly and product documentation.",
+      "facts": [
+        "The product table compares mineral-core B 1 and A 2 options.",
+        "Both listed configurations use a 4 mm panel and 0.5 mm aluminium skins.",
+        "Published weights are 7.6 kg/m² for B 1 and 8.1 kg/m² for A 2."
+      ],
+      "warnings": [
+        "Narrative and technical table conflict on classes and hour ratings. Do not reproduce unqualified life-safety or universal-compliance claims.",
+        "Do not repeat the source’s conflicting two-hour/three-hour statements or classify an entire installed facade from a panel label. No blanket fireproof, universal approval or evacuation-time guarantee."
+      ],
+      "images": [
+        {
+          "url": "https://citybond.in/assets/images/products/others/fire-retardant.webp",
+          "alt": "Fire Retardant ACP Sheet"
+        }
+      ],
+      "bodyHash": "cfbfd17882a8538d1ebefbf281a14fce7f7b4c00c022493d18248c710cbbdfa4",
+      "suggestedCopy": {
+        "title": "Fire-retardant ACP",
+        "description": "Explore mineral-core aluminium composite panels for projects that require a documented approach to fire performance.",
+        "sections": [
+          {
+            "title": "Choose the complete specification",
+            "body": "Review core composition, panel construction, test documentation and installation requirements with your project team."
+          },
+          {
+            "title": "Ask for technical support",
+            "body": "Share the building use, location and project specification so CityBond can discuss an appropriate product option."
+          }
+        ]
+      },
+      "classification": "core specification",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/gloss-series",
+      "exactPath": "/gloss-series",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/gloss-series",
+      "sourceTitle": "Gloss ACP for Sleek Exteriors | CityBond | Explore More!",
+      "sourceMetaDescriptionExcerpt": "Perfect for sleek, modern exteriors, CityBond Gloss ACP offer a polished, sophisticated look. Checkout CityBond",
+      "metaExcerptTruncated": true,
+      "sourceCanonical": "https://citybond.in/gloss-series",
+      "summary": "Gloss ACP surfaces offer high-shine colour for architectural features and signage.",
+      "facts": [
+        "Listed colours include orange, garden green, red, white, black and blue.",
+        "The technical table lists 3 mm panels."
+      ],
+      "warnings": [],
+      "images": [
+        {
+          "url": "https://citybond.in/assets/images/products/gloss/gloss.jpg",
+          "alt": "Gloss ACP Series"
+        },
+        {
+          "url": "https://citybond.in/assets/images/products/gloss/CT%20-%2076%20Glossy%20Orange.webp",
+          "alt": "CT-76 Glossy Orange ACP Sheet"
+        },
+        {
+          "url": "https://citybond.in/assets/images/products/gloss/CT%20-%2081%20Glossy%20Garden%20Green.webp",
+          "alt": "CT-81 Glossy Garden Green ACP Sheet"
+        },
+        {
+          "url": "https://citybond.in/assets/images/products/gloss/CT%20-%20125%20Glossy%20Red.webp",
+          "alt": "CT-125 Glossy Red ACP Sheet"
+        },
+        {
+          "url": "https://citybond.in/assets/images/products/gloss/CT%20-%20126%20Glossy%20White.webp",
+          "alt": "CT-126 Glossy White ACP Sheet"
+        }
+      ],
+      "bodyHash": "484aeba1900dad49831ee63c80b17b4e31ec39ec370ecd94165d7be29907b132",
+      "suggestedCopy": {
+        "title": "Gloss ACP for Sleek Exteriors | CityBond | Explore More!",
+        "description": "Gloss ACP surfaces offer high-shine colour for architectural features and signage.",
+        "sections": []
+      },
+      "classification": "product collection",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/gwalior",
+      "exactPath": "/gwalior",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/gwalior",
+      "sourceTitle": "Building Exterior With ACP sheets in Gwalior | CityBond",
+      "sourceMetaDescriptionExcerpt": "Transform your building's exterior with CityBond premium aluminium composite panels in Gwalior. Our ACP is perfect",
+      "metaExcerptTruncated": true,
+      "sourceCanonical": "https://citybond.in/gwalior",
+      "summary": "The Gwalior page introduces CityBond ACP availability and connects visitors with product ranges and enquiry support.",
+      "facts": [
+        "Gwalior is listed in CityBond’s official presence directory.",
+        "The local page discusses summer and winter exposure, with finishes for varied architectural contexts.",
+        "The page offers a callback request to the national sales team."
+      ],
+      "warnings": [
+        "This is a regional product landing page, not a verified individual dealer listing; do not invent a local street address or dealer name.",
+        "No local dealer street address or city-specific telephone was verified on this page. Do not use the central contact as a fictional local office.",
+        "Do not reproduce generic climate statistics, universal performance guarantees or installation lead times as confirmed project commitments."
+      ],
+      "images": [
+        {
+          "url": "https://citybond.in/assets/images/homepage/about-citybond_old.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-1.jpg",
+          "alt": "Partner brand logo"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-2.jpg",
+          "alt": "Partner brand logo"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-3.jpg",
+          "alt": "Partner brand logo"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-4.jpg",
+          "alt": "Partner brand logo"
+        }
+      ],
+      "bodyHash": "091e4af0cb894c8113fad7e908017c6ae3826f48f39bc1c00768d8f314f75063",
+      "suggestedCopy": {
+        "title": "ACP surfaces in Gwalior",
+        "description": "Explore CityBond architectural panels for your Gwalior project.",
+        "sections": [
+          {
+            "title": "Start with your project",
+            "body": "Share the building type, dimensions, preferred finishes and site conditions to discuss suitable options."
+          },
+          {
+            "title": "A material conversation",
+            "body": "Explore ACP collections, request samples and plan the next step with CityBond."
+          }
+        ]
+      },
+      "verifiedContact": {
+        "phone": "+916264913414",
+        "kind": "national enquiry line shown on the page",
+        "localAddress": null,
+        "localEmail": null
+      },
+      "classification": "city landing page",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/hisar",
+      "exactPath": "/hisar",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/hisar",
+      "sourceTitle": "ACP Sheets in Hisar | High Quality & Modern Design | CityBond",
+      "sourceMetaDescriptionExcerpt": "CityBond provides high-quality Aluminium Composite Panels in Hisar, offering durability and stylish design",
+      "metaExcerptTruncated": true,
+      "sourceCanonical": "https://citybond.in/hisar",
+      "summary": "The Hisar page introduces CityBond ACP availability and connects visitors with product ranges and enquiry support.",
+      "facts": [
+        "Hisar is listed in CityBond’s official presence directory.",
+        "The local page discusses seasonal temperatures and custom colour, finish and texture choices.",
+        "The page offers a callback request to the national sales team."
+      ],
+      "warnings": [
+        "This is a regional product landing page, not a verified individual dealer listing; do not invent a local street address or dealer name.",
+        "No local dealer street address or city-specific telephone was verified on this page. Do not use the central contact as a fictional local office.",
+        "Do not reproduce generic climate statistics, universal performance guarantees or installation lead times as confirmed project commitments."
+      ],
+      "images": [
+        {
+          "url": "https://citybond.in/assets/images/homepage/about-citybond_old.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-1.jpg",
+          "alt": "Partner brand logo"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-2.jpg",
+          "alt": "Partner brand logo"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-3.jpg",
+          "alt": "Partner brand logo"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-4.jpg",
+          "alt": "Partner brand logo"
+        }
+      ],
+      "bodyHash": "9618b1875db657ffa8945fd7791a26fe0d45109ae8ce031b55b8ec20e9dcf57a",
+      "suggestedCopy": {
+        "title": "ACP surfaces in Hisar",
+        "description": "Explore CityBond architectural panels for your Hisar project.",
+        "sections": [
+          {
+            "title": "Start with your project",
+            "body": "Share the building type, dimensions, preferred finishes and site conditions to discuss suitable options."
+          },
+          {
+            "title": "A material conversation",
+            "body": "Explore ACP collections, request samples and plan the next step with CityBond."
+          }
+        ]
+      },
+      "verifiedContact": {
+        "phone": "+916264913414",
+        "kind": "national enquiry line shown on the page",
+        "localAddress": null,
+        "localEmail": null
+      },
+      "classification": "city landing page",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/hpl-sheet",
+      "exactPath": "/hpl-sheet",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/hpl-sheet",
+      "sourceTitle": "HPL Sheets | HPL ACP Series | HPL Pricing | CityBond",
+      "sourceMetaDescriptionExcerpt": "Explore our HPL Sheets for durable, weather-resistant exterior cladding. Check HPL sheet pricing and",
+      "metaExcerptTruncated": true,
+      "sourceCanonical": "https://citybond.in/hpl-series",
+      "summary": "CityBond markets aluminium-based HPL surfaces for wood-inspired interior and exterior cladding.",
+      "facts": [
+        "The range is described as aluminium composite construction."
+      ],
+      "warnings": [],
+      "images": [
+        {
+          "url": "https://citybond.in/assets/images/products/hpl/hpl.png",
+          "alt": "HPL ACP Series Sheets"
+        },
+        {
+          "url": "https://citybond.in/assets/images/products/hpl/HPL-81%20Misty%20Grey.webp",
+          "alt": "HPL-81 Misty Grey HPL Sheet"
+        },
+        {
+          "url": "https://citybond.in/assets/images/products/hpl/CT%20-%20227%20Golden%20Campino.webp",
+          "alt": "CT - 227 Golden Campino HPL Sheet"
+        },
+        {
+          "url": "https://citybond.in/assets/images/products/hpl/HPL%20-%2076%20Murky%20Sky.webp",
+          "alt": "HPL - 76 Murky Sky HPL Sheet"
+        },
+        {
+          "url": "https://citybond.in/assets/images/products/hpl/HPL%20-%2077%20Zebrano%20Wood.webp",
+          "alt": "HPL - 77 Zebrano Wood HPL Sheet"
+        }
+      ],
+      "bodyHash": "9373a6fc10126b20a3a7114e0611536c41b37eb30e79f48ac8cc0fec8bacc4e7",
+      "suggestedCopy": {
+        "title": "HPL Sheets | HPL ACP Series | HPL Pricing | CityBond",
+        "description": "CityBond markets aluminium-based HPL surfaces for wood-inspired interior and exterior cladding.",
+        "sections": []
+      },
+      "classification": "product collection",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/hyderabad",
+      "exactPath": "/hyderabad",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/hyderabad",
+      "sourceTitle": "Top ACP Sheets in Hyderabad | Elevate Your Design | CityBond",
+      "sourceMetaDescriptionExcerpt": "Experience the best Aluminium Composite Panels in Hyderabad with CityBond. Ideal for boosting durability",
+      "metaExcerptTruncated": true,
+      "sourceCanonical": "https://citybond.in/hyderabad",
+      "summary": "The Hyderabad page introduces CityBond ACP availability and connects visitors with product ranges and enquiry support.",
+      "facts": [
+        "Hyderabad is listed in CityBond’s official presence directory.",
+        "The local page discusses project scheduling, climate exposure and specification discussions.",
+        "The page offers a callback request to the national sales team."
+      ],
+      "warnings": [
+        "This is a regional product landing page, not a verified individual dealer listing; do not invent a local street address or dealer name.",
+        "No local dealer street address or city-specific telephone was verified on this page. Do not use the central contact as a fictional local office.",
+        "Do not reproduce generic climate statistics, universal performance guarantees or installation lead times as confirmed project commitments."
+      ],
+      "images": [
+        {
+          "url": "https://citybond.in/assets/images/homepage/about-citybond_old.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-1.jpg",
+          "alt": "Partner brand logo"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-2.jpg",
+          "alt": "Partner brand logo"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-3.jpg",
+          "alt": "Partner brand logo"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-4.jpg",
+          "alt": "Partner brand logo"
+        }
+      ],
+      "bodyHash": "5fb7b34c56e6c59f29886bb1ecbcb19716a7ef125337e9fe74628e9d26cf8e92",
+      "suggestedCopy": {
+        "title": "ACP surfaces in Hyderabad",
+        "description": "Explore CityBond architectural panels for your Hyderabad project.",
+        "sections": [
+          {
+            "title": "Start with your project",
+            "body": "Share the building type, dimensions, preferred finishes and site conditions to discuss suitable options."
+          },
+          {
+            "title": "A material conversation",
+            "body": "Explore ACP collections, request samples and plan the next step with CityBond."
+          }
+        ]
+      },
+      "verifiedContact": {
+        "phone": "+916264913414",
+        "kind": "national enquiry line shown on the page",
+        "localAddress": null,
+        "localEmail": null
+      },
+      "classification": "city landing page",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/index",
+      "exactPath": "/index",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/index",
+      "sourceTitle": "Best Aluminium Composite Panel in India | CityBond ACP",
+      "sourceMetaDescriptionExcerpt": "Buy CityBond aluminium composite panels. Designed for superior quality and unique textures and shades ideal for",
+      "metaExcerptTruncated": true,
+      "sourceCanonical": "https://citybond.in/",
+      "summary": "CityBond manufactures aluminium composite panels for architectural cladding and signage. The website presents surface collections, application guidance and a nationwide partner network.",
+      "facts": [
+        "Product categories span twelve ACP surface collections, three thickness categories, two core categories, Metacity and soffit panels.",
+        "The site identifies Unistone Panels Pvt. Ltd. in its copyright notice."
+      ],
+      "warnings": [
+        "The original serves HTTP 200 at this exact URL and canonicals to /. Serve matching content here if preserving every supplied path; do not assume a redirect preserves its literal URL."
+      ],
+      "images": [
+        {
+          "url": "https://citybond.in/assets/images/image-preview/b.jpg",
+          "alt": "Before-Image"
+        },
+        {
+          "url": "https://citybond.in/assets/images/image-preview/a.jpg",
+          "alt": "After-Image"
+        },
+        {
+          "url": "https://citybond.in/assets/images/image-preview/drag.svg",
+          "alt": "drag-Image"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/home-citybond.jpg",
+          "alt": "About City Bond"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/exclusive.png",
+          "alt": "Playwood & Blockboards"
+        }
+      ],
+      "bodyHash": "b05315e6dc735e39b87c42bfbf4f04cb8ffca03d6b0a157aacce3df470d01897",
+      "suggestedCopy": {
+        "title": "Best Aluminium Composite Panel in India | CityBond ACP",
+        "description": "CityBond manufactures aluminium composite panels for architectural cladding and signage. The website presents surface collections, application guidance and a nationwide partner network.",
+        "sections": []
+      },
+      "duplicateOf": "/",
+      "sameFetchedBodyAsCanonical": true,
+      "classification": "duplicate content URL",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/index.php",
+      "exactPath": "/index.php",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/index.php",
+      "sourceTitle": "Best Aluminium Composite Panel in India | CityBond ACP",
+      "sourceMetaDescriptionExcerpt": "Buy CityBond aluminium composite panels. Designed for superior quality and unique textures and shades ideal for",
+      "metaExcerptTruncated": true,
+      "sourceCanonical": "https://citybond.in/",
+      "summary": "CityBond manufactures aluminium composite panels for architectural cladding and signage. The website presents surface collections, application guidance and a nationwide partner network.",
+      "facts": [
+        "Product categories span twelve ACP surface collections, three thickness categories, two core categories, Metacity and soffit panels.",
+        "The site identifies Unistone Panels Pvt. Ltd. in its copyright notice."
+      ],
+      "warnings": [
+        "The original serves HTTP 200 at this exact URL and canonicals to /. Serve matching content here if preserving every supplied path; do not assume a redirect preserves its literal URL."
+      ],
+      "images": [
+        {
+          "url": "https://citybond.in/assets/images/image-preview/b.jpg",
+          "alt": "Before-Image"
+        },
+        {
+          "url": "https://citybond.in/assets/images/image-preview/a.jpg",
+          "alt": "After-Image"
+        },
+        {
+          "url": "https://citybond.in/assets/images/image-preview/drag.svg",
+          "alt": "drag-Image"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/home-citybond.jpg",
+          "alt": "About City Bond"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/exclusive.png",
+          "alt": "Playwood & Blockboards"
+        }
+      ],
+      "bodyHash": "b05315e6dc735e39b87c42bfbf4f04cb8ffca03d6b0a157aacce3df470d01897",
+      "suggestedCopy": {
+        "title": "Best Aluminium Composite Panel in India | CityBond ACP",
+        "description": "CityBond manufactures aluminium composite panels for architectural cladding and signage. The website presents surface collections, application guidance and a nationwide partner network.",
+        "sections": []
+      },
+      "duplicateOf": "/",
+      "sameFetchedBodyAsCanonical": true,
+      "classification": "duplicate content URL",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/indore",
+      "exactPath": "/indore",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/indore",
+      "sourceTitle": "ACP Sheets in Indore | Durable Building Exteriors | CityBond",
+      "sourceMetaDescriptionExcerpt": "CityBond Indore offers high-quality aluminium composite panels designed to enhance the aesthetics and durability of",
+      "metaExcerptTruncated": true,
+      "sourceCanonical": "https://citybond.in/indore",
+      "summary": "The Indore page introduces CityBond ACP availability and connects visitors with product ranges and enquiry support.",
+      "facts": [
+        "Indore is listed in CityBond’s official presence directory.",
+        "The local page discusses site assessment, panel preparation, framing and joint detailing.",
+        "The page offers a callback request to the national sales team."
+      ],
+      "warnings": [
+        "This is a regional product landing page, not a verified individual dealer listing; do not invent a local street address or dealer name.",
+        "No local dealer street address or city-specific telephone was verified on this page. Do not use the central contact as a fictional local office.",
+        "Do not reproduce generic climate statistics, universal performance guarantees or installation lead times as confirmed project commitments."
+      ],
+      "images": [
+        {
+          "url": "https://citybond.in/assets/images/homepage/about-citybond_old.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-1.jpg",
+          "alt": "Partner brand logo"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-2.jpg",
+          "alt": "Partner brand logo"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-3.jpg",
+          "alt": "Partner brand logo"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-4.jpg",
+          "alt": "Partner brand logo"
+        }
+      ],
+      "bodyHash": "2b50f6a5dbcb879ecb6fc9279cb7497cbb902e6c036fe5ef047d4617f445ea90",
+      "suggestedCopy": {
+        "title": "ACP surfaces in Indore",
+        "description": "Explore CityBond architectural panels for your Indore project.",
+        "sections": [
+          {
+            "title": "Start with your project",
+            "body": "Share the building type, dimensions, preferred finishes and site conditions to discuss suitable options."
+          },
+          {
+            "title": "A material conversation",
+            "body": "Explore ACP collections, request samples and plan the next step with CityBond."
+          }
+        ]
+      },
+      "verifiedContact": {
+        "phone": "+916264913414",
+        "kind": "national enquiry line shown on the page",
+        "localAddress": null,
+        "localEmail": null
+      },
+      "classification": "city landing page",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/infrastructure",
+      "exactPath": "/infrastructure",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/infrastructure",
+      "sourceTitle": "Manufacturing Unit | Integrated Infrastructure | CityBond ACP",
+      "sourceMetaDescriptionExcerpt": "Learn how CityBond’s manufacturing unit ensures the highest quality ACP panels, driving innovation and efficiency in every",
+      "metaExcerptTruncated": true,
+      "sourceCanonical": "https://citybond.in/infrastructure",
+      "summary": "ACP manufacturing takes place at the company’s Raipur facility, with in-house laboratory, quality checks and research capability.",
+      "facts": [
+        "Published annual installed capacity: 36 million square feet.",
+        "The page describes inspection at raw-material, production and dispatch stages."
+      ],
+      "warnings": [],
+      "images": [
+        {
+          "url": "https://citybond.in/assets/images/factory/inside.jpg",
+          "alt": "best offers"
+        },
+        {
+          "url": "https://citybond.in/assets/images/certificate/certificate-1.png",
+          "alt": "Certificate-1"
+        },
+        {
+          "url": "https://citybond.in/assets/images/certificate/certificate-2.png",
+          "alt": "Certificate-2"
+        },
+        {
+          "url": "https://citybond.in/assets/images/certificate/certificate-3.png",
+          "alt": "Certificate-3"
+        },
+        {
+          "url": "https://citybond.in/assets/images/certificate/certificate-4.png",
+          "alt": "Certificate-4"
+        }
+      ],
+      "bodyHash": "f3403e4de448e81f8162545261203b7601825f5ae626e0144c320453649fe3fd",
+      "suggestedCopy": {
+        "title": "Manufacturing Unit | Integrated Infrastructure | CityBond ACP",
+        "description": "ACP manufacturing takes place at the company’s Raipur facility, with in-house laboratory, quality checks and research capability.",
+        "sections": []
+      },
+      "classification": "company / partner / resource / legal",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/infrastructure.php",
+      "exactPath": "/infrastructure.php",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/infrastructure.php",
+      "sourceTitle": "Manufacturing Unit | Integrated Infrastructure | CityBond ACP",
+      "sourceMetaDescriptionExcerpt": "Learn how CityBond’s manufacturing unit ensures the highest quality ACP panels, driving innovation and efficiency in every",
+      "metaExcerptTruncated": true,
+      "sourceCanonical": "https://citybond.in/infrastructure",
+      "summary": "ACP manufacturing takes place at the company’s Raipur facility, with in-house laboratory, quality checks and research capability.",
+      "facts": [
+        "Published annual installed capacity: 36 million square feet.",
+        "The page describes inspection at raw-material, production and dispatch stages."
+      ],
+      "warnings": [
+        "The original serves HTTP 200 at this exact URL and canonicals to /infrastructure. Serve matching content here if preserving every supplied path; do not assume a redirect preserves its literal URL."
+      ],
+      "images": [
+        {
+          "url": "https://citybond.in/assets/images/factory/inside.jpg",
+          "alt": "best offers"
+        },
+        {
+          "url": "https://citybond.in/assets/images/certificate/certificate-1.png",
+          "alt": "Certificate-1"
+        },
+        {
+          "url": "https://citybond.in/assets/images/certificate/certificate-2.png",
+          "alt": "Certificate-2"
+        },
+        {
+          "url": "https://citybond.in/assets/images/certificate/certificate-3.png",
+          "alt": "Certificate-3"
+        },
+        {
+          "url": "https://citybond.in/assets/images/certificate/certificate-4.png",
+          "alt": "Certificate-4"
+        }
+      ],
+      "bodyHash": "f3403e4de448e81f8162545261203b7601825f5ae626e0144c320453649fe3fd",
+      "suggestedCopy": {
+        "title": "Manufacturing Unit | Integrated Infrastructure | CityBond ACP",
+        "description": "ACP manufacturing takes place at the company’s Raipur facility, with in-house laboratory, quality checks and research capability.",
+        "sections": []
+      },
+      "duplicateOf": "/infrastructure",
+      "sameFetchedBodyAsCanonical": true,
+      "classification": "duplicate content URL",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/interior-design",
+      "exactPath": "/interior-design",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/interior-design",
+      "sourceTitle": "ACP Panels for Interior Design | CityBond ACP",
+      "sourceMetaDescriptionExcerpt": "Transform your space with CityBond's elegant ACP panels for interior design. Discover how our innovative designs can",
+      "metaExcerptTruncated": true,
+      "sourceCanonical": "https://citybond.in/interior-design",
+      "summary": "Interior ACP applications include wall surfaces, ceilings and decorative details for residential, hospitality and commercial spaces.",
+      "facts": [
+        "The source identifies ACP applications in residential, hospitality and commercial interiors.",
+        "Specific uses include wall cladding, ceiling panels and decorative elements."
+      ],
+      "warnings": [
+        "Present this as ACP material applications, not a full-service interior-design business. Do not imply all finishes are suitable for every application."
+      ],
+      "images": [
+        {
+          "url": "https://citybond.in/assets/images/interior/interior.jpg",
+          "alt": "Interior ACP Design"
+        }
+      ],
+      "bodyHash": "f554b1349894345b7bad54c46a7e4211654a0289adff4c524d559106ed0a255f",
+      "suggestedCopy": {
+        "title": "Surfaces that shape the inside",
+        "description": "Bring colour, reflection and texture to interior walls, ceilings and decorative features.",
+        "sections": [
+          {
+            "title": "Build a material palette",
+            "body": "Explore woodgrain, stone-inspired, mirror, solid-colour and metallic effects for the atmosphere you want to create."
+          },
+          {
+            "title": "Plan the details",
+            "body": "Share the intended application and dimensions to discuss finish selection and suitable construction."
+          }
+        ]
+      },
+      "classification": "application",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/jaipur",
+      "exactPath": "/jaipur",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/jaipur",
+      "sourceTitle": "ACP Sheets Jaipur | Perfect for Modern Construction | CityBond",
+      "sourceMetaDescriptionExcerpt": "Get the best ACP in Jaipur with CityBond Aluminium Composite Panels. Perfect for modern construction",
+      "metaExcerptTruncated": true,
+      "sourceCanonical": "https://citybond.in/jaipur",
+      "summary": "The Jaipur page introduces CityBond ACP availability and connects visitors with product ranges and enquiry support.",
+      "facts": [
+        "Jaipur is listed in CityBond’s official presence directory.",
+        "The local page discusses wind-load considerations and surface palettes that suit regional architectural character.",
+        "The page offers a callback request to the national sales team."
+      ],
+      "warnings": [
+        "This is a regional product landing page, not a verified individual dealer listing; do not invent a local street address or dealer name.",
+        "No local dealer street address or city-specific telephone was verified on this page. Do not use the central contact as a fictional local office.",
+        "Do not reproduce generic climate statistics, universal performance guarantees or installation lead times as confirmed project commitments."
+      ],
+      "images": [
+        {
+          "url": "https://citybond.in/assets/images/homepage/about-citybond_old.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-1.jpg",
+          "alt": "Partner brand logo"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-2.jpg",
+          "alt": "Partner brand logo"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-3.jpg",
+          "alt": "Partner brand logo"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-4.jpg",
+          "alt": "Partner brand logo"
+        }
+      ],
+      "bodyHash": "534bbeb839ab8dcca5b63eb7189619ddd54817fd6f9a8c50e0d5e0414e88ed67",
+      "suggestedCopy": {
+        "title": "ACP surfaces in Jaipur",
+        "description": "Explore CityBond architectural panels for your Jaipur project.",
+        "sections": [
+          {
+            "title": "Start with your project",
+            "body": "Share the building type, dimensions, preferred finishes and site conditions to discuss suitable options."
+          },
+          {
+            "title": "A material conversation",
+            "body": "Explore ACP collections, request samples and plan the next step with CityBond."
+          }
+        ]
+      },
+      "verifiedContact": {
+        "phone": "+916264913414",
+        "kind": "national enquiry line shown on the page",
+        "localAddress": null,
+        "localEmail": null
+      },
+      "classification": "city landing page",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/jammu",
+      "exactPath": "/jammu",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/jammu",
+      "sourceTitle": "Best ACP Sheets in Jammu|Durable & Stylish Designs|CityBond",
+      "sourceMetaDescriptionExcerpt": "Discover CityBond's top-quality Aluminium Composite Panels in Jammu. Our Aluminium Composite Panels offer exceptional durability and style.",
+      "metaExcerptTruncated": true,
+      "sourceCanonical": "https://citybond.in/jammu",
+      "summary": "The Jammu page introduces CityBond ACP availability and connects visitors with product ranges and enquiry support.",
+      "facts": [
+        "Jammu is listed in CityBond’s official presence directory.",
+        "The local page discusses rainfall exposure, temperature changes and protective finish selection.",
+        "The page offers a callback request to the national sales team."
+      ],
+      "warnings": [
+        "This is a regional product landing page, not a verified individual dealer listing; do not invent a local street address or dealer name.",
+        "No local dealer street address or city-specific telephone was verified on this page. Do not use the central contact as a fictional local office.",
+        "Do not reproduce generic climate statistics, universal performance guarantees or installation lead times as confirmed project commitments."
+      ],
+      "images": [
+        {
+          "url": "https://citybond.in/assets/images/homepage/about-citybond_old.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-1.jpg",
+          "alt": "Partner brand logo"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-2.jpg",
+          "alt": "Partner brand logo"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-3.jpg",
+          "alt": "Partner brand logo"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-4.jpg",
+          "alt": "Partner brand logo"
+        }
+      ],
+      "bodyHash": "9beb7b46f0f5bfc93dbf74b0af568d49a27f25a9e8e13519f75452fd6ade4011",
+      "suggestedCopy": {
+        "title": "ACP surfaces in Jammu",
+        "description": "Explore CityBond architectural panels for your Jammu project.",
+        "sections": [
+          {
+            "title": "Start with your project",
+            "body": "Share the building type, dimensions, preferred finishes and site conditions to discuss suitable options."
+          },
+          {
+            "title": "A material conversation",
+            "body": "Explore ACP collections, request samples and plan the next step with CityBond."
+          }
+        ]
+      },
+      "verifiedContact": {
+        "phone": "+916264913414",
+        "kind": "national enquiry line shown on the page",
+        "localAddress": null,
+        "localEmail": null
+      },
+      "classification": "city landing page",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/kolkata",
+      "exactPath": "/kolkata",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/kolkata",
+      "sourceTitle": "ACP Manufacturer in Kolkata | Premium Craftsmanship | CityBond",
+      "sourceMetaDescriptionExcerpt": "Discover the importance of ACP for construction in Kolkata with CityBond. Get the ideal Aluminium Composite",
+      "metaExcerptTruncated": true,
+      "sourceCanonical": "https://citybond.in/kolkata",
+      "summary": "The Kolkata page introduces CityBond ACP availability and connects visitors with product ranges and enquiry support.",
+      "facts": [
+        "Kolkata is listed in CityBond’s official presence directory.",
+        "The local page discusses humidity, colour customisation and traditional-to-modern architectural palettes.",
+        "The page offers a callback request to the national sales team."
+      ],
+      "warnings": [
+        "This is a regional product landing page, not a verified individual dealer listing; do not invent a local street address or dealer name.",
+        "No local dealer street address or city-specific telephone was verified on this page. Do not use the central contact as a fictional local office.",
+        "Do not reproduce generic climate statistics, universal performance guarantees or installation lead times as confirmed project commitments."
+      ],
+      "images": [
+        {
+          "url": "https://citybond.in/assets/images/homepage/about-citybond_old.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-1.jpg",
+          "alt": "Partner brand logo"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-2.jpg",
+          "alt": "Partner brand logo"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-3.jpg",
+          "alt": "Partner brand logo"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-4.jpg",
+          "alt": "Partner brand logo"
+        }
+      ],
+      "bodyHash": "457722b5c5158b6550bd6c477f2a3eb54cb776a492c27330151641dc87705b4f",
+      "suggestedCopy": {
+        "title": "ACP surfaces in Kolkata",
+        "description": "Explore CityBond architectural panels for your Kolkata project.",
+        "sections": [
+          {
+            "title": "Start with your project",
+            "body": "Share the building type, dimensions, preferred finishes and site conditions to discuss suitable options."
+          },
+          {
+            "title": "A material conversation",
+            "body": "Explore ACP collections, request samples and plan the next step with CityBond."
+          }
+        ]
+      },
+      "verifiedContact": {
+        "phone": "+916264913414",
+        "kind": "national enquiry line shown on the page",
+        "localAddress": null,
+        "localEmail": null
+      },
+      "classification": "city landing page",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/lalit-mittal",
+      "exactPath": "/lalit-mittal",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/lalit-mittal",
+      "sourceTitle": null,
+      "sourceMetaDescriptionExcerpt": "",
+      "metaExcerptTruncated": false,
+      "sourceCanonical": "https://citybond.in/lalit-mittal",
+      "summary": "Lalit Mittal is a chartered accountant and CityBond co-founder whose responsibilities cover finance, people, manufacturing and supply chain.",
+      "facts": [
+        "A chartered accountant by profession.",
+        "His biography describes work at the family firm D. V. Mittal and Company before entering building materials.",
+        "His remit includes finance, human resources, manufacturing and supply chain."
+      ],
+      "warnings": [
+        "The biography says career started in 2000; about timeline says joined the firm in 2001. Omit the disputed year."
+      ],
+      "images": [
+        {
+          "url": "https://citybond.in/assets/images/about/management/lalit-mittal.jpg",
+          "alt": "Lalit Mittal"
+        }
+      ],
+      "bodyHash": "9409d5f2f5343a5f3cb255b2421672bf43b2e7865adf5e9d79292178c94341fc",
+      "suggestedCopy": {
+        "title": "Lalit Mittal",
+        "description": "Co-founder and Director",
+        "sections": [
+          {
+            "title": "From business insight to building materials",
+            "body": "Experience in corporate finance and project work shaped Lalit Mittal’s interest in gaps in the supply of building materials and the creation of CityBond."
+          }
+        ]
+      },
+      "classification": "company / partner / resource / legal",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/lamio-series",
+      "exactPath": "/lamio-series",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/lamio-series",
+      "sourceTitle": "lamio ACP series by CityBond ACP | Unique Modern Facades",
+      "sourceMetaDescriptionExcerpt": "Explore the CityBond lamio ACP series for elegant aluminium composite panels designed to deliver exceptional",
+      "metaExcerptTruncated": true,
+      "sourceCanonical": "https://citybond.in/lamio-series",
+      "summary": "Lamio combines understated stone-like tones with aluminium composite construction for interior and exterior cladding.",
+      "facts": [
+        "Sample finishes include Cubo Dark Grey, Basalt Beige, Cemento and Decayed Rock.",
+        "Specification table lists 3 mm, 4 mm and 6 mm panels."
+      ],
+      "warnings": [],
+      "images": [
+        {
+          "url": "https://citybond.in/assets/images/products/lamio/lamio.jpg",
+          "alt": "Lamio ACP Series"
+        },
+        {
+          "url": "https://citybond.in/assets/images/products/lamio/LM-106%20Cubo%20Dark%20Grey.webp",
+          "alt": "LM-106 Cubo Dark Grey ACP Sheet"
+        },
+        {
+          "url": "https://citybond.in/assets/images/products/lamio/LM-113%20Basalt%20Beige.webp",
+          "alt": "LM-113 Basalt Beige ACP Sheet"
+        },
+        {
+          "url": "https://citybond.in/assets/images/products/lamio/LM-114%20CEMENTO.webp",
+          "alt": "LM-114 CEMENTO ACP Sheet"
+        },
+        {
+          "url": "https://citybond.in/assets/images/products/lamio/LM-115%20DECAYED%20ROCK.webp",
+          "alt": "LM-115 DECAYED ROCK ACP Sheet"
+        }
+      ],
+      "bodyHash": "71eec49c6125cc1a5eb2c63775d60c59e8a2cb3eb4f6fb14fbe1a523f62b983f",
+      "suggestedCopy": {
+        "title": "lamio ACP series by CityBond ACP | Unique Modern Facades",
+        "description": "Lamio combines understated stone-like tones with aluminium composite construction for interior and exterior cladding.",
+        "sections": []
+      },
+      "classification": "product collection",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/low-density-poly-ethylene",
+      "exactPath": "/low-density-poly-ethylene",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/low-density-poly-ethylene",
+      "sourceTitle": "Low-Density Polyethylene ACP Panels | CityBond",
+      "sourceMetaDescriptionExcerpt": "CityBond provides low-density polyethylene ACP panels that combine efficiency with resilience. Discover the benefits of our panels and elevate",
+      "metaExcerptTruncated": true,
+      "sourceCanonical": "https://citybond.in/low-density-poly-ethylene",
+      "summary": "LDPE-core panels place a polyethylene core between aluminium skins for fabrication and cladding applications.",
+      "facts": [
+        "The described construction places low-density polyethylene between aluminium skins.",
+        "The source lists 3 mm panels with 0.25 mm skins and 4 mm panels with either 0.25 mm or 0.5 mm skins.",
+        "The technical table identifies the core category as LDPE."
+      ],
+      "warnings": [
+        "Do not present LDPE as equivalent to mineral-core fire-retardant ACP. Avoid broad suitability or compliance guarantees."
+      ],
+      "images": [
+        {
+          "url": "https://citybond.in/assets/images/products/others/ldpe.webp",
+          "alt": "3mm ACP Series"
+        }
+      ],
+      "bodyHash": "d736064309df757fd8b1f4953ff6a5ea73022fafa3cf0a87aff020eac0796830",
+      "suggestedCopy": {
+        "title": "LDPE-core ACP",
+        "description": "A lightweight composite format for flexible fabrication and architectural surfaces.",
+        "sections": [
+          {
+            "title": "From flat sheet to architectural detail",
+            "body": "Discuss cutting, bending, folding and finish selection for your intended application."
+          },
+          {
+            "title": "Specify for the project",
+            "body": "Confirm the grade, core, coating and fixing requirements before choosing the panel."
+          }
+        ]
+      },
+      "classification": "core specification",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/lucknow",
+      "exactPath": "/lucknow",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/lucknow",
+      "sourceTitle": "Durable & Stylish ACP Sheets in Lucknow | CityBond | Call Now",
+      "sourceMetaDescriptionExcerpt": "Enhance your building projects with CityBond’s Aluminium Composite Panels in Lucknow. Our panels",
+      "metaExcerptTruncated": true,
+      "sourceCanonical": "https://citybond.in/lucknow",
+      "summary": "The Lucknow page introduces CityBond ACP availability and connects visitors with product ranges and enquiry support.",
+      "facts": [
+        "Lucknow is listed in CityBond’s official presence directory.",
+        "The local page discusses summer, monsoon and winter exposure, with finishes for traditional and contemporary architecture.",
+        "The page offers a callback request to the national sales team."
+      ],
+      "warnings": [
+        "This is a regional product landing page, not a verified individual dealer listing; do not invent a local street address or dealer name.",
+        "No local dealer street address or city-specific telephone was verified on this page. Do not use the central contact as a fictional local office.",
+        "Do not reproduce generic climate statistics, universal performance guarantees or installation lead times as confirmed project commitments."
+      ],
+      "images": [
+        {
+          "url": "https://citybond.in/assets/images/homepage/about-citybond_old.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-1.jpg",
+          "alt": "Partner brand logo"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-2.jpg",
+          "alt": "Partner brand logo"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-3.jpg",
+          "alt": "Partner brand logo"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-4.jpg",
+          "alt": "Partner brand logo"
+        }
+      ],
+      "bodyHash": "8aafc74931b059faadf7d2c14dcbfc3ac872f20ab0978d3ecbd17548dc9e1814",
+      "suggestedCopy": {
+        "title": "ACP surfaces in Lucknow",
+        "description": "Explore CityBond architectural panels for your Lucknow project.",
+        "sections": [
+          {
+            "title": "Start with your project",
+            "body": "Share the building type, dimensions, preferred finishes and site conditions to discuss suitable options."
+          },
+          {
+            "title": "A material conversation",
+            "body": "Explore ACP collections, request samples and plan the next step with CityBond."
+          }
+        ]
+      },
+      "verifiedContact": {
+        "phone": "+916264913414",
+        "kind": "national enquiry line shown on the page",
+        "localAddress": null,
+        "localEmail": null
+      },
+      "classification": "city landing page",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/ludhiana",
+      "exactPath": "/ludhiana",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/ludhiana",
+      "sourceTitle": "Stylish ACP Sheets for Exteriors | ACP Ludhiana | CityBond",
+      "sourceMetaDescriptionExcerpt": "Enhance building's exterior with CityBond's stylish aluminium composite panels in Ludhiana. Our panels are ideal",
+      "metaExcerptTruncated": true,
+      "sourceCanonical": "https://citybond.in/ludhiana",
+      "summary": "The Ludhiana page introduces CityBond ACP availability and connects visitors with product ranges and enquiry support.",
+      "facts": [
+        "Ludhiana is listed in CityBond’s official presence directory.",
+        "The local page discusses industrial and residential applications, temperature changes and finish selection.",
+        "The page offers a callback request to the national sales team."
+      ],
+      "warnings": [
+        "This is a regional product landing page, not a verified individual dealer listing; do not invent a local street address or dealer name.",
+        "No local dealer street address or city-specific telephone was verified on this page. Do not use the central contact as a fictional local office.",
+        "Do not reproduce generic climate statistics, universal performance guarantees or installation lead times as confirmed project commitments."
+      ],
+      "images": [
+        {
+          "url": "https://citybond.in/assets/images/homepage/about-citybond_old.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-1.jpg",
+          "alt": "Partner brand logo"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-2.jpg",
+          "alt": "Partner brand logo"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-3.jpg",
+          "alt": "Partner brand logo"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-4.jpg",
+          "alt": "Partner brand logo"
+        }
+      ],
+      "bodyHash": "d716051a0ddf361b58fb7739a6ab03b309a8a30aa9e726893bd8c01e8dc1f073",
+      "suggestedCopy": {
+        "title": "ACP surfaces in Ludhiana",
+        "description": "Explore CityBond architectural panels for your Ludhiana project.",
+        "sections": [
+          {
+            "title": "Start with your project",
+            "body": "Share the building type, dimensions, preferred finishes and site conditions to discuss suitable options."
+          },
+          {
+            "title": "A material conversation",
+            "body": "Explore ACP collections, request samples and plan the next step with CityBond."
+          }
+        ]
+      },
+      "verifiedContact": {
+        "phone": "+916264913414",
+        "kind": "national enquiry line shown on the page",
+        "localAddress": null,
+        "localEmail": null
+      },
+      "classification": "city landing page",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/marble-series",
+      "exactPath": "/marble-series",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/marble-series",
+      "sourceTitle": "Elegant Marble Texture ACP Sheets | marble ACP series | CityBond",
+      "sourceMetaDescriptionExcerpt": "Explore CityBond's marble ACP series for luxurious aluminium panels featuring a stunning marble finish.",
+      "metaExcerptTruncated": true,
+      "sourceCanonical": "https://citybond.in/marble-series",
+      "summary": "Marble-inspired ACP surfaces provide stone patterning for interior features and exterior cladding.",
+      "facts": [
+        "The collection includes Perlato, Black Pearl, Tropical Onyx, Volcano Onyx and Satvario."
+      ],
+      "warnings": [],
+      "images": [
+        {
+          "url": "https://citybond.in/assets/images/products/marble/marble.jpg",
+          "alt": "Marble ACP Series"
+        },
+        {
+          "url": "https://citybond.in/assets/images/products/marble/CT-301%20PERLATO.webp",
+          "alt": "CT-301 PERLATO ACP Sheet"
+        },
+        {
+          "url": "https://citybond.in/assets/images/products/marble/CT%20304%20Black%20Pearl.webp",
+          "alt": "CT 304 Black Pearl ACP Sheet"
+        },
+        {
+          "url": "https://citybond.in/assets/images/products/marble/CT-351%20TROPICAL%20ONYX.webp",
+          "alt": "CT-351 TROPICAL ONYX ACP Sheet"
+        },
+        {
+          "url": "https://citybond.in/assets/images/products/marble/CT-352%20Volcano%20Onyx-small.webp",
+          "alt": "CT-352 Volcano Onyx ACP Sheet"
+        }
+      ],
+      "bodyHash": "554e150faa4655a1c9a47ab4cab581b110879104dfb50819a281ec04c775361a",
+      "suggestedCopy": {
+        "title": "Elegant Marble Texture ACP Sheets | marble ACP series | CityBond",
+        "description": "Marble-inspired ACP surfaces provide stone patterning for interior features and exterior cladding.",
+        "sections": []
+      },
+      "classification": "product collection",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/metacity/",
+      "exactPath": "/metacity/",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/metacity/",
+      "sourceTitle": "Metacity - India's 1st Bendable Louvers",
+      "sourceMetaDescriptionExcerpt": "Metacity- India's 1st Bendable Louvers",
+      "metaExcerptTruncated": false,
+      "sourceCanonical": null,
+      "summary": "Metacity is the company’s hybrid-louvre offer for linear and curved facade design, supported by sampling and consultation.",
+      "facts": [
+        "The original landing page presents two collections:90° Axis and Linear.",
+        "It describes 18 mm and 24 mm panel profiles and roller coating.",
+        "Sample boxes and project consultations are offered to design professionals."
+      ],
+      "warnings": [
+        "Treat 90° bending as a manufacturer claim requiring product-specific installation guidance. Do not repeat absolute no-cracking/no-compromise or market-first claims."
+      ],
+      "images": [
+        {
+          "url": "https://citybond.in/metacity/assets/images/header/header-img.png",
+          "alt": "Modern building with louvres - Image 1"
+        },
+        {
+          "url": "https://citybond.in/metacity/assets/images/header/header-img-1.png",
+          "alt": "Modern building with louvres - Image 2"
+        },
+        {
+          "url": "https://citybond.in/metacity/assets/images/header/header-img-2.png",
+          "alt": "Modern building with louvres - Image 3"
+        },
+        {
+          "url": "https://citybond.in/metacity/assets/images/header/header-img-3.png",
+          "alt": "Modern building with louvres - Image 4"
+        },
+        {
+          "url": "https://citybond.in/metacity/assets/images/header/header-img-4.png",
+          "alt": "Modern building with louvres - Image 5"
+        }
+      ],
+      "bodyHash": "7361fdbc8f9b3a774b440570a426ba0d7ad92637a948e1b2c75841d5fc7bda8b",
+      "suggestedCopy": {
+        "title": "Metacity hybrid louvers",
+        "description": "Linear precision and curved possibilities for the facade.",
+        "sections": [
+          {
+            "title": "Two ways to shape a facade",
+            "body": "Explore the curved design approach of 90° Axis or the straight architectural rhythm of Linear."
+          },
+          {
+            "title": "Begin with a sample",
+            "body": "Request a material sample, discuss the design and explore a project preview with the team."
+          }
+        ]
+      },
+      "classification": "product collection",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/metallic-series",
+      "exactPath": "/metallic-series",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/metallic-series",
+      "sourceTitle": "Premium Metallic Finish ACP Sheet| CityBond | Call Now!",
+      "sourceMetaDescriptionExcerpt": "Checkout CityBond's Metallic ACP Series! Ideal for creating elegant and modern exteriors, our panels combine style",
+      "metaExcerptTruncated": true,
+      "sourceCanonical": "https://citybond.in/metallic-series",
+      "summary": "Metallic ACP surfaces introduce silver, gold, copper and darker metallic tones to architectural cladding.",
+      "facts": [
+        "The range includes Bright Silver, Metallic Black, Champagne Gold and Metallic Copper.",
+        "The technical table lists 3 mm and 4 mm panels."
+      ],
+      "warnings": [],
+      "images": [
+        {
+          "url": "https://citybond.in/assets/images/products/metallic/mettalic-acp-series.webp",
+          "alt": "Premium Metallic ACP Series"
+        },
+        {
+          "url": "https://citybond.in/assets/images/products/metallic/CT-01%20Bright%20Silver.webp",
+          "alt": "CT-01 Bright Silver ACP Sheet"
+        },
+        {
+          "url": "https://citybond.in/assets/images/products/metallic/CT-02%20Metallic%20Silver.webp",
+          "alt": "CT-02 Metallic Silver ACP Sheet"
+        },
+        {
+          "url": "https://citybond.in/assets/images/products/metallic/CT-03%20Metallic%20Black.webp",
+          "alt": "CT-03 Metallic Black ACP Sheet"
+        },
+        {
+          "url": "https://citybond.in/assets/images/products/metallic/CT-04%20Metallic%20Coffee.webp",
+          "alt": "CT-04 Metallic Coffee ACP Sheet"
+        }
+      ],
+      "bodyHash": "cf7cf64beeb0af53c8cab4ae2f1ee58c964150ab5229f098124691b72ebf29b7",
+      "suggestedCopy": {
+        "title": "Premium Metallic Finish ACP Sheet| CityBond | Call Now!",
+        "description": "Metallic ACP surfaces introduce silver, gold, copper and darker metallic tones to architectural cladding.",
+        "sections": []
+      },
+      "classification": "product collection",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/mirror-series",
+      "exactPath": "/mirror-series",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/mirror-series",
+      "sourceTitle": "Sleek ACP Sheets For Modern Look | Mirror ACP Series | CityBond",
+      "sourceMetaDescriptionExcerpt": "Upgrade your exteriors with CityBond’s Mirror ACP Series. Our reflective aluminium composite panels",
+      "metaExcerptTruncated": true,
+      "sourceCanonical": "https://citybond.in/mirror-series",
+      "summary": "Mirror-finish aluminium composite surfaces create a highly reflective decorative appearance.",
+      "facts": [
+        "Gold Mirror and Silver Mirror are listed.",
+        "The technical table identifies interior use and 3 mm panels."
+      ],
+      "warnings": [
+        "Narrative mentions exteriors but technical application table says interior; use interior in product cards until confirmed."
+      ],
+      "images": [
+        {
+          "url": "https://citybond.in/assets/images/products/mirror/mirror-finish-acp-series.webp",
+          "alt": "Mirror finish ACP Series"
+        },
+        {
+          "url": "https://citybond.in/assets/images/products/mirror/CT-151%20Gold%20Mirror.webp",
+          "alt": "CT-151 Gold Mirror ACP Sheet"
+        },
+        {
+          "url": "https://citybond.in/assets/images/products/mirror/CT-%20152%20Silver%20Mirror.webp",
+          "alt": "CT- 152 Silver Mirror ACP Sheet"
+        }
+      ],
+      "bodyHash": "16b36b8fe37217eb7feb1c8d9543669b8eb89a1ae2e901daab06aa69238c07de",
+      "suggestedCopy": {
+        "title": "Sleek ACP Sheets For Modern Look | Mirror ACP Series | CityBond",
+        "description": "Mirror-finish aluminium composite surfaces create a highly reflective decorative appearance.",
+        "sections": []
+      },
+      "classification": "product collection",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/mohali",
+      "exactPath": "/mohali",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/mohali",
+      "sourceTitle": "Best ACP Sheets in Mohali | Expert Guidance | CityBond",
+      "sourceMetaDescriptionExcerpt": "Get the best ACP in Mohali with CityBond Aluminium Composite Panels. Enhance your projects with",
+      "metaExcerptTruncated": true,
+      "sourceCanonical": "https://citybond.in/mohali",
+      "summary": "The Mohali page introduces CityBond ACP availability and connects visitors with product ranges and enquiry support.",
+      "facts": [
+        "Mohali is listed in CityBond’s official presence directory.",
+        "The local page discusses contemporary residences and IT parks, with finish choices and rainfall exposure to discuss.",
+        "The page offers a callback request to the national sales team."
+      ],
+      "warnings": [
+        "This is a regional product landing page, not a verified individual dealer listing; do not invent a local street address or dealer name.",
+        "No local dealer street address or city-specific telephone was verified on this page. Do not use the central contact as a fictional local office.",
+        "Do not reproduce generic climate statistics, universal performance guarantees or installation lead times as confirmed project commitments."
+      ],
+      "images": [
+        {
+          "url": "https://citybond.in/assets/images/homepage/about-citybond_old.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-1.jpg",
+          "alt": "Partner brand logo"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-2.jpg",
+          "alt": "Partner brand logo"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-3.jpg",
+          "alt": "Partner brand logo"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-4.jpg",
+          "alt": "Partner brand logo"
+        }
+      ],
+      "bodyHash": "cef0853224fe182188b29816edf6d9cb7f08b597eaea97403e7e59cc04707cb1",
+      "suggestedCopy": {
+        "title": "ACP surfaces in Mohali",
+        "description": "Explore CityBond architectural panels for your Mohali project.",
+        "sections": [
+          {
+            "title": "Start with your project",
+            "body": "Share the building type, dimensions, preferred finishes and site conditions to discuss suitable options."
+          },
+          {
+            "title": "A material conversation",
+            "body": "Explore ACP collections, request samples and plan the next step with CityBond."
+          }
+        ]
+      },
+      "verifiedContact": {
+        "phone": "+916264913414",
+        "kind": "national enquiry line shown on the page",
+        "localAddress": null,
+        "localEmail": null
+      },
+      "classification": "city landing page",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/mohit-mittal",
+      "exactPath": "/mohit-mittal",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/mohit-mittal",
+      "sourceTitle": null,
+      "sourceMetaDescriptionExcerpt": "",
+      "metaExcerptTruncated": false,
+      "sourceCanonical": "https://citybond.in/mohit-mittal",
+      "summary": "Mohit Mittal is a chartered accountant and CityBond co-founder with a background in marketing and family businesses.",
+      "facts": [
+        "A chartered accountant with experience in family chemical and packaging businesses.",
+        "His background includes marketing and understanding customer needs.",
+        "The management page identifies his remit as sales and marketing."
+      ],
+      "warnings": [
+        "Biography says co-founded in 2014; company production chronology says 2015. Do not resolve founding-date discrepancy silently."
+      ],
+      "images": [
+        {
+          "url": "https://citybond.in/assets/images/about/management/mohit-mittal.png",
+          "alt": "Mohit Mittal"
+        }
+      ],
+      "bodyHash": "ee4d344ef326751313763f5f4f1b3420470b36307aa762cde324ee7cd71f683a",
+      "suggestedCopy": {
+        "title": "Mohit Mittal",
+        "description": "Co-founder and Director",
+        "sections": [
+          {
+            "title": "Building the commercial direction",
+            "body": "Mohit Mittal’s work connects product development and brand building with the needs of architects, customers and channel partners."
+          }
+        ]
+      },
+      "classification": "company / partner / resource / legal",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/nagpur",
+      "exactPath": "/nagpur",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/nagpur",
+      "sourceTitle": "Top Quality ACP Sheet solutions in Nagpur | CityBond",
+      "sourceMetaDescriptionExcerpt": "Get best ACP solutions with CityBond's aluminium composite panels! Ideal for exterior facades, we ensure your",
+      "metaExcerptTruncated": true,
+      "sourceCanonical": "https://citybond.in/nagpur",
+      "summary": "The Nagpur page introduces CityBond ACP availability and connects visitors with product ranges and enquiry support.",
+      "facts": [
+        "Nagpur is listed in CityBond’s official presence directory.",
+        "The local page discusses summer heat, monsoon exposure and project scheduling.",
+        "The page offers a callback request to the national sales team."
+      ],
+      "warnings": [
+        "This is a regional product landing page, not a verified individual dealer listing; do not invent a local street address or dealer name.",
+        "No local dealer street address or city-specific telephone was verified on this page. Do not use the central contact as a fictional local office.",
+        "Do not reproduce generic climate statistics, universal performance guarantees or installation lead times as confirmed project commitments."
+      ],
+      "images": [
+        {
+          "url": "https://citybond.in/assets/images/homepage/about-citybond_old.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-1.jpg",
+          "alt": "Partner brand logo"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-2.jpg",
+          "alt": "Partner brand logo"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-3.jpg",
+          "alt": "Partner brand logo"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-4.jpg",
+          "alt": "Partner brand logo"
+        }
+      ],
+      "bodyHash": "d48954846c0b4d784290e2f8cac998f8a26aecac0e2c510b6806db895e18656a",
+      "suggestedCopy": {
+        "title": "ACP surfaces in Nagpur",
+        "description": "Explore CityBond architectural panels for your Nagpur project.",
+        "sections": [
+          {
+            "title": "Start with your project",
+            "body": "Share the building type, dimensions, preferred finishes and site conditions to discuss suitable options."
+          },
+          {
+            "title": "A material conversation",
+            "body": "Explore ACP collections, request samples and plan the next step with CityBond."
+          }
+        ]
+      },
+      "verifiedContact": {
+        "phone": "+916264913414",
+        "kind": "national enquiry line shown on the page",
+        "localAddress": null,
+        "localEmail": null
+      },
+      "classification": "city landing page",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/network",
+      "exactPath": "/network",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/network",
+      "sourceTitle": "Efficient Supply Network | ACP solutions | CityBond ACP",
+      "sourceMetaDescriptionExcerpt": "Explore CityBond’s extensive network of global partnerships and collaborations. Learn about our extensive distribution and sales",
+      "metaExcerptTruncated": true,
+      "sourceCanonical": "https://citybond.in/network",
+      "summary": "CityBond supplies through a distribution network across India and lists eighteen city locations for enquiries.",
+      "facts": [
+        "Published network figures: more than 4, 500 retail counters, 72 cities and 20 states."
+      ],
+      "warnings": [],
+      "images": [
+        {
+          "url": "https://citybond.in/assets/images/about/network/network.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://citybond.in/assets/images/location/delhi.png",
+          "alt": "best offers"
+        },
+        {
+          "url": "https://citybond.in/assets/images/location/lucknow.png",
+          "alt": "best offers"
+        },
+        {
+          "url": "https://citybond.in/assets/images/location/mohali.png",
+          "alt": "best offers"
+        },
+        {
+          "url": "https://citybond.in/assets/images/location/Kolkata.png",
+          "alt": "best offers"
+        }
+      ],
+      "bodyHash": "1898a9403a853d44a405f797e0250020729b0abab87ef9759fc79fdc26d19d96",
+      "suggestedCopy": {
+        "title": "Efficient Supply Network | ACP solutions | CityBond ACP",
+        "description": "CityBond supplies through a distribution network across India and lists eighteen city locations for enquiries.",
+        "sections": []
+      },
+      "classification": "company / partner / resource / legal",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/network.php",
+      "exactPath": "/network.php",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/network.php",
+      "sourceTitle": "Efficient Supply Network | ACP solutions | CityBond ACP",
+      "sourceMetaDescriptionExcerpt": "Explore CityBond’s extensive network of global partnerships and collaborations. Learn about our extensive distribution and sales",
+      "metaExcerptTruncated": true,
+      "sourceCanonical": "https://citybond.in/network",
+      "summary": "CityBond supplies through a distribution network across India and lists eighteen city locations for enquiries.",
+      "facts": [
+        "Published network figures: more than 4, 500 retail counters, 72 cities and 20 states."
+      ],
+      "warnings": [
+        "The original serves HTTP 200 at this exact URL and canonicals to /network. Serve matching content here if preserving every supplied path; do not assume a redirect preserves its literal URL."
+      ],
+      "images": [
+        {
+          "url": "https://citybond.in/assets/images/about/network/network.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://citybond.in/assets/images/location/delhi.png",
+          "alt": "best offers"
+        },
+        {
+          "url": "https://citybond.in/assets/images/location/lucknow.png",
+          "alt": "best offers"
+        },
+        {
+          "url": "https://citybond.in/assets/images/location/mohali.png",
+          "alt": "best offers"
+        },
+        {
+          "url": "https://citybond.in/assets/images/location/Kolkata.png",
+          "alt": "best offers"
+        }
+      ],
+      "bodyHash": "1898a9403a853d44a405f797e0250020729b0abab87ef9759fc79fdc26d19d96",
+      "suggestedCopy": {
+        "title": "Efficient Supply Network | ACP solutions | CityBond ACP",
+        "description": "CityBond supplies through a distribution network across India and lists eighteen city locations for enquiries.",
+        "sections": []
+      },
+      "duplicateOf": "/network",
+      "sameFetchedBodyAsCanonical": true,
+      "classification": "duplicate content URL",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/our-management",
+      "exactPath": "/our-management",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/our-management",
+      "sourceTitle": "Expertise and Leadership | CityBond Management Team",
+      "sourceMetaDescriptionExcerpt": "Meet the CityBond management team driving success in the ACP industry. Learn about their expertise, vision, and commitment",
+      "metaExcerptTruncated": true,
+      "sourceCanonical": "https://citybond.in/our-management",
+      "summary": "CityBond is led by two co-founders with complementary operational and commercial responsibilities.",
+      "facts": [
+        "Lalit Mittal and Mohit Mittal are identified as co-founders and directors.",
+        "Lalit leads finance and operational functions; Mohit leads sales and marketing."
+      ],
+      "warnings": [],
+      "images": [
+        {
+          "url": "https://citybond.in/assets/images/management/lalit-mittal.jpg",
+          "alt": "lalit mittal Co-Founder and Director Finance, Human Resources, Factory and Supply Chain"
+        },
+        {
+          "url": "https://citybond.in/assets/images/management/mohit-mittal.png",
+          "alt": "Mohit"
+        }
+      ],
+      "bodyHash": "16f560dbd66ea0cf4c09fca85b9c0c19564cd994037e0d0e04cac7da6784c1a4",
+      "suggestedCopy": {
+        "title": "The people behind the panels",
+        "description": "Complementary experience. A shared direction.",
+        "sections": [
+          {
+            "title": "Lalit Mittal",
+            "body": "Finance, human resources, manufacturing and supply chain."
+          },
+          {
+            "title": "Mohit Mittal",
+            "body": "Sales, marketing and commercial development."
+          }
+        ]
+      },
+      "classification": "company / partner / resource / legal",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/privacy-policy",
+      "exactPath": "/privacy-policy",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/privacy-policy",
+      "sourceTitle": null,
+      "sourceMetaDescriptionExcerpt": "",
+      "metaExcerptTruncated": false,
+      "sourceCanonical": "https://citybond.in/privacy-policy",
+      "summary": "This page contains the official website’s privacy information. The replacement site needs policies consistent with its own enquiry and content-management implementation.",
+      "facts": [],
+      "warnings": [],
+      "images": [],
+      "bodyHash": "6e731528f0b4dd8ba48f076d14da331012770aa67acb4448133c43ed59667276",
+      "suggestedCopy": {
+        "title": "Privacy Policy",
+        "description": "This page contains the official website’s privacy information. The replacement site needs policies consistent with its own enquiry and content-management implementation.",
+        "sections": []
+      },
+      "classification": "company / partner / resource / legal",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/privacy-policy.php",
+      "exactPath": "/privacy-policy.php",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/privacy-policy.php",
+      "sourceTitle": null,
+      "sourceMetaDescriptionExcerpt": "",
+      "metaExcerptTruncated": false,
+      "sourceCanonical": "https://citybond.in/privacy-policy",
+      "summary": "This page contains the official website’s privacy information. The replacement site needs policies consistent with its own enquiry and content-management implementation.",
+      "facts": [],
+      "warnings": [
+        "The original serves HTTP 200 at this exact URL and canonicals to /privacy-policy. Serve matching content here if preserving every supplied path; do not assume a redirect preserves its literal URL."
+      ],
+      "images": [],
+      "bodyHash": "6e731528f0b4dd8ba48f076d14da331012770aa67acb4448133c43ed59667276",
+      "suggestedCopy": {
+        "title": "Privacy Policy",
+        "description": "This page contains the official website’s privacy information. The replacement site needs policies consistent with its own enquiry and content-management implementation.",
+        "sections": []
+      },
+      "duplicateOf": "/privacy-policy",
+      "sameFetchedBodyAsCanonical": true,
+      "classification": "duplicate content URL",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/projects",
+      "exactPath": "/projects",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/projects",
+      "sourceTitle": "Projects | CityBond ACP",
+      "sourceMetaDescriptionExcerpt": "Explore CityBond project portfolio across brand identity, exterior facade, and interior design applications.",
+      "metaExcerptTruncated": false,
+      "sourceCanonical": "https://citybond.in/projects",
+      "summary": "The project gallery groups installations by exterior facade, brand identity and interiors. Captions are the available source for project names and locations; most do not identify the installed product.",
+      "facts": [
+        "Named examples include Fortune Sakura in Bengaluru, Biodeal Pharma in Baddi, Bloom Hospital in Chennai, Romsons in Gujarat and Neeladri Towers in Guntur."
+      ],
+      "warnings": [],
+      "images": [
+        {
+          "url": "https://citybond.in/assets/images/projects/brand-identity/Corporate%20-%20Amul.webp",
+          "alt": "Corporate   Amul"
+        },
+        {
+          "url": "https://citybond.in/assets/images/projects/brand-identity/Corporate%20-%20Burger%20King.webp",
+          "alt": "Corporate   Burger King"
+        },
+        {
+          "url": "https://citybond.in/assets/images/projects/brand-identity/Corporate%20-%20HP.webp",
+          "alt": "Corporate   HP"
+        },
+        {
+          "url": "https://citybond.in/assets/images/projects/brand-identity/Corporate%20-%20HPCL.webp",
+          "alt": "Corporate   HPCL"
+        },
+        {
+          "url": "https://citybond.in/assets/images/projects/brand-identity/Corporate%20-%20IGL.webp",
+          "alt": "Corporate   IGL"
+        }
+      ],
+      "bodyHash": "c951ce4b75fca3f3a423c051569794b55c6bf9b728a49efa69fc64e88b168e2f",
+      "suggestedCopy": {
+        "title": "Projects | CityBond ACP",
+        "description": "The project gallery groups installations by exterior facade, brand identity and interiors. Captions are the available source for project names and locations; most do not identify the installed product.",
+        "sections": []
+      },
+      "classification": "company / partner / resource / legal",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/projects.php",
+      "exactPath": "/projects.php",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/projects.php",
+      "sourceTitle": "Projects | CityBond ACP",
+      "sourceMetaDescriptionExcerpt": "Explore CityBond project portfolio across brand identity, exterior facade, and interior design applications.",
+      "metaExcerptTruncated": false,
+      "sourceCanonical": "https://citybond.in/projects",
+      "summary": "The project gallery groups installations by exterior facade, brand identity and interiors. Captions are the available source for project names and locations; most do not identify the installed product.",
+      "facts": [
+        "Named examples include Fortune Sakura in Bengaluru, Biodeal Pharma in Baddi, Bloom Hospital in Chennai, Romsons in Gujarat and Neeladri Towers in Guntur."
+      ],
+      "warnings": [
+        "The original serves HTTP 200 at this exact URL and canonicals to /projects. Serve matching content here if preserving every supplied path; do not assume a redirect preserves its literal URL."
+      ],
+      "images": [
+        {
+          "url": "https://citybond.in/assets/images/projects/brand-identity/Corporate%20-%20Amul.webp",
+          "alt": "Corporate   Amul"
+        },
+        {
+          "url": "https://citybond.in/assets/images/projects/brand-identity/Corporate%20-%20Burger%20King.webp",
+          "alt": "Corporate   Burger King"
+        },
+        {
+          "url": "https://citybond.in/assets/images/projects/brand-identity/Corporate%20-%20HP.webp",
+          "alt": "Corporate   HP"
+        },
+        {
+          "url": "https://citybond.in/assets/images/projects/brand-identity/Corporate%20-%20HPCL.webp",
+          "alt": "Corporate   HPCL"
+        },
+        {
+          "url": "https://citybond.in/assets/images/projects/brand-identity/Corporate%20-%20IGL.webp",
+          "alt": "Corporate   IGL"
+        }
+      ],
+      "bodyHash": "c951ce4b75fca3f3a423c051569794b55c6bf9b728a49efa69fc64e88b168e2f",
+      "suggestedCopy": {
+        "title": "Projects | CityBond ACP",
+        "description": "The project gallery groups installations by exterior facade, brand identity and interiors. Captions are the available source for project names and locations; most do not identify the installed product.",
+        "sections": []
+      },
+      "duplicateOf": "/projects",
+      "sameFetchedBodyAsCanonical": true,
+      "classification": "duplicate content URL",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/raipur",
+      "exactPath": "/raipur",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/raipur",
+      "sourceTitle": "Durable ACP Sheets for Exteriors in Raipur | CityBond",
+      "sourceMetaDescriptionExcerpt": "Get durable ACP Sheets for Exteriors with CityBond! We offer stylish, weather-resistant surfaces designed to meet",
+      "metaExcerptTruncated": true,
+      "sourceCanonical": "https://citybond.in/raipur",
+      "summary": "The Raipur page introduces CityBond ACP availability and connects visitors with product ranges and enquiry support.",
+      "facts": [
+        "Raipur is listed in CityBond’s official presence directory.",
+        "The local page discusses surface customisation, temperature movement and access to the company manufacturing base.",
+        "The page offers a callback request to the national sales team."
+      ],
+      "warnings": [
+        "This is a regional product landing page, not a verified individual dealer listing; do not invent a local street address or dealer name.",
+        "No local dealer street address or city-specific telephone was verified on this page. Do not use the central contact as a fictional local office.",
+        "Do not reproduce generic climate statistics, universal performance guarantees or installation lead times as confirmed project commitments."
+      ],
+      "images": [
+        {
+          "url": "https://citybond.in/assets/images/homepage/about-citybond_old.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-1.jpg",
+          "alt": "Partner brand logo"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-2.jpg",
+          "alt": "Partner brand logo"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-3.jpg",
+          "alt": "Partner brand logo"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-4.jpg",
+          "alt": "Partner brand logo"
+        }
+      ],
+      "bodyHash": "6ffa7f600d546c73ffa130edd740b98b0c8f577d7dd62c345c122029638c1205",
+      "suggestedCopy": {
+        "title": "ACP surfaces in Raipur",
+        "description": "Explore CityBond architectural panels for your Raipur project.",
+        "sections": [
+          {
+            "title": "Start with your project",
+            "body": "Share the building type, dimensions, preferred finishes and site conditions to discuss suitable options."
+          },
+          {
+            "title": "A material conversation",
+            "body": "Explore ACP collections, request samples and plan the next step with CityBond."
+          }
+        ]
+      },
+      "verifiedContact": {
+        "phone": "+916264913414",
+        "kind": "national enquiry line shown on the page",
+        "localAddress": null,
+        "localEmail": null,
+        "officeFromContactPage": {
+          "kind": "manufacturing unit",
+          "address": "Plot No. 5A, Bhanpuri Industrial Area, Raipur, Chhattisgarh 493221, India",
+          "source": "https://citybond.in/contact"
+        }
+      },
+      "classification": "city landing page",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/ranchi",
+      "exactPath": "/ranchi",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/ranchi",
+      "sourceTitle": "ACP sheets in Ranchi for Aesthetics & Durability | CityBond",
+      "sourceMetaDescriptionExcerpt": "Explore CityBond Ranchi's premium aluminium composite panels! Ideal for enhancing the aesthetics and durability of",
+      "metaExcerptTruncated": true,
+      "sourceCanonical": "https://citybond.in/ranchi",
+      "summary": "The Ranchi page introduces CityBond ACP availability and connects visitors with product ranges and enquiry support.",
+      "facts": [
+        "Ranchi is listed in CityBond’s official presence directory.",
+        "The local page discusses temperature changes and design palettes influenced by regional colour and pattern.",
+        "The page offers a callback request to the national sales team."
+      ],
+      "warnings": [
+        "This is a regional product landing page, not a verified individual dealer listing; do not invent a local street address or dealer name.",
+        "No local dealer street address or city-specific telephone was verified on this page. Do not use the central contact as a fictional local office.",
+        "Do not reproduce generic climate statistics, universal performance guarantees or installation lead times as confirmed project commitments."
+      ],
+      "images": [
+        {
+          "url": "https://citybond.in/assets/images/homepage/about-citybond_old.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-1.jpg",
+          "alt": "Partner brand logo"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-2.jpg",
+          "alt": "Partner brand logo"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-3.jpg",
+          "alt": "Partner brand logo"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-4.jpg",
+          "alt": "Partner brand logo"
+        }
+      ],
+      "bodyHash": "b8fd5c07125a2ef496361cabdfe12e4ee2718f783932c5dfb0369ec09db02509",
+      "suggestedCopy": {
+        "title": "ACP surfaces in Ranchi",
+        "description": "Explore CityBond architectural panels for your Ranchi project.",
+        "sections": [
+          {
+            "title": "Start with your project",
+            "body": "Share the building type, dimensions, preferred finishes and site conditions to discuss suitable options."
+          },
+          {
+            "title": "A material conversation",
+            "body": "Explore ACP collections, request samples and plan the next step with CityBond."
+          }
+        ]
+      },
+      "verifiedContact": {
+        "phone": "+916264913414",
+        "kind": "national enquiry line shown on the page",
+        "localAddress": null,
+        "localEmail": null
+      },
+      "classification": "city landing page",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/satin-series",
+      "exactPath": "/satin-series",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/satin-series",
+      "sourceTitle": "Satin Finish ACP Sheets for Refined Architecture | CityBond Satin Series",
+      "sourceMetaDescriptionExcerpt": "Discover the CityBond Satin ACP Series — refined satin-finish aluminium composite panels with a",
+      "metaExcerptTruncated": true,
+      "sourceCanonical": "https://citybond.in/satin-series",
+      "summary": "Satin ACP surfaces offer a muted metallic reflection for contemporary facade and interior palettes.",
+      "facts": [
+        "Grey Groove and Metal Grey appear among the published finishes."
+      ],
+      "warnings": [],
+      "images": [
+        {
+          "url": "https://citybond.in/assets/images/products/satin/bannar-image.jpg",
+          "alt": "Satin ACP Series"
+        },
+        {
+          "url": "https://citybond.in/assets/images/products/satin/CT-279%20Grey%20Groove.jpg",
+          "alt": "CT-279 Grey Groove ACP Sheet"
+        },
+        {
+          "url": "https://citybond.in/assets/images/products/satin/CT-280%20Metal%20Grey.jpg",
+          "alt": "CT-280 Metal Grey ACP Sheet"
+        },
+        {
+          "url": "https://citybond.in/assets/images/products/satin/CT-285%20Snow%20White.jpg",
+          "alt": "CT-285 Snow White ACP Sheet"
+        },
+        {
+          "url": "https://citybond.in/assets/images/products/satin/CT-286%20Terracotta.jpg",
+          "alt": "CT-286 Terracotta ACP Sheet"
+        }
+      ],
+      "bodyHash": "c442cc1c1bf54681009cbfdf8ebc4d960013adb8adee2c7927e499b91273f35e",
+      "suggestedCopy": {
+        "title": "Satin Finish ACP Sheets for Refined Architecture | CityBond Satin Series",
+        "description": "Satin ACP surfaces offer a muted metallic reflection for contemporary facade and interior palettes.",
+        "sections": []
+      },
+      "classification": "product collection",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/sitemap.html",
+      "exactPath": "/sitemap.html",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/sitemap.html",
+      "sourceTitle": "Sitemap",
+      "sourceMetaDescriptionExcerpt": "citybond.in Sitemap",
+      "metaExcerptTruncated": false,
+      "sourceCanonical": null,
+      "summary": "",
+      "facts": [
+        "The original is an HTML sitemap with navigable links, not an XML sitemap.",
+        "Groups include company pages, products, partners, locations and support."
+      ],
+      "warnings": [
+        "The old sitemap links to /hpl-series, which is not in the user-supplied live list. Do not silently add unrequested routes; the recreated index should link to the preserved /hpl-sheet route."
+      ],
+      "images": [],
+      "bodyHash": "2b7ea9eeb82e71350b14a25598d45ffb57b1c10de95372e200e4d2731aa75b7c",
+      "suggestedCopy": {
+        "title": "Explore CityBond",
+        "description": "An index of company, product, application, partner, location and service pages.",
+        "sections": [
+          {
+            "title": "Find your next page",
+            "body": "Browse the full website by topic and use direct links to reach the information you need."
+          }
+        ]
+      },
+      "classification": "HTML sitemap",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/soffit-panels/",
+      "exactPath": "/soffit-panels/",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/soffit-panels/",
+      "sourceTitle": null,
+      "sourceMetaDescriptionExcerpt": "",
+      "metaExcerptTruncated": false,
+      "sourceCanonical": null,
+      "summary": "Soffit panels are offered for ceilings, canopies, overhangs and building undersides, in woodgrain and neutral finishes.",
+      "facts": [
+        "Seven finishes are listed:Golden Oak, Nagpur Teak, Pure White, Rosewood, Slate Grey, Baltic Pine and Royal Teak.",
+        "Product codes run from CS-101 through CS-107.",
+        "Published panel lengths are 2900 mm and 960 mm; listed trim pieces are 2900 mm."
+      ],
+      "warnings": [
+        "The live page has no HTML title or canonical tag; supply appropriate metadata for the rebuilt page. Do not repeat universal weatherproof or warranty claims without terms."
+      ],
+      "images": [
+        {
+          "url": "https://citybond.in/soffit-panels/assets/images/soffit-panels.png",
+          "alt": "CityBond Soffit Panels"
+        },
+        {
+          "url": "https://citybond.in/soffit-panels/assets/images/homepage/about-citybond_old.jpg",
+          "alt": "About City Bond"
+        },
+        {
+          "url": "https://citybond.in/soffit-panels/assets/images/products/soffite/CS-101%20GOLDEN%20OAK.webp",
+          "alt": "CS-101 Golden Oak"
+        },
+        {
+          "url": "https://citybond.in/soffit-panels/assets/images/products/soffite/CS-102%20NAGPUR%20TEAK.webp",
+          "alt": "CS-102 Nagpur Teak"
+        },
+        {
+          "url": "https://citybond.in/soffit-panels/assets/images/products/soffite/CS-103%20PURE%20WHITE.webp",
+          "alt": "CS-103 Pure White"
+        }
+      ],
+      "bodyHash": "851f3168f4283ada5040ffe5d3242c0040fb041c21a138b45eb4fba2c74832de",
+      "suggestedCopy": {
+        "title": "Soffit panels",
+        "description": "A considered finish for ceilings, canopies and architectural undersides.",
+        "sections": [
+          {
+            "title": "Finish the underside",
+            "body": "Explore woodgrain and neutral surfaces for overhangs, lobbies, corridors and canopies."
+          },
+          {
+            "title": "Complete the detail",
+            "body": "Discuss panel length and the J, H, inner-corner and outer-corner trim options for the installation."
+          }
+        ]
+      },
+      "classification": "product collection",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/solid-series",
+      "exactPath": "/solid-series",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/solid-series",
+      "sourceTitle": "Durable Aluminium Panels for Robust Exteriors | CityBond",
+      "sourceMetaDescriptionExcerpt": "For durable aluminium composite panels, check out CityBond Solid ACP Series! Our ACP offers strength and a",
+      "metaExcerptTruncated": true,
+      "sourceCanonical": "https://citybond.in/solid-series",
+      "summary": "Solid-colour ACP gives designers a broad palette for cladding, decorative panels and brand expression.",
+      "facts": [
+        "The range includes greens, blues, reds, whites, grey and black."
+      ],
+      "warnings": [],
+      "images": [
+        {
+          "url": "https://citybond.in/assets/images/products/solid/solid.jpg",
+          "alt": "Solid ACP Series"
+        },
+        {
+          "url": "https://citybond.in/assets/images/exterior/exterior-1.jpg",
+          "alt": "Solid ACP Series"
+        },
+        {
+          "url": "https://citybond.in/assets/images/products/solid/CT-51%20Dark%20Green.webp",
+          "alt": "CT-51 Dark Green ACP Sheet"
+        },
+        {
+          "url": "https://citybond.in/assets/images/products/solid/CT-52%20Ocean%20Green.webp",
+          "alt": "CT-52 Ocean Green ACP Sheet"
+        },
+        {
+          "url": "https://citybond.in/assets/images/products/solid/CT-53%20Navy%20Blue.webp",
+          "alt": "CT-53 Navy Blue ACP Sheet"
+        }
+      ],
+      "bodyHash": "8898fc8079a941fdf5d55eda98eb526b19ca5eeb4f2d447bfa50ae9ce27bf8a5",
+      "suggestedCopy": {
+        "title": "Durable Aluminium Panels for Robust Exteriors | CityBond",
+        "description": "Solid-colour ACP gives designers a broad palette for cladding, decorative panels and brand expression.",
+        "sections": []
+      },
+      "classification": "product collection",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/sparkle-series",
+      "exactPath": "/sparkle-series",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/sparkle-series",
+      "sourceTitle": "Elegant ACP Sheet for Modern Design| Sparkle ACP Series | CityBond",
+      "sourceMetaDescriptionExcerpt": "Create eye-catching, dazzling exteriors that stand out with CityBond's Aluminium Composite Panels. Explore our",
+      "metaExcerptTruncated": true,
+      "sourceCanonical": "https://citybond.in/sparkle-series",
+      "summary": "Sparkle surfaces create a reflective, decorative effect for architectural cladding.",
+      "facts": [
+        "Listed shades are Sparkle Black, Sparkle Red and Sparkle White.",
+        "The technical table lists a 3 mm panel."
+      ],
+      "warnings": [],
+      "images": [
+        {
+          "url": "https://citybond.in/assets/images/products/sparkle/sparkle.jpg",
+          "alt": "Sparkle ACP Series"
+        },
+        {
+          "url": "https://citybond.in/assets/images/products/sparkle/CT-401%20Sparkle%20Black.webp",
+          "alt": "CT-401 Sparkle Black ACP Sheet"
+        },
+        {
+          "url": "https://citybond.in/assets/images/products/sparkle/CT-402%20Sparkle%20Red.webp",
+          "alt": "CT-402 Sparkle Red ACP Sheet"
+        },
+        {
+          "url": "https://citybond.in/assets/images/products/sparkle/CT-403%20Sparkle%20white.webp",
+          "alt": "CT-403 Sparkle white ACP Sheet"
+        }
+      ],
+      "bodyHash": "c5e0c369478f2dd5ac08637d0f4c7850a512f8a338a846cb9c0d424a1f813935",
+      "suggestedCopy": {
+        "title": "Elegant ACP Sheet for Modern Design| Sparkle ACP Series | CityBond",
+        "description": "Sparkle surfaces create a reflective, decorative effect for architectural cladding.",
+        "sections": []
+      },
+      "classification": "product collection",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/terms",
+      "exactPath": "/terms",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/terms",
+      "sourceTitle": null,
+      "sourceMetaDescriptionExcerpt": "",
+      "metaExcerptTruncated": false,
+      "sourceCanonical": "https://citybond.in/terms",
+      "summary": "This page sets out the official website’s terms of use. Any new website policy should reflect its actual operator, data handling and features.",
+      "facts": [],
+      "warnings": [],
+      "images": [],
+      "bodyHash": "da2f3e7cd41680e4c7780e8d9a7fadb2a151162cd4369ba5b25d26e3b538ce8e",
+      "suggestedCopy": {
+        "title": "Terms",
+        "description": "This page sets out the official website’s terms of use. Any new website policy should reflect its actual operator, data handling and features.",
+        "sections": []
+      },
+      "classification": "company / partner / resource / legal",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/thankyou.php",
+      "exactPath": "/thankyou.php",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/thankyou.php",
+      "sourceTitle": null,
+      "sourceMetaDescriptionExcerpt": "",
+      "metaExcerptTruncated": false,
+      "sourceCanonical": null,
+      "summary": "",
+      "facts": [
+        "The original is a form-submission confirmation page.",
+        "It says a team member will reply by phone or email.",
+        "It provides +918822101010 for urgent contact."
+      ],
+      "warnings": [
+        "Only show a submitted-success state after a genuine successful form submission. Direct URL visits must not falsely confirm a new submission.",
+        "Do not call the published mobile number toll-free. Consider noindex for this transactional page."
+      ],
+      "images": [
+        {
+          "url": "https://citybond.in/images/thank-you-icon.png",
+          "alt": ""
+        }
+      ],
+      "bodyHash": "e6f9511df3609a86bfbfa4d982a3c09b45c83442d8ddb7a2f6b50cbf9d9f2cc8",
+      "suggestedCopy": {
+        "title": "Thank you",
+        "description": "Your enquiry has reached the CityBond team.",
+        "sections": [
+          {
+            "title": "Need to speak sooner?",
+            "body": "Call the CityBond team using the verified contact number."
+          }
+        ]
+      },
+      "classification": "transactional confirmation",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/third-eye-view",
+      "exactPath": "/third-eye-view",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/third-eye-view",
+      "sourceTitle": "Get the 3D Visualization Design of Exterior Facade of Your Project",
+      "sourceMetaDescriptionExcerpt": "Explore our Third Eye View service for visualization of your project. We create 3D",
+      "metaExcerptTruncated": true,
+      "sourceCanonical": "https://citybond.in/third-eye-view",
+      "summary": "Third Eye View is a design-preview service: visitors choose finishes, share a building photograph or drawing, and request a 3D representation before ordering.",
+      "facts": [
+        "The form accepts project images and AutoCAD files."
+      ],
+      "warnings": [],
+      "images": [
+        {
+          "url": "https://citybond.in/assets/images/third-eye-view/3D Image.png",
+          "alt": "3 image "
+        },
+        {
+          "url": "https://citybond.in/assets/images/third-eye-view/actual projects.png",
+          "alt": "actual projects"
+        },
+        {
+          "url": "https://citybond.in/assets/images/third-eye-view/sample.png",
+          "alt": "3 image "
+        },
+        {
+          "url": "https://citybond.in/assets/images/third-eye-view/contact.png",
+          "alt": "3 image "
+        },
+        {
+          "url": "https://citybond.in/assets/images/third-eye-view/3d view.png",
+          "alt": "3 image "
+        }
+      ],
+      "bodyHash": "f55bf4d48b94b68f176901c667771f5681ca7ca16d4f3a307eea214fd196d7cd",
+      "suggestedCopy": {
+        "title": "Get the 3 D Visualization Design of Exterior Facade of Your Project",
+        "description": "Third Eye View is a design-preview service: visitors choose finishes, share a building photograph or drawing, and request a 3 D representation before ordering.",
+        "sections": []
+      },
+      "classification": "company / partner / resource / legal",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/vijyawada",
+      "exactPath": "/vijyawada",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/vijyawada",
+      "sourceTitle": "Premium Quality ACP Sheets in Vijayawada | CityBond | Buy Now",
+      "sourceMetaDescriptionExcerpt": "CityBond offers premium Aluminium Composite Panels in Vijayawada. Enhance the look and longevity of",
+      "metaExcerptTruncated": true,
+      "sourceCanonical": "https://citybond.in/vijyawada",
+      "summary": "The Vijayawada page introduces CityBond ACP availability and connects visitors with product ranges and enquiry support.",
+      "facts": [
+        "Vijayawada is listed in CityBond’s official presence directory.",
+        "The local page discusses panel thickness, building height, wind exposure and project-specific planning.",
+        "The page offers a callback request to the national sales team."
+      ],
+      "warnings": [
+        "This is a regional product landing page, not a verified individual dealer listing; do not invent a local street address or dealer name.",
+        "No local dealer street address or city-specific telephone was verified on this page. Do not use the central contact as a fictional local office.",
+        "Do not reproduce generic climate statistics, universal performance guarantees or installation lead times as confirmed project commitments.",
+        "Keep the exact URL /vijyawada; display the correct city name Vijayawada."
+      ],
+      "images": [
+        {
+          "url": "https://citybond.in/assets/images/homepage/about-citybond_old.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-1.jpg",
+          "alt": "Partner brand logo"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-2.jpg",
+          "alt": "Partner brand logo"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-3.jpg",
+          "alt": "Partner brand logo"
+        },
+        {
+          "url": "https://citybond.in/assets/images/homepage/partner/partner-logo-4.jpg",
+          "alt": "Partner brand logo"
+        }
+      ],
+      "bodyHash": "c4922b7888329c04c67828e527e9dba74247dc78f03fd5fe3cb6b89a275c4dae",
+      "suggestedCopy": {
+        "title": "ACP surfaces in Vijayawada",
+        "description": "Explore CityBond architectural panels for your Vijayawada project.",
+        "sections": [
+          {
+            "title": "Start with your project",
+            "body": "Share the building type, dimensions, preferred finishes and site conditions to discuss suitable options."
+          },
+          {
+            "title": "A material conversation",
+            "body": "Explore ACP collections, request samples and plan the next step with CityBond."
+          }
+        ]
+      },
+      "verifiedContact": {
+        "phone": "+916264913414",
+        "kind": "national enquiry line shown on the page",
+        "localAddress": null,
+        "localEmail": null
+      },
+      "classification": "city landing page",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/vision",
+      "exactPath": "/vision",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/vision",
+      "sourceTitle": "Vision & Mission | Leading provider of ACP sheet | CityBond ACP",
+      "sourceMetaDescriptionExcerpt": "Know CityBond's vision and mission to redefine the ACP sheet industry with excellence",
+      "metaExcerptTruncated": true,
+      "sourceCanonical": "https://citybond.in/vision",
+      "summary": "The brand describes an ambition to combine architectural expression with responsible manufacturing, consistent quality and long-term customer relationships.",
+      "facts": [
+        "Stated values cover innovation, ethics, quality, commitment, caring and service."
+      ],
+      "warnings": [],
+      "images": [
+        {
+          "url": "https://citybond.in/assets/images/about/vision/vision.jpg",
+          "alt": ""
+        },
+        {
+          "url": "https://citybond.in/assets/images/1.png",
+          "alt": "online"
+        },
+        {
+          "url": "https://citybond.in/assets/images/2.png",
+          "alt": "dealer"
+        }
+      ],
+      "bodyHash": "ed8662b35476e65087e8553244dd2b27d0a47766b6d831af0048727c9b68b2fc",
+      "suggestedCopy": {
+        "title": "Vision & Mission | Leading provider of ACP sheet | CityBond ACP",
+        "description": "The brand describes an ambition to combine architectural expression with responsible manufacturing, consistent quality and long-term customer relationships.",
+        "sections": []
+      },
+      "classification": "company / partner / resource / legal",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    },
+    {
+      "url": "https://citybond.in/wooden-series",
+      "exactPath": "/wooden-series",
+      "fetchStatus": 200,
+      "finalUrl": "https://citybond.in/wooden-series",
+      "sourceTitle": "Elegant ACP Sheets with Wooden Finish | CityBond",
+      "sourceMetaDescriptionExcerpt": "Experience the timeless allure of wooden aesthetics with CityBond's Wooden ACP series. Get the warmth of natural",
+      "metaExcerptTruncated": true,
+      "sourceCanonical": "https://citybond.in/wooden-series",
+      "summary": "Woodgrain ACP surfaces bring timber-like colour and texture to facade and interior designs.",
+      "facts": [
+        "The range includes cherry, oak, teak, walnut, pine and ebony interpretations."
+      ],
+      "warnings": [],
+      "images": [
+        {
+          "url": "https://citybond.in/assets/images/products/wooden/wooden-1.jpg",
+          "alt": "Elegant ACP Sheets with Wooden Finish"
+        },
+        {
+          "url": "https://citybond.in/assets/images/products/wooden/CT-201%20Oxford%20Cherry.webp",
+          "alt": "CT-201 Oxford Cherry ACP Sheet"
+        },
+        {
+          "url": "https://citybond.in/assets/images/products/wooden/CT-202%20American%20Oak.webp",
+          "alt": "CT-202 American Oak ACP Sheet"
+        },
+        {
+          "url": "https://citybond.in/assets/images/products/wooden/CT-205%20Elevated%20Wood.webp",
+          "alt": "CT-205 Elevated Wood ACP Sheet"
+        },
+        {
+          "url": "https://citybond.in/assets/images/products/wooden/CT-206%20Walnut.webp",
+          "alt": "CT-206 Walnut ACP Sheet"
+        }
+      ],
+      "bodyHash": "8212fac02b92749597d161ddee388e1ea604d9443e02900f7cb4b552cc85aefc",
+      "suggestedCopy": {
+        "title": "Elegant ACP Sheets with Wooden Finish | CityBond",
+        "description": "Woodgrain ACP surfaces bring timber-like colour and texture to facade and interior designs.",
+        "sections": []
+      },
+      "classification": "product collection",
+      "source": "Live official GET on 2026-10-17, supported by prior official source-audit summaries."
+    }
+  ],
+  "verifiedCentralContact": {
+    "source": "https://citybond.in/contact",
+    "phone": "+916264913414",
+    "alternatePhone": "+918822101010",
+    "email": "info@citybond.in",
+    "headOffice": "71/6 F, Rama Road Industrial Area, Najafgarh Road, New Delhi 110015, India",
+    "manufacturing": "Plot No. 5A, Bhanpuri Industrial Area, Raipur, Chhattisgarh 493221, India"
+  },
+  "implementationNotes": [
+    "All69 exact supplied non-blog URL strings fetched HTTP200 without redirect. Keep path spelling,extension and trailing slash.",
+    "Do not consolidate distinct specification,application,city or biography pages into broad listings.",
+    "PHP/home duplicates already have clean canonical URLs on the source. Serving the same content at both can preserve literal URLs while retaining those original canonicals.",
+    "Source facts mean verified against official marketing content,not independent engineering certification. Safety,price,availability and warranty terms require product-specific confirmation.",
+    "The corpus includes inaccurate/inconsistent dates and performance prose. Use the original paraphrased copy provided,with qualified project guidance.",
+    "All blog-family URLs are excluded from this scope,including stories,authors,archives,pagination and query variants."
+  ]
+}

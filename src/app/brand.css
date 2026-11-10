@@ -1,0 +1,214 @@
+/* CityBond brand guide, pages 2–5. Typography is a review fallback until the
+   licensed ND Logos and Bebas Neue Pro webfonts are supplied. */
+:root {
+  --brand-navy: #201e57;
+  --brand-red: #da1f1c;
+  --brand-white: #ffffff;
+  --brand-black: #000000;
+  --brand-charcoal: #333542;
+  --brand-grey: #616160;
+  --brand-muted: #61607f;
+  --brand-lavender: #b5b4db;
+  --brand-slate: #444456;
+  --paper: var(--brand-white);
+  --ink: var(--brand-navy);
+  --muted: var(--brand-grey);
+  --line: #e9e8f4;
+  --olive: var(--brand-lavender);
+  --dark: var(--brand-navy);
+  --copper: var(--brand-red);
+  --font-mono: var(--font-sans);
+  --font-heading: var(--font-display-fallback), "Arial Narrow", sans-serif;
+}
+::selection {
+  background: var(--brand-lavender);
+  color: var(--brand-navy);
+}
+.site-shell :is(h1, h2, h3),
+.portal-login h1,
+.portal :is(h1, h2, h3) {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  letter-spacing: 0.005em;
+}
+.site-shell em,
+.portal-login em {
+  font-family: inherit;
+  font-style: normal;
+  letter-spacing: inherit;
+}
+.site-shell .leader-initials {
+  font-family: var(--font-heading);
+  font-style: normal;
+  letter-spacing: 0;
+  color: var(--brand-muted);
+}
+.site-shell .testimonials blockquote > p {
+  font-family: var(--font-sans), sans-serif;
+}
+.site-shell :is(h1, h2) em {
+  color: var(--brand-muted);
+}
+.site-header {
+  background: #fffffff2;
+  border-color: var(--line);
+}
+.site-header .logo {
+  width: 200px;
+}
+.site-header .logo img {
+  object-fit: contain;
+  height: auto;
+}
+.site-header nav,
+.site-header .header-contact {
+  font-size: 14px;
+}
+.site-header nav a:hover,
+.site-shell .text-link:hover {
+  color: var(--brand-red);
+}
+.site-shell .button,
+.portal-login .button {
+  background: var(--brand-red);
+  border-color: var(--brand-red);
+  color: var(--brand-white);
+  font-size: 14px;
+}
+.site-shell .button:hover,
+.portal-login .button:hover {
+  background: var(--brand-navy);
+  border-color: var(--brand-navy);
+}
+.site-shell .button.secondary {
+  background: transparent;
+  color: var(--brand-navy);
+  border-color: var(--brand-lavender);
+}
+.site-shell .eyebrow {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.13em;
+}
+.entry h1 {
+  font-size: clamp(62px, 6.6vw, 112px);
+  line-height: 0.99;
+  letter-spacing: 0;
+}
+.entry h1 em {
+  font-size: 1em;
+}
+.entry-description {
+  font-size: 15px;
+  max-width: 370px;
+}
+.entry-roles strong {
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+.entry-roles small {
+  font-size: 11px;
+}
+.entry-roles .role-num,
+.entry-foot,
+.entry-foot > a {
+  font-size: 10px;
+}
+.story-chapter h3 {
+  font-size: 27px;
+  letter-spacing: 0.01em;
+}
+.story-chapter p,
+.site-shell .section-head p:not(.eyebrow),
+.site-shell .intro-description,
+.site-shell .contact-band p:not(.eyebrow) {
+  font-size: 15px;
+}
+.story-steps span,
+.story-top > span,
+.scene-caption {
+  font-size: 10px;
+}
+.site-shell .pills button,
+.site-shell .text-link,
+.site-shell .footer-links,
+.site-shell .footer-top p,
+.site-shell .footer-top > a:last-child {
+  font-size: 14px;
+}
+.site-shell .contact-band {
+  background: #f5f5fa;
+  border-block: 1px solid var(--line);
+}
+.site-shell .contact-band h2 {
+  letter-spacing: 0;
+}
+.site-shell > footer {
+  background: var(--brand-white);
+}
+.site-shell .footer-wordmark {
+  display: block;
+  width: min(330px, 100%);
+  line-height: 1;
+}
+.footer-wordmark img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+.site-shell .footer-bottom {
+  font-size: 11px;
+}
+.portal-brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.portal-brand img {
+  width: 170px;
+  height: auto;
+  object-fit: contain;
+}
+@media (max-width: 767px) {
+  .site-header .logo {
+    width: 160px;
+  }
+  .entry h1 {
+    font-size: clamp(47px, 14.8vw, 85px);
+  }
+  .site-header nav {
+    font-size: 20px;
+  }
+  .site-header .header-contact {
+    white-space: nowrap;
+    font-size: 12px;
+  }
+  .entry-description {
+    font-size: 14px;
+  }
+  .entry-roles strong {
+    font-size: 16px;
+  }
+  .entry-roles small {
+    font-size: 10px;
+  }
+  .site-shell .footer-wordmark {
+    width: 260px;
+  }
+  .story-steps span {
+    font-size: 9px;
+  }
+}
+@media (max-width: 360px) {
+  .site-header {
+    padding-inline: 16px;
+  }
+  .site-header .logo {
+    width: 135px;
+  }
+  .site-header .header-contact {
+    margin-right: 8px;
+    gap: 12px;
+  }
+}
