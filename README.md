@@ -37,7 +37,15 @@ Sign in at `/studio-7c9e`. The portal's address is not its security mechanism: c
 
 The homepage presents imported copy in designed sections rather than a continuous text block. Section layout uses stable content IDs, so changing a heading does not break its layout. Images and text are still supplied by the portal's data.
 
+Product thickness filters on Products and Collections use the same supplied panel specifications as the detail pages. Edit the product's **Original Pages** specification table: the `Panel` column or an explicit `Thickness of Composite Panel (mm)`, `Panel Thickness`, or `ACP Thickness` row. Values must include `mm`. Coil/skin thickness, coating values, and panel lengths are excluded. For new products without an Original Pages record, use a structured product specification labelled `Panel thickness`, `ACP thickness`, `Published thickness`, or `Published thicknesses`. Original-page data takes precedence when present. Products without a documented thickness remain in the unfiltered listing. Draft preview and publication both derive the filter values from their respective content revisions; no per-product mapping needs updating in code.
+
 ## Included features
+
+Under **Site**, `headerStyle` accepts `tinted` (brand-tinted header with navy separator) or `white` (the original white alternative). Each footer link has an editable `group`; the footer renders those groups without dropping links. Its logo, tagline, description, contact details, and social links continue to use the Site content fields. The folded-panel artwork is decorative SVG and does not require an uploaded image.
+
+The homepage starts with role selection or **Explore CityBond** (`/?explore=1`). The six role journeys follow the supplied Customer Journey PDF; their section order, primary/secondary actions, and showcased project categories are editable under **Roles**. Internal browsing carries a validated `role` query parameter into forms, where the role can still be changed. Returning to the generic homepage clears that perspective. Project enquiry links carry a validated project slug separately from product selection.
+
+The product finder collects an enquiry before revealing its shortlist. It saves the chosen role and use case through the existing inbox endpoint; a failed submission keeps the form available for retry. Thirteen project/product associations were verified against supplied finish codes; their evidence is in `content/journey-project-links.json`.
 
 - Responsive CityBond branding, six role journeys, scroll-driven image assembly, keyboard-accessible material tabs and reduced-motion support.
 - Product collections, finish data, project galleries, company pages, network directory, material finder, resources and contact forms.

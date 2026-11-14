@@ -1,0 +1,37 @@
+.site-shell .resources-page .intro { padding-block: 44px 36px; }
+.site-shell .resources-page .intro h1 { font-size: clamp(42px, 5vw, 72px); }
+.site-shell .resources-page .intro-description { font-size: 17px; line-height: 1.7; }
+.resources-page .pills { gap: 12px; flex-wrap: wrap; }
+.site-shell .resources-page .pills button { font-size: 16px; min-height: 44px; padding: 10px 20px; cursor: pointer; }
+.site-shell .resources-page .resource-grid { gap: 36px 28px; }
+.site-shell .resources-page .all-resources { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 32px; }
+.site-shell .resources-page .resource-card { display: block; min-width: 0; }
+.site-shell .resources-page .resource-card .card-photo { aspect-ratio: 16 / 10; width: 100%; height: auto; }
+.site-shell .resources-page .resource-card h3 { font-size: 28px; line-height: 1.2; margin-block: 12px; }
+.site-shell .resources-page .resource-card .eyebrow { font-size: 12px; margin-top: 20px; }
+.site-shell .resources-page .resource-card > p:last-child { font-size: 16px; line-height: 1.7; margin: 0; }
+.resources-page .resource-card:hover h3 { color: var(--brand-red); }
+.resources-page :is(a, button):focus-visible { outline: 2px solid var(--brand-red); outline-offset: 4px; }
+.resource-hero { display: grid; grid-template-columns: 1.1fr 1fr; align-items: center; gap: 7%; padding-block: 44px 48px; }
+.resource-hero .breadcrumb { display: inline-block; font-size: 14px; margin-bottom: 28px; }
+.resource-hero h1 { font-size: clamp(42px, 4.5vw, 64px); line-height: 1.1; margin-block: 18px 24px; }
+.resource-description { font-size: 17px; line-height: 1.7; margin-bottom: 24px; }
+.resource-hero > img { width: 100%; aspect-ratio: 6 / 5; object-fit: cover; border-radius: 4px; }
+.resource-detail-page .resource-body { max-width: none; padding-block: 0 24px; }
+.resource-body > h2, .resource-body > h3, .resource-presence h3 { font-family: var(--font-sans); font-size: 26px; line-height: 1.3; margin-block: 32px 16px; }
+.resource-body p, .resource-body li { font-size: 17px; line-height: 1.8; }
+.resource-body .resource-presence { margin-block: 32px; padding-block: 8px 24px; border-block: 1px solid var(--line); }
+.resource-presence ul { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 14px 24px; list-style: none; padding: 0; margin: 0; }
+.resource-presence li { margin: 0; padding: 0; }
+.resource-presence a { display: inline-block; padding-block: 4px; }
+.resource-presence a:hover { color: var(--brand-red); text-decoration: underline; text-underline-offset: 4px; }
+.site-shell .resource-detail-page > .section { padding-block: 40px 64px; }
+@media (max-width: 760px) {
+  .site-shell .resources-page .intro { padding-block: 28px; }
+  .resource-hero { grid-template-columns: 1fr; gap: 28px; padding-block: 28px 36px; }
+  .resource-hero > img { aspect-ratio: 3 / 2; max-height: 300px; }
+  .site-shell .resources-page .resource-grid { grid-template-columns: 1fr; gap: 32px; }
+  .site-shell .resources-page .resource-card h3 { font-size: 25px; }
+  .resource-body p, .resource-body li { font-size: 16px; }
+  .resource-presence ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
