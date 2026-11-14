@@ -44,7 +44,8 @@ test('portal-created posts route dynamically; drafts remain private and examples
   edited.blogs.push(edited.blogs[0]); assert.throws(()=>validateContent(edited),/Duplicate/);
 });
 test('older content gains required pages and editable navigation without losing owner copy',()=>{
-  const old=structuredClone(seed) as Record<string, any>;
+  const old=structuredClone(seed) as Omit<typeof seed, "routeRevision" | "blog" | "blogs"> &
+    Partial<Pick<typeof seed, "routeRevision" | "blog" | "blogs">>;
   delete old.routeRevision; delete old.blog; delete old.blogs;
   old.pages=old.pages.slice(0,18); old.home.title='Owner headline';
   const migrated=validateContent(old);

@@ -1,0 +1,646 @@
+{
+  "sourceFolders": [
+    "https://drive.google.com/drive/folders/1mcBauMm4jJVqqv5lMJi0oKAmVu2n1f54",
+    "https://drive.google.com/drive/folders/1-ImAZ6fMJ1atuXRlKMSBGw1pibhfnwI_"
+  ],
+  "note": "Client-supplied photos. Locations and finish names come from accompanying text when present. No product collection mapping inferred. One empty details file; the last residential folder contains hospital imagery and hospital metadata, so it is classified as a hospital.",
+  "assets": [
+    {
+      "index": 0,
+      "path": "/citybond/projects/brand-projects-berger-king.webp",
+      "sourceUrl": "https://drive.google.com/file/d/1GsfUxtRM3DTOuDcjjYiAy9K3fnjNSpwd/view",
+      "sourceName": "Berger King.jpeg",
+      "folder": "Brand Projects",
+      "originalWidth": 1080,
+      "originalHeight": 1168,
+      "width": 1080,
+      "height": 1168,
+      "bytes": 163000,
+      "sha256": "5d63d0707495c6c302e754db83e3e7ffdcd514ea508a1fde39f8a357ddf79360",
+      "review": "Visually reviewed; client-supplied project photograph.",
+      "usage": [
+        "projects.14.image"
+      ],
+      "alt": "Burger King storefront with red branding and an entrance ramp"
+    },
+    {
+      "index": 1,
+      "path": "/citybond/projects/brand-projects-bike-aexpert-1.webp",
+      "sourceUrl": "https://drive.google.com/file/d/1dh3CVxkSbmQxVsZuKYioRdzvOw5rAMAU/view",
+      "sourceName": "Bike AExpert -1.jpeg",
+      "folder": "Brand Projects",
+      "originalWidth": 1280,
+      "originalHeight": 960,
+      "width": 1280,
+      "height": 960,
+      "bytes": 148712,
+      "sha256": "1cc31311f8f889aa5292b94454fce921fc11cf2d216705ec1192aee9901ce0e4",
+      "review": "Visually reviewed; client-supplied project photograph.",
+      "usage": [
+        "projects.15.image"
+      ],
+      "alt": "Bike Xpert service centre with red branded fascia"
+    },
+    {
+      "index": 2,
+      "path": "/citybond/projects/brand-projects-bike-expert-2.webp",
+      "sourceUrl": "https://drive.google.com/file/d/1U4kB6qCl6Vfh-8XtfS86p3NC0wH8B2Rb/view",
+      "sourceName": "Bike Expert -2.jpeg",
+      "folder": "Brand Projects",
+      "originalWidth": 1600,
+      "originalHeight": 715,
+      "width": 1600,
+      "height": 715,
+      "bytes": 61796,
+      "sha256": "96126d02b478486336118d4a2da04906641cb8857b34db4042f2af446caa10ed",
+      "review": "Visually reviewed; client-supplied project photograph.",
+      "usage": [
+        "roles.2.image"
+      ],
+      "alt": "Illuminated Bike Xpert signage at night"
+    },
+    {
+      "index": 3,
+      "path": "/citybond/projects/brand-projects-bike-expert-3.webp",
+      "sourceUrl": "https://drive.google.com/file/d/17qJd-OyQ5xwhCBxpkqLd7P51F2ZDDBYJ/view",
+      "sourceName": "Bike Expert -3.jpeg",
+      "folder": "Brand Projects",
+      "originalWidth": 1600,
+      "originalHeight": 1200,
+      "width": 1600,
+      "height": 1200,
+      "bytes": 368918,
+      "sha256": "13bbd2c6aa8f392fbc00e28d51ff99660d896a7df94c6b6eb9c4c01016735772",
+      "review": "Visually reviewed; client-supplied project photograph.",
+      "usage": [
+        "pages.13.image"
+      ],
+      "alt": "Two-storey Bike Xpert storefront with red branded panels"
+    },
+    {
+      "index": 4,
+      "path": "/citybond/projects/brand-projects-corporate-amul.webp",
+      "sourceUrl": "https://drive.google.com/file/d/1PgSs7WSa9JaZaRGVrbveEC7xyagCdJk9/view",
+      "sourceName": "Corporate - Amul.jpeg",
+      "folder": "Brand Projects",
+      "originalWidth": 1000,
+      "originalHeight": 562,
+      "width": 1000,
+      "height": 562,
+      "bytes": 85576,
+      "sha256": "5820456a0fa12cf93f28b4ce28300e6abb162763854673b6c7075d49576cb461",
+      "review": "Visually reviewed; client-supplied project photograph.",
+      "usage": [
+        "projects.16.image"
+      ],
+      "alt": "Amul storefront with red fascia and white lettering"
+    },
+    {
+      "index": 5,
+      "path": "/citybond/projects/brand-projects-corporate-burger-king.webp",
+      "sourceUrl": "https://drive.google.com/file/d/1ijq_hymtpkY1uxscupIHYyhPT9e3Ts2I/view",
+      "sourceName": "Corporate - Burger King.jpg",
+      "folder": "Brand Projects",
+      "originalWidth": 640,
+      "originalHeight": 480,
+      "width": 640,
+      "height": 480,
+      "bytes": 56702,
+      "sha256": "e5602c0bab7f9a2c68db601ddd79949d4ed9616028661efffbb6829a8881479a",
+      "review": "Visually reviewed; client-supplied project photograph. Retained as an alternate; not used in the current page selection.",
+      "usage": [],
+      "alt": "Burger King entrance and branded storefront"
+    },
+    {
+      "index": 6,
+      "path": "/citybond/projects/brand-projects-corporate-hp.webp",
+      "sourceUrl": "https://drive.google.com/file/d/1-1uO6jvy8-6vIerClBwMGWfFhKBTqE2B/view",
+      "sourceName": "Corporate - HP.jpg",
+      "folder": "Brand Projects",
+      "originalWidth": 719,
+      "originalHeight": 769,
+      "width": 719,
+      "height": 769,
+      "bytes": 52204,
+      "sha256": "cf8da5db633271a1df191bf008b269196155127f3ca75e5a8bb9bf09d8ed933f",
+      "review": "Visually reviewed; client-supplied project photograph.",
+      "usage": [
+        "projects.17.image"
+      ],
+      "alt": "HP World shopfront illuminated in blue"
+    },
+    {
+      "index": 7,
+      "path": "/citybond/projects/brand-projects-corporate-hpcl.webp",
+      "sourceUrl": "https://drive.google.com/file/d/1oiJmxNakl-n0RYF3F2cIYNMTG47A2lCq/view",
+      "sourceName": "Corporate - HPCL.jpg",
+      "folder": "Brand Projects",
+      "originalWidth": 960,
+      "originalHeight": 720,
+      "width": 960,
+      "height": 720,
+      "bytes": 106448,
+      "sha256": "c6bc4309d4bfbfcd09b9b664e847b22ac376f197d510e8becdcc886b5d887e50",
+      "review": "Visually reviewed; client-supplied project photograph.",
+      "usage": [
+        "projects.18.image"
+      ],
+      "alt": "HPCL service station canopy and branded sign"
+    },
+    {
+      "index": 8,
+      "path": "/citybond/projects/brand-projects-corporate-igl.webp",
+      "sourceUrl": "https://drive.google.com/file/d/1xWXORcyt_WcKMLn3uYpYau6ws5bO2ctb/view",
+      "sourceName": "Corporate - IGL.jpg",
+      "folder": "Brand Projects",
+      "originalWidth": 1280,
+      "originalHeight": 640,
+      "width": 1280,
+      "height": 640,
+      "bytes": 133940,
+      "sha256": "ebea176e17dfb104d08c872c3dd1bb57ef1083a3930d6fb6644cb2327871b857",
+      "review": "Visually reviewed; client-supplied project photograph.",
+      "usage": [
+        "projects.19.image"
+      ],
+      "alt": "IGL service station with green and yellow canopy"
+    },
+    {
+      "index": 9,
+      "path": "/citybond/projects/brand-projects-corporate-indian-oil.webp",
+      "sourceUrl": "https://drive.google.com/file/d/1j1aLoUN2IkFZtiv5RO174r89PMCRC1of/view",
+      "sourceName": "Corporate - Indian Oil.jpg",
+      "folder": "Brand Projects",
+      "originalWidth": 4048,
+      "originalHeight": 2816,
+      "width": 2200,
+      "height": 1530,
+      "bytes": 516286,
+      "sha256": "010862dff08ceba74d235766c6290b255063a116ed85ce70a86b58bfcc41574a",
+      "review": "Visually reviewed; client-supplied project photograph.",
+      "usage": [
+        "projects.20.image",
+        "pages.23.image",
+        "resources.4.image"
+      ],
+      "alt": "Indian Oil service station with orange and blue canopy"
+    },
+    {
+      "index": 10,
+      "path": "/citybond/projects/brand-projects-corporate-madras-coffee.webp",
+      "sourceUrl": "https://drive.google.com/file/d/1imU0Sh8raaYm3qOWJp6JetYPZlzbQ1P9/view",
+      "sourceName": "Corporate - Madras Coffee.jpg",
+      "folder": "Brand Projects",
+      "originalWidth": 1600,
+      "originalHeight": 1200,
+      "width": 1600,
+      "height": 1200,
+      "bytes": 271650,
+      "sha256": "6acfdbd04023e91a6a2cb1008fd6d93f56ad2305d9fa162ef89504ea4c6acadf",
+      "review": "Visually reviewed; client-supplied project photograph.",
+      "usage": [
+        "projects.21.image"
+      ],
+      "alt": "Madras Filter Coffee storefront with vertical sign panels"
+    },
+    {
+      "index": 11,
+      "path": "/citybond/projects/brand-projects-corporate-samsung.webp",
+      "sourceUrl": "https://drive.google.com/file/d/12B0VtbZtfzlapL_7R5TsNQXSNVxhRYai/view",
+      "sourceName": "Corporate - Samsung.jpg",
+      "folder": "Brand Projects",
+      "originalWidth": 1067,
+      "originalHeight": 622,
+      "width": 1067,
+      "height": 622,
+      "bytes": 59522,
+      "sha256": "a1541211f4995eef6fed48d5ac93f5f5b279b4b2ae8513fc50e7f31200dfc274",
+      "review": "Visually reviewed; client-supplied project photograph.",
+      "usage": [
+        "projects.22.image"
+      ],
+      "alt": "Samsung storefront with dark fascia and white lettering"
+    },
+    {
+      "index": 12,
+      "path": "/citybond/projects/brand-projects-corporate-sbi.webp",
+      "sourceUrl": "https://drive.google.com/file/d/1OJffyleCh6qieRsNJzZX7LHTDhFL7_Im/view",
+      "sourceName": "Corporate - SBI.jpg",
+      "folder": "Brand Projects",
+      "originalWidth": 640,
+      "originalHeight": 390,
+      "width": 640,
+      "height": 390,
+      "bytes": 27272,
+      "sha256": "5682442562a6c95511f369647c0c5774336d4569681ba03fdf1af9027eebbe0e",
+      "review": "Visually reviewed; client-supplied project photograph.",
+      "usage": [
+        "projects.23.image"
+      ],
+      "alt": "SBI building with blue signage and curved glazing"
+    },
+    {
+      "index": 13,
+      "path": "/citybond/projects/brand-projects-corporate-senco.webp",
+      "sourceUrl": "https://drive.google.com/file/d/15WW4a_mcHutT0-nFX0ssFmpKG-veh4so/view",
+      "sourceName": "Corporate - Senco.jpg",
+      "folder": "Brand Projects",
+      "originalWidth": 2000,
+      "originalHeight": 1500,
+      "width": 2000,
+      "height": 1500,
+      "bytes": 274726,
+      "sha256": "bb21766d3ffdbfd845b791ea7428528e4e54f69c76f240a9075ed5566b124bcc",
+      "review": "Visually reviewed; client-supplied project photograph.",
+      "usage": [
+        "projects.24.image"
+      ],
+      "alt": "Senco Gold and Diamonds storefront with red fascia"
+    },
+    {
+      "index": 14,
+      "path": "/citybond/projects/brand-projects-corporate-tata-motors.webp",
+      "sourceUrl": "https://drive.google.com/file/d/1JEckVb-EpRgjwe2laJtKJFnU6dyF49Mv/view",
+      "sourceName": "Corporate - Tata Motors.jpeg",
+      "folder": "Brand Projects",
+      "originalWidth": 1600,
+      "originalHeight": 1200,
+      "width": 1600,
+      "height": 1200,
+      "bytes": 188172,
+      "sha256": "770abb7341da0857b5d1cf8a0fec4fcc56d1d64403b5ac1e3b1f16fb6adad27b",
+      "review": "Visually reviewed; client-supplied project photograph.",
+      "usage": [
+        "projects.25.image",
+        "pages.8.image"
+      ],
+      "alt": "Tata Motors service facility with blue and white branding"
+    },
+    {
+      "index": 15,
+      "path": "/citybond/projects/brand-projects-corporate-v-mart.webp",
+      "sourceUrl": "https://drive.google.com/file/d/19Rb0cC5B7C-3F7NaS6Wep6TvP7YK79Kc/view",
+      "sourceName": "Corporate - V Mart.jpg",
+      "folder": "Brand Projects",
+      "originalWidth": 2009,
+      "originalHeight": 2560,
+      "width": 1883,
+      "height": 2400,
+      "bytes": 356070,
+      "sha256": "3d98741985aa4c32783452cb623a01be5dc7764051eaeb9dce2c864470b76bf4",
+      "review": "Visually reviewed; client-supplied project photograph.",
+      "usage": [
+        "roles.3.image",
+        "projects.26.image"
+      ],
+      "alt": "V Mart retail facade with vertical grey cladding"
+    },
+    {
+      "index": 17,
+      "path": "/citybond/projects/commercial-ap-ts-hotel-goutham.webp",
+      "sourceUrl": "https://drive.google.com/file/d/1o6Y8GwgTTkVzNc2H3WuOdlupBCrVmPBl/view",
+      "sourceName": "Hotel Goutham.png",
+      "folder": "Website Photos/Commercial AP&TS",
+      "originalWidth": 1536,
+      "originalHeight": 1024,
+      "width": 1536,
+      "height": 1024,
+      "bytes": 255112,
+      "sha256": "cb225ef0aea03a3777b87f34644736521c0af2e870f4d926656093b31aa0218a",
+      "review": "Visually reviewed; client-supplied project photograph.",
+      "usage": [
+        "projects.2.image"
+      ],
+      "alt": "Hotel Gautham facade with white and silver vertical panels"
+    },
+    {
+      "index": 18,
+      "path": "/citybond/projects/commercial-bangalore-25000-sqft-project-fortune-sakura-in-electronic-bangalore-2.webp",
+      "sourceUrl": "https://drive.google.com/file/d/1GID1KsUjVVggYfRnHogbrONTNM80lbBf/view",
+      "sourceName": "25000 Sqft Project - Fortune Sakura in Electronic - Bangalore-2.jpeg",
+      "folder": "Website Photos/Commercial Bangalore",
+      "originalWidth": 1600,
+      "originalHeight": 1200,
+      "width": 1600,
+      "height": 1200,
+      "bytes": 331466,
+      "sha256": "2b36e6ba7aa2cd41342973a250f91d11d27b47b937be8b68ef8b68fc8608c23f",
+      "review": "Visually reviewed; client-supplied project photograph.",
+      "usage": [
+        "roles.4.image",
+        "products.4.image",
+        "projects.0.image",
+        "pages.22.image",
+        "pages.27.image"
+      ],
+      "alt": "Fortune Sakura commercial building with silver panels, glazing and landscaped forecourt"
+    },
+    {
+      "index": 21,
+      "path": "/citybond/projects/commercial-prayagraj-resort-prayagraj.webp",
+      "sourceUrl": "https://drive.google.com/file/d/13mZHhzslO2IumYHZxYovAdgMF1XWmurI/view",
+      "sourceName": "Resort - Prayagraj.png",
+      "folder": "Website Photos/Commercial Prayagraj",
+      "originalWidth": 1672,
+      "originalHeight": 941,
+      "width": 1672,
+      "height": 941,
+      "bytes": 172412,
+      "sha256": "59a85dc4893a99c230859af3e3731c0f6595d24ae92d28f4b768f1ecb1add18a",
+      "review": "Visually reviewed; client-supplied project photograph.",
+      "usage": [
+        "projects.3.image",
+        "resources.2.image"
+      ],
+      "alt": "Shanbh Resort facade in Prayagraj with bronze-toned cladding and tall windows"
+    },
+    {
+      "index": 22,
+      "path": "/citybond/projects/commercial-rajgarh-ct-71-ct-215-rajgarh.webp",
+      "sourceUrl": "https://drive.google.com/file/d/1g8jo8s8KlTpYxBuj_0q_im6mmLhEU5-1/view",
+      "sourceName": "CT-71   CT-215  Rajgarh.png",
+      "folder": "Website Photos/Commercial Rajgarh",
+      "originalWidth": 1448,
+      "originalHeight": 1086,
+      "width": 1448,
+      "height": 1086,
+      "bytes": 260040,
+      "sha256": "15b7f5e5ea2a5daff6a7e8b572980cbf0155f8955e9ed9a8a69dcbad421619e0",
+      "review": "Visually reviewed; client-supplied project photograph.",
+      "usage": [
+        "products.2.image",
+        "projects.4.image"
+      ],
+      "alt": "Highway King hotel facade in Rajgarh with grey and wood-look panels"
+    },
+    {
+      "index": 25,
+      "path": "/citybond/projects/commerical-ap-ts-sastra-college-vijayawada.webp",
+      "sourceUrl": "https://drive.google.com/file/d/1eHATj6RiQJ3RqvNFkd4JyqET8Vhmqoua/view",
+      "sourceName": "Sastra College - Vijayawada.jpg",
+      "folder": "Website Photos/Commerical AP&TS",
+      "originalWidth": 1530,
+      "originalHeight": 908,
+      "width": 1530,
+      "height": 908,
+      "bytes": 157438,
+      "sha256": "f311a6c1e8512768b454e8e6a2e6c0ff683ac9f4a8b4ffc39e42d620a803d7f9",
+      "review": "Visually reviewed; client-supplied project photograph.",
+      "usage": [
+        "products.6.image",
+        "projects.5.image",
+        "pages.48.image"
+      ],
+      "alt": "Sastra College in Vijayawada with grey panels and orange accents"
+    },
+    {
+      "index": 26,
+      "path": "/citybond/projects/community-center-delhi-community-center-nangloi-delhi.webp",
+      "sourceUrl": "https://drive.google.com/file/d/1nPRUPnFw32FfbDKWI9wgjSKD6YWnoCfE/view",
+      "sourceName": "Community Center  Nangloi - Delhi.jpg",
+      "folder": "Website Photos/Community Center - Delhi",
+      "originalWidth": 9043,
+      "originalHeight": 5462,
+      "width": 2200,
+      "height": 1329,
+      "bytes": 278666,
+      "sha256": "ad5a7e708053dd7e0f677afa34d6b8be554148ae0262c2759a6735b6fb4e050c",
+      "review": "Visually reviewed; client-supplied project photograph.",
+      "usage": [
+        "home.scrollImage",
+        "roles.1.image",
+        "projects.6.image",
+        "pages.2.image",
+        "pages.4.image",
+        "pages.9.image",
+        "pages.26.image"
+      ],
+      "alt": "Nangloi community centre facade with silver panels and warm-toned vertical sections"
+    },
+    {
+      "index": 29,
+      "path": "/citybond/projects/hospital-jalandhar-kamal-hospital.webp",
+      "sourceUrl": "https://drive.google.com/file/d/1KVPExb5gPLwYdOjPyTTnbvqDkynh9clp/view",
+      "sourceName": "Kamal - Hospital.png",
+      "folder": "Website Photos/Hospital Jalandhar",
+      "originalWidth": 1195,
+      "originalHeight": 896,
+      "width": 1195,
+      "height": 896,
+      "bytes": 115382,
+      "sha256": "9fb080c3f6e66f86ba4547c2e33763d455f9546490cd4cfe8a9a493ceff647d8",
+      "review": "Visually reviewed; client-supplied project photograph.",
+      "usage": [
+        "projects.7.image"
+      ],
+      "alt": "Kamal Hospital entrance in Jalandhar with metallic facade panels"
+    },
+    {
+      "index": 31,
+      "path": "/citybond/projects/residential-appt-dji-20260915145727-0084-d.webp",
+      "sourceUrl": "https://drive.google.com/file/d/1ls0JWyKoPVfr6qO32UKq6-H1LJc4hLcO/view",
+      "sourceName": "DJI_20260915145727_0084_D.jpg",
+      "folder": "Website Photos/Residential appt",
+      "originalWidth": 4731,
+      "originalHeight": 5867,
+      "width": 1935,
+      "height": 2400,
+      "bytes": 701898,
+      "sha256": "8e9cd335f369e3881b6a92137e619d86f49d063bfa90d70d8d4db02e58a17c96",
+      "review": "Visually reviewed; client-supplied project photograph.",
+      "usage": [
+        "home.image",
+        "roles.0.image",
+        "projects.8.image"
+      ],
+      "alt": "White and dark-panel residential building with arched windows in New Delhi"
+    },
+    {
+      "index": 33,
+      "path": "/citybond/projects/residential-greater-noida-raj-9407-hdr-1.webp",
+      "sourceUrl": "https://drive.google.com/file/d/1uJ9znHVRiR9hgX5ifmmSHHtjESjI6bea/view",
+      "sourceName": "RAJ_9407-HDR (1).jpg",
+      "folder": "Website Photos/Residential Greater Noida",
+      "originalWidth": 7204,
+      "originalHeight": 4803,
+      "width": 2200,
+      "height": 1466,
+      "bytes": 409896,
+      "sha256": "f800325e6bde01327931760a30265c1304ecaaf63a51f1d70603975f42aa0726",
+      "review": "Visually reviewed; client-supplied project photograph.",
+      "usage": [
+        "home.aboutImage",
+        "roles.5.image",
+        "products.0.image",
+        "projects.1.image",
+        "pages.10.image",
+        "pages.12.image"
+      ],
+      "alt": "Greater Noida villa with warm stone-look cladding, balconies and a landscaped entrance"
+    },
+    {
+      "index": 35,
+      "path": "/citybond/projects/residential-greater-noida-2-dji-20260917125629-0100-d-hdr.webp",
+      "sourceUrl": "https://drive.google.com/file/d/16oi8YzuaiAjzF_B56PgfpnlbTfNAwP3f/view",
+      "sourceName": "DJI_20260917125629_0100_D-HDR.jpg",
+      "folder": "Website Photos/Residential Greater Noida 2",
+      "originalWidth": 7799,
+      "originalHeight": 5931,
+      "width": 2200,
+      "height": 1673,
+      "bytes": 725492,
+      "sha256": "0b118d4473b83119377ce8c1e220e0432a68dda97e2c7c8ee3dfe686ff0ef9e9",
+      "review": "Visually reviewed; client-supplied project photograph.",
+      "usage": [
+        "projects.9.image",
+        "pages.5.image"
+      ],
+      "alt": "Residential building with timber-toned facade panels and planted balconies"
+    },
+    {
+      "index": 37,
+      "path": "/citybond/projects/residential-greater-noida-3-dji-20260917132534-0137-d.webp",
+      "sourceUrl": "https://drive.google.com/file/d/1JtdYgw4NZsUVwfHaw4W-OqQuIcNDOZnv/view",
+      "sourceName": "DJI_20260917132534_0137_D.jpg",
+      "folder": "Website Photos/Residential Greater Noida 3",
+      "originalWidth": 3575,
+      "originalHeight": 6979,
+      "width": 1229,
+      "height": 2400,
+      "bytes": 506596,
+      "sha256": "9bbfae14427b83e45eda335ee247075a3220f95ba3d1912798230e2f08ad8d78",
+      "review": "Visually reviewed; client-supplied project photograph.",
+      "usage": [
+        "projects.10.image"
+      ],
+      "alt": "Greater Noida residence with grey cladding and wood-look balcony frames"
+    },
+    {
+      "index": 39,
+      "path": "/citybond/projects/residential-greater-noida-4-dji-20260917141009-0152-d.webp",
+      "sourceUrl": "https://drive.google.com/file/d/1KOflF21olGdsmqksX9SjiogCpIUvbF4X/view",
+      "sourceName": "DJI_20260917141009_0152_D.jpg",
+      "folder": "Website Photos/Residential Greater Noida 4",
+      "originalWidth": 4800,
+      "originalHeight": 8351,
+      "width": 1380,
+      "height": 2400,
+      "bytes": 502504,
+      "sha256": "ea00632bae7917012ffc7095fdf8f73a4c15347c94084c873c5e1b8e8847cee0",
+      "review": "Visually reviewed; client-supplied project photograph.",
+      "usage": [
+        "products.1.image",
+        "projects.11.image"
+      ],
+      "alt": "Greater Noida residence with orange-toned frames and dark facade panels"
+    },
+    {
+      "index": 41,
+      "path": "/citybond/projects/residential-greater-noida-5-dji-20260917153021-0165-d.webp",
+      "sourceUrl": "https://drive.google.com/file/d/15hjizNRxOA-suiBmHgRCbcMqgMP-f6xh/view",
+      "sourceName": "DJI_20260917153021_0165_D.jpg",
+      "folder": "Website Photos/Residential Greater Noida 5",
+      "originalWidth": 4280,
+      "originalHeight": 8107,
+      "width": 1267,
+      "height": 2400,
+      "bytes": 410254,
+      "sha256": "c651a97c09a595f46be3ceb2edf55d987821977a837dec5214960504b133761c",
+      "review": "Visually reviewed; client-supplied project photograph.",
+      "usage": [
+        "projects.12.image"
+      ],
+      "alt": "Greater Noida residence with wood-look panels and a gated entrance"
+    },
+    {
+      "index": 43,
+      "path": "/citybond/projects/residential-greater-noida-6-raj-9027-hdr.webp",
+      "sourceUrl": "https://drive.google.com/file/d/17CzDEV3jvC_rxBQHmTfgApGfF2iMAKwA/view",
+      "sourceName": "RAJ_9027-HDR.jpg",
+      "folder": "Website Photos/Residential Greater Noida 6",
+      "originalWidth": 6585,
+      "originalHeight": 5478,
+      "width": 2200,
+      "height": 1830,
+      "bytes": 383566,
+      "sha256": "5a48cfa5285ba77c5d7030444a11805cd3489c7472eec8b23c8fea2976fa1217",
+      "review": "Visually reviewed; client-supplied project photograph.",
+      "usage": [
+        "projects.13.image"
+      ],
+      "alt": "Bharam Shakti Hospital in New Delhi with ivory and brown facade panels"
+    }
+  ],
+  "details": [
+    {
+      "sourceUrl": "https://drive.google.com/file/d/1MgZ81FuvzpaXF7v4-uy6tjyPwPe5NCyB/view",
+      "folder": "Website Photos/Commercial AP&TS",
+      "text": "Category : Hotel\t\r\nName : Hotel Gautham\r\nLocation : Vijayawada\r\nProduct : CT-62 Pure White\r\n          CT-01 Bright Silver\r\n          Ct-15 Super Metallic Black"
+    },
+    {
+      "sourceUrl": "https://drive.google.com/file/d/16JWVqxoM77s-uVS1g1CskskmrqCRmtXc/view",
+      "folder": "Website Photos/Commercial Bangalore",
+      "text": "Category : Commercial\r\nName : Fortune Sakura\r\nLocation : Bangalore\r\nProduct : CT-01 Bright Silver"
+    },
+    {
+      "sourceUrl": "https://drive.google.com/file/d/12wfqMBUD6hnxYUnzpKnJJzEvu73Ta_b3/view",
+      "folder": "Website Photos/Commercial Prayagraj",
+      "text": "Category : Commercial\r\nName : Shanbh Resort\r\nLocation : Prayagraj\r\nProduct :  CT-09 Metallic Bronze"
+    },
+    {
+      "sourceUrl": "https://drive.google.com/file/d/1ZE9ZcuY1S_Qo94rJuQO96OYTfJ-sdyRA/view",
+      "folder": "Website Photos/Commercial Rajgarh",
+      "text": "Category : Hotel\r\nName : Highway King\r\nLocation : Rajgarh\r\nProduct : CT-71 Slate Grey\r\n          CT-215 Novacentopine"
+    },
+    {
+      "sourceUrl": "https://drive.google.com/file/d/1QkQPM6TGFBBrvrqN5pmObog-HLWyUtzr/view",
+      "folder": "Website Photos/Commerical AP&TS",
+      "text": "Category : Commercial\r\nName : Sastra College\r\nLocation : Vijayawada\r\nProduct : CT-71 Slate Grey\r\n          CT-58 Orange"
+    },
+    {
+      "sourceUrl": "https://drive.google.com/file/d/184ktcf3kG9y7WahuecvIXPOPHJGjcr3g/view",
+      "folder": "Website Photos/Community Center - Delhi",
+      "text": "Category : Commercial\r\nName : Community Center\r\nLocation : Nangloi, New Delhi\r\nProduct : CT-01 Bright Silver\r\n          CT-08 Metallic Cooper\r\n          CT-16 Gate Grey"
+    },
+    {
+      "sourceUrl": "https://drive.google.com/file/d/1Q2M2Iq9RI-93G9pGjigE3eqcnjHSzWLM/view",
+      "folder": "Website Photos/Hospital Jalandhar",
+      "text": "Category : Hospital\r\nName : Kamal Hospital\r\nLocation : Jalandhar\r\nProduct : CT-09 Metallic Bronze\r\n          CT-01 Bright Silver"
+    },
+    {
+      "sourceUrl": "https://drive.google.com/file/d/1oWJ6ZjZb5a_hGkCgnd8e-UqH6YQAgEMd/view",
+      "folder": "Website Photos/Residential appt",
+      "text": "Category : Residential\r\nName : Luxury Appartments\r\nLocation : New Delhi\r\nProduct : CT-64 Ivory White\r\n          CT-213 Royal Teak"
+    },
+    {
+      "sourceUrl": "https://drive.google.com/file/d/125bcFATIHgMzCjuGT6xsTfegna_rSMVZ/view",
+      "folder": "Website Photos/Residential Greater Noida",
+      "text": "Category : Residential\r\nName : Luxury Villa\r\nLocation : Greater Noida\r\nProduct : LM-113 Basalt Beige\r\n          CT-213 Royal Teak"
+    },
+    {
+      "sourceUrl": "https://drive.google.com/file/d/19gXpvgwVhmcLI9VivoK2x4PhMQfwpUK7/view",
+      "folder": "Website Photos/Residential Greater Noida 2",
+      "text": ""
+    },
+    {
+      "sourceUrl": "https://drive.google.com/file/d/1rCNKvtJBnSmq7UNyxYu5U_a2sRYoKIOj/view",
+      "folder": "Website Photos/Residential Greater Noida 3",
+      "text": "Category : Residential\r\nName : Luxury House\r\nLocation : Greater Noida\r\nProduct : CT-71\tSlate Grey\r\n          CT-219 Santosa"
+    },
+    {
+      "sourceUrl": "https://drive.google.com/file/d/1rvDh2PUPGCNt3eGkDwD9YYp4iVkf9mLJ/view",
+      "folder": "Website Photos/Residential Greater Noida 4",
+      "text": "Category : Residential\r\nName : Luxury House\r\nLocation : Greater Noida\r\nProduct : CT-278 Corten Steel\r\n          CT-251 Funder Teak\r\n          CT-71 Slate Grey"
+    },
+    {
+      "sourceUrl": "https://drive.google.com/file/d/1MQBzBM7WInUUE-AXTESn_HZF2BUpZ6EI/view",
+      "folder": "Website Photos/Residential Greater Noida 5",
+      "text": "Category : Residential\r\nName : Luxury House\r\nLocation : Greater Noida\r\nProduct :  CT-219 Santosa"
+    },
+    {
+      "sourceUrl": "https://drive.google.com/file/d/1SQzOQgkVqvbVN1h2ZMNj9IgxdIj_IT_9/view",
+      "folder": "Website Photos/Residential Greater Noida 6",
+      "text": "Category : Hospital\r\nName : Bharam Shakti Hospital\r\nLocation : New Delhi\r\nProduct : CT-64 Ivory White\r\n          CT-68 Coffee Brown"
+    }
+  ]
+}

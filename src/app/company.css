@@ -1,0 +1,96 @@
+.company-hero { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 7%; padding-block: 44px 48px; }
+.company-hero-text { grid-template-columns: 1fr; }
+.company-hero .breadcrumb { display: inline-block; margin-bottom: 26px; font-size: 14px; }
+.company-hero h1 { font-size: clamp(42px, 5vw, 72px); line-height: 1.08; margin-block: 18px 24px; }
+.company-intro { font-size: 18px; line-height: 1.7; max-width: 52ch; }
+.company-hero > img { width: 100%; aspect-ratio: 6 / 5; object-fit: cover; border-radius: 4px; }
+.company-content { padding-bottom: 48px; }
+.company-content .original-copy { width: 100%; max-width: none; padding: 0; }
+.company-content .original-copy p, .company-content .original-copy li { font-size: 17px; line-height: 1.8; }
+.company-content .original-copy > h2 { font-size: clamp(30px, 3vw, 42px); margin-top: 40px; }
+.company-content .original-copy > h3 { font-size: 24px; margin-top: 28px; }
+.company-content .original-copy > :first-child { margin-top: 0; }
+.company-content .home-brands { padding-block: 36px 48px; }
+.company-content .company-timeline { list-style: none; padding: 0; margin: 32px 0 48px; }
+.company-timeline > li { position: relative; display: grid; grid-template-columns: 190px minmax(0, 1fr); gap: 44px; padding: 0 0 36px; }
+.company-timeline > li::before { content: ""; position: absolute; left: 208px; top: 16px; bottom: -16px; width: 1px; background: var(--line); }
+.company-timeline > li:last-child { padding-bottom: 0; }
+.company-timeline > li:last-child::before { bottom: 0; }
+.company-timeline > li::after { content: ""; position: absolute; left: 203px; top: 14px; width: 11px; height: 11px; border-radius: 50%; background: var(--brand-red); box-shadow: 0 0 0 5px white; }
+.company-timeline-year { font-family: var(--font-display); font-size: 40px; line-height: 1.1; color: var(--ink); }
+.company-timeline-copy { padding-left: 16px; padding-bottom: 24px; border-bottom: 1px solid var(--line); }
+.company-timeline-copy > h3 { font-size: 26px; line-height: 1.25; margin: 0 0 16px; }
+.company-timeline-copy > p { margin: 0 0 12px; }
+.company-timeline-copy > :last-child { margin-bottom: 0; }
+@media (prefers-reduced-motion: no-preference) {
+  .timeline-scroll-active > li::before { width: 2px; background: linear-gradient(to bottom, var(--brand-red) calc(var(--timeline-progress, 0) * 100%), var(--line) 0); }
+  .timeline-scroll-active > li::after { background: #d9d7e6; }
+  .timeline-scroll-active > .timeline-reached::after { background: var(--brand-red); }
+  .timeline-scroll-active > .timeline-reached .company-timeline-year { color: var(--brand-red); }
+  .timeline-scroll-active .company-timeline-copy { transform: translateY(calc((1 - var(--timeline-progress, 0)) * 12px)); }
+}
+.company-leaders { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+.company-leaders article { border-top: 2px solid var(--ink); padding-top: 24px !important; }
+.company-leaders article > img { width: 100%; max-height: 360px; object-fit: cover; margin-bottom: 24px; }
+.company-leaders .original-copy > h3:first-of-type { font-size: 36px; }
+.company-leaders .original-copy > h3 + h3 { font-size: 20px; margin-top: 12px; color: var(--muted); }
+.company-navigation { padding-block: 24px 48px; border-top: 1px solid var(--line); }
+.company-navigation > div { display: flex; flex-wrap: wrap; gap: 16px 32px; }
+.company-navigation a { display: inline-flex; align-items: center; gap: 12px; font-size: 17px; padding-block: 8px; }
+.company-navigation a:hover, .company-content a:hover { color: var(--brand-red); }
+.company-page a:focus-visible { outline: 2px solid var(--brand-red); outline-offset: 4px; }
+.company-form-page > .original-copy { max-width: none; padding-block: 0 36px; }
+.company-form-page > .original-copy > h3 { font-size: 26px; }
+.company-form-page > .original-copy > p { font-size: 17px; }
+@media (max-width: 760px) {
+  .company-timeline > li { grid-template-columns: 1fr; gap: 12px; padding-left: 28px; padding-bottom: 28px; }
+  .company-timeline > li::before { left: 5px; }
+  .company-timeline > li::after { left: 0; top: 12px; }
+  .company-timeline-year { font-size: 34px; }
+  .company-timeline-copy { padding-left: 0; padding-bottom: 20px; }
+  .company-hero { grid-template-columns: 1fr; gap: 24px; padding-block: 28px 32px; }
+  .company-hero > img { aspect-ratio: 3 / 2; max-height: 340px; }
+  .company-intro, .company-content .original-copy p, .company-content .original-copy li { font-size: 16px; }
+  .company-leaders { grid-template-columns: 1fr; gap: 28px; }
+  .company-content { padding-bottom: 32px; }
+  .company-navigation { padding-bottom: 32px; }
+  .company-navigation > div { gap: 10px 24px; }
+}
+.contact-main { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: 7%; align-items: stretch; padding-bottom: 48px; }
+.contact-offices { display: flex; flex-direction: column; }
+.contact-main .original-copy { width: 100%; max-width: none; padding: 0; }
+.contact-offices > h3, .contact-form-area > h2, .contact-presence > h2 { font-family: var(--font-sans); font-size: 28px; line-height: 1.25; margin: 0 0 22px; }
+.contact-offices > p { margin-bottom: 18px; }
+.contact-offices > p:nth-of-type(1), .contact-offices > p:nth-of-type(3) { font-weight: 600; color: var(--ink); margin-bottom: 8px; }
+.contact-offices > img { width: 100%; height: 0; min-height: 260px; flex: 1; object-fit: cover; border-radius: 4px; margin-top: 16px; }
+.contact-direct { display: flex; flex-wrap: wrap; gap: 8px 16px; }
+.contact-direct a { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; }
+.contact-direct a:hover { color: var(--brand-red); }
+.contact-form-area > p { font-size: 16px; line-height: 1.6; margin: 0 0 24px; color: var(--muted); }
+.contact-presence { padding-block: 32px 56px; border-top: 1px solid var(--line); }
+.contact-presence ul { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 18px 24px; padding: 0; margin: 0; list-style: none; }
+.contact-presence li { font-size: 17px; color: var(--ink); }
+.contact-presence a { display: inline-block; padding-block: 4px; }
+.contact-presence a:hover { color: var(--brand-red); text-decoration: underline; text-underline-offset: 4px; }
+@media (max-width: 900px) {
+  .contact-main { grid-template-columns: 1fr; gap: 36px; }
+  .contact-offices > img { height: auto; min-height: 0; max-height: 360px; aspect-ratio: 4 / 3; flex: none; }
+  .contact-presence ul { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 500px) {
+  .contact-presence ul { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+  .contact-main { padding-bottom: 32px; }
+  .contact-presence { padding-bottom: 36px; }
+  .contact-offices > h3, .contact-form-area > h2, .contact-presence > h2 { font-size: 25px; }
+}
+.site-shell .sitemap-page .intro { padding-block: 44px 36px; }
+.site-shell .sitemap-page .intro h1 { font-size: clamp(42px, 5vw, 72px); }
+.sitemap-groups { display: grid; gap: 32px; padding-bottom: 64px; }
+.sitemap-groups section { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 32px; border-top: 1px solid var(--line); padding-top: 24px; min-width: 0; }
+.sitemap-groups h2 { font-family: var(--font-sans); font-size: 25px; line-height: 1.25; margin: 0 0 18px; }
+.sitemap-groups ul { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px 28px; list-style: none; padding: 0; margin: 0; }
+.sitemap-groups a { display: inline-block; padding-block: 7px; font-size: 17px; line-height: 1.5; overflow-wrap: anywhere; }
+.sitemap-groups a:hover { color: var(--brand-red); text-decoration: underline; text-underline-offset: 4px; }
+.sitemap-groups a:focus-visible { outline: 2px solid var(--brand-red); outline-offset: 3px; }
+@media (max-width: 900px) { .sitemap-groups section { grid-template-columns: 160px minmax(0, 1fr); gap: 24px; } .sitemap-groups ul { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .sitemap-groups { padding-bottom: 40px; } .sitemap-groups section { grid-template-columns: 1fr; gap: 0; } .sitemap-groups ul { grid-template-columns: 1fr; } }

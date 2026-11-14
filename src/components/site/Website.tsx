@@ -16,14 +16,21 @@ import { EnquiryForm } from "./forms";
 import { Blog } from "./Blog";
 import { HomeContent } from "./HomeContent";
 import type { BlogView } from "@/lib/blog";
-import { sitemapPaths } from "@/lib/routes";
+import { canonicalPath, sitemapPaths } from "@/lib/routes";
+import { emptyProductFilters, filterCatalogue } from "@/lib/product-filters";
+import { JourneyRoleContext } from "./JourneyContext";
+import { useInnerMotion } from "./useInnerMotion";
 import {
   OriginalCopy,
+  OriginalBlocks,
   OriginalPageContext,
   useOriginalPage,
 } from "./OriginalCopy";
 const Context = createContext<SiteContent>(null!);
 export const useContent = () => useContext(Context);
+function photoCaption(src: string, ui: SiteContent["ui"]) {
+  return /^\/(stock|images)\//.test(src) ? ui.stockCaption : null;
+}
 const Arrow = () => <span aria-hidden="true">↗</span>;
 export function Button({
   href,
@@ -73,16 +80,17 @@ function Header() {
   const c = useContent();
   const [open, setOpen] = useState(false);
   const [dropdown, setDropdown] = useState<string | null>(null);
+  const [mobileGroup, setMobileGroup] = useState<string | null>(null);
   return (
     <>
       <a className="skip" href="#main">
         {c.ui.skip}
       </a>
-      <header className="site-header">
+      <header className={`site-header grouped-header header-${c.site.headerStyle}`}>
         <Link href="/" aria-label={c.site.name}>
           <img className="logo" src={c.site.logo} alt={c.site.name} />
         </Link>
-        <nav aria-label={c.ui.menu} className={open ? "open" : ""}>
+        <nav id="primary-navigation" aria-label={c.ui.menu} className={open ? "open" : ""}>
           {c.site.nav.map((l) =>
             l.children?.length ? (
               <div
@@ -102,19 +110,30 @@ function Header() {
                 <button
                   aria-expanded={dropdown === l.label}
                   aria-controls={`nav-${c.site.nav.indexOf(l)}`}
-                  onClick={() =>
-                    setDropdown(dropdown === l.label ? null : l.label)
-                  }
+                  onClick={() => {
+                    setDropdown(dropdown === l.label ? null : l.label);
+                    setMobileGroup(null);
+                  }}
                 >
                   {l.label}
-                  <span aria-hidden="true">⌄</span>
+                  <svg className="nav-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false">
+                    <path d="m6 9 6 6 6-6" />
+                  </svg>
                 </button>
                 {dropdown === l.label && (
                   <div
-                    className="nav-dropdown"
+                    className="nav-dropdown grouped-dropdown"
                     id={`nav-${c.site.nav.indexOf(l)}`}
                   >
-                    {l.children.map((child) => (
+                    {Array.from(new Set(l.children.map((child) => child.group || "Explore"))).map((group) => (
+                      <section className={`nav-group ${mobileGroup === group ? "group-expanded" : ""}`} key={group} aria-label={group}>
+                        <h2 className="desktop-group-title">{group}</h2>
+                        <button className="mobile-group-toggle" aria-expanded={mobileGroup === group} aria-controls={`nav-${c.site.nav.indexOf(l)}-group-${l.children.findIndex(child => (child.group || "Explore") === group)}`} onClick={() => setMobileGroup(mobileGroup === group ? null : group)}>
+                          {group}<span aria-hidden="true">{mobileGroup === group ? "−" : "+"}</span>
+                        </button>
+                        <ul id={`nav-${c.site.nav.indexOf(l)}-group-${l.children.findIndex(child => (child.group || "Explore") === group)}`} className={group === "Cities" ? "nav-city-list" : undefined}>
+                    {l.children.filter((child) => (child.group || "Explore") === group).map((child) => (
+                      <li key={child.href}>
                       <Link
                         href={child.href}
                         key={child.href}
@@ -123,9 +142,12 @@ function Header() {
                           setDropdown(null);
                         }}
                       >
-                        {child.group && <small>{child.group}</small>}
                         {child.label}
                       </Link>
+                      </li>
+                    ))}
+                        </ul>
+                      </section>
                     ))}
                   </div>
                 )}
@@ -136,7 +158,7 @@ function Header() {
               </Link>
             ),
           )}
-          <Link className="mobile-contact" href="/contact">
+          <Link className="mobile-contact" href="/contact" onClick={() => { setOpen(false); setDropdown(null); }}>
             {c.ui.contact}
           </Link>
         </nav>
@@ -146,9 +168,10 @@ function Header() {
         </Link>
         <button
           className="menu-toggle"
+          aria-controls="primary-navigation"
           aria-expanded={open}
           aria-label={open ? c.ui.close : c.ui.menu}
-          onClick={() => setOpen(!open)}
+          onClick={() => { setOpen(!open); setDropdown(null); setMobileGroup(null); }}
         >
           {open ? "×" : "☰"}
         </button>
@@ -158,9 +181,12 @@ function Header() {
 }
 function Footer() {
   const c = useContent();
+  const groups = [...new Set(c.site.footerLinks.map(link => link.group || "Explore"))];
   return (
-    <footer>
-      <div className="footer-top">
+    <footer className="artistic-footer">
+      <div className="wrap">
+      <div className="footer-directory">
+      <div className="footer-brand">
         <Link className="footer-wordmark" href="/" aria-label={c.site.name}>
           <img
             src={c.site.footerLogo || c.site.logo}
@@ -168,28 +194,38 @@ function Footer() {
           />
         </Link>
         <p>{c.site.footer}</p>
-        <a href={`mailto:${c.site.email}`}>
-          {c.site.email}
-          <Arrow />
-        </a>
+        {c.site.social.length > 0 && <div className="footer-social">{c.site.social.map(link => <a href={link.href} key={link.href}>{link.label}<Arrow /></a>)}</div>}
       </div>
-      <div className="footer-links">
-        {c.site.footerLinks.map((l) => (
-          <Link href={l.href} key={l.href}>
-            {l.label}
-          </Link>
-        ))}
-        {c.site.social.map((l) => (
-          <a href={l.href} key={l.href}>
-            {l.label}
-          </a>
-        ))}
+      <nav className="footer-navigation" aria-label={c.ui.footerNavigation}>
+        {groups.map(group => <section key={group}>
+          <h3>{group}</h3>
+          <ul>{c.site.footerLinks.filter(link => (link.group || "Explore") === group).map(link => <li key={link.href}><Link href={link.href}>{link.label}</Link></li>)}</ul>
+        </section>)}
+      </nav>
+      <div className="footer-contact">
+        <h3>{c.ui.contact}</h3>
+        <a href={`mailto:${c.site.email}`}>{c.site.email}<Arrow /></a>
+        <a href={`tel:${c.site.phone.replaceAll(" ", "")}`}>{c.site.phone}</a>
+        <p>{c.site.address}</p>
+      </div>
+      </div>
+      <div className="footer-signature">
+        <svg className="footer-folds" viewBox="0 0 560 220" fill="none" aria-hidden="true" focusable="false">
+          <path d="M0 220 100 20 180 70 80 220Z" fill="#514d8a" />
+          <path d="m100 20 80 50 40 150H80Z" fill="#343064" />
+          <path d="M180 220 280 0 360 50 260 220Z" fill="#aaa7cd" />
+          <path d="m280 0 80 50 40 170H260Z" fill="#625d9d" />
+          <path d="M360 220 460 20 540 70 440 220Z" fill="#de201c" />
+          <path d="m460 20 80 50 20 150H440Z" fill="#971b27" />
+          <path d="m100 20 80 50M280 0l80 50m100-30 80 50" stroke="white" strokeOpacity=".35" />
+        </svg>
       </div>
       <div className="footer-bottom">
         <span>
           © {new Date().getFullYear()} {c.ui.copyright}
         </span>
         <span>{c.site.tagline}</span>
+      </div>
       </div>
     </footer>
   );
@@ -248,7 +284,7 @@ function SectionHead({
     </div>
   );
 }
-function Hero({ role }: { role?: SiteContent["roles"][number] }) {
+function Hero({ role, exploreHome = false }: { role?: SiteContent["roles"][number]; exploreHome?: boolean }) {
   const c = useContent();
   const original = useOriginalPage();
   const [active, setActive] = useState(c.roles[0].id);
@@ -309,9 +345,9 @@ function Hero({ role }: { role?: SiteContent["roles"][number] }) {
         )}
         <div className="entry-foot">
           <span>{c.site.tagline}</span>
-          <Link href="#material-story">
-            {c.ui.scroll}
-            <span>↓</span>
+          <Link className={!role && !exploreHome ? "home-explore-action" : undefined} href={!role && !exploreHome ? "/?explore=1#material-story" : "#material-story"}>
+            {!role && !exploreHome ? c.ui.exploreCitybond : c.ui.scroll}
+            <span aria-hidden="true">↓</span>
           </Link>
         </div>
       </div>
@@ -322,8 +358,6 @@ function Hero({ role }: { role?: SiteContent["roles"][number] }) {
           eager
         />
         <div className="entry-shade" />
-        <p className="eyebrow entry-visual-label">{c.ui.visualEdit}</p>
-        <p className="entry-image-title">{c.ui.visualTitle}</p>
         <div className="sample-fan" aria-hidden="true">
           <i className="sample-wood" />
           <i className="sample-stone" />
@@ -341,10 +375,11 @@ function Hero({ role }: { role?: SiteContent["roles"][number] }) {
             }}
           />
         </div>
-        <div className="entry-image-foot">
-          <span>{c.ui.stockCaption}</span>
-          <span className="circle-symbol">↗</span>
-        </div>
+        {photoCaption(role?.image || c.home.image, c.ui) && (
+          <div className="entry-image-foot">
+            <span>{photoCaption(role?.image || c.home.image, c.ui)}</span>
+          </div>
+        )}
       </div>
     </section>
   );
@@ -359,42 +394,66 @@ function ScrollStory() {
     const media = matchMedia("(prefers-reduced-motion: reduce)");
     let frame = 0;
     let visible = false;
-    const update = () => {
+    let dirty = true;
+    let lastTime = 0;
+    let displayed = 0;
+    let assembly = 0;
+    let target = { progress: 0, assembly: 0, chapter: 0 };
+    let currentChapter = -1;
+    const measure = () => {
+      const header = document.querySelector(".site-header")?.getBoundingClientRect().height || 84;
+      el.style.setProperty("--story-header", header + "px");
+      const sticky = el.querySelector<HTMLElement>(".story-sticky");
+      const viewport = (sticky?.offsetHeight || innerHeight - header) + header;
+      target = storyProgress(el.getBoundingClientRect().top, el.offsetHeight, viewport, header);
+      dirty = false;
+    };
+    const update = (time: number) => {
       frame = 0;
-      const header = innerWidth <= 760 ? 72 : 80;
-      const result = storyProgress(
-        el.getBoundingClientRect().top,
-        el.offsetHeight,
-        innerHeight,
-        header,
-      );
-      el.style.setProperty(
-        "--assembly",
-        String(media.matches ? 1 : result.assembly),
-      );
-      el.style.setProperty("--progress", String(result.progress));
-      setChapter(media.matches ? 2 : result.chapter);
+      if (dirty) measure();
+      const elapsed = lastTime ? Math.min(64, time - lastTime) : 16.67;
+      lastTime = time;
+      const blend = 1 - Math.exp(-elapsed / 110);
+      if (media.matches) { displayed = 1; assembly = 1; }
+      else {
+        displayed += (target.progress - displayed) * blend;
+        assembly += (target.assembly - assembly) * blend;
+        if (Math.abs(target.progress - displayed) < 0.0001) displayed = target.progress;
+        if (Math.abs(target.assembly - assembly) < 0.0001) assembly = target.assembly;
+      }
+      el.style.setProperty("--assembly", String(assembly));
+      el.style.setProperty("--progress", String(displayed));
+      const next = Math.min(2, Math.floor(displayed * 3));
+      if (next !== currentChapter) { currentChapter = next; setChapter(next); }
+      if (visible && !media.matches && (displayed !== target.progress || assembly !== target.assembly))
+        frame = requestAnimationFrame(update);
     };
-    const scroll = () => {
-      if (visible && !frame) frame = requestAnimationFrame(update);
+    const schedule = () => {
+      dirty = true;
+      if (visible && !frame) { lastTime = 0; frame = requestAnimationFrame(update); }
     };
-    const observer = new IntersectionObserver(
-      (entries) => {
-        visible = entries[0].isIntersecting;
-        if (visible) scroll();
-      },
-      { rootMargin: "200px" },
-    );
+    const observer = new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+      if (visible) schedule();
+      else { cancelAnimationFrame(frame); frame = 0; lastTime = 0; }
+    }, { rootMargin: "150px" });
+    const resize = new ResizeObserver(schedule);
+    resize.observe(el);
+    const sticky = el.querySelector(".story-sticky");
+    if (sticky) resize.observe(sticky);
     observer.observe(el);
-    update();
-    addEventListener("scroll", scroll, { passive: true });
-    addEventListener("resize", update);
-    media.addEventListener("change", update);
+    measure();
+    displayed = media.matches ? 1 : target.progress;
+    assembly = media.matches ? 1 : target.assembly;
+    update(performance.now());
+    addEventListener("scroll", schedule, { passive: true });
+    addEventListener("resize", schedule);
+    media.addEventListener("change", schedule);
     return () => {
-      observer.disconnect();
-      removeEventListener("scroll", scroll);
-      removeEventListener("resize", update);
-      media.removeEventListener("change", update);
+      observer.disconnect(); resize.disconnect();
+      removeEventListener("scroll", schedule);
+      removeEventListener("resize", schedule);
+      media.removeEventListener("change", schedule);
       cancelAnimationFrame(frame);
     };
   }, []);
@@ -425,9 +484,9 @@ function ScrollStory() {
               style={
                 {
                   "--i": n,
-                  "--offset-x": `${(n - 2.5) * 20}px`,
-                  "--offset-y": `${[28, -18, 14, -24, 20, 34][n]}px`,
-                  "--rotation": `${[-7, -4, -2, 2, 4, 7][n]}deg`,
+                  "--offset-x": `${(n - 2.5) * 12}px`,
+                  "--offset-y": `${[20, -12, 8, -8, 12, -20][n]}px`,
+                  "--rotation": `${[-3, -2, -1, 1, 2, 3][n]}deg`,
                 } as CSSProperties
               }
             >
@@ -439,10 +498,10 @@ function ScrollStory() {
               />
             </div>
           ))}
-          <span className="scene-caption">{c.ui.stockCaption}</span>
+          {photoCaption(c.home.scrollImage, c.ui) && <span className="scene-caption">{photoCaption(c.home.scrollImage, c.ui)}</span>}
         </div>
         <div className="story-bottom">
-          <div className="story-chapter" key={chapter}>
+          <div className="story-chapter">
             <span className="chapter-count">0{chapter + 1}</span>
             <div>
               <h3>{c.home.chapters[chapter].title}</h3>
@@ -467,12 +526,13 @@ function ScrollStory() {
     </section>
   );
 }
-function ProductCard({ p, index = 0 }: { p: Product; index?: number }) {
+function ProductCard({ p, index = 0, collection = false }: { p: Product; index?: number; collection?: boolean }) {
   const c = useContent();
+  const finish = collection ? p.finishes[0] : undefined;
   return (
     <Link className="product-card reveal" href={`/products/${p.slug}`}>
       <div className="card-photo">
-        <Photo src={p.image} alt={p.imageAlt} />
+        {finish && !finish.image ? <div className="swatch-tile" style={{ background: finish.hex }} aria-label={finish.name} /> : <Photo src={finish?.image || p.image} alt={finish?.name || p.imageAlt} />}
         <span className="card-index">{String(index + 1).padStart(2, "0")}</span>
         <span className="card-arrow">
           <Arrow />
@@ -482,14 +542,15 @@ function ProductCard({ p, index = 0 }: { p: Product; index?: number }) {
         <h3>{p.name}</h3>
         <span>{p.category}</span>
       </div>
-      <p>{p.collection}</p>
+      <p>{finish?.name || p.collection}</p>
       <span className="sr-only">{c.ui.explore}</span>
     </Link>
   );
 }
 function ProductSection({
   hideHeading = false,
-}: { hideHeading?: boolean } = {}) {
+  linkBelow = false,
+}: { hideHeading?: boolean; linkBelow?: boolean } = {}) {
   const c = useContent();
   const [active, setActive] = useState(0);
   const picks = [
@@ -509,7 +570,7 @@ function ProductSection({
           eyebrow={c.ui.materialLibrary}
           title={c.home.productsTitle}
           description={c.home.productsDescription}
-          href="/products"
+          href={linkBelow ? undefined : "/products"}
         />
       )}
       <div
@@ -559,7 +620,7 @@ function ProductSection({
             src={selected.image}
             alt={selected.imageAlt}
           />
-          <span>{c.ui.stockCaption}</span>
+          {(selected.image.startsWith("/stock/") || selected.image.startsWith("/images/")) && <span>{c.ui.stockCaption}</span>}
         </div>
         <div className="material-copy" key={selected.slug}>
           <p className="eyebrow">
@@ -595,7 +656,9 @@ function ProductSection({
 }
 function ProjectSection({
   hideHeading = false,
-}: { hideHeading?: boolean } = {}) {
+  linkBelow = false,
+  categories = [],
+}: { hideHeading?: boolean; linkBelow?: boolean; categories?: string[] } = {}) {
   const c = useContent();
   return (
     <section className="project-section section">
@@ -604,14 +667,15 @@ function ProjectSection({
           <SectionHead
             title={c.home.projectsTitle}
             description={c.home.projectsDescription}
-            href="/projects"
+            href={linkBelow ? undefined : "/projects"}
           />
         )}
         <div className="project-grid">
-          {c.projects.slice(0, 2).map((p) => (
+          {c.projects.filter(p => !categories.length || categories.includes(p.category)).slice(0, 2).map((p) => (
             <ProjectCard key={p.slug} p={p} />
           ))}
         </div>
+        {linkBelow && <SectionFooterLink href="/projects" />}
       </div>
     </section>
   );
@@ -643,7 +707,7 @@ function AboutSection() {
     <section className="about-section wrap section">
       <div className="about-image reveal">
         <Photo src={c.home.aboutImage} alt={c.home.aboutImageAlt} />
-        <span>{c.ui.stockCaption}</span>
+        {photoCaption(c.home.aboutImage, c.ui) && <span>{photoCaption(c.home.aboutImage, c.ui)}</span>}
       </div>
       <div className="about-copy reveal">
         <p className="eyebrow">{c.ui.learn}</p>
@@ -662,7 +726,7 @@ function AboutSection() {
     </section>
   );
 }
-function FeatureSection({ type }: { type: "visualiser" | "network" }) {
+function FeatureSection({ type }: { type: "visualiser" | "network" | "product-finder" }) {
   const c = useContent();
   const page = c.pages.find((p) => p.slug === type)!;
   return (
@@ -670,38 +734,43 @@ function FeatureSection({ type }: { type: "visualiser" | "network" }) {
       <div className="wrap feature-inner">
         <div className="feature-image">
           <Photo src={page.image} alt={page.imageAlt} />
-          <span>{c.ui.stockCaption}</span>
+          {photoCaption(page.image, c.ui) && <span>{photoCaption(page.image, c.ui)}</span>}
         </div>
         <div className="feature-copy">
           <p className="eyebrow">{page.eyebrow}</p>
-          <h2>{c.ui[type]}</h2>
-          <p>{c.ui[`${type}Description`]}</p>
-          <Button href={`/${type}`}>{c.ui[`${type}Cta`]}</Button>
+          <h2>{c.ui[type] || page.title}</h2>
+          <p>{c.ui[`${type}Description`] || page.description}</p>
+          <Button href={`/${type}`}>{c.ui[`${type}Cta`] || page.cta.label}</Button>
         </div>
       </div>
     </section>
   );
 }
-function ResourcesSection() {
+function SectionFooterLink({ href }: { href: string }) {
+  const c = useContent();
+  return <div className="section-footer-link"><Link className="text-link" href={href}>{c.ui.viewAll}<Arrow /></Link></div>;
+}
+function ResourcesSection({ linkBelow = false }: { linkBelow?: boolean } = {}) {
   const c = useContent();
   return (
     <section className="wrap section">
       <SectionHead
         title={c.ui.resources}
         description={c.ui.resourcesDescription}
-        href="/resources"
+        href={linkBelow ? undefined : "/resources"}
       />
       <div className="resource-grid">
         {c.resources.slice(0, 3).map((r) => (
           <ResourceCard key={r.slug} r={r} />
         ))}
       </div>
+      {linkBelow && <SectionFooterLink href="/resources" />}
     </section>
   );
 }
-function ResourceCard({ r }: { r: SiteContent["resources"][number] }) {
+function ResourceCard({ r, reveal = true }: { r: SiteContent["resources"][number]; reveal?: boolean }) {
   return (
-    <Link className="resource-card reveal" href={`/resources/${r.slug}`}>
+    <Link className={`resource-card${reveal ? " reveal" : ""}`} href={`/resources/${r.slug}`}>
       <div className="card-photo">
         <Photo src={r.image} alt={r.imageAlt} />
         <span className="card-arrow">
@@ -726,9 +795,6 @@ function ContactSection() {
           <Button href="/contact">{c.ui.contact}</Button>
         </div>
       </div>
-      <span className="giant-arrow" aria-hidden="true">
-        ↗
-      </span>
     </section>
   );
 }
@@ -764,22 +830,117 @@ function Testimonials() {
     </section>
   ) : null;
 }
-function Landing({ role }: { role?: SiteContent["roles"][number] }) {
+function AudienceCopy({ part }: { part: "intro" | "benefits" | "stories" | "callback" }) {
+  const original = useOriginalPage();
+  if (!original) return null;
+  const groups: typeof original.blocks[] = [];
+  original.blocks.forEach(block => {
+    if (!groups.length || (block.type === "heading" && block.level <= 5)) groups.push([]);
+    groups[groups.length - 1].push(block);
+  });
+  return <div className="wrap audience-original">
+    {groups.filter(blocks => {
+      const id = blocks[0].id;
+      return part === "benefits" ? id === "original-0002" : part === "stories" ? id === "original-0022" : part === "callback" ? id === "original-0027" : !["original-0002", "original-0022", "original-0027"].includes(id);
+    }).map(blocks => {
+      const numberedStart = blocks.findIndex(block => /^\d{2}$/.test(block.text));
+      const heading = blocks[0];
+      const stories = heading.text === "Success Stories";
+      const callback = heading.text === "Request a Call-back";
+      const benefits: typeof blocks[] = [];
+      if (numberedStart >= 0) blocks.slice(numberedStart).forEach(block => {
+        if (!benefits.length || /^\d{2}$/.test(block.text)) benefits.push([]);
+        benefits[benefits.length - 1].push(block);
+      });
+      return <section className={`audience-copy-section${callback ? " audience-callback" : ""}`} key={heading.id}>
+        <div className="original-copy"><OriginalBlocks blocks={numberedStart >= 0 ? blocks.slice(0, numberedStart) : stories ? blocks.slice(0, 1) : blocks} title={original.title} /></div>
+        {benefits.length > 0 && <div className="audience-benefits">{benefits.map(items => <article key={items[0].id}>
+          <span className="eyebrow">{items[0].text}</span>
+          <OriginalBlocks blocks={items.slice(1)} title={original.title} />
+        </article>)}</div>}
+        {stories && <div className="audience-stories">{blocks.slice(1).filter((_, i) => i % 2 === 0).map((block, i) => <blockquote key={block.id}>
+          <p>{block.text}</p><footer>{blocks[i * 2 + 2]?.text}</footer>
+        </blockquote>)}</div>}
+        {callback && <Button href="/contact">{heading.text}</Button>}
+      </section>;
+    })}
+  </div>;
+}
+function AudienceProducts() {
+  const c = useContent();
+  return <section className="wrap section audience-products">
+    <SectionHead title={c.home.productsTitle} description={c.home.productsDescription} />
+    <div>{[...new Set(c.products.map(product => product.category))].map(category => <section key={category}>
+      <h3>{category}</h3>
+      <ul>{c.products.filter(product => product.category === category).map(product => <li key={product.slug}><Link href={`/products/${product.slug}`}>{product.name}<Arrow /></Link></li>)}</ul>
+    </section>)}</div>
+  </section>;
+}
+function AudienceTechnical() {
+  const c = useContent();
+  const links = c.site.nav.flatMap(item => item.children || []).filter(item => ["Thickness", "Core options"].includes(item.group));
+  return <section className="wrap section audience-technical"><SectionHead title={c.ui.technicalSpecifications} description={c.ui.technicalDescription} />
+    <div>{links.map(link => <Link className="text-link" key={link.href} href={link.href}>{link.label}<Arrow /></Link>)}</div>
+  </section>;
+}
+function AudienceProductFeature({ slug }: { slug: string }) {
+  const c = useContent();
+  const product = c.products.find(product => product.slug === slug);
+  if (!product) return null;
+  return <section className="feature-band"><div className="wrap feature-inner">
+    <div className="feature-image"><Photo src={product.image} alt={product.imageAlt} /></div>
+    <div className="feature-copy"><p className="eyebrow">{product.category}</p><h2>{product.name}</h2><p>{product.description}</p><Button href={`/products/${product.slug}`}>{c.ui.explore}</Button></div>
+  </div></section>;
+}
+function AudiencePage({ role }: { role: SiteContent["roles"][number] }) {
   const c = useContent();
   const original = useOriginalPage();
-  const editorial = !role && original?.route === "" ? original : undefined;
   const sections = {
-    projects: <ProjectSection />,
-    products: <ProductSection />,
-    about: <AboutSection />,
+    projects: <ProjectSection linkBelow categories={role.projectCategories} />,
+    products: <AudienceProducts />,
+    about: <><AudienceCopy part="benefits" /><AboutSection /></>,
     visualiser: <FeatureSection type="visualiser" />,
-    network: <FeatureSection type="network" />,
-    resources: <ResourcesSection />,
+    network: <Network embedded />,
+    resources: <ResourcesSection linkBelow />,
     contact: <ContactSection />,
+    collections: <ProductSection linkBelow />,
+    technical: <AudienceTechnical />,
+    brands: <Brands />,
+    testimonials: <><AudienceCopy part="stories" /><Testimonials /></>,
+    quiz: <FeatureSection type="product-finder" />,
+    metacity: <AudienceProductFeature slug="metacity" />,
+    "dealer-enquiry": <section className="wrap section audience-enquiry planning-page"><h2>{c.pages.find(page => page.slug === "become-a-dealer")?.title}</h2><EnquiryForm c={c} type="dealer" /></section>,
   };
+  return <div className="audience-page">
+    <section className="wrap audience-hero">
+      <div>
+        <p className="eyebrow">{role.label}</p>
+        <h1>{original?.title || <>{role.title}<span>{role.accent}</span></>}</h1>
+        <p className="audience-description">{original?.description || role.description}</p>
+        <div className="audience-actions"><Button href={role.cta.href}>{role.cta.label}</Button>{role.secondaryCta && <Link className="text-link" href={role.secondaryCta.href}>{role.secondaryCta.label}<Arrow /></Link>}</div>
+      </div>
+      <Photo src={role.image} alt={role.imageAlt} eager />
+    </section>
+    <AudienceCopy part="intro" />
+    {role.sections.filter(section => section !== "contact").map((section, i) => <div className="audience-section" data-journey-section={section} key={`${section}-${i}`}>{sections[section]}</div>)}
+    {!role.sections.includes("brands") && <Brands />}
+    {!role.sections.includes("testimonials") && <><AudienceCopy part="stories" /><Testimonials /></>}
+    <AudienceCopy part="callback" />
+    <nav className="wrap audience-options" id="audience-options" aria-label={c.ui.chooseRole}>
+      <h2>{c.ui.chooseRole}</h2>
+      <div>{c.roles.map(item => <Link key={item.id} href={`/for/${item.id}`} aria-current={item.id === role.id ? "page" : undefined}>{item.label}<Arrow /></Link>)}</div>
+    </nav>
+    <ContactSection />
+  </div>;
+}
+function Landing({ exploreHome = false }: { exploreHome?: boolean }) {
+  const c = useContent();
+  const original = useOriginalPage();
+  const editorial = original?.route === "" ? original : undefined;
   return (
     <>
-      <Hero role={role} />
+      <Hero exploreHome={exploreHome} />
+      <div className="home-discovery" hidden={!exploreHome}>
       <ScrollStory />
       {!editorial && <OriginalCopy />}
       {editorial ? (
@@ -789,14 +950,11 @@ function Landing({ role }: { role?: SiteContent["roles"][number] }) {
             content={c}
             materials={<ProductSection hideHeading />}
             projects={<ProjectSection hideHeading />}
+            finder={<FeatureSection type="product-finder" />}
           />
           <FeatureSection type="visualiser" />
           <ResourcesSection />
         </>
-      ) : role ? (
-        role.sections
-          .filter((s) => s !== "contact")
-          .map((s, i) => <div key={`${s}-${i}`}>{sections[s]}</div>)
       ) : (
         <>
           <ProductSection />
@@ -813,25 +971,21 @@ function Landing({ role }: { role?: SiteContent["roles"][number] }) {
         </>
       )}
       <ContactSection />
+      </div>
     </>
   );
 }
-function Products({ collections = false }: { collections?: boolean }) {
+function Products({ collections = false, thicknessByProduct = {} }: { collections?: boolean; thicknessByProduct?: Record<string, number[]> }) {
   const c = useContent();
-  const [segment, setSegment] = useState("all");
-  const [category, setCategory] = useState("all");
-  const [search, setSearch] = useState("");
-  const products = c.products.filter(
-    (p) =>
-      (segment === "all" ||
-        p.segments.includes(segment as "residential" | "commercial")) &&
-      (category === "all" || p.category === category) &&
-      `${p.name} ${p.collection} ${p.description}`
-        .toLowerCase()
-        .includes(search.toLowerCase()),
-  );
+  const [filters, setFilters] = useState(emptyProductFilters);
+  const { segment, category, thickness, search } = filters;
+  const entries = c.products.map(product => ({ product, thicknesses: thicknessByProduct[product.slug] || [] }));
+  const thicknesses = [...new Set(entries.flatMap(entry => entry.thicknesses))].sort((a, b) => a - b);
+  const products = filterCatalogue(entries, filters);
+  const reset = () => setFilters(emptyProductFilters);
+  const filtered = segment !== "all" || category !== "all" || thickness !== "all" || search !== "";
   return (
-    <>
+    <div className="products-page">
       <Intro
         page={c.pages.find(
           (p) => p.slug === (collections ? "collections" : "products"),
@@ -839,12 +993,12 @@ function Products({ collections = false }: { collections?: boolean }) {
       />
       <section className="wrap catalogue">
         <div className="filters">
-          <div className="pills">
+          <div className="pills" role="group" aria-label="Project use">
             {["all", "residential", "commercial"].map((s) => (
               <button
                 key={s}
                 aria-pressed={s === segment}
-                onClick={() => setSegment(s)}
+                onClick={() => setFilters(previous => ({ ...previous, segment: s }))}
               >
                 {c.ui[s]}
               </button>
@@ -852,61 +1006,46 @@ function Products({ collections = false }: { collections?: boolean }) {
           </div>
           <input
             aria-label={c.ui.search}
-            placeholder={`${c.ui.search} ↗`}
+            placeholder={c.ui.search}
             value={search}
-            onChange={(e) => setSearch(e.target.value)}
+            onChange={(e) => setFilters(previous => ({ ...previous, search: e.target.value }))}
           />
         </div>
-        <div className="category-tabs">
+        <div className="category-tabs" role="group" aria-label="Product types">
           {["all", ...new Set(c.products.map((p) => p.category))].map((s) => (
             <button
               key={s}
               aria-pressed={s === category}
-              onClick={() => setCategory(s)}
+              onClick={() => setFilters(previous => ({ ...previous, category: s }))}
             >
               {s === "all" ? c.ui.all : s}
             </button>
           ))}
-          <span>{products.length.toString().padStart(2, "0")}</span>
+        </div>
+        <div className="catalogue-summary">
+          <div className="thickness-filter">
+            <label htmlFor="catalogue-thickness">Panel thickness</label>
+            <select id="catalogue-thickness" value={thickness} onChange={e => setFilters(previous => ({ ...previous, thickness: e.target.value }))}>
+              <option value="all">All thicknesses</option>
+              {thicknesses.map(value => <option key={value} value={String(value)}>{value} mm</option>)}
+            </select>
+          </div>
+          <div className="catalogue-results">
+          <p role="status" aria-live="polite">{products.length} {products.length === 1 ? "result" : "results"}</p>
+          {filtered && (
+            <button onClick={reset}>{c.ui.reset}</button>
+          )}
+          </div>
         </div>
         <div className="product-grid">
-          {products.map((p, i) =>
-            collections && p.finishes.length ? (
-              <Link
-                className="finish-card reveal"
-                key={p.slug}
-                href={`/products/${p.slug}`}
-              >
-                {p.finishes[0].image ? (
-                  <Photo src={p.finishes[0].image} alt={p.finishes[0].name} />
-                ) : (
-                  <div
-                    className="swatch-tile"
-                    style={{ background: p.finishes[0].hex }}
-                    aria-label={p.finishes[0].name}
-                  />
-                )}
-                <span>
-                  {p.name}
-                  <Arrow />
-                </span>
-                <small>{p.finishes[0].name}</small>
-              </Link>
-            ) : (
-              <ProductCard key={p.slug} p={p} index={i} />
-            ),
-          )}
+          {products.map((p, i) => <ProductCard key={p.slug} p={p} index={i} collection={collections} />)}
         </div>
         {products.length === 0 && (
           <div className="empty">
             <p>{c.ui.noResults}</p>
             <button
               className="text-link"
-              onClick={() => {
-                setSegment("all");
-                setCategory("all");
-                setSearch("");
-              }}
+              onClick={reset}
             >
               {c.ui.reset}
             </button>
@@ -915,7 +1054,7 @@ function Products({ collections = false }: { collections?: boolean }) {
         <p className="note">{c.ui.finishNote}</p>
       </section>
       <FeatureSection type="visualiser" />
-    </>
+    </div>
   );
 }
 function ProductDetail({ p }: { p: Product }) {
@@ -923,11 +1062,11 @@ function ProductDetail({ p }: { p: Product }) {
   const original = useOriginalPage();
   const [finish, setFinish] = useState(0);
   return (
-    <>
+    <div className={`product-template${p.finishes.length === 0 ? " without-finishes" : ""}`}>
       <section className="product-detail wrap">
         <div className="product-detail-copy">
           <Link className="breadcrumb" href="/products">
-            ← {c.ui.materialLibrary}
+            ← All products
           </Link>
           <p className="eyebrow">
             {p.category} / {p.collection}
@@ -936,40 +1075,42 @@ function ProductDetail({ p }: { p: Product }) {
             {original?.title || p.name}
             {!original && <span>.</span>}
           </h1>
-          <p>{original ? original.description : p.description}</p>
+          <p>{original?.description || p.description}</p>
+          <div className="product-actions">
           <Button href={`/samples?product=${encodeURIComponent(p.slug)}`}>
             {c.ui.sample}
           </Button>
+          <Link className="text-link" href={`/contact?product=${encodeURIComponent(p.slug)}`}>{c.ui.technical}<Arrow /></Link>
+          </div>
+          <div className="product-tags">{p.applications.slice(0, 3).map(item => <span key={item}>{item}</span>)}</div>
         </div>
         <div className="product-detail-image">
           <Photo src={p.image} alt={p.imageAlt} eager />
-          {p.image && <span className="image-label">{c.ui.concept}</span>}
+          {(p.image.startsWith("/stock/") || p.image.startsWith("/images/")) && <span className="image-label">{c.ui.concept}</span>}
         </div>
       </section>
+      <div id="product-overview">
       {original ? (
-        <OriginalCopy />
+        <section className="product-overview wrap">
+          <div className="product-overview-copy">
+            <h2>Overview</h2>
+            <OriginalCopy groupFinishLists />
+          </div>
+        </section>
       ) : (
         <section className="wrap product-specs section">
           <div>
             <p className="eyebrow">{p.name}</p>
-            <h2>{c.ui.specs}</h2>
+            <h2>Overview</h2>
             {p.body.map((s, i) => (
               <p key={i}>{s}</p>
             ))}
-            <p className="note">{c.ui.productNote}</p>
           </div>
-          <dl>
-            {p.specs.map((s, i) => (
-              <div key={i}>
-                <dt>{s.label}</dt>
-                <dd>{s.value}</dd>
-              </div>
-            ))}
-          </dl>
         </section>
       )}
+      </div>
       {p.finishes.length > 0 && (
-        <section className="finish-section section">
+        <section className="finish-section section" id="product-finishes">
           <div className="wrap finish-inner">
             {p.finishes[finish]?.image ? (
               <Photo
@@ -979,6 +1120,7 @@ function ProductDetail({ p }: { p: Product }) {
             ) : (
               <div
                 className="swatch-tile large"
+                role="img"
                 style={{ background: p.finishes[finish]?.hex }}
                 aria-label={p.finishes[finish]?.name}
               />
@@ -993,6 +1135,7 @@ function ProductDetail({ p }: { p: Product }) {
                     key={i}
                     aria-label={f.name}
                     aria-pressed={finish === i}
+                    title={f.name}
                     onClick={() => setFinish(i)}
                     style={{ background: f.hex }}
                   />
@@ -1004,29 +1147,31 @@ function ProductDetail({ p }: { p: Product }) {
           </div>
         </section>
       )}
-      <section className="wrap section">
-        <SectionHead title={c.ui.applications} />
+      <section className="wrap section" id="product-applications">
+        <SectionHead title="Applications" />
         <div className="application-list">
           {p.applications.map((a, i) => (
             <div key={a}>
               <span>0{i + 1}</span>
               <h3>{a}</h3>
-              <Arrow />
             </div>
           ))}
         </div>
       </section>
       <ContactSection />
-    </>
+    </div>
   );
 }
 function Projects() {
   const c = useContent();
+  const original = useOriginalPage();
   const [filter, setFilter] = useState("all");
   return (
-    <>
+    <div className="projects-page">
       <Intro page={c.pages.find((p) => p.slug === "projects")!} />
-      <OriginalCopy />
+      {original && <div className="original-copy wrap projects-introduction">
+        <OriginalBlocks blocks={original.blocks.slice(0, 2)} title={original.title} />
+      </div>}
       <section className="wrap section no-top">
         <div className="pills">
           {["all", ...new Set(c.projects.map((p) => p.category))].map((s) => (
@@ -1048,7 +1193,7 @@ function Projects() {
         </div>
       </section>
       <ContactSection />
-    </>
+    </div>
   );
 }
 function ProjectDetail({ p }: { p: SiteContent["projects"][number] }) {
@@ -1069,7 +1214,7 @@ function ProjectDetail({ p }: { p: SiteContent["projects"][number] }) {
         <Photo src={p.image} alt={p.imageAlt} eager />
       </div>
       <section className="wrap section">
-        <SectionHead title={c.ui.technical} description={c.ui.projectSpec} />
+        <SectionHead title={p.products.length ? c.ui.productsUsed : c.ui.technical} description={p.products.length ? undefined : c.ui.projectSpec} />
         {p.products.length > 0 ? (
           <div className="product-grid">
             {p.products.map((id) => (
@@ -1080,7 +1225,7 @@ function ProjectDetail({ p }: { p: SiteContent["projects"][number] }) {
             ))}
           </div>
         ) : (
-          <Button href={`/contact?product=${encodeURIComponent(p.name)}`}>
+          <Button href={`/contact?project=${encodeURIComponent(p.slug)}`}>
             {c.ui.requestSpec}
           </Button>
         )}
@@ -1093,7 +1238,7 @@ function Resources() {
   const c = useContent();
   const [filter, setFilter] = useState("all");
   return (
-    <>
+    <div className="resources-page">
       <Intro page={c.pages.find((p) => p.slug === "resources")!} />
       <section className="wrap section no-top">
         <div className="pills">
@@ -1111,56 +1256,82 @@ function Resources() {
           {c.resources
             .filter((r) => filter === "all" || filter === r.type)
             .map((r) => (
-              <ResourceCard key={r.slug} r={r} />
+              <ResourceCard key={r.slug} r={r} reveal={false} />
             ))}
         </div>
       </section>
-    </>
+    </div>
   );
 }
 function ResourceDetail({ r }: { r: SiteContent["resources"][number] }) {
   const c = useContent();
   const original = useOriginalPage();
+  const presenceIndex = original?.blocks.findIndex(block => block.type === "heading" && block.text === "Our Presence") ?? -1;
+  const presenceEnd = presenceIndex >= 0 ? original!.blocks.findIndex((block, index) => index > presenceIndex && (block.type === "heading" || block.text === "Buying Options")) : -1;
   return (
-    <>
-      <Intro
-        page={{
-          ...c.pages.find((p) => p.slug === "resources")!,
-          eyebrow: r.type,
-          title: r.title,
-          accent: "",
-          description: r.description,
-        }}
-        compact
-      />
-      <OriginalCopy />
-      <section className="wrap article">
-        <Photo src={r.image} alt={r.imageAlt} eager />
+    <div className="resources-page resource-detail-page">
+      <section className="wrap resource-hero">
         <div>
-          {!original && r.body.map((p, i) => <p key={i}>{p}</p>)}
+          <Link className="breadcrumb" href="/resources">← {c.ui.resources}</Link>
+          <p className="eyebrow">{r.type}</p>
+          <h1>{r.title}</h1>
+          <p className="resource-description">{r.description}</p>
           {r.href && <Button href={r.href}>{c.ui.source}</Button>}
         </div>
+        <Photo src={r.image} alt={r.imageAlt} eager />
       </section>
+      <div className="wrap original-copy resource-body">
+        {original ? presenceIndex >= 0 ? <>
+          <OriginalBlocks blocks={original.blocks.slice(0, presenceIndex)} title={r.title} />
+          <section className="resource-presence">
+            <h3>{original.blocks[presenceIndex].text}</h3>
+            <ul>{original.blocks.slice(presenceIndex + 1, presenceEnd >= 0 ? presenceEnd : undefined).map(block => {
+              const city = block.text.trim().toLowerCase();
+              const destination = c.site.nav.flatMap(item => item.children || []).find(item =>
+                item.label.toLowerCase() === city || item.href.replace(/^\/+|\/+$/g, "").toLowerCase() === city,
+              );
+              return <li key={block.id}>{destination ? <Link href={destination.href}>{block.text}</Link> : block.text}</li>;
+            })}</ul>
+          </section>
+          {presenceEnd >= 0 && <OriginalBlocks blocks={original.blocks.slice(presenceEnd)} title={r.title} />}
+        </> : <OriginalBlocks blocks={original.blocks} title={r.title} /> : r.body.map((text, i) => <p key={i}>{text}</p>)}
+      </div>
       <ResourcesSection />
-    </>
+    </div>
   );
 }
-function Network() {
+function Network({ embedded = false }: { embedded?: boolean } = {}) {
   const c = useContent();
+  const currentOriginal = useOriginalPage();
+  const original = embedded ? undefined : currentOriginal;
+  const presenceIndex = original?.blocks.findIndex(block => block.text === "Our Presence") ?? -1;
+  const supportIndex = original?.blocks.findIndex(block => block.text === "Buying Options") ?? -1;
+  const introduction = original?.blocks.slice(0, presenceIndex >= 0 ? presenceIndex : undefined) || [];
+  const opening = introduction.find(block => block.type === "heading");
+  const statistics = introduction.flatMap(block => {
+    const match = block.type === "paragraph" && block.text.trim().match(/^(\d[\d,.]*\s*\+?)\s+(.+)$/);
+    return match ? [{ id: block.id, value: match[1].replace(/\s/g, ""), label: match[2] }] : [];
+  });
+  const supportingCopy = introduction.filter(block => block !== opening && !statistics.some(stat => stat.id === block.id));
+  const cityLinks = c.site.nav.flatMap(item => item.children || []);
+  const cityHref = (city: string) => cityLinks.find(item => item.label.toLowerCase() === city.toLowerCase() || item.href.replace(/^\/+|\/+$/g, "").toLowerCase() === city.toLowerCase())?.href;
   const [state, setState] = useState("all");
   const [selected, setSelected] = useState(c.offices[0]?.city || "");
   const offices = c.offices.filter((o) => state === "all" || o.state === state);
   const current = c.offices.find((o) => o.city === selected);
   return (
-    <>
-      <Intro page={c.pages.find((p) => p.slug === "network")!} />
-      <OriginalCopy />
+    <div className="network-page">
+      {embedded ? <div className="wrap section"><SectionHead title={c.pages.find(p => p.slug === "network")!.title} /></div> : <Intro page={c.pages.find((p) => p.slug === "network")!} />}
+      {original && <div className="wrap network-introduction">
+        {opening && <h2>{opening.text}</h2>}
+        {statistics.length > 0 && <dl className="network-statistics">{statistics.map(stat => <div key={stat.id}><dt>{stat.label}</dt><dd>{stat.value}</dd></div>)}</dl>}
+      </div>}
       <section className="wrap network-layout">
         <div className="network-map">
           <svg viewBox="0 0 100 100" aria-hidden="true">
             <path d="M32 7 39 4 43 12 40 17 47 21 50 28 60 32 72 34 76 31 84 33 92 26 95 31 89 40 79 44 73 49 66 57 58 61 53 70 49 81 43 96 38 90 33 76 28 63 24 54 17 47 13 38 24 35 25 25 29 20 25 13Z" />
           </svg>
-          {c.offices.map((o) => (
+          {offices.map((o) => (
             <button
               style={{ left: `${o.x}%`, top: `${o.y}%` }}
               key={o.city}
@@ -1169,7 +1340,6 @@ function Network() {
               className={selected === o.city ? "active" : ""}
               onClick={() => {
                 setSelected(o.city);
-                setState("all");
               }}
             >
               <span>{o.city}</span>
@@ -1199,20 +1369,19 @@ function Network() {
           </label>
           <div className="city-list">
             {offices.map((o) => (
-              <button
-                key={o.city}
+              <div className="network-city-row" key={o.city}><button
                 aria-pressed={selected === o.city}
                 onClick={() => setSelected(o.city)}
               >
                 {o.city}
-                <Arrow />
               </button>
+              </div>
             ))}
           </div>
           {current && (
             <div className="city-detail">
               <p className="eyebrow">{c.ui.coverage}</p>
-              <h3>{current.city}</h3>
+              <h3>{cityHref(current.city) ? <Link href={cityHref(current.city)!}>{current.city}<Arrow /></Link> : current.city}</h3>
               <p>{current.address}</p>
               <a href={`tel:${current.phone.replaceAll(" ", "")}`}>
                 {current.phone}
@@ -1222,13 +1391,123 @@ function Network() {
           )}
         </div>
       </section>
-      <ContactSection />
-    </>
+      {original && supportingCopy.length > 0 && <div className="wrap original-copy network-story"><OriginalBlocks blocks={supportingCopy} title={original.title} /></div>}
+      {original && presenceIndex >= 0 && <section className="wrap contact-presence">
+        <h2>{original.blocks[presenceIndex].text}</h2>
+        <ul>{original.blocks.slice(presenceIndex + 1, supportIndex >= 0 ? supportIndex : undefined).map(block => <li key={block.id}>{cityHref(block.text) ? <Link href={cityHref(block.text)!}>{block.text}</Link> : block.text}</li>)}</ul>
+      </section>}
+      {original && supportIndex >= 0 && <div className="wrap original-copy network-support"><OriginalBlocks blocks={original.blocks.slice(supportIndex)} title={original.title} /></div>}
+      {!embedded && <ContactSection />}
+    </div>
   );
+}
+function MaterialInfoPage({ page }: { page: ContentPage }) {
+  const original = useOriginalPage();
+  const content = useContent();
+  const isCore = ["fire-retardent", "low-density-poly-ethylene"].includes(page.slug);
+  const isApplication = ["exterior-facade", "interior-design", "brand-identity"].includes(page.slug);
+  const brandHeading = page.slug === "brand-identity" ? original?.blocks.find(block => block.type === "heading" && block.text === "Approved By Leading Brands") : undefined;
+  const blocks = (original?.blocks || []).filter(block => !isApplication || ![
+    "Have a Message For Us?",
+    "Use this form to send your message. We will get back within 24 hours.",
+  ].includes(block.text.trim()));
+  return <div className="thickness-page">
+    <section className="wrap thickness-hero">
+      <div>
+        <Link className="breadcrumb" href={isApplication ? "/projects" : "/products"}>← {isApplication ? "Explore projects" : "All products"}</Link>
+        <p className="eyebrow">{page.eyebrow}</p>
+        <h1>{original?.title || page.title}</h1>
+        <p className="thickness-intro">{original?.description || page.description}</p>
+        <Button href={page.cta.href}>{page.cta.label}</Button>
+      </div>
+      {page.image && <Photo src={page.image} alt={page.imageAlt} eager />}
+    </section>
+    <div className="wrap thickness-content">
+      {isCore ? <OriginalCopy groupFinishLists /> : <div className="original-copy">
+        <OriginalBlocks blocks={blocks.filter(block => block !== brandHeading)} title={page.title} />
+      </div>}
+    </div>
+    {brandHeading && <section className="home-brands wrap">
+      <h2>{brandHeading.text}</h2>
+      <div>{content.brands.map(brand => <span key={brand.name}>
+        {brand.image ? <Photo src={brand.image} alt={brand.imageAlt} /> : brand.name}
+      </span>)}</div>
+    </section>}
+    <ContactSection />
+  </div>;
+}
+function AwardsList() {
+  const original = useOriginalPage();
+  return <div className="original-copy">
+    <ul>{original?.blocks.filter(block => block.type === "paragraph").map(block => <li key={block.id}>{block.text}</li>)}</ul>
+    <OriginalBlocks blocks={original?.blocks.filter(block => block.type !== "paragraph") || []} title={original?.title} />
+  </div>;
+}
+function CompanyPage({ page }: { page: ContentPage }) {
+  const c = useContent();
+  const original = useOriginalPage();
+  const leadership = page.slug === "about/leadership";
+  const awards = page.slug === "awards";
+  const isYear = (text: string) => /^\d{4}(?:\s*[-–]\s*\d{4})?$/.test(text.trim());
+  const historyStart = page.slug === "about" ? original?.blocks.findIndex(block => block.type === "heading" && isYear(block.text)) ?? -1 : -1;
+  const historyStop = original?.blocks.findIndex((block, index) => index > historyStart && block.type === "heading" && block.level <= 2 && !isYear(block.text)) ?? -1;
+  const historyEnd = historyStop >= 0 ? historyStop : original?.blocks.length ?? 0;
+  const milestones = original && historyStart >= 0 ? original.blocks.slice(historyStart, historyEnd).reduce<typeof original.blocks[]>((groups, block) => {
+    if (block.type === "heading" && isYear(block.text)) groups.push([]);
+    groups[groups.length - 1].push(block);
+    return groups;
+  }, []) : [];
+  const companyPages = c.pages.filter(p => p.slug.startsWith("about") || p.slug === "awards");
+  return <div className="company-page">
+    <section className={`wrap company-hero${!page.image || leadership ? " company-hero-text" : ""}`}>
+      <div>
+        {page.slug !== "about" && <Link className="breadcrumb" href="/about">← {c.pages.find(p => p.slug === "about")?.title}</Link>}
+        <p className="eyebrow">{page.eyebrow}</p>
+        <h1>{original?.title || page.title}</h1>
+        {(original?.description || page.description) && <p className="company-intro">{original?.description || page.description}</p>}
+      </div>
+      {page.image && !leadership && <Photo src={page.image} alt={page.imageAlt} eager />}
+    </section>
+    <div className="wrap company-content">
+      {awards ? <AwardsList /> : leadership && original ? <div className="company-leaders">
+        {original.blocks.reduce<typeof original.blocks[]>((groups, block) => {
+          if (block.type === "heading" && c.team.some(person => person.name === block.text)) groups.push([]);
+          if (!groups.length) groups.push([]);
+          groups[groups.length - 1].push(block);
+          return groups;
+        }, []).map((blocks, i) => {
+          const person = c.team.find(person => person.name === blocks[0]?.text);
+          return <article className="original-copy" key={blocks[0]?.id || i}>
+            {person?.image && <Photo src={person.image} alt={person.imageAlt} />}
+            <OriginalBlocks blocks={blocks} title={page.title} />
+            {person && <p>{person.description}</p>}
+          </article>;
+        })}
+      </div> : original ? <div className="original-copy company-copy">
+        {original.blocks.map((block, index) => index === historyStart ? <ol className="company-timeline" key={block.id}>
+          {milestones.map(([year, ...blocks]) => <li key={year.id}>
+            <div className="company-timeline-year">{year.text}</div>
+            <div className="company-timeline-copy"><OriginalBlocks blocks={blocks} title={page.title} /></div>
+          </li>)}
+        </ol> : historyStart >= 0 && index > historyStart && index < historyEnd ? null : block.type === "heading" && block.text === "Approved By Leading Brands" ?
+          <section className="home-brands" key={block.id}>
+            <h2>{block.text}</h2>
+            <div>{c.brands.map(brand => <span key={brand.name}>{brand.image ? <Photo src={brand.image} alt={brand.imageAlt} /> : brand.name}</span>)}</div>
+          </section> : <OriginalBlocks key={block.id} blocks={[block]} title={page.title} />)}
+      </div> : <div className="original-copy">{page.body.map((text, i) => <p key={i}>{text}</p>)}</div>}
+    </div>
+    <nav className="wrap company-navigation" aria-label={c.ui.aboutLinks}>
+      <p className="eyebrow">{c.ui.aboutLinks}</p>
+      <div>{companyPages.filter(p => p.slug !== page.slug).map(p => <Link href={`/${p.slug}`} key={p.slug}>{p.title}<Arrow /></Link>)}</div>
+    </nav>
+    <ContactSection />
+  </div>;
 }
 function GenericPage({ page }: { page: ContentPage }) {
   const c = useContent();
   const original = useOriginalPage();
+  if (page.slug.startsWith("about") || ["awards", "lalit-mittal", "mohit-mittal"].includes(page.slug)) return <CompanyPage page={page} />;
+  if (/^[346]mm-acp-sheet$/.test(page.slug) || ["fire-retardent", "low-density-poly-ethylene", "exterior-facade", "interior-design", "brand-identity"].includes(page.slug)) return <MaterialInfoPage page={page} />;
   return (
     <>
       <Intro page={page} />
@@ -1282,15 +1561,6 @@ function GenericPage({ page }: { page: ContentPage }) {
           <Brands />
         </div>
       )}
-      {page.slug === "site-map" && (
-        <nav className="wrap site-map-grid" aria-label="All website pages">
-          {sitemapPaths(c).map((path) => (
-            <Link href={path} key={path}>
-              {path === "/" ? "Home" : path}
-            </Link>
-          ))}
-        </nav>
-      )}
       {page.slug.startsWith("about") && (
         <section className="wrap about-nav section">
           <p className="eyebrow">{c.ui.aboutLinks}</p>
@@ -1308,18 +1578,105 @@ function GenericPage({ page }: { page: ContentPage }) {
     </>
   );
 }
+function SitemapPage({ page }: { page: ContentPage }) {
+  const c = useContent();
+  const groups = new Map<string, { href: string; label: string }[]>([
+    ["Explore", []], ["Products & collections", []], ["Applications", []],
+    ["Planning tools & partners", []], ["Company", []], ["Our network", []],
+    ["Projects", []], ["Resources", []], ["Legal", []],
+  ]);
+  const labels = new Map<string, string>();
+  const categories = new Map<string, string>();
+  const register = (route: string, label: string, category: string) => {
+    const href = canonicalPath(route);
+    labels.set(href, label);
+    categories.set(href, category);
+  };
+  c.pages.forEach(p => {
+    const category = p.slug.startsWith("about") || ["awards", "lalit-mittal", "mohit-mittal", "careers"].includes(p.slug) ? "Company"
+      : ["privacy", "terms"].includes(p.slug) ? "Legal"
+      : ["products", "collections", "3mm-acp-sheet", "4mm-acp-sheet", "6mm-acp-sheet", "fire-retardent", "low-density-poly-ethylene"].includes(p.slug) ? "Products & collections"
+      : ["exterior-facade", "interior-design", "brand-identity"].includes(p.slug) ? "Applications"
+      : ["visualiser", "product-finder", "samples", "become-a-dealer"].includes(p.slug) ? "Planning tools & partners"
+      : p.slug === "resources" ? "Resources" : p.slug === "projects" ? "Projects" : p.slug === "network" ? "Our network" : "Explore";
+    register(p.slug, p.title, category);
+  });
+  c.products.forEach(p => register(`products/${p.slug}`, p.name, "Products & collections"));
+  c.projects.forEach(p => register(`projects/${p.slug}`, p.name, "Projects"));
+  c.resources.forEach(r => register(`resources/${r.slug}`, r.title, "Resources"));
+  c.roles.forEach(r => register(`for/${r.id}`, r.label, "Planning tools & partners"));
+  c.blogs.forEach(b => register(`blog/${b.slug}`, b.title, "Resources"));
+  c.originalPages.find(p => p.route === "site-map")?.blocks.forEach(block => {
+    if (block.type === "link" && block.href && block.href !== "/sitemap.html") labels.set(canonicalPath(block.href.replace(/^\/+|\/+$/g, "")), block.text);
+  });
+  c.site.nav.forEach(item => {
+    (item.children || []).forEach(link => {
+      const href = canonicalPath(link.href.replace(/^\/+|\/+$/g, ""));
+      labels.set(href, link.label);
+      if (item.href === "/network") categories.set(href, "Our network");
+    });
+  });
+  labels.set("/", "Home");
+  labels.set("/collections", "Collections");
+  labels.set("/blog/", "Blog");
+  categories.set("/blog/", "Resources");
+  sitemapPaths(c).forEach(href => groups.get(categories.get(href) || "Explore")!.push({ href, label: labels.get(href) || href }));
+  return <div className="sitemap-page">
+    <Intro page={page} />
+    <nav className="wrap sitemap-groups" aria-label="All website pages">
+      {[...groups].filter(([, links]) => links.length).map(([title, links]) => <section key={title}>
+        <h2>{title}</h2>
+        <ul>{links.map(link => <li key={link.href}><Link href={link.href}>{link.label}</Link></li>)}</ul>
+      </section>)}
+    </nav>
+  </div>;
+}
 function ContactPage({
   page,
   type,
   product,
+  message = "",
 }: {
   page: ContentPage;
   type: "contact" | "dealer" | "sample" | "career";
   product?: string;
+  message?: string;
 }) {
   const c = useContent();
+  const original = useOriginalPage();
+  if (type === "contact" && original) {
+    const messageIndex = original.blocks.findIndex(block => block.text === "Have a Message For Us?");
+    const presenceIndex = original.blocks.findIndex(block => block.text === "Our Presence");
+    if (messageIndex >= 0 && presenceIndex > messageIndex) return <div className="planning-page contact-page">
+      <Intro page={page} />
+      <section className="wrap contact-main">
+        <div className="original-copy contact-offices">
+          {original.blocks.slice(0, messageIndex).map(block => {
+            const parts = block.text.split(/(\+91[\d ]{10,}|[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,})/g);
+            return block.type === "paragraph" && parts.length > 1 ? <p className="contact-direct" key={block.id}>{parts.map((part, index) => part.startsWith("+91") ? <a key={index} href={`tel:${part.replaceAll(" ", "")}`}>{part.trim()}</a> : part.includes("@") ? <a key={index} href={`mailto:${part}`}>{part}</a> : <span key={index}>{part}</span>)}</p> : <OriginalBlocks key={block.id} blocks={[block]} title={page.title} />;
+          })}
+          {page.image && <Photo src={page.image} alt={page.imageAlt} />}
+        </div>
+        <div className="contact-form-area">
+          <h2>{original.blocks[messageIndex].text}</h2>
+          {original.blocks.slice(messageIndex + 1, presenceIndex).map(block => <p key={block.id}>{block.text}</p>)}
+          <EnquiryForm c={c} type="contact" product={product} message={message} />
+        </div>
+      </section>
+      <section className="wrap contact-presence">
+        <h2>{original.blocks[presenceIndex].text}</h2>
+        <ul>{original.blocks.slice(presenceIndex + 1).map(block => {
+          const city = block.text.trim().toLowerCase();
+          const destination = c.site.nav.flatMap(item => item.children || []).find(item =>
+            item.label.toLowerCase() === city || item.href.replace(/^\/+|\/+$/g, "").toLowerCase() === city,
+          );
+          return <li key={block.id}>{destination ? <Link href={destination.href}>{block.text}</Link> : block.text}</li>;
+        })}</ul>
+      </section>
+    </div>;
+  }
   return (
-    <>
+    <div className={type === "sample" ? "planning-page samples-page" : type === "contact" || type === "career" ? "planning-page company-form-page" : undefined}>
       <Intro page={page} />
       <OriginalCopy />
       <section className="wrap enquiry-layout section no-top">
@@ -1343,9 +1700,9 @@ function ContactPage({
             </>
           )}
         </div>
-        <EnquiryForm c={c} type={type} product={product} />
+        <EnquiryForm c={c} type={type} product={product} message={message} />
       </section>
-    </>
+    </div>
   );
 }
 export function Website({
@@ -1355,8 +1712,16 @@ export function Website({
   product,
   blogView,
   requestPath,
+  catalogueThicknesses,
+  journeyRole = "",
+  exploreHome = false,
+  enquiryProject,
 }: {
   content: SiteContent;
+  catalogueThicknesses?: Record<string, number[]>;
+  journeyRole?: string;
+  exploreHome?: boolean;
+  enquiryProject?: string;
   route: string;
   preview?: boolean;
   product?: string;
@@ -1364,6 +1729,7 @@ export function Website({
   requestPath?: string;
 }) {
   usePageScroll(requestPath || route);
+  useInnerMotion(route, content);
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) =>
@@ -1390,11 +1756,11 @@ export function Website({
   const p = c.pages.find((p) => p.slug === route);
   let body: ReactNode = null;
   if (blogView) body = <Blog view={blogView} c={c} preview={preview} />;
-  else if (!route) body = <Landing />;
+  else if (!route) body = <Landing exploreHome={exploreHome} />;
   else if (route.startsWith("for/"))
-    body = <Landing role={c.roles.find((r) => r.id === route.split("/")[1])} />;
+    body = <AudiencePage role={c.roles.find((r) => r.id === route.split("/")[1])!} />;
   else if (route === "products" || route === "collections")
-    body = <Products collections={route === "collections"} />;
+    body = <Products collections={route === "collections"} thicknessByProduct={catalogueThicknesses} />;
   else if (route.startsWith("products/"))
     body = (
       <ProductDetail
@@ -1416,12 +1782,14 @@ export function Website({
       />
     );
   else if (route === "network") body = <Network />;
+  else if (route === "site-map") body = <SitemapPage page={p!} />;
   else if (route === "visualiser") body = <Visualiser />;
   else if (route === "product-finder") body = <Quiz />;
   else if (["contact", "become-a-dealer", "samples", "careers"].includes(route))
     body = (
       <ContactPage
         page={p!}
+        message={enquiryProject ? `${c.ui.projectEnquiry}: ${c.projects.find(project => project.slug === enquiryProject)?.name || ""}` : ""}
         type={
           route === "become-a-dealer"
             ? "dealer"
@@ -1436,6 +1804,7 @@ export function Website({
     );
   else if (p) body = <GenericPage page={p} />;
   return (
+    <JourneyRoleContext.Provider value={journeyRole}>
     <Context.Provider value={c}>
       <OriginalPageContext.Provider value={original}>
         <div className="site-shell">
@@ -1447,22 +1816,25 @@ export function Website({
           )}
           <Header />
           <main id="main">{body}</main>
-          <Footer />
+          {(route !== "" || exploreHome) && <Footer />}
         </div>
       </OriginalPageContext.Provider>
     </Context.Provider>
+    </JourneyRoleContext.Provider>
   );
 }
 function Visualiser() {
   const c = useContent();
+  const original = useOriginalPage();
   const [product, setProduct] = useState(c.products[0].slug);
   const selected = c.products.find((p) => p.slug === product)!;
   return (
-    <>
+    <div className="planning-page visualiser-page">
       <Intro page={c.pages.find((p) => p.slug === "visualiser")!} />
-      <OriginalCopy />
+      {original && <div className="original-copy wrap planning-introduction"><OriginalBlocks blocks={original.blocks.slice(0, 2)} title={original.title} /></div>}
       <section className="wrap visualiser-layout section no-top">
         <div>
+          {original && <div className="original-copy planning-instructions"><OriginalBlocks blocks={original.blocks.slice(2, 7)} title={original.title} /></div>}
           <div className="visualiser-image">
             <Photo src={selected.image} alt={selected.imageAlt} />
             <span className="image-label">
@@ -1478,21 +1850,26 @@ function Visualiser() {
                   aria-pressed={p.slug === product}
                   onClick={() => setProduct(p.slug)}
                   key={p.slug}
-                  style={{ background: p.finishes[0].hex }}
-                />
+                  title={p.name}
+                ><span style={{ background: p.finishes[0].hex }} aria-hidden="true" />{p.name}</button>
               ))}
           </div>
           <h3>{selected.name}</h3>
           <p>{c.ui.visualiserNote}</p>
         </div>
-        <EnquiryForm c={c} type="visualiser" product={product} />
+        <div className="planning-form-column">
+          {original && <div className="original-copy planning-form-title"><OriginalBlocks blocks={original.blocks.slice(7, 8)} title={original.title} /></div>}
+          <EnquiryForm c={c} type="visualiser" product={product} />
+          {original && <div className="original-copy planning-support"><OriginalBlocks blocks={original.blocks.slice(8)} title={original.title} /></div>}
+        </div>
       </section>
-    </>
+    </div>
   );
 }
 function Quiz() {
   const c = useContent();
   const [step, setStep] = useState(0);
+  const [reference, setReference] = useState("");
   const [answers, setAnswers] = useState(["residential", "exterior", "warm"]);
   const questions = [
     { title: c.ui.quizType, options: ["residential", "commercial"] },
@@ -1514,7 +1891,7 @@ function Quiz() {
     )
     .slice(0, 3);
   return (
-    <>
+    <div className="planning-page finder-page">
       <Intro page={c.pages.find((p) => p.slug === "product-finder")!} />
       <section className="wrap quiz section no-top">
         {step < 3 ? (
@@ -1555,8 +1932,15 @@ function Quiz() {
               </button>
             </div>
           </>
+        ) : !reference ? (
+          <div className="quiz-enquiry">
+            <h2>{c.ui.quizLeadTitle}</h2><p>{c.ui.quizLeadDescription}</p>
+            <EnquiryForm c={c} type="quiz" product={matches[0]?.slug} message={answers.map(answer => c.ui[answer]).join(" / ")} onSuccess={setReference} />
+            <button className="text-link" onClick={() => setStep(2)}>{c.ui.previous}</button>
+          </div>
         ) : (
           <>
+            <p role="status">{c.ui.success} {reference}</p>
             <SectionHead
               title={c.ui.matches}
               description={c.ui.matchesDescription}
@@ -1566,21 +1950,12 @@ function Quiz() {
                 <ProductCard p={p} key={p.slug} />
               ))}
             </div>
-            <button className="text-link" onClick={() => setStep(0)}>
+            <button className="text-link" onClick={() => { setStep(0); setReference(""); }}>
               {c.ui.restart} ↺
             </button>
-            <div className="quiz-enquiry">
-              <h2>{c.ui.contact}</h2>
-              <EnquiryForm
-                c={c}
-                type="quiz"
-                product={matches[0]?.slug}
-                message={answers.map((a) => c.ui[a]).join(" / ")}
-              />
-            </div>
           </>
         )}
       </section>
-    </>
+    </div>
   );
 }
