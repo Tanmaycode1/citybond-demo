@@ -13,10 +13,49 @@
 .home-editorial {
   --home-space: clamp(64px, 7.5vw, 112px);
 }
-.entry-foot .home-explore-action { display: inline-flex; align-items: center; justify-content: center; gap: 20px; min-height: 48px; padding: 12px 22px; border: 1px solid var(--brand-red); border-radius: 28px; background: var(--brand-red); color: white; font-size: 16px; line-height: 1.4; }
-.entry-foot .home-explore-action:hover { background: var(--ink); border-color: var(--ink); }
+.entry-foot .home-explore-action {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  min-height: 52px;
+  padding: 6px 7px 6px 22px;
+  border: 1px solid #201e5729;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: 14px;
+  line-height: 1.4;
+  letter-spacing: .025em;
+  cursor: pointer;
+  transition: background .3s ease, border-color .3s ease, box-shadow .3s ease;
+}
+.home-explore-arrow {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #201e5708;
+  transition: background .3s ease, color .3s ease;
+}
+.home-explore-arrow svg { width: 18px; height: 18px; transition: transform .45s cubic-bezier(.22, 1, .36, 1); }
+.home-explore-action:is(:hover, :focus-visible) { border-color: #201e5760; background: #fff8; box-shadow: 0 4px 18px #201e5706; }
+.home-explore-action:is(:hover, :focus-visible) .home-explore-arrow { background: var(--ink); color: white; }
+.home-explore-action:is(:hover, :focus-visible) svg { transform: translateY(3px); }
+.home-explore-action:active svg { transform: translateY(5px); }
 .entry-foot .home-explore-action:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+.home-discovery .scroll-story:focus { outline: none; }
 .home-discovery[hidden] { display: none; }
+@media (max-width: 420px) {
+  .entry-foot:has(.home-explore-action) { flex-wrap: wrap; gap: 14px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-explore-action, .home-explore-arrow, .home-explore-arrow svg { transition: none !important; }
+  .home-explore-action:is(:hover, :focus-visible, :active) svg { transform: none; }
+}
 .home-editorial h2 {
   font-size: clamp(38px, 4.2vw, 64px);
   line-height: 1.06;
