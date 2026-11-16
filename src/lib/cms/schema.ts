@@ -1,6 +1,7 @@
 import { z } from "zod";
 import seed from "@/data/site.json";
 import { originalPageSchema } from "./original-copy-schema";
+import { roleSections } from "../role-sections";
 const text = z.string().max(12000);
 const short = z.string().max(300);
 const slug = z
@@ -101,12 +102,13 @@ export const contentSchema = z.object({
     tagline: short,
     logo: image,
     footerLogo: image.default("/citybond/brand-lockup.svg"),
+    headerStyle: z.enum(["white", "tinted"]).default("tinted"),
     phone: short,
     email: short,
     address: text,
     footer: text,
     nav: z.array(navLink).min(1).max(12),
-    footerLinks: z.array(link).max(20),
+    footerLinks: z.array(link.extend({ group: short.default("Explore") })).max(20),
     social: z.array(link).max(10),
   }),
   ui: z.record(z.string(), text),
@@ -166,19 +168,11 @@ export const contentSchema = z.object({
         image,
         imageAlt: short,
         cta: link,
+        secondaryCta: link.optional(),
+        projectCategories: z.array(short).max(20).default([]),
         sections: z
-          .array(
-            z.enum([
-              "network",
-              "projects",
-              "products",
-              "visualiser",
-              "resources",
-              "about",
-              "contact",
-            ]),
-          )
-          .max(8),
+          .array(z.enum(roleSections))
+          .max(16),
       }),
     )
     .min(1)

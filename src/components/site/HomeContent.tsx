@@ -32,25 +32,27 @@ export function HomeContent({
   content: c,
   materials,
   projects,
+  finder,
 }: {
   page: OriginalPage;
   content: SiteContent;
   materials: ReactNode;
   projects: ReactNode;
+  finder: ReactNode;
 }) {
   const groups = homeCopySections(page.blocks);
   // Keep the narrative intentional while rendering every editable block once.
   const order = [
-    "about",
-    "products",
-    "benefits",
-    "industries",
     "projects",
-    "brochure",
+    "products",
+    "about",
+    "benefits",
+    "certifications",
+    "industries",
     "brands",
     "stories",
+    "brochure",
     "awards",
-    "certifications",
     "extra",
   ];
   const sorted = [...groups].sort(
@@ -68,7 +70,7 @@ export function HomeContent({
                   alt={c.home.aboutImageAlt}
                   loading="lazy"
                 />
-                <span className="home-photo-note">{c.ui.stockCaption}</span>
+                {!c.home.aboutImage.startsWith("/citybond/projects/") && <span className="home-photo-note">{c.ui.stockCaption}</span>}
               </div>
               <div className="home-about-copy reveal">
                 <p className="eyebrow">{c.site.tagline}</p>
@@ -120,9 +122,10 @@ export function HomeContent({
                                 loading="lazy"
                               />
                             )}
-                            <span aria-hidden="true">0{i + 1} / ↗</span>
+                            <span className="collection-number" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
                           </div>
                           <div className="home-collection-copy">
+                            <span className="collection-arrow" aria-hidden="true">↗</span>
                             {match ? (
                               <>
                                 <h3>{match[1]}</h3> <p>{match[2]}</p>
@@ -173,14 +176,13 @@ export function HomeContent({
                     <div key={b.id}>
                       <span aria-hidden="true">0{i + 1}</span>
                       <OriginalBlocks blocks={[b]} />
-                      <span aria-hidden="true">↗</span>
                     </div>
                   ))}
                 </div>
               </div>
               <div className="home-industry-image reveal">
                 <img src={c.home.image} alt={c.home.imageAlt} loading="lazy" />
-                <span className="home-photo-note">{c.ui.stockCaption}</span>
+                {!c.home.image.startsWith("/citybond/projects/") && <span className="home-photo-note">{c.ui.stockCaption}</span>}
               </div>
             </section>
           );
@@ -210,6 +212,7 @@ export function HomeContent({
           );
         if (s.kind === "brands")
           return (
+            <div key={s.id}>
             <section className="home-brands wrap reveal" key={s.id}>
               <Heading section={s} />
               <Copy section={s} />
@@ -225,6 +228,8 @@ export function HomeContent({
                 ))}
               </div>
             </section>
+            {finder}
+            </div>
           );
         if (s.kind === "stories")
           return (

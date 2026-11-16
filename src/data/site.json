@@ -570,28 +570,6 @@
           "rows": [],
           "headerRows": 0,
           "href": ""
-        },
-        {
-          "id": "original-0002",
-          "type": "heading",
-          "level": 5,
-          "text": "Have a Message For Us?",
-          "ordered": false,
-          "items": [],
-          "rows": [],
-          "headerRows": 0,
-          "href": ""
-        },
-        {
-          "id": "original-0003",
-          "type": "heading",
-          "level": 6,
-          "text": "Use this form to send your message. We will get back within 24 hours.",
-          "ordered": false,
-          "items": [],
-          "rows": [],
-          "headerRows": 0,
-          "href": ""
         }
       ]
     },
@@ -614,28 +592,6 @@
           "rows": [],
           "headerRows": 0,
           "href": ""
-        },
-        {
-          "id": "original-0002",
-          "type": "heading",
-          "level": 5,
-          "text": "Have a Message For Us?",
-          "ordered": false,
-          "items": [],
-          "rows": [],
-          "headerRows": 0,
-          "href": ""
-        },
-        {
-          "id": "original-0003",
-          "type": "heading",
-          "level": 6,
-          "text": "Use this form to send your message. We will get back within 24 hours.",
-          "ordered": false,
-          "items": [],
-          "rows": [],
-          "headerRows": 0,
-          "href": ""
         }
       ]
     },
@@ -653,28 +609,6 @@
           "type": "paragraph",
           "level": 2,
           "text": "Our 6mm Aluminium Composite Panels (ACP) demonstrate our dedication to quality, offering unparalleled strength, endurance, and visual charm for your toughest projects. The 6mm ACP sheet prices are also competitive, ranging from ₹175 to ₹220. Designed with precision, the 6mm ACP sheets feature a centre made from Low-Density Polyethene (LDPE) or a fire-resistant mineral compound. This is sandwiched between two layers of Aluminium coils, each 0.25mm thick. The high-quality composition guarantees better rigidity, flatness, and weathering resistance - making it perfect for use outside, such as on buildings' exteriors, including facades, claddings, and signs. The LDPE core, which is part of our ACP sheets, provides excellent thermal and sound insulation. This helps make buildings more energy efficient and more comfortable in terms of noise levels. On the other hand, the mineral core provides strong fire resistance and meets strict building regulations. Our 6mm ACP sheets offer a wide range of colours, textures, and finishes. You can choose from a range of solid hues to patterns like wood grain or stone effects. This allows you to tell visual stories through your designs that match your individual style. Our 6mm ACP sheets are very strong yet light, making them ideal for big projects because they can be set up quickly and don't add much weight to the structure. When it comes to performance, flexibility and fashion, you can count on CityBond's 6mm ACP sheets.",
-          "ordered": false,
-          "items": [],
-          "rows": [],
-          "headerRows": 0,
-          "href": ""
-        },
-        {
-          "id": "original-0002",
-          "type": "heading",
-          "level": 5,
-          "text": "Have a Message For Us?",
-          "ordered": false,
-          "items": [],
-          "rows": [],
-          "headerRows": 0,
-          "href": ""
-        },
-        {
-          "id": "original-0003",
-          "type": "heading",
-          "level": 6,
-          "text": "Use this form to send your message. We will get back within 24 hours.",
           "ordered": false,
           "items": [],
           "rows": [],
@@ -24028,11 +23962,6 @@
         "href": "/products",
         "children": [
           {
-            "label": "All products",
-            "href": "/products",
-            "group": "Explore"
-          },
-          {
             "label": "Lamio",
             "href": "/lamio-series",
             "group": "Collections"
@@ -24090,17 +24019,17 @@
           {
             "label": "3D panels",
             "href": "/3d-panels-series",
-            "group": "Collections"
+            "group": "Product ranges"
           },
           {
             "label": "Metacity louvers",
             "href": "/metacity/",
-            "group": "Collections"
+            "group": "Product ranges"
           },
           {
             "label": "Soffit panels",
             "href": "/soffit-panels/",
-            "group": "Collections"
+            "group": "Product ranges"
           },
           {
             "label": "3 mm ACP sheets",
@@ -24126,6 +24055,16 @@
             "label": "LDPE panels",
             "href": "/low-density-poly-ethylene",
             "group": "Core options"
+          },
+          {
+            "label": "All products",
+            "href": "/products",
+            "group": "Explore"
+          },
+          {
+            "label": "All collections",
+            "href": "/collections",
+            "group": "Explore"
           }
         ]
       },
@@ -24136,37 +24075,37 @@
           {
             "label": "Exterior facades",
             "href": "/exterior-facade",
-            "group": ""
+            "group": "Applications"
           },
           {
             "label": "Interior design",
             "href": "/interior-design",
-            "group": ""
+            "group": "Applications"
           },
           {
             "label": "Brand identity",
             "href": "/brand-identity",
-            "group": ""
+            "group": "Applications"
           },
           {
             "label": "Projects",
             "href": "/projects",
-            "group": ""
+            "group": "Inspiration"
           },
           {
             "label": "Third Eye View",
             "href": "/third-eye-view",
-            "group": ""
+            "group": "Planning tools"
           },
           {
             "label": "Product finder",
             "href": "/product-finder",
-            "group": ""
+            "group": "Planning tools"
           },
           {
             "label": "Request samples",
             "href": "/samples",
-            "group": ""
+            "group": "Planning tools"
           }
         ]
       },
@@ -24177,52 +24116,52 @@
           {
             "label": "About CityBond",
             "href": "/about",
-            "group": ""
+            "group": "About CityBond"
           },
           {
             "label": "Our vision",
             "href": "/vision",
-            "group": ""
+            "group": "About CityBond"
           },
           {
             "label": "Our management",
             "href": "/our-management",
-            "group": ""
+            "group": "Leadership"
           },
           {
             "label": "Lalit Mittal",
             "href": "/lalit-mittal",
-            "group": ""
+            "group": "Leadership"
           },
           {
             "label": "Mohit Mittal",
             "href": "/mohit-mittal",
-            "group": ""
+            "group": "Leadership"
           },
           {
             "label": "Infrastructure",
             "href": "/infrastructure",
-            "group": ""
+            "group": "About CityBond"
           },
           {
             "label": "Awards",
             "href": "/awards",
-            "group": ""
+            "group": "About CityBond"
           },
           {
             "label": "Corporate & clientele",
             "href": "/corporate",
-            "group": ""
+            "group": "About CityBond"
           },
           {
             "label": "Careers",
             "href": "/career",
-            "group": ""
+            "group": "Connect"
           },
           {
             "label": "Contact",
             "href": "/contact",
-            "group": ""
+            "group": "Connect"
           }
         ]
       },
@@ -24233,47 +24172,47 @@
           {
             "label": "All resources",
             "href": "/resources",
-            "group": ""
+            "group": "Library"
           },
           {
             "label": "Catalogue",
             "href": "/catalogue-download",
-            "group": ""
+            "group": "Library"
           },
           {
             "label": "Growth magazine",
             "href": "/download-our-quatarly-acp-magazine",
-            "group": ""
+            "group": "Library"
           },
           {
             "label": "Blog",
             "href": "/blog/",
-            "group": ""
+            "group": "Library"
           },
           {
             "label": "For architects",
             "href": "/architects",
-            "group": ""
+            "group": "For you"
           },
           {
             "label": "Become a dealer",
             "href": "/dealership",
-            "group": ""
+            "group": "For you"
           },
           {
             "label": "All website pages",
             "href": "/sitemap.html",
-            "group": ""
+            "group": "Website information"
           },
           {
             "label": "Privacy policy",
             "href": "/privacy-policy",
-            "group": ""
+            "group": "Website information"
           },
           {
             "label": "Terms",
             "href": "/terms",
-            "group": ""
+            "group": "Website information"
           }
         ]
       },
@@ -24284,97 +24223,97 @@
           {
             "label": "Explore our network",
             "href": "/network",
-            "group": ""
+            "group": "Overview"
           },
           {
             "label": "Bengaluru",
             "href": "/bengaluru",
-            "group": ""
+            "group": "Cities"
           },
           {
             "label": "Chennai",
             "href": "/chennai",
-            "group": ""
+            "group": "Cities"
           },
           {
             "label": "Cuttack",
             "href": "/cuttack",
-            "group": ""
+            "group": "Cities"
           },
           {
             "label": "Delhi",
             "href": "/delhi",
-            "group": ""
+            "group": "Cities"
           },
           {
             "label": "Gwalior",
             "href": "/gwalior",
-            "group": ""
+            "group": "Cities"
           },
           {
             "label": "Hisar",
             "href": "/hisar",
-            "group": ""
+            "group": "Cities"
           },
           {
             "label": "Hyderabad",
             "href": "/hyderabad",
-            "group": ""
+            "group": "Cities"
           },
           {
             "label": "Indore",
             "href": "/indore",
-            "group": ""
+            "group": "Cities"
           },
           {
             "label": "Jaipur",
             "href": "/jaipur",
-            "group": ""
+            "group": "Cities"
           },
           {
             "label": "Jammu",
             "href": "/jammu",
-            "group": ""
+            "group": "Cities"
           },
           {
             "label": "Kolkata",
             "href": "/kolkata",
-            "group": ""
+            "group": "Cities"
           },
           {
             "label": "Lucknow",
             "href": "/lucknow",
-            "group": ""
+            "group": "Cities"
           },
           {
             "label": "Ludhiana",
             "href": "/ludhiana",
-            "group": ""
+            "group": "Cities"
           },
           {
             "label": "Mohali",
             "href": "/mohali",
-            "group": ""
+            "group": "Cities"
           },
           {
             "label": "Nagpur",
             "href": "/nagpur",
-            "group": ""
+            "group": "Cities"
           },
           {
             "label": "Raipur",
             "href": "/raipur",
-            "group": ""
+            "group": "Cities"
           },
           {
             "label": "Ranchi",
             "href": "/ranchi",
-            "group": ""
+            "group": "Cities"
           },
           {
             "label": "Vijayawada",
             "href": "/vijyawada",
-            "group": ""
+            "group": "Cities"
           }
         ]
       }
@@ -24382,60 +24321,75 @@
     "footerLinks": [
       {
         "label": "Our story",
-        "href": "/about"
+        "href": "/about",
+        "group": "Company"
       },
       {
         "label": "Leadership",
-        "href": "/about/leadership"
+        "href": "/about/leadership",
+        "group": "Company"
       },
       {
         "label": "Manufacturing",
-        "href": "/about/infrastructure"
+        "href": "/about/infrastructure",
+        "group": "Company"
       },
       {
         "label": "Our purpose",
-        "href": "/about/vision-mission"
+        "href": "/about/vision-mission",
+        "group": "Company"
       },
       {
         "label": "Our clientele",
-        "href": "/about/clientele"
+        "href": "/about/clientele",
+        "group": "Company"
       },
       {
         "label": "Finish collections",
-        "href": "/collections"
+        "href": "/collections",
+        "group": "Explore"
       },
       {
         "label": "Material finder",
-        "href": "/product-finder"
+        "href": "/product-finder",
+        "group": "Explore"
       },
       {
         "label": "Third Eye View",
-        "href": "/visualiser"
+        "href": "/visualiser",
+        "group": "Explore"
       },
       {
         "label": "Request samples",
-        "href": "/samples"
+        "href": "/samples",
+        "group": "Explore"
       },
       {
         "label": "Careers",
-        "href": "/careers"
+        "href": "/careers",
+        "group": "Company"
       },
       {
         "label": "Become a partner",
-        "href": "/become-a-dealer"
+        "href": "/become-a-dealer",
+        "group": "Explore"
       },
       {
         "label": "Privacy",
-        "href": "/privacy"
+        "href": "/privacy",
+        "group": "Information"
       },
       {
         "label": "Terms",
-        "href": "/terms"
+        "href": "/terms",
+        "group": "Information"
       }
     ],
-    "social": []
+    "social": [],
+    "headerStyle": "tinted"
   },
   "ui": {
+    "exploreCitybond": "Explore CityBond",
     "explore": "Explore the collection",
     "viewAll": "View all",
     "contact": "Let’s talk",
@@ -24538,7 +24492,15 @@
     "storyMaterial": "Material",
     "storyDimension": "Dimension",
     "storySpace": "Space",
-    "collectionLink": "All finishes"
+    "collectionLink": "All finishes",
+    "technicalSpecifications": "Technical specifications",
+    "product-finder": "The Right Product for You",
+    "product-finderCta": "Find your product",
+    "quizLeadTitle": "See your product shortlist",
+    "quizLeadDescription": "Share your contact details so the CityBond team can help with your selected project requirements.",
+    "productsUsed": "Products used",
+    "projectEnquiry": "Project enquiry",
+    "footerNavigation": "Footer navigation"
   },
   "blog": {
     "title": "Ideas, materials & perspectives.",
@@ -24690,15 +24652,15 @@
     "title": "Great spaces\nstart with",
     "accent": "your perspective.",
     "description": "Thoughtful materials. Expressive architecture. Discover a world of surfaces, from your point of view.",
-    "image": "/stock/folded-facade.webp",
-    "imageAlt": "Stock architectural inspiration: Warm perforated vertical facade panels and a curved roofline in Milan.",
+    "image": "/citybond/projects/residential-appt-dji-20260915145727-0084-d.webp",
+    "imageAlt": "White and dark-panel residential building with arched windows in New Delhi",
     "rolePrompt": "I’m here as an / a",
     "roleDescription": "Different ambitions. One material world. Choose your perspective to discover what matters to you.",
     "scrollEyebrow": "01 / A different perspective",
     "scrollTitle": "More than a surface.",
     "scrollAccent": "A sense of place.",
-    "scrollImage": "/images/living.jpg",
-    "scrollImageAlt": "Stock architectural inspiration: a light-filled contemporary interior with warm timber and mineral finishes.",
+    "scrollImage": "/citybond/projects/community-center-delhi-community-center-nangloi-delhi.webp",
+    "scrollImageAlt": "Nangloi community centre facade with silver panels and warm-toned vertical sections",
     "chapters": [
       {
         "title": "Start with a material.",
@@ -24733,8 +24695,8 @@
     "projectsDescription": "Discover the stories behind CityBond projects. A world of ideas for what comes next.",
     "aboutTitle": "Thoughtfully made.\nBeautifully imagined.",
     "aboutDescription": "From our manufacturing facility in Raipur to a network across India, we connect material expertise with architectural ambition.",
-    "aboutImage": "/stock/louver-detail.webp",
-    "aboutImageAlt": "Stock architectural inspiration: Modern facade with vertical metal slats, glass and concrete in Basel.",
+    "aboutImage": "/citybond/projects/residential-greater-noida-raj-9407-hdr-1.webp",
+    "aboutImageAlt": "Greater Noida villa with warm stone-look cladding, balconies and a landscaped entrance",
     "contactTitle": "What are you\nimagining?",
     "contactDescription": "A new facade. A sharper brand presence. A material worth exploring. Let’s start with your idea."
   },
@@ -24746,20 +24708,29 @@
       "title": "Draw a different",
       "accent": "kind of skyline.",
       "description": "Explore expressive surfaces, built projects and material specifications for your next architectural idea.",
-      "image": "/stock/folded-facade.webp",
-      "imageAlt": "Stock architectural inspiration: Warm perforated vertical facade panels and a curved roofline in Milan.",
+      "image": "/citybond/projects/residential-appt-dji-20260915145727-0084-d.webp",
+      "imageAlt": "White and dark-panel residential building with arched windows in New Delhi",
       "cta": {
-        "label": "Explore projects",
-        "href": "/projects"
+        "label": "Explore Third Eye View",
+        "href": "/visualiser"
       },
       "sections": [
         "projects",
         "products",
+        "technical",
         "visualiser",
+        "collections",
+        "brands",
         "resources",
         "about",
+        "testimonials",
         "contact"
-      ]
+      ],
+      "secondaryCta": {
+        "label": "Product catalogue",
+        "href": "/catalogue-download"
+      },
+      "projectCategories": []
     },
     {
       "id": "dealer",
@@ -24768,18 +24739,28 @@
       "title": "A world of surfaces.",
       "accent": "A shared opportunity.",
       "description": "Discover the portfolio, our presence across India and the possibilities of growing with CityBond.",
-      "image": "/stock/louver-detail.webp",
-      "imageAlt": "Stock architectural inspiration: Modern facade with vertical metal slats, glass and concrete in Basel.",
+      "image": "/citybond/projects/community-center-delhi-community-center-nangloi-delhi.webp",
+      "imageAlt": "Nangloi community centre facade with silver panels and warm-toned vertical sections",
       "cta": {
-        "label": "Become a partner",
+        "label": "Become a dealer",
         "href": "/become-a-dealer"
       },
       "sections": [
         "network",
+        "dealer-enquiry",
         "products",
+        "collections",
         "about",
+        "technical",
+        "brands",
+        "testimonials",
         "contact"
-      ]
+      ],
+      "secondaryCta": {
+        "label": "Explore our network",
+        "href": "/network"
+      },
+      "projectCategories": []
     },
     {
       "id": "signage",
@@ -24788,18 +24769,28 @@
       "title": "Make your mark.",
       "accent": "At every scale.",
       "description": "Explore colours, metallics and finishes that help retail spaces and brand identities stand out.",
-      "image": "/stock/angled-panels.webp",
-      "imageAlt": "Stock architectural inspiration: Geometric facade of overlapping angled perforated metal panels.",
+      "image": "/citybond/projects/brand-projects-bike-expert-2.webp",
+      "imageAlt": "Illuminated Bike Xpert signage at night",
       "cta": {
-        "label": "Explore surfaces",
-        "href": "/products"
+        "label": "Product specification enquiry",
+        "href": "/contact"
       },
       "sections": [
         "products",
-        "projects",
+        "metacity",
         "about",
+        "brands",
         "resources",
+        "projects",
+        "collections",
         "contact"
+      ],
+      "secondaryCta": {
+        "label": "Product catalogue",
+        "href": "/catalogue-download"
+      },
+      "projectCategories": [
+        "Brand identity"
       ]
     },
     {
@@ -24809,18 +24800,28 @@
       "title": "Recognisable from",
       "accent": "a new perspective.",
       "description": "Bring consistency and character to your retail facade, signage and customer-facing spaces.",
-      "image": "/stock/metal-rhythm.webp",
-      "imageAlt": "Stock architectural inspiration: Curved perforated metal facade with warm light between horizontal panels.",
+      "image": "/citybond/projects/brand-projects-corporate-v-mart.webp",
+      "imageAlt": "V Mart retail facade with vertical grey cladding",
       "cta": {
-        "label": "See brand projects",
-        "href": "/projects"
+        "label": "Partnership enquiry",
+        "href": "/contact"
       },
       "sections": [
         "projects",
         "about",
-        "products",
+        "brands",
         "resources",
+        "products",
+        "collections",
+        "testimonials",
         "contact"
+      ],
+      "secondaryCta": {
+        "label": "Explore brand projects",
+        "href": "/projects"
+      },
+      "projectCategories": [
+        "Brand identity"
       ]
     },
     {
@@ -24830,19 +24831,28 @@
       "title": "Good design.",
       "accent": "Built together.",
       "description": "Find product options, technical reading and a local contact to move your next project forward.",
-      "image": "/stock/stone-corner.webp",
-      "imageAlt": "Stock architectural inspiration: Minimal architectural corner with warm stone panels against a teal sky.",
+      "image": "/citybond/projects/commercial-bangalore-25000-sqft-project-fortune-sakura-in-electronic-bangalore-2.webp",
+      "imageAlt": "Fortune Sakura commercial building with silver panels, glazing and landscaped forecourt",
       "cta": {
-        "label": "Find your panel",
-        "href": "/products"
+        "label": "Bulk enquiry",
+        "href": "/contact"
       },
       "sections": [
         "products",
+        "technical",
         "about",
+        "collections",
         "resources",
         "network",
+        "brands",
+        "testimonials",
         "contact"
-      ]
+      ],
+      "secondaryCta": {
+        "label": "Find your nearest dealer",
+        "href": "/network"
+      },
+      "projectCategories": []
     },
     {
       "id": "homeowner",
@@ -24851,18 +24861,30 @@
       "title": "Your home.",
       "accent": "Your expression.",
       "description": "Discover finishes, explore possibilities and share a photograph for a personalised facade design enquiry.",
-      "image": "/stock/modern-residence.webp",
-      "imageAlt": "Stock architectural inspiration: Contemporary residence with clean white volumes and warm timber detailing.",
+      "image": "/citybond/projects/residential-greater-noida-raj-9407-hdr-1.webp",
+      "imageAlt": "Greater Noida villa with warm stone-look cladding, balconies and a landscaped entrance",
       "cta": {
         "label": "Visualise your idea",
         "href": "/visualiser"
       },
       "sections": [
         "visualiser",
+        "quiz",
         "projects",
-        "products",
+        "about",
+        "testimonials",
         "network",
+        "products",
+        "collections",
+        "brands",
         "contact"
+      ],
+      "secondaryCta": {
+        "label": "Contact us",
+        "href": "/contact"
+      },
+      "projectCategories": [
+        "Residential"
       ]
     }
   ],
@@ -24873,8 +24895,8 @@
       "category": "ACP",
       "collection": "Stone-inspired",
       "description": "Indulge in the sophistication of Lamio ACP series products by CityBond, where each shade is meticulously chosen to exude timeless elegance.",
-      "image": "/stock/stone-corner.webp",
-      "imageAlt": "Stock architectural inspiration: Minimal architectural corner with warm stone panels against a teal sky.",
+      "image": "/citybond/projects/residential-greater-noida-raj-9407-hdr-1.webp",
+      "imageAlt": "Greater Noida villa with warm stone-look cladding, balconies and a landscaped entrance",
       "body": [
         "Sample finishes include Cubo Dark Grey, Basalt Beige, Cemento and Decayed Rock.",
         "Specification table lists 3 mm, 4 mm and 6 mm panels."
@@ -24921,8 +24943,8 @@
       "category": "ACP",
       "collection": "Expressive textures",
       "description": "Transforming ordinary spaces into extraordinary showcases, CityBond's exclusive ACP series offers unparalleled panels that redefine aesthetics.",
-      "image": "/stock/metal-rhythm.webp",
-      "imageAlt": "Stock architectural inspiration: Curved perforated metal facade with warm light between horizontal panels.",
+      "image": "/citybond/projects/residential-greater-noida-4-dji-20260917141009-0152-d.webp",
+      "imageAlt": "Greater Noida residence with orange-toned frames and dark facade panels",
       "body": [
         "CT-278 Corten Steel appears in the collection.",
         "Specification table lists 3 mm, 4 mm and 6 mm panels."
@@ -24969,8 +24991,8 @@
       "category": "ACP",
       "collection": "Woodgrain",
       "description": "Discover the timeless beauty of wood with our CityBond Wooden ACP series, bringing warmth, elegance, and lasting charm to every space.",
-      "image": "/images/detail.jpg",
-      "imageAlt": "Stock architectural inspiration: warm timber surfaces in a contemporary interior.",
+      "image": "/citybond/projects/commercial-rajgarh-ct-71-ct-215-rajgarh.webp",
+      "imageAlt": "Highway King hotel facade in Rajgarh with grey and wood-look panels",
       "body": [
         "The range includes cherry, oak, teak, walnut, pine and ebony interpretations."
       ],
@@ -25012,8 +25034,8 @@
       "category": "ACP",
       "collection": "Stone-inspired",
       "description": "Discover the refined beauty of CityBond’s Marvel ACP series, where marble-inspired design meets premium craftsmanship for a sleek, sophisticated finish.",
-      "image": "/stock/modern-residence.webp",
-      "imageAlt": "Stock architectural inspiration: Contemporary residence with clean white volumes and warm timber detailing.",
+      "image": "/citybond/marble-series.webp",
+      "imageAlt": "Official CityBond Marble promotional visual",
       "body": [
         "The collection includes Perlato, Black Pearl, Tropical Onyx, Volcano Onyx and Satvario."
       ],
@@ -25055,8 +25077,8 @@
       "category": "ACP",
       "collection": "Metallic",
       "description": "Elevate your lifestyle with CityBond's Metallic ACP Series, boasting premium textures that epitomise sophistication.",
-      "image": "/stock/angled-panels.webp",
-      "imageAlt": "Stock architectural inspiration: Geometric facade of overlapping angled perforated metal panels.",
+      "image": "/citybond/projects/commercial-bangalore-25000-sqft-project-fortune-sakura-in-electronic-bangalore-2.webp",
+      "imageAlt": "Fortune Sakura commercial building with silver panels, glazing and landscaped forecourt",
       "body": [
         "The range includes Bright Silver, Metallic Black, Champagne Gold and Metallic Copper.",
         "The technical table lists 3 mm and 4 mm panels."
@@ -25103,8 +25125,8 @@
       "category": "ACP",
       "collection": "Metallic",
       "description": "CityBond Satin ACP Series combines a soft metallic sheen with premium durability, bringing refined elegance and modern sophistication to every space.",
-      "image": "/stock/louver-detail.webp",
-      "imageAlt": "Stock architectural inspiration: Modern facade with vertical metal slats, glass and concrete in Basel.",
+      "image": "/citybond/satin-series.webp",
+      "imageAlt": "Official CityBond Satin promotional visual",
       "body": [
         "Grey Groove and Metal Grey appear among the published finishes."
       ],
@@ -25146,8 +25168,8 @@
       "category": "ACP",
       "collection": "Colour",
       "description": "Infuse your surroundings with vibrant hues from the CityBond for Solid ACP Series, transforming your space into a lively haven that uplifts your spirits with every glance.",
-      "image": "/stock/modern-residence.webp",
-      "imageAlt": "Stock architectural inspiration: Contemporary residence with clean white volumes and warm timber detailing.",
+      "image": "/citybond/projects/commerical-ap-ts-sastra-college-vijayawada.webp",
+      "imageAlt": "Sastra College in Vijayawada with grey panels and orange accents",
       "body": [
         "The range includes greens, blues, reds, whites, grey and black."
       ],
@@ -25189,8 +25211,8 @@
       "category": "ACP",
       "collection": "Colour",
       "description": "Infuse your surroundings with vibrant hues from the CityBond for gloss series, transforming your space into a lively haven that uplifts your spirits with every glance.",
-      "image": "/stock/angled-panels.webp",
-      "imageAlt": "Stock architectural inspiration: Geometric facade of overlapping angled perforated metal panels.",
+      "image": "/citybond/gloss-series.webp",
+      "imageAlt": "Official CityBond Gloss promotional visual",
       "body": [
         "Listed colours include orange, garden green, red, white, black and blue.",
         "The technical table lists 3 mm panels."
@@ -25237,8 +25259,8 @@
       "category": "ACP",
       "collection": "Colour",
       "description": "Enhance your exteriors with CityBond Sparkle ACP Series - premium metallic cladding that combines lasting durability with elegant, modern aesthetics.",
-      "image": "/stock/metal-rhythm.webp",
-      "imageAlt": "Stock architectural inspiration: Curved perforated metal facade with warm light between horizontal panels.",
+      "image": "/citybond/sparkle-series.webp",
+      "imageAlt": "Official CityBond Sparkle promotional visual",
       "body": [
         "Listed shades are Sparkle Black, Sparkle Red and Sparkle White.",
         "The technical table lists a 3 mm panel."
@@ -25285,8 +25307,8 @@
       "category": "ACP",
       "collection": "Reflective",
       "description": "Reflect your opulence with CityBond's Mirror ACP series, featuring stunning colour palettes that mirror your extravagance.",
-      "image": "/stock/angled-panels.webp",
-      "imageAlt": "Stock architectural inspiration: Geometric facade of overlapping angled perforated metal panels.",
+      "image": "/citybond/mirror-series.webp",
+      "imageAlt": "Official CityBond Mirror promotional visual",
       "body": [
         "Gold Mirror and Silver Mirror are listed.",
         "The technical table identifies interior use and 3 mm panels."
@@ -25331,8 +25353,8 @@
       "category": "ACP",
       "collection": "Woodgrain",
       "description": "Upgrade your exteriors with CityBond HPL sheets. Premium wooden cladding that delivers the timeless look of wood with enhanced durability and lasting elegance.",
-      "image": "/images/interior.jpg",
-      "imageAlt": "Stock architectural inspiration: a calm residential interior in natural tones.",
+      "image": "/citybond/hpl-sheet.webp",
+      "imageAlt": "Official CityBond HPL promotional visual",
       "body": [
         "The range is described as aluminium composite construction."
       ],
@@ -25368,8 +25390,8 @@
       "category": "3D panels",
       "collection": "Dimensional",
       "description": "Elevate modern spaces with CityBond's 3D ACP Panel Series- featuring embossed textures and sculpted designs that add depth, style, and bold visual appeal to every façade.",
-      "image": "/stock/louver-detail.webp",
-      "imageAlt": "Stock architectural inspiration: Modern facade with vertical metal slats, glass and concrete in Basel.",
+      "image": "/citybond/3d-panels.webp",
+      "imageAlt": "Official CityBond 3D panels promotional visual",
       "body": [
         "Applications described include facades, interior feature walls, ceilings, partitions and signage."
       ],
@@ -25463,13 +25485,332 @@
     {
       "slug": "fortune-sakura",
       "name": "Fortune Sakura",
-      "location": "Bengaluru",
-      "category": "Exterior facade",
-      "description": "Fortune Sakura, featured in the CityBond exterior facade project gallery. Explore the material possibilities behind a distinctive architectural expression. Image shown for architectural inspiration.",
-      "image": "/stock/hillside-residence.webp",
-      "imageAlt": "Stock architectural inspiration: Minimal white residence above a rocky hillside with a muted sky.",
+      "location": "Bangalore",
+      "category": "Commercial",
+      "description": "Fortune Sakura in Bangalore. Supplied project notes list these finishes: CT-01 Bright Silver.",
+      "image": "/citybond/projects/commercial-bangalore-25000-sqft-project-fortune-sakura-in-electronic-bangalore-2.webp",
+      "imageAlt": "Fortune Sakura commercial building with silver panels, glazing and landscaped forecourt",
+      "products": [
+        "metallic-series"
+      ],
+      "source": "https://drive.google.com/file/d/1GID1KsUjVVggYfRnHogbrONTNM80lbBf/view"
+    },
+    {
+      "slug": "luxury-villa-greater-noida",
+      "name": "Luxury Villa",
+      "location": "Greater Noida",
+      "category": "Residential",
+      "description": "Luxury Villa in Greater Noida. Supplied project notes list these finishes: LM-113 Basalt Beige CT-213 Royal Teak.",
+      "image": "/citybond/projects/residential-greater-noida-raj-9407-hdr-1.webp",
+      "imageAlt": "Greater Noida villa with warm stone-look cladding, balconies and a landscaped entrance",
+      "products": [
+        "lamio-series",
+        "wooden-series"
+      ],
+      "source": "https://drive.google.com/file/d/1uJ9znHVRiR9hgX5ifmmSHHtjESjI6bea/view"
+    },
+    {
+      "slug": "hotel-gautham-vijayawada",
+      "name": "Hotel Gautham",
+      "location": "Vijayawada",
+      "category": "Hotel",
+      "description": "Hotel Gautham in Vijayawada. Supplied project notes list these finishes: CT-62 Pure White CT-01 Bright Silver Ct-15 Super Metallic Black.",
+      "image": "/citybond/projects/commercial-ap-ts-hotel-goutham.webp",
+      "imageAlt": "Hotel Gautham facade with white and silver vertical panels",
+      "products": [
+        "solid-series",
+        "metallic-series"
+      ],
+      "source": "https://drive.google.com/file/d/1o6Y8GwgTTkVzNc2H3WuOdlupBCrVmPBl/view"
+    },
+    {
+      "slug": "shanbh-resort-prayagraj",
+      "name": "Shanbh Resort",
+      "location": "Prayagraj",
+      "category": "Commercial",
+      "description": "Shanbh Resort in Prayagraj. Supplied project notes list these finishes: CT-09 Metallic Bronze.",
+      "image": "/citybond/projects/commercial-prayagraj-resort-prayagraj.webp",
+      "imageAlt": "Shanbh Resort facade in Prayagraj with bronze-toned cladding and tall windows",
+      "products": [
+        "metallic-series"
+      ],
+      "source": "https://drive.google.com/file/d/13mZHhzslO2IumYHZxYovAdgMF1XWmurI/view"
+    },
+    {
+      "slug": "highway-king-rajgarh",
+      "name": "Highway King",
+      "location": "Rajgarh",
+      "category": "Hotel",
+      "description": "Highway King in Rajgarh. Supplied project notes list these finishes: CT-71 Slate Grey CT-215 Novacentopine.",
+      "image": "/citybond/projects/commercial-rajgarh-ct-71-ct-215-rajgarh.webp",
+      "imageAlt": "Highway King hotel facade in Rajgarh with grey and wood-look panels",
+      "products": [
+        "solid-series",
+        "wooden-series"
+      ],
+      "source": "https://drive.google.com/file/d/1g8jo8s8KlTpYxBuj_0q_im6mmLhEU5-1/view"
+    },
+    {
+      "slug": "sastra-college-vijayawada",
+      "name": "Sastra College",
+      "location": "Vijayawada",
+      "category": "Commercial",
+      "description": "Sastra College in Vijayawada. Supplied project notes list these finishes: CT-71 Slate Grey CT-58 Orange.",
+      "image": "/citybond/projects/commerical-ap-ts-sastra-college-vijayawada.webp",
+      "imageAlt": "Sastra College in Vijayawada with grey panels and orange accents",
+      "products": [
+        "solid-series"
+      ],
+      "source": "https://drive.google.com/file/d/1eHATj6RiQJ3RqvNFkd4JyqET8Vhmqoua/view"
+    },
+    {
+      "slug": "community-center-nangloi-new-delhi",
+      "name": "Community Center",
+      "location": "Nangloi, New Delhi",
+      "category": "Commercial",
+      "description": "Community Center in Nangloi, New Delhi. Supplied project notes list these finishes: CT-01 Bright Silver CT-08 Metallic Cooper CT-16 Gate Grey.",
+      "image": "/citybond/projects/community-center-delhi-community-center-nangloi-delhi.webp",
+      "imageAlt": "Nangloi community centre facade with silver panels and warm-toned vertical sections",
+      "products": [
+        "metallic-series"
+      ],
+      "source": "https://drive.google.com/file/d/1nPRUPnFw32FfbDKWI9wgjSKD6YWnoCfE/view"
+    },
+    {
+      "slug": "kamal-hospital-jalandhar",
+      "name": "Kamal Hospital",
+      "location": "Jalandhar",
+      "category": "Hospital",
+      "description": "Kamal Hospital in Jalandhar. Supplied project notes list these finishes: CT-09 Metallic Bronze CT-01 Bright Silver.",
+      "image": "/citybond/projects/hospital-jalandhar-kamal-hospital.webp",
+      "imageAlt": "Kamal Hospital entrance in Jalandhar with metallic facade panels",
+      "products": [
+        "metallic-series"
+      ],
+      "source": "https://drive.google.com/file/d/1KVPExb5gPLwYdOjPyTTnbvqDkynh9clp/view"
+    },
+    {
+      "slug": "luxury-appartments-new-delhi",
+      "name": "Luxury Appartments",
+      "location": "New Delhi",
+      "category": "Residential",
+      "description": "Luxury Appartments in New Delhi. Supplied project notes list these finishes: CT-64 Ivory White CT-213 Royal Teak.",
+      "image": "/citybond/projects/residential-appt-dji-20260915145727-0084-d.webp",
+      "imageAlt": "White and dark-panel residential building with arched windows in New Delhi",
+      "products": [
+        "solid-series",
+        "wooden-series"
+      ],
+      "source": "https://drive.google.com/file/d/1ls0JWyKoPVfr6qO32UKq6-H1LJc4hLcO/view"
+    },
+    {
+      "slug": "residential-facade-greater-noida",
+      "name": "Residential facade",
+      "location": "Greater Noida",
+      "category": "Residential",
+      "description": "Residential exterior photograph supplied in the Greater Noida folder. Project name and material specification have not been supplied.",
+      "image": "/citybond/projects/residential-greater-noida-2-dji-20260917125629-0100-d-hdr.webp",
+      "imageAlt": "Residential building with timber-toned facade panels and planted balconies",
       "products": [],
-      "source": "https://citybond.in/projects"
+      "source": "https://drive.google.com/file/d/16oi8YzuaiAjzF_B56PgfpnlbTfNAwP3f/view"
+    },
+    {
+      "slug": "luxury-house-greater-noida-37",
+      "name": "Luxury House",
+      "location": "Greater Noida",
+      "category": "Residential",
+      "description": "Luxury House in Greater Noida. Supplied project notes list these finishes: CT-71 Slate Grey CT-219 Santosa.",
+      "image": "/citybond/projects/residential-greater-noida-3-dji-20260917132534-0137-d.webp",
+      "imageAlt": "Greater Noida residence with grey cladding and wood-look balcony frames",
+      "products": [
+        "solid-series",
+        "wooden-series"
+      ],
+      "source": "https://drive.google.com/file/d/1JtdYgw4NZsUVwfHaw4W-OqQuIcNDOZnv/view"
+    },
+    {
+      "slug": "luxury-house-greater-noida-39",
+      "name": "Luxury House",
+      "location": "Greater Noida",
+      "category": "Residential",
+      "description": "Luxury House in Greater Noida. Supplied project notes list these finishes: CT-278 Corten Steel CT-251 Funder Teak CT-71 Slate Grey.",
+      "image": "/citybond/projects/residential-greater-noida-4-dji-20260917141009-0152-d.webp",
+      "imageAlt": "Greater Noida residence with orange-toned frames and dark facade panels",
+      "products": [
+        "exclusive-series",
+        "wooden-series",
+        "solid-series"
+      ],
+      "source": "https://drive.google.com/file/d/1KOflF21olGdsmqksX9SjiogCpIUvbF4X/view"
+    },
+    {
+      "slug": "luxury-house-greater-noida-41",
+      "name": "Luxury House",
+      "location": "Greater Noida",
+      "category": "Residential",
+      "description": "Luxury House in Greater Noida. Supplied project notes list these finishes: CT-219 Santosa.",
+      "image": "/citybond/projects/residential-greater-noida-5-dji-20260917153021-0165-d.webp",
+      "imageAlt": "Greater Noida residence with wood-look panels and a gated entrance",
+      "products": [
+        "wooden-series"
+      ],
+      "source": "https://drive.google.com/file/d/15hjizNRxOA-suiBmHgRCbcMqgMP-f6xh/view"
+    },
+    {
+      "slug": "bharam-shakti-hospital-new-delhi",
+      "name": "Bharam Shakti Hospital",
+      "location": "New Delhi",
+      "category": "Hospital",
+      "description": "Bharam Shakti Hospital in New Delhi. Supplied project notes list these finishes: CT-64 Ivory White CT-68 Coffee Brown.",
+      "image": "/citybond/projects/residential-greater-noida-6-raj-9027-hdr.webp",
+      "imageAlt": "Bharam Shakti Hospital in New Delhi with ivory and brown facade panels",
+      "products": [
+        "solid-series"
+      ],
+      "source": "https://drive.google.com/file/d/17CzDEV3jvC_rxBQHmTfgApGfF2iMAKwA/view"
+    },
+    {
+      "slug": "burger-king",
+      "name": "Burger King",
+      "location": "Brand identity",
+      "category": "Brand identity",
+      "description": "Burger King exterior branding, shown in the project photography supplied by CityBond.",
+      "image": "/citybond/projects/brand-projects-berger-king.webp",
+      "imageAlt": "Burger King storefront with red branding and an entrance ramp",
+      "products": [],
+      "source": "https://drive.google.com/file/d/1GsfUxtRM3DTOuDcjjYiAy9K3fnjNSpwd/view"
+    },
+    {
+      "slug": "bike-xpert",
+      "name": "Bike Xpert",
+      "location": "Brand identity",
+      "category": "Brand identity",
+      "description": "Bike Xpert exterior branding, shown in the project photography supplied by CityBond.",
+      "image": "/citybond/projects/brand-projects-bike-aexpert-1.webp",
+      "imageAlt": "Bike Xpert service centre with red branded fascia",
+      "products": [],
+      "source": "https://drive.google.com/file/d/1dh3CVxkSbmQxVsZuKYioRdzvOw5rAMAU/view"
+    },
+    {
+      "slug": "amul",
+      "name": "Amul",
+      "location": "Brand identity",
+      "category": "Brand identity",
+      "description": "Amul exterior branding, shown in the project photography supplied by CityBond.",
+      "image": "/citybond/projects/brand-projects-corporate-amul.webp",
+      "imageAlt": "Amul storefront with red fascia and white lettering",
+      "products": [],
+      "source": "https://drive.google.com/file/d/1PgSs7WSa9JaZaRGVrbveEC7xyagCdJk9/view"
+    },
+    {
+      "slug": "hp-world",
+      "name": "HP World",
+      "location": "Brand identity",
+      "category": "Brand identity",
+      "description": "HP World exterior branding, shown in the project photography supplied by CityBond.",
+      "image": "/citybond/projects/brand-projects-corporate-hp.webp",
+      "imageAlt": "HP World shopfront illuminated in blue",
+      "products": [],
+      "source": "https://drive.google.com/file/d/1-1uO6jvy8-6vIerClBwMGWfFhKBTqE2B/view"
+    },
+    {
+      "slug": "hpcl",
+      "name": "HPCL",
+      "location": "Brand identity",
+      "category": "Brand identity",
+      "description": "HPCL exterior branding, shown in the project photography supplied by CityBond.",
+      "image": "/citybond/projects/brand-projects-corporate-hpcl.webp",
+      "imageAlt": "HPCL service station canopy and branded sign",
+      "products": [],
+      "source": "https://drive.google.com/file/d/1oiJmxNakl-n0RYF3F2cIYNMTG47A2lCq/view"
+    },
+    {
+      "slug": "igl",
+      "name": "IGL",
+      "location": "Brand identity",
+      "category": "Brand identity",
+      "description": "IGL exterior branding, shown in the project photography supplied by CityBond.",
+      "image": "/citybond/projects/brand-projects-corporate-igl.webp",
+      "imageAlt": "IGL service station with green and yellow canopy",
+      "products": [],
+      "source": "https://drive.google.com/file/d/1xWXORcyt_WcKMLn3uYpYau6ws5bO2ctb/view"
+    },
+    {
+      "slug": "indian-oil",
+      "name": "Indian Oil",
+      "location": "Brand identity",
+      "category": "Brand identity",
+      "description": "Indian Oil exterior branding, shown in the project photography supplied by CityBond.",
+      "image": "/citybond/projects/brand-projects-corporate-indian-oil.webp",
+      "imageAlt": "Indian Oil service station with orange and blue canopy",
+      "products": [],
+      "source": "https://drive.google.com/file/d/1j1aLoUN2IkFZtiv5RO174r89PMCRC1of/view"
+    },
+    {
+      "slug": "madras-filter-coffee",
+      "name": "Madras Filter Coffee",
+      "location": "Brand identity",
+      "category": "Brand identity",
+      "description": "Madras Filter Coffee exterior branding, shown in the project photography supplied by CityBond.",
+      "image": "/citybond/projects/brand-projects-corporate-madras-coffee.webp",
+      "imageAlt": "Madras Filter Coffee storefront with vertical sign panels",
+      "products": [],
+      "source": "https://drive.google.com/file/d/1imU0Sh8raaYm3qOWJp6JetYPZlzbQ1P9/view"
+    },
+    {
+      "slug": "samsung",
+      "name": "Samsung",
+      "location": "Brand identity",
+      "category": "Brand identity",
+      "description": "Samsung exterior branding, shown in the project photography supplied by CityBond.",
+      "image": "/citybond/projects/brand-projects-corporate-samsung.webp",
+      "imageAlt": "Samsung storefront with dark fascia and white lettering",
+      "products": [],
+      "source": "https://drive.google.com/file/d/12B0VtbZtfzlapL_7R5TsNQXSNVxhRYai/view"
+    },
+    {
+      "slug": "sbi",
+      "name": "SBI",
+      "location": "Brand identity",
+      "category": "Brand identity",
+      "description": "SBI exterior branding, shown in the project photography supplied by CityBond.",
+      "image": "/citybond/projects/brand-projects-corporate-sbi.webp",
+      "imageAlt": "SBI building with blue signage and curved glazing",
+      "products": [],
+      "source": "https://drive.google.com/file/d/1OJffyleCh6qieRsNJzZX7LHTDhFL7_Im/view"
+    },
+    {
+      "slug": "senco",
+      "name": "Senco",
+      "location": "Brand identity",
+      "category": "Brand identity",
+      "description": "Senco exterior branding, shown in the project photography supplied by CityBond.",
+      "image": "/citybond/projects/brand-projects-corporate-senco.webp",
+      "imageAlt": "Senco Gold and Diamonds storefront with red fascia",
+      "products": [],
+      "source": "https://drive.google.com/file/d/15WW4a_mcHutT0-nFX0ssFmpKG-veh4so/view"
+    },
+    {
+      "slug": "tata-motors",
+      "name": "Tata Motors",
+      "location": "Brand identity",
+      "category": "Brand identity",
+      "description": "Tata Motors exterior branding, shown in the project photography supplied by CityBond.",
+      "image": "/citybond/projects/brand-projects-corporate-tata-motors.webp",
+      "imageAlt": "Tata Motors service facility with blue and white branding",
+      "products": [],
+      "source": "https://drive.google.com/file/d/1JEckVb-EpRgjwe2laJtKJFnU6dyF49Mv/view"
+    },
+    {
+      "slug": "v-mart",
+      "name": "V Mart",
+      "location": "Brand identity",
+      "category": "Brand identity",
+      "description": "V Mart exterior branding, shown in the project photography supplied by CityBond.",
+      "image": "/citybond/projects/brand-projects-corporate-v-mart.webp",
+      "imageAlt": "V Mart retail facade with vertical grey cladding",
+      "products": [],
+      "source": "https://drive.google.com/file/d/19Rb0cC5B7C-3F7NaS6Wep6TvP7YK79Kc/view"
     },
     {
       "slug": "romsons-gujarat",
@@ -25477,8 +25818,8 @@
       "location": "Gujarat",
       "category": "Exterior facade",
       "description": "Romsons, featured in the CityBond exterior facade project gallery. Explore the material possibilities behind a distinctive architectural expression. Image shown for architectural inspiration.",
-      "image": "/stock/stone-corner.webp",
-      "imageAlt": "Stock architectural inspiration: Minimal architectural corner with warm stone panels against a teal sky.",
+      "image": "/citybond/romsons-gujarat.webp",
+      "imageAlt": "Romsons, Gujarat",
       "products": [],
       "source": "https://citybond.in/projects"
     },
@@ -25488,8 +25829,8 @@
       "location": "Baddi, Himachal Pradesh",
       "category": "Exterior facade",
       "description": "Biodeal Pharma, featured in the CityBond exterior facade project gallery. Explore the material possibilities behind a distinctive architectural expression. Image shown for architectural inspiration.",
-      "image": "/stock/louver-detail.webp",
-      "imageAlt": "Stock architectural inspiration: Modern facade with vertical metal slats, glass and concrete in Basel.",
+      "image": "/citybond/biodeal-pharma.webp",
+      "imageAlt": "Biodeal Pharma, Baddi, Himachal Pradesh",
       "products": [],
       "source": "https://citybond.in/projects"
     },
@@ -25499,8 +25840,8 @@
       "location": "Chennai",
       "category": "Exterior facade",
       "description": "Bloom Hospital, featured in the CityBond exterior facade project gallery. Explore the material possibilities behind a distinctive architectural expression. Image shown for architectural inspiration.",
-      "image": "/stock/modern-residence.webp",
-      "imageAlt": "Stock architectural inspiration: Contemporary residence with clean white volumes and warm timber detailing.",
+      "image": "/citybond/bloom-hospital.webp",
+      "imageAlt": "Bloom Hospital, Chennai during facade installation",
       "products": [],
       "source": "https://citybond.in/projects"
     },
@@ -25510,30 +25851,8 @@
       "location": "Guntur",
       "category": "Exterior facade",
       "description": "Neeladri Towers, featured in the CityBond exterior facade project gallery. Explore the material possibilities behind a distinctive architectural expression. Image shown for architectural inspiration.",
-      "image": "/stock/angled-panels.webp",
-      "imageAlt": "Stock architectural inspiration: Geometric facade of overlapping angled perforated metal panels.",
-      "products": [],
-      "source": "https://citybond.in/projects"
-    },
-    {
-      "slug": "samsung",
-      "name": "Samsung",
-      "location": "Brand identity",
-      "category": "Brand identity",
-      "description": "Samsung, featured in the CityBond brand identity project gallery. Explore the material possibilities behind a distinctive architectural expression. Image shown for architectural inspiration.",
-      "image": "/stock/metal-rhythm.webp",
-      "imageAlt": "Stock architectural inspiration: Curved perforated metal facade with warm light between horizontal panels.",
-      "products": [],
-      "source": "https://citybond.in/projects"
-    },
-    {
-      "slug": "tata-motors",
-      "name": "Tata Motors",
-      "location": "Brand identity",
-      "category": "Brand identity",
-      "description": "Tata Motors, featured in the CityBond brand identity project gallery. Explore the material possibilities behind a distinctive architectural expression. Image shown for architectural inspiration.",
-      "image": "/stock/folded-facade.webp",
-      "imageAlt": "Stock architectural inspiration: Warm perforated vertical facade panels and a curved roofline in Milan.",
+      "image": "/citybond/neeladri-towers.webp",
+      "imageAlt": "Neeladri Towers, Guntur",
       "products": [],
       "source": "https://citybond.in/projects"
     },
@@ -25543,8 +25862,8 @@
       "location": "Interior application",
       "category": "Interiors",
       "description": "Kitchen interiors, featured in the CityBond interiors project gallery. Explore the material possibilities behind a distinctive architectural expression. Image shown for architectural inspiration.",
-      "image": "/stock/modern-residence.webp",
-      "imageAlt": "Stock architectural inspiration: Contemporary residence with clean white volumes and warm timber detailing.",
+      "image": "/citybond/kitchen-interior.webp",
+      "imageAlt": "Kitchen interior project",
       "products": [],
       "source": "https://citybond.in/projects"
     }
@@ -25588,8 +25907,8 @@
       "title": "Projects",
       "accent": "",
       "description": "",
-      "image": "/stock/hillside-residence.webp",
-      "imageAlt": "Stock architectural inspiration: Minimal white residence above a rocky hillside with a muted sky.",
+      "image": "/citybond/projects/community-center-delhi-community-center-nangloi-delhi.webp",
+      "imageAlt": "Nangloi community centre facade with silver panels and warm-toned vertical sections",
       "body": [],
       "blocks": [],
       "cta": {
@@ -25620,8 +25939,8 @@
       "title": "About CityBond",
       "accent": "",
       "description": "Premium Aluminium Composite Panels for timeless statements. With 24 years of expertise, CityBond delivers your vision with unmatched quality and trust.",
-      "image": "/stock/folded-facade.webp",
-      "imageAlt": "Stock architectural inspiration: Warm perforated vertical facade panels and a curved roofline in Milan.",
+      "image": "/citybond/projects/community-center-delhi-community-center-nangloi-delhi.webp",
+      "imageAlt": "Nangloi community centre facade with silver panels and warm-toned vertical sections",
       "body": [
         "The company story connects the Mittal family’s business background with ACP manufacturing in Raipur and later expansion into distribution and project supply.",
         "Lalit Mittal and Mohit Mittal are the founders.",
@@ -25653,8 +25972,8 @@
       "title": "Our Vision & Mission",
       "accent": "",
       "description": "",
-      "image": "/stock/folded-facade.webp",
-      "imageAlt": "Stock architectural inspiration: Warm perforated vertical facade panels and a curved roofline in Milan.",
+      "image": "/citybond/projects/residential-greater-noida-2-dji-20260917125629-0100-d-hdr.webp",
+      "imageAlt": "Residential building with timber-toned facade panels and planted balconies",
       "body": [
         "The brand describes an ambition to combine architectural expression with responsible manufacturing, consistent quality and long-term customer relationships.",
         "Stated values cover innovation, ethics, quality, commitment, caring and service."
@@ -25688,8 +26007,8 @@
       "title": "Infrastructure",
       "accent": "",
       "description": "The CityBond manufacturing unit in Raipur invites you to discover an extensive selection of premium aluminium composite products meticulously crafted to elevate and transform your interior and exterior spaces with unparalleled sophistication and refinement.",
-      "image": "/stock/louver-detail.webp",
-      "imageAlt": "Stock architectural inspiration: Modern facade with vertical metal slats, glass and concrete in Basel.",
+      "image": "/citybond/manufacturing.webp",
+      "imageAlt": "Aluminium coils stored at the CityBond manufacturing facility",
       "body": [
         "ACP manufacturing takes place at the company’s Raipur facility, with in-house laboratory, quality checks and research capability.",
         "Published annual installed capacity: 36 million square feet.",
@@ -25708,8 +26027,8 @@
       "title": "Corporate",
       "accent": "",
       "description": "Elevate your brand identity with CityBond's premium ACP and innovative signage solutions, backed by decades of expertise, quality, and trust.",
-      "image": "/stock/folded-facade.webp",
-      "imageAlt": "Stock architectural inspiration: Warm perforated vertical facade panels and a curved roofline in Milan.",
+      "image": "/citybond/projects/brand-projects-corporate-tata-motors.webp",
+      "imageAlt": "Tata Motors service facility with blue and white branding",
       "body": [],
       "blocks": [],
       "cta": {
@@ -25724,8 +26043,8 @@
       "title": "Our Network",
       "accent": "",
       "description": "",
-      "image": "/stock/stone-corner.webp",
-      "imageAlt": "Stock architectural inspiration: Minimal architectural corner with warm stone panels against a teal sky.",
+      "image": "/citybond/projects/community-center-delhi-community-center-nangloi-delhi.webp",
+      "imageAlt": "Nangloi community centre facade with silver panels and warm-toned vertical sections",
       "body": [],
       "blocks": [],
       "cta": {
@@ -25740,8 +26059,8 @@
       "title": "Third Eye View",
       "accent": "",
       "description": "",
-      "image": "/stock/modern-residence.webp",
-      "imageAlt": "Stock architectural inspiration: Contemporary residence with clean white volumes and warm timber detailing.",
+      "image": "/citybond/projects/residential-greater-noida-raj-9407-hdr-1.webp",
+      "imageAlt": "Greater Noida villa with warm stone-look cladding, balconies and a landscaped entrance",
       "body": [],
       "blocks": [],
       "cta": {
@@ -25772,8 +26091,8 @@
       "title": "Contact Us",
       "accent": "",
       "description": "",
-      "image": "/stock/folded-facade.webp",
-      "imageAlt": "Stock architectural inspiration: Warm perforated vertical facade panels and a curved roofline in Milan.",
+      "image": "/citybond/projects/residential-greater-noida-raj-9407-hdr-1.webp",
+      "imageAlt": "Greater Noida villa with warm stone-look cladding, balconies and a landscaped entrance",
       "body": [],
       "blocks": [],
       "cta": {
@@ -25788,8 +26107,8 @@
       "title": "Dealership Enquiry",
       "accent": "",
       "description": "Transform dealership spaces with high-performance ACP solutions backed by 24+ years of craftsmanship, reliability, and excellence.",
-      "image": "/stock/folded-facade.webp",
-      "imageAlt": "Stock architectural inspiration: Warm perforated vertical facade panels and a curved roofline in Milan.",
+      "image": "/citybond/projects/brand-projects-bike-expert-3.webp",
+      "imageAlt": "Two-storey Bike Xpert storefront with red branded panels",
       "body": [],
       "blocks": [],
       "cta": {
@@ -25820,8 +26139,8 @@
       "title": "Career Opportunity",
       "accent": "",
       "description": "Since 10+ years CityBond is growing rapidly and showing strength to strength and inspiring future leaders to join and become a part of our growth story.",
-      "image": "/stock/folded-facade.webp",
-      "imageAlt": "Stock architectural inspiration: Warm perforated vertical facade panels and a curved roofline in Milan.",
+      "image": "/citybond/manufacturing.webp",
+      "imageAlt": "Aluminium coils stored at the CityBond manufacturing facility",
       "body": [],
       "blocks": [],
       "cta": {
@@ -25993,8 +26312,8 @@
       "title": "Unmatched ACP Solutions in Bangalore",
       "accent": "",
       "description": "Get the ultimate experience of ACP excellence with CityBond Aluminium Composite Panels in Bangalore. Having been started in 2014, we are providing advanced solutions and unmatched quality in this part that is known as Silicon Valley of India. The variety of ACP products we offer are made specifically to match Bangalore's special architecture needs. They blend in smoothly with the city's tech-focused and creative character, adding value to all kinds of projects like modern residential areas or smart IT campuses.",
-      "image": "/stock/folded-facade.webp",
-      "imageAlt": "Stock architectural inspiration: Warm perforated vertical facade panels and a curved roofline in Milan.",
+      "image": "/citybond/projects/commercial-bangalore-25000-sqft-project-fortune-sakura-in-electronic-bangalore-2.webp",
+      "imageAlt": "Fortune Sakura commercial building with silver panels, glazing and landscaped forecourt",
       "body": [],
       "blocks": [
         {
@@ -26028,8 +26347,8 @@
       "title": "Brand Identity ACP",
       "accent": "",
       "description": "Built on innovation and trust, CityBond delivers premium architectural solutions with unmatched quality, nationwide reach, and a commitment to excellence.",
-      "image": "/stock/folded-facade.webp",
-      "imageAlt": "Stock architectural inspiration: Warm perforated vertical facade panels and a curved roofline in Milan.",
+      "image": "/citybond/projects/brand-projects-corporate-indian-oil.webp",
+      "imageAlt": "Indian Oil service station with orange and blue canopy",
       "body": [],
       "blocks": [
         {
@@ -26057,8 +26376,8 @@
       "title": "Experience the Best ACP Solutions in Chennai with CityBond",
       "accent": "",
       "description": "CityBond Aluminium Composite Panels (ACP) in Chennai, the Gateway to South India. A city with a long history from the 8th century and diverse culture mix where traditional meets modern, Chennai is lively and full of life. CityBond, which began in 2014, is now an important element of Chennai's architectural growth. It offers creative ACP responses that fit perfectly with the special character of this city.",
-      "image": "/stock/folded-facade.webp",
-      "imageAlt": "Stock architectural inspiration: Warm perforated vertical facade panels and a curved roofline in Milan.",
+      "image": "/citybond/bloom-hospital.webp",
+      "imageAlt": "Bloom Hospital, Chennai during facade installation",
       "body": [],
       "blocks": [
         {
@@ -26127,8 +26446,8 @@
       "title": "BEST ACP Manufacturer in Delhi",
       "accent": "",
       "description": "Discover the pinnacle of ACP services in Delhi with CityBond Aluminium Composite Panels! Founded in 2014 by visionary entrepreneurs, we epitomise innovation and excellence. Our comprehensive range of services caters to every need, ensuring top-notch quality and reliability. From conception to execution, we're your trusted partner in transforming visions into reality. Experience the difference with CityBond ACP – where quality meets ingenuity.",
-      "image": "/stock/folded-facade.webp",
-      "imageAlt": "Stock architectural inspiration: Warm perforated vertical facade panels and a curved roofline in Milan.",
+      "image": "/citybond/projects/community-center-delhi-community-center-nangloi-delhi.webp",
+      "imageAlt": "Nangloi community centre facade with silver panels and warm-toned vertical sections",
       "body": [],
       "blocks": [
         {
@@ -26162,8 +26481,8 @@
       "title": "Exterior ACP Facade",
       "accent": "",
       "description": "Transform your building exteriors with CityBond Facade Solutions. Combining modern aesthetics, lasting durability, and advanced ACP & HPL protection.",
-      "image": "/stock/folded-facade.webp",
-      "imageAlt": "Stock architectural inspiration: Warm perforated vertical facade panels and a curved roofline in Milan.",
+      "image": "/citybond/projects/commercial-bangalore-25000-sqft-project-fortune-sakura-in-electronic-bangalore-2.webp",
+      "imageAlt": "Fortune Sakura commercial building with silver panels, glazing and landscaped forecourt",
       "body": [],
       "blocks": [
         {
@@ -26829,8 +27148,8 @@
       "title": "Finest ACP Solutions in Vijayawada",
       "accent": "",
       "description": "Boost your architectural dream with CityBond Aluminium Composite Panels, the leading ACP maker in Vijayawada! Having started our journey from 2014, we have always stood for creativity and quality. We are dedicated to serving the lively city of Vijayawada by providing top-notch products and service. Our ACP solutions are thoughtfully created to match the specific requirements of Vijayawada's architectural environment. CityBond offers a wide variety of ACP panels that can be used for various applications, from smooth commercial facades to stylish residential towers. The combination of beauty and practicality found in our ACP panels transforms regular structures into exceptional works of art.",
-      "image": "/stock/folded-facade.webp",
-      "imageAlt": "Stock architectural inspiration: Warm perforated vertical facade panels and a curved roofline in Milan.",
+      "image": "/citybond/projects/commerical-ap-ts-sastra-college-vijayawada.webp",
+      "imageAlt": "Sastra College in Vijayawada with grey panels and orange accents",
       "body": [],
       "blocks": [
         {
@@ -26891,8 +27210,8 @@
       "title": "How to Choose the Best ACP Sheet for Building Facades: A Complete Guide",
       "type": "article",
       "description": "This facade-selection guide outlines core type, panel and skin thickness, coating, fabrication and documentation as factors to review before ordering ACP.",
-      "image": "/stock/hillside-residence.webp",
-      "imageAlt": "Stock architectural inspiration: Minimal white residence above a rocky hillside with a muted sky.",
+      "image": "/citybond/projects/commercial-prayagraj-resort-prayagraj.webp",
+      "imageAlt": "Shanbh Resort facade in Prayagraj with bronze-toned cladding and tall windows",
       "body": [
         "This facade-selection guide outlines core type, panel and skin thickness, coating, fabrication and documentation as factors to review before ordering ACP.",
         "Read the full guide on the official CityBond website, or speak with our team about the requirements of your project."
@@ -26919,8 +27238,8 @@
       "title": "Top ACP Sheets for Petrol Pump Canopies",
       "type": "article",
       "description": "This article discusses ACP selection for fuel-station canopies, considering coatings, brand appearance and project-specific safety requirements.",
-      "image": "/stock/metal-rhythm.webp",
-      "imageAlt": "Stock architectural inspiration: Curved perforated metal facade with warm light between horizontal panels.",
+      "image": "/citybond/projects/brand-projects-corporate-indian-oil.webp",
+      "imageAlt": "Indian Oil service station with orange and blue canopy",
       "body": [
         "This article discusses ACP selection for fuel-station canopies, considering coatings, brand appearance and project-specific safety requirements.",
         "Read the full guide on the official CityBond website, or speak with our team about the requirements of your project."
@@ -26979,8 +27298,8 @@
       "address": "Contact our central team for your nearest supply partner.",
       "phone": "+91 6264913414",
       "email": "info@citybond.in",
-      "x": 78,
-      "y": 53
+      "x": 70,
+      "y": 47
     },
     {
       "state": "Karnataka",
@@ -26997,8 +27316,8 @@
       "address": "Contact our central team for your nearest supply partner.",
       "phone": "+91 6264913414",
       "email": "info@citybond.in",
-      "x": 66,
-      "y": 57
+      "x": 62,
+      "y": 55
     },
     {
       "state": "Jharkhand",
@@ -27024,8 +27343,8 @@
       "address": "Contact our central team for your nearest supply partner.",
       "phone": "+91 6264913414",
       "email": "info@citybond.in",
-      "x": 49,
-      "y": 85
+      "x": 44,
+      "y": 83
     },
     {
       "state": "Telangana",
@@ -27060,8 +27379,8 @@
       "address": "Contact our central team for your nearest supply partner.",
       "phone": "+91 6264913414",
       "email": "info@citybond.in",
-      "x": 52,
-      "y": 72
+      "x": 49,
+      "y": 71
     },
     {
       "state": "Haryana",

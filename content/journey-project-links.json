@@ -1,0 +1,252 @@
+{
+  "note": "Matched supplied Drive project finish codes to unique product-series codes in the imported Original Pages content. No product assignments inferred from photographs.",
+  "projects": [
+    {
+      "project": "fortune-sakura",
+      "source": "https://drive.google.com/file/d/1GID1KsUjVVggYfRnHogbrONTNM80lbBf/view",
+      "notes": "Fortune Sakura in Bangalore. Supplied project notes list these finishes: CT-01 Bright Silver.",
+      "matches": [
+        {
+          "code": "CT-01",
+          "products": [
+            "metallic-series"
+          ]
+        }
+      ]
+    },
+    {
+      "project": "luxury-villa-greater-noida",
+      "source": "https://drive.google.com/file/d/1uJ9znHVRiR9hgX5ifmmSHHtjESjI6bea/view",
+      "notes": "Luxury Villa in Greater Noida. Supplied project notes list these finishes: LM-113 Basalt Beige CT-213 Royal Teak.",
+      "matches": [
+        {
+          "code": "LM-113",
+          "products": [
+            "lamio-series"
+          ]
+        },
+        {
+          "code": "CT-213",
+          "products": [
+            "wooden-series"
+          ]
+        }
+      ]
+    },
+    {
+      "project": "hotel-gautham-vijayawada",
+      "source": "https://drive.google.com/file/d/1o6Y8GwgTTkVzNc2H3WuOdlupBCrVmPBl/view",
+      "notes": "Hotel Gautham in Vijayawada. Supplied project notes list these finishes: CT-62 Pure White CT-01 Bright Silver Ct-15 Super Metallic Black.",
+      "matches": [
+        {
+          "code": "CT-62",
+          "products": [
+            "solid-series"
+          ]
+        },
+        {
+          "code": "CT-01",
+          "products": [
+            "metallic-series"
+          ]
+        },
+        {
+          "code": "CT-15",
+          "products": [
+            "metallic-series"
+          ]
+        }
+      ]
+    },
+    {
+      "project": "shanbh-resort-prayagraj",
+      "source": "https://drive.google.com/file/d/13mZHhzslO2IumYHZxYovAdgMF1XWmurI/view",
+      "notes": "Shanbh Resort in Prayagraj. Supplied project notes list these finishes: CT-09 Metallic Bronze.",
+      "matches": [
+        {
+          "code": "CT-09",
+          "products": [
+            "metallic-series"
+          ]
+        }
+      ]
+    },
+    {
+      "project": "highway-king-rajgarh",
+      "source": "https://drive.google.com/file/d/1g8jo8s8KlTpYxBuj_0q_im6mmLhEU5-1/view",
+      "notes": "Highway King in Rajgarh. Supplied project notes list these finishes: CT-71 Slate Grey CT-215 Novacentopine.",
+      "matches": [
+        {
+          "code": "CT-71",
+          "products": [
+            "solid-series"
+          ]
+        },
+        {
+          "code": "CT-215",
+          "products": [
+            "wooden-series"
+          ]
+        }
+      ]
+    },
+    {
+      "project": "sastra-college-vijayawada",
+      "source": "https://drive.google.com/file/d/1eHATj6RiQJ3RqvNFkd4JyqET8Vhmqoua/view",
+      "notes": "Sastra College in Vijayawada. Supplied project notes list these finishes: CT-71 Slate Grey CT-58 Orange.",
+      "matches": [
+        {
+          "code": "CT-71",
+          "products": [
+            "solid-series"
+          ]
+        },
+        {
+          "code": "CT-58",
+          "products": [
+            "solid-series"
+          ]
+        }
+      ]
+    },
+    {
+      "project": "community-center-nangloi-new-delhi",
+      "source": "https://drive.google.com/file/d/1nPRUPnFw32FfbDKWI9wgjSKD6YWnoCfE/view",
+      "notes": "Community Center in Nangloi, New Delhi. Supplied project notes list these finishes: CT-01 Bright Silver CT-08 Metallic Cooper CT-16 Gate Grey.",
+      "matches": [
+        {
+          "code": "CT-01",
+          "products": [
+            "metallic-series"
+          ]
+        },
+        {
+          "code": "CT-08",
+          "products": [
+            "metallic-series"
+          ]
+        },
+        {
+          "code": "CT-16",
+          "products": [
+            "metallic-series"
+          ]
+        }
+      ]
+    },
+    {
+      "project": "kamal-hospital-jalandhar",
+      "source": "https://drive.google.com/file/d/1KVPExb5gPLwYdOjPyTTnbvqDkynh9clp/view",
+      "notes": "Kamal Hospital in Jalandhar. Supplied project notes list these finishes: CT-09 Metallic Bronze CT-01 Bright Silver.",
+      "matches": [
+        {
+          "code": "CT-09",
+          "products": [
+            "metallic-series"
+          ]
+        },
+        {
+          "code": "CT-01",
+          "products": [
+            "metallic-series"
+          ]
+        }
+      ]
+    },
+    {
+      "project": "luxury-appartments-new-delhi",
+      "source": "https://drive.google.com/file/d/1ls0JWyKoPVfr6qO32UKq6-H1LJc4hLcO/view",
+      "notes": "Luxury Appartments in New Delhi. Supplied project notes list these finishes: CT-64 Ivory White CT-213 Royal Teak.",
+      "matches": [
+        {
+          "code": "CT-64",
+          "products": [
+            "solid-series"
+          ]
+        },
+        {
+          "code": "CT-213",
+          "products": [
+            "wooden-series"
+          ]
+        }
+      ]
+    },
+    {
+      "project": "luxury-house-greater-noida-37",
+      "source": "https://drive.google.com/file/d/1JtdYgw4NZsUVwfHaw4W-OqQuIcNDOZnv/view",
+      "notes": "Luxury House in Greater Noida. Supplied project notes list these finishes: CT-71 Slate Grey CT-219 Santosa.",
+      "matches": [
+        {
+          "code": "CT-71",
+          "products": [
+            "solid-series"
+          ]
+        },
+        {
+          "code": "CT-219",
+          "products": [
+            "wooden-series"
+          ]
+        }
+      ]
+    },
+    {
+      "project": "luxury-house-greater-noida-39",
+      "source": "https://drive.google.com/file/d/1KOflF21olGdsmqksX9SjiogCpIUvbF4X/view",
+      "notes": "Luxury House in Greater Noida. Supplied project notes list these finishes: CT-278 Corten Steel CT-251 Funder Teak CT-71 Slate Grey.",
+      "matches": [
+        {
+          "code": "CT-278",
+          "products": [
+            "exclusive-series"
+          ]
+        },
+        {
+          "code": "CT-251",
+          "products": [
+            "wooden-series"
+          ]
+        },
+        {
+          "code": "CT-71",
+          "products": [
+            "solid-series"
+          ]
+        }
+      ]
+    },
+    {
+      "project": "luxury-house-greater-noida-41",
+      "source": "https://drive.google.com/file/d/15hjizNRxOA-suiBmHgRCbcMqgMP-f6xh/view",
+      "notes": "Luxury House in Greater Noida. Supplied project notes list these finishes: CT-219 Santosa.",
+      "matches": [
+        {
+          "code": "CT-219",
+          "products": [
+            "wooden-series"
+          ]
+        }
+      ]
+    },
+    {
+      "project": "bharam-shakti-hospital-new-delhi",
+      "source": "https://drive.google.com/file/d/17CzDEV3jvC_rxBQHmTfgApGfF2iMAKwA/view",
+      "notes": "Bharam Shakti Hospital in New Delhi. Supplied project notes list these finishes: CT-64 Ivory White CT-68 Coffee Brown.",
+      "matches": [
+        {
+          "code": "CT-64",
+          "products": [
+            "solid-series"
+          ]
+        },
+        {
+          "code": "CT-68",
+          "products": [
+            "solid-series"
+          ]
+        }
+      ]
+    }
+  ]
+}

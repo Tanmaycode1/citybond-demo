@@ -43,6 +43,10 @@ next-env.d.ts
 
 # Private CMS state and owner handoff
 .data/
+transcript.md
+TRANSCRIPT-TASKS.md
+PORTAL-VERIFICATION.md
+content/photography-audit.json
 .owner-access.txt
 .env.deploy
 content/raw/

@@ -5,6 +5,8 @@ import { isEditor } from "@/lib/cms/auth";
 import { resolveRoute, canonicalPath } from "@/lib/routes";
 import { resolveBlog, blogPagePath, blogPath } from "@/lib/blog";
 import { Website } from "@/components/site/Website";
+import { catalogueEntries } from "@/lib/product-filters";
+import { resolveJourneyRole } from "@/lib/journey";
 export const dynamic = "force-dynamic";
 type Props = {
   params: Promise<{ path?: string[] }>;
@@ -32,6 +34,9 @@ async function pageData({ params, searchParams }: Props) {
     raw,
     q,
     preview,
+    catalogueThicknesses: route === "products" || route === "collections"
+      ? Object.fromEntries(catalogueEntries(c).map(({ product, thicknesses }) => [product.slug, thicknesses]))
+      : undefined,
     c: {
       ...c,
       originalPages: c.originalPages.filter((p) => p.route === route),
@@ -97,7 +102,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
   };
 }
 export default async function Page(props: Props) {
-  const { raw, q, preview, c, blog, route } = await pageData(props);
+  const { raw, q, preview, c, blog, route, catalogueThicknesses } = await pageData(props);
   const p = blog?.kind === "post" ? blog.post : null;
   return (
     <>
@@ -135,11 +140,15 @@ export default async function Page(props: Props) {
       <Website
         key={raw + JSON.stringify(q)}
         content={c}
+        catalogueThicknesses={catalogueThicknesses}
+        journeyRole={resolveJourneyRole(route, q.role, c.roles)}
+        exploreHome={q.explore === "1"}
+        enquiryProject={typeof q.project === "string" && c.projects.some(project => project.slug === q.project) ? q.project : undefined}
         route={route}
         requestPath={raw}
         blogView={blog ?? undefined}
         preview={preview}
-        product={typeof q.product === "string" ? q.product : undefined}
+        product={typeof q.product === "string" && c.products.some(product => product.slug === q.product) ? q.product : undefined}
       />
     </>
   );

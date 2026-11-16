@@ -1,0 +1,53 @@
+.site-shell .network-page .intro { padding-block: 44px 28px; }
+.site-shell .network-page .intro h1 { font-size: clamp(42px, 5vw, 72px); }
+.network-page .network-introduction { padding-block: 0 36px; max-width: none; }
+.network-page .original-copy p { font-size: 17px; line-height: 1.7; }
+.network-introduction > h2 { font-size: clamp(24px, 2.5vw, 36px); line-height: 1.2; margin: 0 0 24px; }
+.network-statistics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin: 0; padding-block: 20px; border-block: 1px solid var(--line); }
+.network-statistics > div { display: flex; align-items: center; gap: 16px; }
+.network-statistics dt { font-size: 16px; line-height: 1.4; }
+.network-statistics dd { order: -1; margin: 0; color: var(--ink); font-size: clamp(40px, 4.5vw, 64px); line-height: 1; }
+.network-page .network-story { max-width: none; padding-block: 8px 32px; }
+.network-story > p { max-width: none; }
+.network-page .network-layout { gap: 6%; align-items: start; padding-bottom: 48px; }
+.network-page .network-map { width: 100%; }
+.network-map-panel { min-width: 0; }
+.network-map-credit { margin-top: 12px; font-size: 12px; color: var(--muted); }
+.network-map-credit a { text-decoration: underline; text-underline-offset: 3px; }
+.network-page .network-map > button { cursor: pointer; }
+.network-page .network-map > button::before, .network-page .network-map > button span { pointer-events: none; }
+.network-page .network-map > button span { font-size: 14px; }
+.network-page .network-directory > label { font-size: 16px; }
+.network-page .network-directory select { font-size: 17px; border: 1px solid var(--line); border-radius: 3px; padding: 12px; background: white; }
+.network-page .city-list { max-height: none; overflow: visible; gap: 12px 24px; padding: 0; }
+.network-city-row { display: flex; align-items: stretch; min-width: 0; }
+.network-page .network-city-row button { flex: 1; min-width: 0; border: 0; font-size: 17px; text-align: left; padding-block: 4px; cursor: pointer; }
+.network-page .network-city-row button:hover, .network-page .network-city-row button[aria-pressed="true"] { color: var(--brand-red); text-decoration: underline; text-underline-offset: 4px; }
+.network-city-row > a { display: flex; align-items: center; justify-content: center; min-width: 40px; font-size: 22px; }
+.network-page .city-detail { margin-top: 24px; padding: 24px; border-top: 2px solid var(--ink); }
+.network-page .city-detail h3 { font-size: 30px; margin: 0; }
+.network-page .city-detail h3 a { display: inline-flex; align-items: center; gap: 20px; font-size: inherit; }
+.network-page .city-detail p, .network-page .city-detail > a { font-size: 16px; line-height: 1.7; }
+.network-page .city-detail .eyebrow { font-size: 12px; }
+.network-page a:hover { color: var(--brand-red); }
+.network-page :is(a, button, select):focus-visible { outline: 2px solid var(--brand-red); outline-offset: 3px; }
+.network-presence { border-top: 1px solid var(--line); padding-block: 32px; }
+.network-presence h2 { font-size: 36px; margin-bottom: 24px; }
+.network-presence ul { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 16px 28px; list-style: none; padding: 0; margin: 0; }
+.network-presence a { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 8px; font-size: 17px; }
+.network-page .network-support { max-width: none; padding-block: 8px 40px; }
+@media (max-width: 900px) {
+  .network-page .network-layout { grid-template-columns: 1fr; gap: 32px; }
+  .network-page .network-map { max-width: 480px; margin-inline: auto; min-height: 0; }
+  .network-presence ul { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 600px) {
+  .network-statistics { gap: 12px; padding-block: 16px; }
+  .network-statistics > div { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .network-statistics dd { font-size: clamp(32px, 9vw, 44px); }
+  .network-statistics dt { font-size: 14px; }
+  .site-shell .network-page .intro { padding-block: 28px 24px; }
+  .network-page .original-copy p { font-size: 16px; }
+  .network-page .city-list { gap: 0 16px; }
+  .network-presence ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}

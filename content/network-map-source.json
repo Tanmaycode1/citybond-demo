@@ -1,0 +1,126 @@
+{
+  "boundary": "https://naciscdn.org/naturalearth/10m/cultural/ne_10m_admin_0_countries_ind.zip",
+  "boundaryLicense": "Natural Earth public domain, version 5.1.1",
+  "citiesSource": "https://download.geonames.org/export/dump/IN.zip",
+  "citiesLicense": "GeoNames CC BY 4.0",
+  "cities": [
+    {
+      "city": "Delhi",
+      "geonameId": "1273294",
+      "latitude": 28.65195,
+      "longitude": 77.23149
+    },
+    {
+      "city": "Lucknow",
+      "geonameId": "1264733",
+      "latitude": 26.83928,
+      "longitude": 80.92313
+    },
+    {
+      "city": "Mohali",
+      "geonameId": "6992326",
+      "latitude": 30.67995,
+      "longitude": 76.72211
+    },
+    {
+      "city": "Kolkata",
+      "geonameId": "1275004",
+      "latitude": 22.56263,
+      "longitude": 88.36304
+    },
+    {
+      "city": "Bengaluru",
+      "geonameId": "1277333",
+      "latitude": 12.97194,
+      "longitude": 77.59369
+    },
+    {
+      "city": "Cuttack",
+      "geonameId": "1273780",
+      "latitude": 20.46497,
+      "longitude": 85.87927
+    },
+    {
+      "city": "Ranchi",
+      "geonameId": "1258526",
+      "latitude": 23.34316,
+      "longitude": 85.3094
+    },
+    {
+      "city": "Raipur",
+      "geonameId": "1258980",
+      "latitude": 21.23333,
+      "longitude": 81.63333
+    },
+    {
+      "city": "Chennai",
+      "geonameId": "1264527",
+      "latitude": 13.08784,
+      "longitude": 80.27847
+    },
+    {
+      "city": "Hyderabad",
+      "geonameId": "1269843",
+      "latitude": 17.38405,
+      "longitude": 78.45636
+    },
+    {
+      "city": "Indore",
+      "geonameId": "1269743",
+      "latitude": 22.71792,
+      "longitude": 75.8333
+    },
+    {
+      "city": "Nagpur",
+      "geonameId": "1262180",
+      "latitude": 21.14631,
+      "longitude": 79.08491
+    },
+    {
+      "city": "Vijayawada",
+      "geonameId": "1253184",
+      "latitude": 16.50745,
+      "longitude": 80.6466
+    },
+    {
+      "city": "Hisar",
+      "geonameId": "1270022",
+      "latitude": 29.15394,
+      "longitude": 75.72294
+    },
+    {
+      "city": "Gwalior",
+      "geonameId": "1270583",
+      "latitude": 26.22983,
+      "longitude": 78.17337
+    },
+    {
+      "city": "Ludhiana",
+      "geonameId": "1264728",
+      "latitude": 30.91204,
+      "longitude": 75.85379
+    },
+    {
+      "city": "Jammu",
+      "geonameId": "1269321",
+      "latitude": 32.73528,
+      "longitude": 74.86167
+    },
+    {
+      "city": "Jaipur",
+      "geonameId": "1269515",
+      "latitude": 26.91962,
+      "longitude": 75.78781
+    }
+  ],
+  "projection": {
+    "standardParallel": 22,
+    "west": 68.14340254000007,
+    "north": 37.05448354100004,
+    "cosine": 0.9271838545667874,
+    "scale": 2.969421619415387,
+    "offsetX": 9.777333556543603,
+    "offsetY": 5
+  },
+  "note": "Illustrated boundary simplified from geographic data. City-centre coordinates are projected without manual offsets; these are not office addresses."
+}

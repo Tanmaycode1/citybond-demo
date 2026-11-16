@@ -3,6 +3,8 @@ import NextLink from "next/link";
 import { useLayoutEffect, type ComponentProps } from "react";
 import { navigationTarget } from "@/lib/navigation";
 import { canonicalHref } from "@/lib/routes";
+import { journeyHref } from "@/lib/journey";
+import { useJourneyRole } from "./JourneyContext";
 let pending: ReturnType<typeof navigationTarget> = null;
 function scrollToDestination(hash: string) {
   const target = hash
@@ -23,8 +25,9 @@ export default function SiteLink({
   onNavigate,
   ...props
 }: ComponentProps<typeof NextLink>) {
+  const role = useJourneyRole();
   const href =
-    typeof props.href === "string" ? canonicalHref(props.href) : props.href;
+    typeof props.href === "string" ? journeyHref(canonicalHref(props.href), role) : props.href;
   return (
     <NextLink
       {...props}
@@ -37,7 +40,7 @@ export default function SiteLink({
           location.href,
         );
         if (!next) return;
-        if (next.pathname === location.pathname) {
+        if (next.samePage) {
           pending = null;
           requestAnimationFrame(() => scrollToDestination(next.hash));
         } else pending = next;

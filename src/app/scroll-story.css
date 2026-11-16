@@ -1,0 +1,25 @@
+/* Keep scroll motion on transforms and avoid chapter remount/layout jumps. */
+.scroll-story { --story-header: 84px; }
+.scroll-story .story-sticky {
+  top: var(--story-header);
+  height: calc(100svh - var(--story-header));
+}
+.scroll-story .facade-panel { box-shadow: none; transition: none; }
+.scroll-story .panel-scene { isolation: isolate; }
+.scroll-story .story-chapter { animation: none; min-height: 90px; }
+.scroll-story .story-progress { will-change: transform; }
+@media (max-width: 1000px) {
+  .scroll-story { --story-header: 72px; }
+}
+@media (max-height: 650px) and (prefers-reduced-motion: no-preference) {
+  .scroll-story .story-sticky { min-height: 0; padding-block: 12px; }
+  .scroll-story .story-heading { padding-block: 8px; }
+  .scroll-story .story-heading h2 { font-size: 28px; }
+  .scroll-story .panel-scene { min-height: 100px; height: 30%; margin-block: 12px; }
+  .scroll-story .story-bottom { gap: 12px; }
+  .scroll-story .story-chapter { min-height: 70px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .scroll-story .story-sticky { top: 0; height: auto; }
+  .scroll-story .facade-panel { will-change: auto; }
+}

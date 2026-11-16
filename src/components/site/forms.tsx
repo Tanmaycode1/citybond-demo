@@ -3,17 +3,22 @@
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import Link from "./SiteLink";
 import type { SiteContent } from "@/lib/cms/schema";
+import { useJourneyRole } from "./JourneyContext";
 export function EnquiryForm({
   c,
   type,
   product = "",
   message = "",
+  onSuccess,
 }: {
   c: SiteContent;
   type: "contact" | "sample" | "dealer" | "career" | "visualiser" | "quiz";
   product?: string;
   message?: string;
+  onSuccess?: (reference: string) => void;
 }) {
+  const roleId = useJourneyRole();
+  const selectedRole = c.roles.find(role => role.id === (roleId || (type === "dealer" ? "dealer" : "")))?.label || "";
   const [status, setStatus] = useState("");
   const [busy, setBusy] = useState(false);
   const [file, setFile] = useState<File | null>(null);
@@ -46,7 +51,7 @@ export function EnquiryForm({
         city: values.get("city"),
         role: values.get("role") || "",
         type,
-        product: values.get("product") || product,
+        product: values.get("product") ?? product,
         message: values.get("message") || message,
         consent: values.get("consent") === "on",
         website: values.get("website") || "",
@@ -60,6 +65,7 @@ export function EnquiryForm({
       setStatus(`${c.ui.success} ${result.reference}`);
       form.reset();
       chooseFile(null);
+      onSuccess?.(result.reference);
     } catch (e) {
       setStatus(e instanceof Error ? e.message : c.ui.error);
     } finally {
@@ -95,7 +101,7 @@ export function EnquiryForm({
       </div>
       <label>
         {c.ui.role}
-        <select name="role" required defaultValue="">
+        <select name="role" required defaultValue={selectedRole}>
           <option value="" disabled>
             {c.ui.select}
           </option>
