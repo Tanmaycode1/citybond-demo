@@ -9,7 +9,6 @@ import { MAX_PLANES, Renderer } from "@/lib/visualizer/renderer";
 import Link from "./SiteLink";
 
 const SAMPLES = [
-  { src: "/images/interior.jpg", label: "Living room" },
   { src: "/stock/modern-residence.webp", label: "House front" },
 ];
 const MAX_RENDER = 1800;
@@ -116,8 +115,8 @@ export function WallVisualizer({ content, heading = true }: { content: SiteConte
         setProgress((previous) => ({ label: message.label, ratio: message.total ? (message.loaded || 0) / message.total : message.stage === "download" ? previous.ratio : 1 }));
       } else if (message.type === "error") {
         setStatus("error");
-        setError("We could not read this photo on your device. Please try another photo, or a newer browser.");
-        console.error("[visualizer]", message.message);
+        setError(message.code === "exterior-required" ? "Please upload an exterior building photo. We could not identify a façade in this image. Interior rooms are not supported; include more of the building if your photo is tightly cropped." : "We could not read this photo on your device. Please try another photo, or a newer browser.");
+        if (message.code !== "exterior-required") console.error("[visualizer]", message.message);
       } else if (message.type === "scene") {
         const bitmap = bitmapRef.current;
         if (!bitmap || !canvasRef.current) return;
@@ -162,7 +161,7 @@ export function WallVisualizer({ content, heading = true }: { content: SiteConte
           selectionRef.current = selection;
         } else pendingRefineRef.current = null;
         if (message.failed || !message.mask) {
-          setHint(message.failed === "tap-model-not-ready" ? "Tap-to-select is still loading. Please try again in a moment." : "We could not find a surface there. Tap the middle of a wall.");
+          setHint(message.failed === "exterior-surface-required" ? "Choose an exterior building surface. Sky, landscaping and other objects cannot be covered." : message.failed === "tap-model-not-ready" ? "Tap-to-select is still loading. Please try again in a moment." : "We could not find a surface there. Tap the middle of a wall.");
           return;
         }
         if (!message.refines) {
@@ -314,7 +313,11 @@ export function WallVisualizer({ content, heading = true }: { content: SiteConte
     const y = ((event.clientY - box.top) / box.height) * scene.H;
     if (x < 0 || y < 0 || x >= scene.W || y >= scene.H) return;
     const kind = scene.kind[Math.floor(y) * scene.W + Math.floor(x)];
-    if (!tapReady && (mode !== "add" || kind === 0)) {
+    if (mode !== "remove" && kind !== 2) {
+      setHint("Choose an exterior building surface. Sky, landscaping and other objects cannot be covered.");
+      return;
+    }
+    if (!tapReady && mode !== "add") {
       setHint("Tap-to-select is still loading. Please try again in a moment.");
       return;
     }
@@ -380,13 +383,13 @@ export function WallVisualizer({ content, heading = true }: { content: SiteConte
   const working = status === "working";
   const ready = status === "ready";
   return (
-    <section className="wall-visualizer" id="visualizer" aria-label="Wall visualizer">
+    <section className="wall-visualizer" id="visualizer" aria-label="Exterior wall visualizer">
       <div className="wrap">
         {heading && (
           <div className="wv-head">
-            <p className="eyebrow">Wall visualizer</p>
-            <h2>See CityBond on your own wall.</h2>
-            <p>Upload a photo of a room or a building. Tap a wall. Change the product with one click.</p>
+            <p className="eyebrow">Exterior wall visualizer</p>
+            <h2>See CityBond on your façade.</h2>
+            <p>Upload an exterior building photo. Choose a façade wall, then preview a CityBond finish.</p>
           </div>
         )}
         <div className={`wv-body${ready ? " is-ready" : ""}`}>
@@ -423,8 +426,8 @@ export function WallVisualizer({ content, heading = true }: { content: SiteConte
                     </div>
                   ) : (
                     <>
-                      <strong>Drop a photo here</strong>
-                      <span>A room or a building front, taken straight on, works best.</span>
+                      <strong>Drop an exterior photo here</strong>
+                      <span>Use a clear exterior building photo with the façade visible. Interior rooms are not supported.</span>
                       <button type="button" className="button" onClick={() => fileRef.current?.click()}>
                         Upload a photo <span aria-hidden="true">↗</span>
                       </button>
@@ -503,7 +506,7 @@ export function WallVisualizer({ content, heading = true }: { content: SiteConte
               <Link className="button" href={`/samples?product=${material.slug}`}>
                 Request a sample <span aria-hidden="true">↗</span>
               </Link>
-              <button type="button" className="text-link" onClick={download} disabled={!ready || !hasSelection}>
+              <button type="button" className="text-link" onClick={download} disabled={!ready || !hasSelection || busyTap}>
                 Download the picture <span aria-hidden="true">↓</span>
               </button>
             </div>

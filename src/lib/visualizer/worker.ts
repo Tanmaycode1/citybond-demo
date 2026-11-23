@@ -3,13 +3,13 @@
 // The photo never leaves the device.
 import { AutoModel, AutoProcessor, RawImage } from "@huggingface/transformers";
 import { analyseScene, facesForRegion, shadingMap, type SceneFrame } from "./geometry";
-import { fillEnclosedHoles, flood, guidedFilter, largestAreas, regionAlpha, removeOpenings, resample, snapToEdges, spreadPoints, tidy, windowTest } from "./masks";
+import { flood, guidedFilter, regionAlpha, removeOpenings, resample, snapToEdges, tidy } from "./masks";
+import { exteriorMask, constrainToFacade, isFacadeLabel } from "./exterior";
 import type { TapMode, WorkerRequest, WorkerResponse } from "./protocol";
 
 const SEGMENTATION = "Xenova/segformer-b2-finetuned-ade-512-512";
 const DEPTH = "onnx-community/depth-anything-v2-small";
 const SAM = "onnx-community/sam2.1-hiera-tiny-ONNX";
-const PAINTABLE = ["wall", "building", "house", "skyscraper"];
 const GROUND = ["floor", "road", "sidewalk", "earth", "grass", "path", "field", "rug", "sand", "dirt track"];
 const WORK = 1024;
 
@@ -59,7 +59,7 @@ type State = {
   gray: Float32Array;
   /** Photo brightness, 0..1. The guide for edge refinement. */
   guide: Float32Array;
-  /** 0 = not a wall, 1 = room wall, 2 = building. */
+  /** 0 = excluded surface, 2 = exterior building. */
   kind: Uint8Array;
   /** True when the edge model has read the photo. */
   samReady?: boolean;
@@ -70,6 +70,7 @@ let generation = 0;
 
 async function analyse(bitmap: ImageBitmap, preferGpu: boolean) {
   const run = ++generation;
+  state = null;
   device = preferGpu ? "webgpu" : "wasm";
   const ratio = WORK / Math.max(bitmap.width, bitmap.height);
   const W = Math.max(64, Math.round(bitmap.width * Math.min(1, ratio)));
@@ -89,21 +90,19 @@ async function analyse(bitmap: ImageBitmap, preferGpu: boolean) {
   }
   const image = new RawImage(rgb, W, H, 3);
 
-  post({ type: "progress", stage: "walls", label: "Finding the walls" });
+  post({ type: "progress", stage: "walls", label: "Finding the exterior façade" });
   const segmentation = await model(SEGMENTATION, "Loading the wall model");
   if (run !== generation) return;
-  post({ type: "progress", stage: "walls", label: "Finding the walls" });
+  post({ type: "progress", stage: "walls", label: "Finding the exterior façade" });
   const { logits } = await segmentation.model(await segmentation.processor(image));
   const [, classes, lh, lw] = logits.dims as number[];
   const names: string[] = [];
   for (let c = 0; c < classes; c++) names.push(String(segmentation.model.config.id2label[c]).split(",")[0].trim());
-  const paintable = names.map((name) => PAINTABLE.includes(name));
-  const isRoomWall = names.map((name) => name === "wall");
+  const paintable = names.map(isFacadeLabel);
   const isGround = names.map((name) => GROUND.includes(name));
   const isSky = names.map((name) => name === "sky");
   const data = logits.data as Float32Array;
   const lowWall = new Float32Array(lh * lw);
-  const lowRoom = new Float32Array(lh * lw);
   const lowGround = new Float32Array(lh * lw);
   const lowSky = new Float32Array(lh * lw);
   const plane = lh * lw;
@@ -119,37 +118,36 @@ async function analyse(bitmap: ImageBitmap, preferGpu: boolean) {
     }
     let sum = 0;
     let wallSum = 0;
-    let roomSum = 0;
     for (let c = 0; c < classes; c++) {
       const e = Math.exp(data[c * plane + i] - max);
       sum += e;
       if (paintable[c]) wallSum += e;
-      if (isRoomWall[c]) roomSum += e;
     }
     lowWall[i] = wallSum / sum;
-    lowRoom[i] = roomSum / sum;
     lowGround[i] = isGround[best] ? 1 : 0;
     lowSky[i] = isSky[best] ? 1 : 0;
   }
   const wall = resample(lowWall, lw, lh, W, H);
   const guide = new Float32Array(W * H);
   for (let i = 0; i < guide.length; i++) guide[i] = gray[i] / 255;
-  const room = resample(lowRoom, lw, lh, W, H);
   const groundSoft = resample(lowGround, lw, lh, W, H);
   const skySoft = resample(lowSky, lw, lh, W, H);
-  const kind = new Uint8Array(W * H);
+  const { kind, accepted } = exteriorMask(wall);
+  if (!accepted) {
+    post({ type: "error", code: "exterior-required", message: "No exterior façade detected" });
+    return;
+  }
   const ground = new Uint8Array(W * H);
   const sky = new Uint8Array(W * H);
   for (let i = 0; i < W * H; i++) {
-    kind[i] = wall[i] > 0.5 ? (room[i] > wall[i] * 0.5 ? 1 : 2) : 0;
     ground[i] = groundSoft[i] > 0.5 ? 1 : 0;
     sky[i] = skySoft[i] > 0.5 ? 1 : 0;
   }
 
-  post({ type: "progress", stage: "depth", label: "Measuring the room" });
+  post({ type: "progress", stage: "depth", label: "Estimating the façade depth" });
   const depth = await model(DEPTH, "Loading the depth model");
   if (run !== generation) return;
-  post({ type: "progress", stage: "depth", label: "Measuring the room" });
+  post({ type: "progress", stage: "depth", label: "Estimating the façade depth" });
   const { predicted_depth: predicted } = await depth.model(await depth.processor(image));
   const dims = predicted.dims as number[];
   const disparity = resample(predicted.data as Float32Array, dims[dims.length - 1], dims[dims.length - 2], W, H);
@@ -162,14 +160,7 @@ async function analyse(bitmap: ImageBitmap, preferGpu: boolean) {
   if (run !== generation) return;
   state = { W, H, image, scene, wall, gray, guide, kind };
 
-  // A good first tap: the middle of the largest wall (a room wall, or a building wall in an outdoor photo).
-  let roomCount = 0;
-  let buildingCount = 0;
-  for (let i = 0; i < kind.length; i += 7) {
-    if (kind[i] === 1) roomCount++;
-    else if (kind[i] === 2) buildingCount++;
-  }
-  const outdoor = buildingCount > roomCount;
+  // Suggest the centre of a confidently detected exterior building surface.
   let suggestion: [number, number] | null = null;
   {
     const step = 8;
@@ -180,7 +171,7 @@ async function analyse(bitmap: ImageBitmap, preferGpu: boolean) {
     for (let y = 0; y < rows; y++)
       for (let x = 0; x < columns; x++) {
         const value = kind[(y * step + 4) * W + x * step + 4];
-        const inside = outdoor ? value !== 0 : value === 1;
+        const inside = value === 2;
         const left = x > 0 ? distance[y * columns + x - 1] : 0;
         const up = y > 0 ? distance[(y - 1) * columns + x] : 0;
         distance[y * columns + x] = inside ? Math.min(left, up) + 1 : 0;
@@ -211,12 +202,6 @@ async function analyse(bitmap: ImageBitmap, preferGpu: boolean) {
     return { embeddings, loaded };
   })();
   state.sam = sam;
-  let wallPixels = 0;
-  let buildingPixels = 0;
-  for (let i = 0; i < kind.length; i++) {
-    if (kind[i] === 1) wallPixels++;
-    else if (kind[i] === 2) buildingPixels++;
-  }
   const kindCopy = kind.slice();
   post(
     {
@@ -229,7 +214,7 @@ async function analyse(bitmap: ImageBitmap, preferGpu: boolean) {
       shadeW: shade.w,
       shadeH: shade.h,
       suggestion,
-      exterior: buildingPixels > wallPixels,
+      exterior: true,
       scaleFromGround: scene.scaleFromGround,
       device,
     },
@@ -283,76 +268,6 @@ async function samMask(current: State, x: number, y: number): Promise<Uint8Array
   return start < 0 ? clean : flood((i) => clean[i] === 1 || (i === at && raw[i] === 1), W, H, start);
 }
 
-/**
- * Exact outline of a whole wall.
- * The wall model says roughly where the wall is. The edge model then draws the outline, and leaves out
- * pictures, lamps, mirrors, plants and windows. Lit and shaded parts of one wall are joined.
- */
-async function samWall(current: State, base: Uint8Array, at: number): Promise<Uint8Array | null> {
-  const { W, H, wall } = current;
-  let baseArea = 0;
-  for (let i = 0; i < base.length; i++) baseArea += base[i];
-  let deep = windowTest(base, W, H, 18, true);
-  let positives = spreadPoints((i) => deep[i] === 1, W, H, 10, deep[at] ? at : undefined);
-  if (positives.length < 2) {
-    deep = windowTest(base, W, H, 6, true);
-    positives = spreadPoints((i) => deep[i] === 1, W, H, 6, deep[at] ? at : undefined);
-  }
-  if (!positives.length) positives = [at];
-  // Negative points: places the wall model is sure are not wall, near this wall.
-  const notWall = new Uint8Array(W * H);
-  for (let i = 0; i < notWall.length; i++) notWall[i] = wall[i] < 0.15 ? 1 : 0;
-  const sure = windowTest(notWall, W, H, 14, true);
-  const nearby = windowTest(base, W, H, Math.round(0.09 * Math.max(W, H)), false);
-  const negatives = spreadPoints((i) => sure[i] === 1 && nearby[i] === 1, W, H, 8);
-  const allowed = windowTest(base, W, H, 14, false);
-  const ask = async (points: number[]) => {
-    const result = await samPrompt(current, [...points, ...negatives], [...points.map(() => 1), ...negatives.map(() => 0)]);
-    if (!result) return null;
-    const mask = bestOf(result);
-    for (let i = 0; i < mask.length; i++) if (!allowed[i]) mask[i] = 0;
-    return mask;
-  };
-  const out = await ask(positives);
-  if (!out) return null;
-  // The edge model can stop at a strong shadow line. Find wall areas it left out and ask again for each.
-  for (let pass = 0; pass < 2; pass++) {
-    const inner = windowTest(base, W, H, 10, true);
-    const covered = windowTest(out, W, H, 6, false);
-    const missed = new Uint8Array(W * H);
-    for (let i = 0; i < missed.length; i++) missed[i] = inner[i] && !covered[i] ? 1 : 0;
-    const areas = largestAreas(missed, W, H, 0.004 * W * H, 3);
-    if (!areas.length) break;
-    let added = false;
-    for (const area of areas) {
-      const extra = await ask(spreadPoints((i) => area.mask[i] === 1, W, H, 4));
-      if (!extra) continue;
-      // Accept the extra surface only when the wall model agrees that it is wall.
-      let size = 0;
-      let agreed = 0;
-      for (let i = 0; i < extra.length; i++)
-        if (extra[i]) {
-          size++;
-          if (wall[i] > 0.6) agreed++;
-        }
-      if (!size || agreed < 0.85 * size || size > 5 * area.area + 0.02 * W * H) continue;
-      for (let i = 0; i < out.length; i++) if (extra[i]) out[i] = 1;
-      added = true;
-    }
-    if (!added) break;
-  }
-  let size = 0;
-  for (let i = 0; i < out.length; i++) size += out[i];
-  // A result far smaller than the wall means the edge model failed on this photo.
-  if (size < 0.35 * baseArea) return null;
-  fillEnclosedHoles(out, wall, W, H, 0.012 * W * H);
-  // The outline of the edge model sits a little inside the wall. Grow it, then let the photo edges place it.
-  const grown = windowTest(tidy(out, W, H, 1), W, H, 2, false);
-  const soft = guidedFilter(Float32Array.from(grown), current.guide, W, H, 4, 2e-4);
-  for (let i = 0; i < grown.length; i++) grown[i] = soft[i] > 0.5 ? 1 : 0;
-  return grown;
-}
-
 async function tap(id: number, x: number, y: number, mode: TapMode) {
   const current = state;
   if (!current) return;
@@ -360,8 +275,13 @@ async function tap(id: number, x: number, y: number, mode: TapMode) {
   const px = Math.max(0, Math.min(W - 1, Math.round(x)));
   const py = Math.max(0, Math.min(H - 1, Math.round(y)));
   const at = py * W + px;
+  if (mode !== "remove" && kind[at] !== 2) {
+    post({ type: "region", id, mode, failed: "exterior-surface-required" });
+    return;
+  }
   /** Work out the planes and the soft edge of a region, and send it to the page. */
   const send = (region: Uint8Array, flags: { provisional?: boolean; refines?: boolean } = {}) => {
+    constrainToFacade(region, kind);
     const edgeLabels: number[] = [];
     const faces = facesForRegion(scene, region);
     if (!faces.planes.length) {
@@ -371,6 +291,8 @@ async function tap(id: number, x: number, y: number, mode: TapMode) {
     // Opacity with a soft edge that follows the fine edges of the photo.
     const soft = guidedFilter(Float32Array.from(region), current.guide, W, H, 3, 2e-4);
     const alpha = regionAlpha(region, soft, W, H);
+    // Never feather outside the detected façade.
+    for (let i = 0; i < alpha.length; i++) if (kind[i] !== 2) alpha[i] = 0;
     // Pixels in the soft edge need a plane too.
     for (let i = 0; i < alpha.length; i++)
       if (alpha[i] && faces.labels[i] === 255) {
@@ -386,43 +308,19 @@ async function tap(id: number, x: number, y: number, mode: TapMode) {
   };
   let region: Uint8Array | null = null;
   try {
-    if (mode === "add" && kind[at] !== 0) {
-      // Whole wall. Step 1: the wall model gives the wall area. Step 2: keep the flat face under the tap.
-      const building = kind[at] === 2;
-      const base = flood((i) => (building ? kind[i] !== 0 : kind[i] === 1), W, H, at);
+    if (mode === "add") {
+      const base = flood((i) => kind[i] === 2, W, H, at);
       const split = facesForRegion(scene, base);
       if (split.planes.length > 1) {
         const face = split.labels[at];
         for (let i = 0; i < base.length; i++) if (split.labels[i] !== face) base[i] = 0;
       }
-      // Step 3, rooms: the edge model draws the exact outline and leaves out pictures, lamps and mirrors.
-      // Step 3, buildings: a sunlit wall with hard shadows confuses the edge model, so the wall model stays
-      // in charge. Windows are taken out and the outline is moved onto the edges of the photo.
-      if (!building && !current.samReady) {
-        // The edge model is still reading the photo. Show a quick outline now and the exact outline when it is ready.
-        send(tidy(base, W, H, 2), { provisional: true });
-        const later = await samWall(current, base, at).catch(() => null);
-        if (state !== current) return;
-        if (later) send(later, { refines: true });
-        else post({ type: "region", id, mode, refines: true, failed: "no-exact-outline" });
-        return;
-      }
-      const exact = building ? null : await samWall(current, base, at).catch(() => null);
-      if (exact) region = exact;
-      else {
-        region = tidy(base, W, H, 2);
-        if (building) {
-          region = snapToEdges(region, current.guide, W, H);
-          removeOpenings(region, current.gray, W, H);
-        }
-      }
+      // Exterior sunlight can confuse SAM; keep the building segmentation in charge.
+      region = snapToEdges(tidy(base, W, H, 2), current.guide, W, H);
+      removeOpenings(region, current.gray, W, H);
     } else {
       region = await samMask(current, px, py);
-      if (region && mode !== "remove" && kind[at] !== 0) {
-        // On a building, stay inside the area the wall model marked.
-        for (let i = 0; i < region.length; i++) if (region[i] && kind[i] === 0) region[i] = 0;
-        region = tidy(region, W, H, 2);
-      }
+      if (region && mode !== "remove") constrainToFacade(region, kind);
     }
   } catch (error) {
     post({ type: "region", id, mode, failed: String((error as Error)?.message || error) });

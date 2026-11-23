@@ -50,3 +50,5 @@ content/photography-audit.json
 .owner-access.txt
 .env.deploy
 content/raw/
+
+/test-results/

@@ -14,13 +14,13 @@ export type WorkerResponse =
       W: number;
       H: number;
       f: number;
-      /** Per pixel: 0 = not a wall, 1 = room wall, 2 = building. */
+      /** Per pixel: 0 = excluded surface, 2 = exterior building. */
       kind: Uint8Array;
       /** Smoothed brightness of the photo, 0..255. */
       shade: Uint8Array;
       shadeW: number;
       shadeH: number;
-      /** A good first tap for rooms, in work pixels. */
+      /** A suggested exterior façade point, in work pixels. */
       suggestion: [number, number] | null;
       exterior: boolean;
       scaleFromGround: boolean;
@@ -32,4 +32,4 @@ export type WorkerResponse =
    * provisional = a quick outline; a second message with the same id and `refines` follows with the exact outline.
    */
   | { type: "region"; id: number; mode: TapMode; provisional?: boolean; refines?: boolean; mask?: Uint8Array; labels?: Uint8Array; planes?: Plane[]; anchors?: Vec3[]; failed?: string }
-  | { type: "error"; message: string };
+  | { type: "error"; message: string; code?: "exterior-required" };
