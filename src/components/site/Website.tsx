@@ -1960,7 +1960,7 @@ function Quiz() {
         ) : !reference ? (
           <div className="quiz-enquiry">
             <h2>{c.ui.quizLeadTitle}</h2><p>{c.ui.quizLeadDescription}</p>
-            <EnquiryForm c={c} type="quiz" product={matches[0]?.slug} message={answers.map(answer => c.ui[answer]).join(" / ")} onSuccess={setReference} />
+            <EnquiryForm c={c} type="quiz" product={matches[0]?.slug} useCase={answers.map(answer => c.ui[answer]).join(" / ")} onSuccess={setReference} />
             <button className="text-link" onClick={() => setStep(2)}>{c.ui.previous}</button>
           </div>
         ) : (

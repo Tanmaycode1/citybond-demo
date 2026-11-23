@@ -1,6 +1,6 @@
 "use client";
 /* eslint-disable @next/next/no-img-element */
-import { useEffect, useRef, useState, type FormEvent } from "react";
+import { useEffect, useId, useRef, useState, type FormEvent } from "react";
 import Link from "./SiteLink";
 import type { SiteContent } from "@/lib/cms/schema";
 import { useJourneyRole } from "./JourneyContext";
@@ -9,17 +9,22 @@ export function EnquiryForm({
   type,
   product = "",
   message = "",
+  useCase = "",
   onSuccess,
 }: {
   c: SiteContent;
   type: "contact" | "sample" | "dealer" | "career" | "visualiser" | "quiz";
   product?: string;
   message?: string;
+  useCase?: string;
   onSuccess?: (reference: string) => void;
 }) {
   const roleId = useJourneyRole();
   const selectedRole = c.roles.find(role => role.id === (roleId || (type === "dealer" ? "dealer" : "")))?.label || "";
   const [status, setStatus] = useState("");
+  const [failed, setFailed] = useState(false);
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const id = useId();
   const [busy, setBusy] = useState(false);
   const [file, setFile] = useState<File | null>(null);
   const [preview, setPreview] = useState("");
@@ -43,6 +48,8 @@ export function EnquiryForm({
     const values = new FormData(form);
     setBusy(true);
     setStatus("");
+    setFailed(false);
+    setErrors({});
     try {
       const data = {
         name: values.get("name"),
@@ -53,6 +60,8 @@ export function EnquiryForm({
         type,
         product: values.get("product") ?? product,
         message: values.get("message") || message,
+        useCase,
+        source: window.location.pathname,
         consent: values.get("consent") === "on",
         website: values.get("website") || "",
       };
@@ -61,12 +70,18 @@ export function EnquiryForm({
       if (file) body.set("file", file);
       const res = await fetch("/api/enquiries", { method: "POST", body });
       const result = await res.json();
-      if (!res.ok) throw new Error(result.error || c.ui.error);
+      if (!res.ok) {
+        setErrors(result.fields || {});
+        const invalid = form.elements.namedItem(Object.keys(result.fields || {})[0]);
+        if (invalid instanceof HTMLElement) invalid.focus();
+        throw new Error(result.error || c.ui.error);
+      }
       setStatus(`${c.ui.success} ${result.reference}`);
       form.reset();
       chooseFile(null);
       onSuccess?.(result.reference);
     } catch (e) {
+      setFailed(true);
       setStatus(e instanceof Error ? e.message : c.ui.error);
     } finally {
       setBusy(false);
@@ -80,6 +95,7 @@ export function EnquiryForm({
             {c.ui[name]}
             <input
               name={name}
+              aria-label={c.ui[name]}
               autoComplete={
                 name === "name"
                   ? "name"
@@ -94,14 +110,17 @@ export function EnquiryForm({
               }
               required
               minLength={name === "name" || name === "city" ? 2 : undefined}
-              maxLength={name === "phone" ? 25 : 200}
+              maxLength={name === "phone" ? 25 : name === "name" ? 120 : name === "city" ? 160 : 200}
+              aria-invalid={!!errors[name]}
+              aria-describedby={errors[name] ? `${id}-${name}` : undefined}
             />
+            {errors[name] && <small className="field-error" id={`${id}-${name}`}>{errors[name]}</small>}
           </label>
         ))}
       </div>
-      <label>
+      {type !== "career" && <label>
         {c.ui.role}
-        <select name="role" required defaultValue={selectedRole}>
+        <select name="role" aria-label={c.ui.role} required defaultValue={selectedRole} aria-invalid={!!errors.role} aria-describedby={errors.role ? `${id}-role` : undefined}>
           <option value="" disabled>
             {c.ui.select}
           </option>
@@ -111,11 +130,12 @@ export function EnquiryForm({
             </option>
           ))}
         </select>
-      </label>
-      {type !== "career" && (
+        {errors.role && <small className="field-error" id={`${id}-role`}>{errors.role}</small>}
+      </label>}
+      {type !== "career" && type !== "quiz" && (
         <label>
           {c.ui.product}
-          <select name="product" key={product} defaultValue={product}>
+          <select name="product" aria-label={c.ui.product} key={product} defaultValue={product} aria-invalid={!!errors.product}>
             <option value="">{c.ui.select}</option>
             {c.products.map((p) => (
               <option value={p.slug} key={p.slug}>
@@ -123,6 +143,7 @@ export function EnquiryForm({
               </option>
             ))}
           </select>
+          {errors.product && <small className="field-error">{errors.product}</small>}
         </label>
       )}
       <label>
@@ -182,7 +203,7 @@ export function EnquiryForm({
         <span aria-hidden="true">↗</span>
       </button>
       {status && (
-        <p className="form-status" role="status">
+        <p className="form-status" role={failed ? "alert" : "status"}>
           {status}
         </p>
       )}

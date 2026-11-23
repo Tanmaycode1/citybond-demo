@@ -52,3 +52,33 @@ test("missing consent does not save a lead or report successful results", async 
   assert.equal(response.status, 400);
   assert.equal((await listObjects("enquiries/")).length, 6);
 });
+
+const valid = { name: 'Form Test', email: 'form@example.test', phone: '+91 9000000000', city: 'Delhi', role: 'Contractor', type: 'contact', consent: true };
+async function submitCase(data: unknown, file?: File) {
+  const body = new FormData(); body.set('data', typeof data === 'string' ? data : JSON.stringify(data));
+  if (file) body.set('file', file);
+  return POST(new Request('http://localhost:3001/api/enquiries', {method:'POST', headers:{origin:'http://localhost:3001','x-forwarded-for':crypto.randomUUID()},body}));
+}
+test('invalid roles, products, phone digits and malformed payloads do not create leads', async()=>{
+  const before=(await listObjects('enquiries/')).length;
+  for (const input of ['not-json', 'null', {...valid,role:''}, {...valid,role:'Unconfigured role'}, {...valid,product:'missing-product'}, {...valid,phone:'-------'}])
+    assert.equal((await submitCase(input)).status,400);
+  assert.equal((await listObjects('enquiries/')).length,before);
+});
+test('Third Eye View requires a photo on the server and rejects disguised files',async()=>{
+  const before=(await listObjects('enquiries/')).length;
+  const response=await submitCase({...valid,type:'visualiser'});
+  assert.equal(response.status,400);assert.ok((await response.json()).fields.attachment);
+  const invalid=await submitCase({...valid,type:'visualiser'},new File(['not an image file'], 'building.jpg', {type:'image/jpeg'}));
+  assert.notEqual(invalid.status,200);
+  assert.equal((await listObjects('enquiries/')).length,before);
+});
+test('career applicants need no customer role; quiz context survives an independent message',async()=>{
+  for(const input of [{...valid,type:'career',role:''},{...valid,type:'quiz',useCase:'Commercial / Signage / Metallic',message:'Please call tomorrow',source:'/product-finder'}]) {
+    const response=await submitCase(input);assert.equal(response.status,200);
+    const result=await response.json();const key=(await listObjects('enquiries/')).find(item=>item.key.includes(result.reference))!.key;
+    const saved=(await readObject<Record<string,unknown>>(key))!.data;
+    assert.equal(saved.reference,result.reference);assert.equal(saved.role,input.role);
+    if('useCase' in input){assert.equal(saved.useCase,input.useCase);assert.equal(saved.message,input.message);assert.equal(saved.source,input.source);}
+  }
+});

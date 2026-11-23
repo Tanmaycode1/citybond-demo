@@ -327,16 +327,22 @@ export function validateContent(input: unknown) {
 }
 export const enquirySchema = z.object({
   name: z.string().trim().min(2).max(120),
-  email: z.email().max(200),
+  email: z.string().trim().email().max(200),
   phone: z
     .string()
     .trim()
-    .regex(/^[+\d ()-]{7,25}$/),
+    .regex(/^[+\d ()-]{7,25}$/)
+    .refine(value => value.replace(/\D/g, "").length >= 7, "Enter a valid phone number."),
   city: z.string().trim().min(2).max(160),
-  role: z.string().max(120),
+  role: z.string().trim().max(120).default(""),
   type: z.enum(["contact", "dealer", "sample", "visualiser", "career", "quiz"]),
   product: z.string().max(200).default(""),
   message: z.string().max(4000).default(""),
+  useCase: z.string().max(400).default(""),
+  source: z.string().max(300).regex(/^(?:\/(?!\/)[a-zA-Z0-9_./%-]*)?$/).default(""),
   consent: z.literal(true),
   website: z.string().max(200).default(""),
+}).superRefine((data, ctx) => {
+  if (data.type !== "career" && !data.role)
+    ctx.addIssue({ code: "custom", path: ["role"], message: "Choose your role." });
 });

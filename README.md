@@ -43,7 +43,7 @@ Product thickness filters on Products and Collections use the same supplied pane
 
 Under **Site**, `headerStyle` accepts `tinted` (brand-tinted header with navy separator) or `white` (the original white alternative). Each footer link has an editable `group`; the footer renders those groups without dropping links. Its logo, tagline, description, contact details, and social links continue to use the Site content fields. The folded-panel artwork is decorative SVG and does not require an uploaded image.
 
-The homepage starts with role selection or **Explore CityBond** (`/?explore=1`). The six role journeys follow the supplied Customer Journey PDF; their section order, primary/secondary actions, and showcased project categories are editable under **Roles**. Internal browsing carries a validated `role` query parameter into forms, where the role can still be changed. Returning to the generic homepage clears that perspective. Project enquiry links carry a validated project slug separately from product selection.
+The homepage starts with role selection or **Explore CityBond**, which reveals and smoothly scrolls into the page. Legacy `/?explore=1` links remain supported. The six role journeys follow the supplied Customer Journey PDF; their section order, primary/secondary actions, and showcased project categories are editable under **Roles**. Internal browsing carries a validated `role` query parameter into forms, where the role can still be changed. Returning to the generic homepage clears that perspective. Project enquiry links carry a validated project slug separately from product selection.
 
 The product finder collects an enquiry before revealing its shortlist. It saves the chosen role and use case through the existing inbox endpoint; a failed submission keeps the form available for retry. Thirteen project/product associations were verified against supplied finish codes; their evidence is in `content/journey-project-links.json`.
 
@@ -95,7 +95,7 @@ npx vercel --prod
 
 The configuration helper passes the CMS secrets through stdin rather than command arguments or logs. It does not create the Blob store; connect storage first. Production deliberately fails closed if storage is absent, and portal sign-in fails closed if credentials are absent.
 
-**Hosted demo status:** the website link above is public. At this source handoff, the existing demo's live portal credentials still need configuration; the full portal is implemented and its edit/preview/publish flow has been tested locally. No live account credentials are included in this repository.
+**Hosted demo status:** the website link above is public. The demo preview environment has private editor credentials configured. Use `/studio-7c9e` and the existing owner password supplied separately; credentials are never included in this repository. Edit/preview/publish checks run against a disposable local store, while live verification checks sign-in and enquiry persistence without publishing test copy.
 
 ## Verification
 
@@ -158,3 +158,34 @@ tests/                    CMS, routing, blog, content and motion tests
 The brand palette follows the supplied CityBond guide. Bebas Neue and Roboto Condensed are review fallbacks; the exact licensed ND Logos/Bebas Neue Pro webfont files were not supplied. Asset provenance is recorded in `content/assets.json` and `content/stock-assets.json`. Stock architecture photographs are labelled as inspiration rather than evidence of CityBond installations.
 
 Forms persist enquiries for review in the portal; they do not send email notifications. Third Eye View is a manual design-request workflow, not an AI rendering service. Live enquiries, attachments, passwords, sessions, private runtime storage and deployment credentials are excluded from this public source repository.
+
+## Recorded browser checks
+
+The browser suite exercises the real portal UI, publishing and restore, image upload,
+blog creation, all six enquiry types, private attachments, all six customer journeys,
+failed-submission retry, and a narrow mobile viewport. It records every test as WebM.
+
+```sh
+npm ci
+npx playwright install chromium
+# In a separate terminal, use a disposable store (never production):
+CMS_LOCAL_DIR=/tmp/citybond-qa npm exec next dev -- --port 3002
+# Then run the recorded checks:
+CHECK_BASE=http://localhost:3002 npm run test:e2e
+npx playwright show-report
+```
+
+The checks read the existing local owner password from `.owner-access.txt`; run
+`npm run setup:local` once if it has not been generated. `QA_OUTPUT` optionally sets
+an absolute output directory for `recordings/` and `report/`. Traces are disabled
+so credentials and session headers are not included in the review artifacts.
+Do not run concurrent publishing checks against the same store.
+
+Forms retain values on a failed submission, show field-specific validation, and
+save the originating page and a short reference in the private inbox. The quiz
+also records its use-case separately from the visitor's message. Career applicants
+are not required to select a customer role. Third Eye View requires a building
+photo both in the browser and on the server. Email notifications are not configured;
+the content portal inbox is the destination for submitted enquiries.
+
+To record Suhani's visualizer separately, start its review checkout on port 3003, then run `VISUALIZER_BASE=http://localhost:3003 QA_OUTPUT=/tmp/citybond-visualizer-qa npm run test:e2e`. This uses real model downloads and inference; it does not mock the renderer. The visualizer remains on its separate review branch.
