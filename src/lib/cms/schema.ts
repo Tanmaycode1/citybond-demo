@@ -2,6 +2,7 @@ import { z } from "zod";
 import seed from "@/data/site.json";
 import { cleanArticleHtml } from "./rich-text";
 import { originalPageSchema } from "./original-copy-schema";
+import { roleSections } from "../role-sections";
 const text = z.string().max(12000);
 const short = z.string().max(300);
 const slug = z
@@ -184,24 +185,7 @@ export const contentSchema = z.object({
         secondaryCta: link.optional(),
         projectCategories: z.array(short).max(20).default([]),
         sections: z
-          .array(
-            z.enum([
-              "network",
-              "projects",
-              "products",
-              "visualiser",
-              "resources",
-              "about",
-              "contact",
-              "collections",
-              "technical",
-              "brands",
-              "testimonials",
-              "quiz",
-              "metacity",
-              "dealer-enquiry",
-            ]),
-          )
+          .array(z.enum(roleSections))
           .max(16),
       }),
     )
@@ -376,17 +360,23 @@ export function validateContent(input: unknown) {
 }
 export const enquirySchema = z.object({
   name: z.string().trim().min(2).max(120),
-  email: z.email().max(200),
+  email: z.string().trim().email().max(200),
   phone: z
     .string()
     .trim()
-    .regex(/^[+\d ()-]{7,25}$/),
+    .regex(/^[+\d ()-]{7,25}$/)
+    .refine(value => value.replace(/\D/g, "").length >= 7, "Enter a valid phone number."),
   city: z.string().trim().min(2).max(160),
-  role: z.string().max(120),
+  role: z.string().trim().max(120).default(""),
   type: z.enum(["contact", "dealer", "sample", "visualiser", "career", "quiz"]),
   product: z.string().max(200).default(""),
   message: z.string().max(4000).default(""),
   context: z.record(z.string().max(100), z.string().max(1000)).refine(v => Object.keys(v).length <= 20).default({}),
+  useCase: z.string().max(400).default(""),
+  source: z.string().max(300).regex(/^(?:\/(?!\/)[a-zA-Z0-9_./%-]*)?$/).default(""),
   consent: z.literal(true),
   website: z.string().max(200).default(""),
+}).superRefine((data, ctx) => {
+  if (data.type !== "career" && !data.role)
+    ctx.addIssue({ code: "custom", path: ["role"], message: "Choose your role." });
 });

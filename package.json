@@ -10,6 +10,7 @@
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
     "test": "tsx --test tests/*.test.ts",
+    "test:e2e": "playwright test",
     "test:exterior": "node scripts/check-exterior.mjs",
     "test:fast-visualizer": "node scripts/check-fast-visualizer.mjs",
     "test:quality-visualizer": "node scripts/check-quality-visualizer.mjs"

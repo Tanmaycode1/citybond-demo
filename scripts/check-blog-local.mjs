@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
-const base='http://localhost:3001';
+const base=process.env.CHECK_BASE || 'http://localhost:3001';
+assert.ok(['localhost','127.0.0.1'].includes(new URL(base).hostname), 'Use a local test server');
 const password=(await readFile(new URL('../.owner-access.txt',import.meta.url),'utf8')).match(/(?:Owner password|Password):\s*(\S+)/i)?.[1];
 const login=await fetch(base+'/api/studio/login',{method:'POST',headers:{origin:base,'Content-Type':'application/json'},body:JSON.stringify({password})});
 assert.equal(login.status,200);

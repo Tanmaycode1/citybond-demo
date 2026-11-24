@@ -92,7 +92,7 @@ node scripts/final-browser-qa.mjs
 
 The final browser runner generates temporary credentials and an isolated store, starts the production build on port 3008 and records headless Chromium. It checks portal editing, seven form paths, the source routes, AMP stories and rendered content/SEO. Install Chromium using `npx playwright install chromium`. Source parity requires Python `beautifulsoup4` and the captured source snapshot; adjust source/output paths in the scripts for another checkout.
 
-Final local results: **87 tests passed**, lint and build passed, **292/292 routes**, **135/135 content/SEO comparisons**, **29/29 AMP stories**, portal create/upload/preview/publish and seven form submissions passed. Visualizer flow checks use a saved prepared image and controlled API timing; this run does not claim a fresh paid inference or provider availability.
+Final local results: **104 tests passed**, lint and build passed, **292/292 routes**, **135/135 content/SEO comparisons**, **29/29 AMP stories**, portal create/upload/preview/publish and seven form submissions passed. Visualizer flow checks use a saved prepared image and controlled API timing; this run does not claim a fresh paid inference or provider availability.
 
 `scripts/import-final-source.py` imports the captured crawl. Review regenerated data before applying it. Raw crawl files, recordings, private content stores and secrets are excluded from this repository.
 

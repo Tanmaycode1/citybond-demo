@@ -38,3 +38,7 @@
   .site-shell .planning-page .quiz-options button { min-height: 76px; padding: 20px; font-size: 20px; }
   .planning-page .quiz-options { grid-template-columns: 1fr; }
 }
+
+.enquiry-form .field-error { display: block; color: #a01b24; font-size: 13px; line-height: 1.5; margin-top: 6px; }
+.enquiry-form [aria-invalid="true"] { border-color: #a01b24; }
+.enquiry-form .form-status[role="alert"] { color: #a01b24; }

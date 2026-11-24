@@ -22,6 +22,7 @@ import { emptyProductFilters, filterCatalogue } from "@/lib/product-filters";
 import { JourneyRoleContext } from "./JourneyContext";
 import { useInnerMotion } from "./useInnerMotion";
 import networkBoundary from "@/data/network-map.json";
+import { useHomeExplore } from "./useHomeExplore";
 import {
   OriginalCopy,
   OriginalBlocks,
@@ -286,7 +287,7 @@ function SectionHead({
     </div>
   );
 }
-function Hero({ role, exploreHome = false }: { role?: SiteContent["roles"][number]; exploreHome?: boolean }) {
+function Hero({ role, exploreHome = false, onExplore }: { role?: SiteContent["roles"][number]; exploreHome?: boolean; onExplore?: () => void }) {
   const c = useContent();
   const original = useOriginalPage();
   const [active, setActive] = useState(c.roles[0].id);
@@ -347,10 +348,16 @@ function Hero({ role, exploreHome = false }: { role?: SiteContent["roles"][numbe
         )}
         <div className="entry-foot">
           <span>{c.site.tagline}</span>
-          <Link className={!role && !exploreHome ? "home-explore-action" : undefined} href={!role && !exploreHome ? "/?explore=1#material-story" : "#material-story"}>
-            {!role && !exploreHome ? c.ui.exploreCitybond : c.ui.scroll}
-            <span aria-hidden="true">↓</span>
-          </Link>
+          {!role ? (
+            <button type="button" className="home-explore-action" onClick={onExplore} aria-expanded={exploreHome} aria-controls="home-discovery">
+              {c.ui.exploreCitybond}
+              <span className="home-explore-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 4v16m-6-6 6 6 6-6" /></svg>
+              </span>
+            </button>
+          ) : (
+            <Link href="#material-story">{c.ui.scroll}<span aria-hidden="true">↓</span></Link>
+          )}
         </div>
       </div>
       <div className="entry-visual">
@@ -403,6 +410,11 @@ function ScrollStory() {
     let target = { progress: 0, assembly: 0, chapter: 0 };
     let currentChapter = -1;
     const measure = () => {
+      if (!el.offsetHeight) {
+        target = { progress: 0, assembly: 0, chapter: 0 };
+        dirty = false;
+        return;
+      }
       const header = document.querySelector(".site-header")?.getBoundingClientRect().height || 84;
       el.style.setProperty("--story-header", header + "px");
       const sticky = el.querySelector<HTMLElement>(".story-sticky");
@@ -460,7 +472,7 @@ function ScrollStory() {
     };
   }, []);
   return (
-    <section className="scroll-story" id="material-story" ref={ref}>
+    <section className="scroll-story" id="material-story" ref={ref} tabIndex={-1} aria-label={c.home.scrollTitle}>
       <div className="story-sticky">
         <div className="story-top">
           <p className="eyebrow">{c.home.scrollEyebrow}</p>
@@ -935,14 +947,14 @@ function AudiencePage({ role }: { role: SiteContent["roles"][number] }) {
     <ContactSection />
   </div>;
 }
-function Landing({ exploreHome = false }: { exploreHome?: boolean }) {
+function Landing({ exploreHome = false, onExplore }: { exploreHome?: boolean; onExplore: () => void }) {
   const c = useContent();
   const original = useOriginalPage();
   const editorial = original?.route === "" ? original : undefined;
   return (
     <>
-      <Hero exploreHome={exploreHome} />
-      <div className="home-discovery" hidden={!exploreHome}>
+      <Hero exploreHome={exploreHome} onExplore={onExplore} />
+      <div className="home-discovery" id="home-discovery" hidden={!exploreHome}>
       <ScrollStory />
       {!editorial && <OriginalCopy />}
       {editorial ? (
@@ -1108,6 +1120,16 @@ function ProductDetail({ p }: { p: Product }) {
               <p key={i}>{s}</p>
             ))}
           </div>
+          {p.specs.length > 0 && (
+            <dl>
+              {p.specs.map((spec, i) => (
+                <div key={i}>
+                  <dt>{spec.label}</dt>
+                  <dd>{spec.value}</dd>
+                </div>
+              ))}
+            </dl>
+          )}
         </section>
       )}
       </div>
@@ -1279,8 +1301,8 @@ function ResourceDetail({ r }: { r: SiteContent["resources"][number] }) {
         <div>
           <Link className="breadcrumb" href="/resources">← {c.ui.resources}</Link>
           <p className="eyebrow">{r.type}</p>
-          <h1>{r.title}</h1>
-          <p className="resource-description">{r.description}</p>
+          <h1>{original?.title || r.title}</h1>
+          <p className="resource-description">{original ? original.description : r.description}</p>
           {r.href && (!isRequest || isFile) && <Button href={r.href}>{isFile ? "Download " + r.type : c.ui.source}</Button>}
         </div>
         <Photo src={r.image} alt={r.imageAlt} eager />
@@ -1653,8 +1675,10 @@ function ContactPage({
   const c = useContent();
   const original = useOriginalPage();
   if (type === "contact" && original) {
-    const messageIndex = original.blocks.findIndex(block => block.text === "Have a Message For Us?");
-    const presenceIndex = original.blocks.findIndex(block => block.text === "Our Presence");
+    // The portal may change the words or insert blocks. Bind structure to the
+    // imported section IDs, as the homepage does, rather than editable text.
+    const messageIndex = original.blocks.findIndex(block => block.id === "original-0007");
+    const presenceIndex = original.blocks.findIndex(block => block.id === "original-0009");
     if (messageIndex >= 0 && presenceIndex > messageIndex) return <div className="planning-page contact-page">
       <Intro page={page} />
       <section className="wrap contact-main">
@@ -1737,6 +1761,7 @@ export function Website({
   requestPath?: string;
 }) {
   usePageScroll(requestPath || route);
+  const homeExplore = useHomeExplore(exploreHome);
   useInnerMotion(route, content);
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -1764,7 +1789,7 @@ export function Website({
   const p = c.pages.find((p) => p.slug === route);
   let body: ReactNode = null;
   if (blogView) body = <Blog view={blogView} c={c} preview={preview} />;
-  else if (!route) body = <Landing exploreHome={exploreHome} />;
+  else if (!route) body = <Landing exploreHome={homeExplore.expanded} onExplore={homeExplore.explore} />;
   else if (route.startsWith("for/"))
     body = <AudiencePage role={c.roles.find((r) => r.id === route.split("/")[1])!} />;
   else if (route === "products" || route === "collections")
@@ -1824,7 +1849,7 @@ export function Website({
           )}
           <Header />
           <main id="main">{body}</main>
-          {(route !== "" || exploreHome) && <Footer />}
+          {(route !== "" || homeExplore.expanded) && <Footer />}
         </div>
       </OriginalPageContext.Provider>
     </Context.Provider>
@@ -1913,7 +1938,7 @@ function Quiz() {
         ) : !reference ? (
           <div className="quiz-enquiry">
             <h2>{c.ui.quizLeadTitle}</h2><p>{c.ui.quizLeadDescription}</p>
-            <EnquiryForm c={c} type="quiz" product={matches[0]?.slug} message={answers.map(answer => c.ui[answer]).join(" / ")} context={{segment: answers[0], application: answers[1], finish: answers[2]}} onSuccess={setReference} />
+            <EnquiryForm c={c} type="quiz" product={matches[0]?.slug} useCase={answers.map(answer => c.ui[answer]).join(" / ")} context={{segment: answers[0], application: answers[1], finish: answers[2]}} onSuccess={setReference} />
             <button className="text-link" onClick={() => setStep(2)}>{c.ui.previous}</button>
           </div>
         ) : (

@@ -26,7 +26,7 @@ test("home, switching roles, external links, downloads and same-page anchors do 
   }
 });
 
-test("Explore is a query navigation; scroll waits for the revealed homepage", () => {
+test("legacy Explore query links retain their destination", () => {
   assert.deepEqual(navigationTarget("/?explore=1#material-story", "https://example.test/"), { pathname: "/", hash: "#material-story", samePage: false });
   assert.equal(navigationTarget("#material-story", "https://example.test/?explore=1")?.samePage, true);
 });

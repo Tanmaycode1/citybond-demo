@@ -5,6 +5,7 @@ import type { SiteContent } from "@/lib/cms/schema";
 import { RichEditor } from "./RichEditor";
 import Link from "next/link";
 import { routes, canonicalPath } from "@/lib/routes";
+import { roleSections } from "@/lib/role-sections";
 import "./portal.css";
 type Value =
   string | number | boolean | null | Value[] | { [key: string]: Value };
@@ -333,15 +334,7 @@ function Field({
           : path.includes(".segments.")
             ? ["residential", "commercial"]
             : path.includes(".sections.")
-              ? [
-                  "network",
-                  "projects",
-                  "products",
-                  "visualiser",
-                  "resources",
-                  "about",
-                  "contact", "collections", "technical", "brands", "testimonials", "quiz", "metacity", "dealer-enquiry",
-                ]
+              ? roleSections
               : null;
   return (
     <label className={`editor-field ${image ? "image-field" : ""}`}>
