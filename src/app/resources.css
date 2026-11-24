@@ -35,3 +35,5 @@
   .resource-body p, .resource-body li { font-size: 16px; }
   .resource-presence ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
+.resource-request{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}.resource-request h2{margin:12px 0}.resource-request p{max-width:400px}@media(max-width:720px){.resource-request{grid-template-columns:1fr;gap:24px}}
+.sitemap-original .original-copy{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px 30px;padding-bottom:32px}.sitemap-original .original-copy p{font-size:16px;margin:0}.sitemap-additional{padding-block:24px}.sitemap-additional>summary{font-size:20px;cursor:pointer}.sitemap-additional .sitemap-groups{margin-top:24px}.project-original-image{display:inline-block;font-size:14px;text-decoration:underline;text-underline-offset:3px;margin:10px 0 20px}@media(max-width:720px){.sitemap-original .original-copy{grid-template-columns:1fr 1fr;gap:12px}}

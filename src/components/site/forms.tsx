@@ -10,12 +10,14 @@ export function EnquiryForm({
   product = "",
   message = "",
   onSuccess,
+  context = {},
 }: {
   c: SiteContent;
   type: "contact" | "sample" | "dealer" | "career" | "visualiser" | "quiz";
   product?: string;
   message?: string;
   onSuccess?: (reference: string) => void;
+  context?: Record<string,string>;
 }) {
   const roleId = useJourneyRole();
   const selectedRole = c.roles.find(role => role.id === (roleId || (type === "dealer" ? "dealer" : "")))?.label || "";
@@ -49,7 +51,8 @@ export function EnquiryForm({
         email: values.get("email"),
         phone: values.get("phone"),
         city: values.get("city"),
-        role: values.get("role") || "",
+        role: type === "career" ? "Job applicant" : values.get("role") || "",
+        context,
         type,
         product: values.get("product") ?? product,
         message: values.get("message") || message,
@@ -99,7 +102,7 @@ export function EnquiryForm({
           </label>
         ))}
       </div>
-      <label>
+      {type !== "career" && <label>
         {c.ui.role}
         <select name="role" required defaultValue={selectedRole}>
           <option value="" disabled>
@@ -111,7 +114,7 @@ export function EnquiryForm({
             </option>
           ))}
         </select>
-      </label>
+      </label>}
       {type !== "career" && (
         <label>
           {c.ui.product}

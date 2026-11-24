@@ -1,0 +1,118 @@
+import { chromium, expect } from '@playwright/test';
+import { mkdir, writeFile } from 'node:fs/promises';
+import { resolve } from 'node:path';
+import { createHash } from 'node:crypto';
+const base=process.env.CHECK_BASE||'http://localhost:3005';
+if(!['localhost','127.0.0.1'].includes(new URL(base).hostname))throw new Error('Use a local review server.');
+const out=resolve(process.env.QA_OUTPUT||'test-results/fast-visualizer');await mkdir(out,{recursive:true});
+const browser=await chromium.launch({headless:true});
+const context=await browser.newContext({viewport:{width:1440,height:1100},recordVideo:{dir:out,size:{width:1440,height:1100}}});
+const page=await context.newPage(), errors=[], calls=[], reports=[];
+page.setDefaultTimeout(95000);
+page.on('pageerror',e=>errors.push(e.message));
+page.on('request',r=>{if(r.url().includes('/api/visualizer/segment'))calls.push({at:Date.now()});});
+const result={checks:[],photos:[],switches:[],errors, browser:await browser.version(),viewport:{width:1440,height:1100}};
+const v=page.getByRole('region',{name:'Fast exterior wall visualizer'});
+const ready=()=>expect(v).toHaveAttribute('data-status','ready',{timeout:95000});
+const sequence=async()=>Number(await v.getAttribute('data-render-sequence'));
+const digest=async canvas=>createHash('sha256').update(await canvas.evaluate(c=>c.toDataURL())).digest('hex');
+const change=async(action)=>{const previous=await sequence(); const began=performance.now();await action();await expect.poll(sequence).toBeGreaterThan(previous);return {observedMs:performance.now()-began,renderMs:Number(await v.getAttribute('data-render-ms'))};};
+async function loadSample(name,label){
+  const response=page.waitForResponse(r=>r.url().includes('/api/visualizer/segment'));
+  const start=performance.now();await v.getByRole('button',{name,exact:true}).click();
+  const http=await response, body=await http.json();
+  await writeFile(`${out}/${label}-scene.json`,JSON.stringify(body));
+  await ready();
+  const firstText=await v.locator('.fv-compare').innerText();
+  const info={label,status:http.status(),wallCount:body.regions?.length,cached:body.cached,segmentationMs:body.segmentationMs,endToEndMs:Math.round(performance.now()-start),display:firstText};
+  result.photos.push(info);reports.push(body);console.log(JSON.stringify(info));return body;
+}
+try{
+  await page.goto(base+'/visualizer-fast');
+  await page.getByRole('button',{name:'Quick material study',exact:true}).click();
+  await expect(v.getByRole('button',{name:'Download preview'})).toBeDisabled();
+  await loadSample('House front','modern');result.checks.push('Real Meta API exterior preparation');
+  const canvas=v.locator('canvas');await canvas.screenshot({path:out+'/modern-wood.png'});
+  await page.screenshot({path:out+'/desktop.png',fullPage:true});
+  const callsBefore=calls.length;
+  for(let round=0;round<2;round++)for(const name of ['Marble','Solid','Wooden']){
+    const button=v.getByRole('button',{name:new RegExp('^'+name+' ·')});
+    const previous=await digest(canvas);
+    const timing=await change(()=>button.click());
+    expect(await digest(canvas)).not.toBe(previous);
+    result.switches.push({name,...timing});
+  }
+  expect(calls.length).toBe(callsBefore);result.checks.push('Six material switches visibly change the preview with zero AI requests');
+  const beforeAdjust=await digest(canvas);
+  await change(()=>v.getByRole('slider',{name:'Sheet scale'}).fill('1.5'));
+  expect(await digest(canvas)).not.toBe(beforeAdjust);
+  await change(()=>v.getByRole('slider',{name:'Sheet scale'}).fill('1'));
+  await change(()=>v.getByLabel('Rotate grain',{exact:true}).check());
+  await change(()=>v.getByLabel('Rotate grain',{exact:true}).uncheck());
+  await change(()=>v.getByLabel('Subtle panel joints',{exact:true}).check());
+  await change(()=>v.getByLabel('Subtle panel joints',{exact:true}).uncheck());
+  result.checks.push('Texture scale, grain rotation and panel joints redraw locally');
+  await change(()=>v.getByRole('slider',{name:'Compare before and after'}).fill('100'));
+  const original=await canvas.evaluate(c=>c.toDataURL());await canvas.screenshot({path:out+'/modern-original.png'});
+  await change(()=>v.getByRole('slider',{name:'Compare before and after'}).fill('0'));
+  await v.locator('summary').click();
+  await change(()=>v.getByLabel('Show wall coverage').check());await canvas.screenshot({path:out+'/modern-mask.png'});
+  await change(()=>v.getByLabel('Show wall coverage').uncheck());
+  result.outsidePixelCheck=await canvas.evaluate(async(c,{original,scene})=>{
+    const img=async url=>{const i=new Image();i.src=url;await i.decode();return i;};
+    const temp=document.createElement('canvas');temp.width=c.width;temp.height=c.height;const ctx=temp.getContext('2d');
+    ctx.drawImage(await img(original),0,0);const before=ctx.getImageData(0,0,c.width,c.height).data;
+    const after=c.getContext('2d').getImageData(0,0,c.width,c.height).data;const selected=new Uint8Array(c.width*c.height);
+    for(const region of scene.regions){const m=document.createElement('canvas');m.width=region.width;m.height=region.height;const x=m.getContext('2d');x.drawImage(await img(region.png),0,0);const pixels=x.getImageData(0,0,m.width,m.height).data;for(let y=0;y<m.height;y++)for(let xx=0;xx<m.width;xx++)if(pixels[(y*m.width+xx)*4]>=128)selected[(y+region.top)*c.width+xx+region.left]=1;}
+    let excluded=0,changed=0;for(let i=0;i<selected.length;i++)if(!selected[i]){excluded++;for(let k=0;k<4;k++)if(before[i*4+k]!==after[i*4+k]){changed++;break;}}
+    return {excludedPixels:excluded,changedExcludedPixels:changed};
+  },{original,scene:reports[0]});
+  expect(result.outsidePixelCheck.changedExcludedPixels).toBe(0);result.checks.push('Every pixel outside the returned wall masks is unchanged');
+  const preErase=await digest(canvas);
+  await change(()=>v.getByRole('button',{name:'Erase',exact:true}).click());
+  const box=await canvas.boundingBox();const seq=await sequence();
+  await canvas.click({position:{x:box.width*.25,y:box.height*.25}});await expect.poll(sequence).toBeGreaterThan(seq);
+  expect(await digest(canvas)).not.toBe(preErase);
+  await change(()=>v.getByRole('button',{name:'Undo adjustment'}).click());
+  expect(await digest(canvas)).toBe(preErase);
+  await change(()=>v.getByRole('button',{name:'Restore wall',exact:true}).click());
+  const preSky=await digest(canvas); const s=await sequence();
+  await canvas.click({position:{x:box.width*.1,y:box.height*.05}});await expect.poll(sequence).toBeGreaterThan(s);
+  expect(await digest(canvas)).toBe(preSky);result.checks.push('Erase/undo work; restore cannot paint sky outside the building');
+  await change(()=>v.getByRole('button',{name:'View',exact:true}).click());
+  const prePerspective=await digest(canvas);
+  await change(()=>v.getByRole('button',{name:'Perspective',exact:true}).click());
+  const perspectiveBox=await canvas.boundingBox(),region=reports[0].regions[0];
+  const x=perspectiveBox.x+region.left/1280*perspectiveBox.width,y=perspectiveBox.y+region.top/1280*perspectiveBox.height;
+  await page.mouse.move(x,y);await page.mouse.down();await page.mouse.move(x+20,y+10,{steps:5});await page.mouse.up();
+  await change(()=>v.getByRole('button',{name:'View',exact:true}).click());
+  expect(await digest(canvas)).not.toBe(prePerspective);
+  await change(()=>v.getByRole('button',{name:'Reset walls'}).click());
+  expect(await digest(canvas)).toBe(prePerspective);result.checks.push('Perspective corner adjustment changes texture mapping and reset restores it');
+  const pendingDownload=page.waitForEvent('download');await v.getByRole('button',{name:'Download preview'}).click();await(await pendingDownload).saveAs(out+'/modern-export.png');result.checks.push('PNG export succeeds');
+  await loadSample('House front','modern-cached');expect(reports.at(-1).cached).toBe(true);result.checks.push('Repeat photo hits server cache');
+  await loadSample('Hillside house','hillside');await canvas.screenshot({path:out+'/hillside-wood.png'});
+  const interiorResponse=page.waitForResponse(r=>r.url().includes('/api/visualizer/segment'));
+  await v.locator('input[type=file]').setInputFiles(resolve('public/images/interior.jpg'));
+  const interior=await interiorResponse;result.interior={status:interior.status(),body:await interior.json()};
+  await expect(v.getByRole('alert')).toContainText('Interior rooms are not supported',{timeout:95000});
+  await expect(v.getByRole('button',{name:'Download preview'})).toBeDisabled();result.checks.push('Real interior photo is rejected; stale export is disabled');
+  await page.screenshot({path:out+'/interior-rejected.png',fullPage:true});
+  await v.locator('input[type=file]').setInputFiles({name:'bad.png',mimeType:'image/png',buffer:Buffer.from('not an image')});
+  await expect(v.getByRole('alert')).toContainText('image could not be loaded');result.checks.push('Corrupt image produces a recoverable error');
+  await loadSample('House front','recovered');result.checks.push('Exterior sample works after errors');
+  const uploadResponse=page.waitForResponse(r=>r.url().includes('/api/visualizer/segment'));
+  await v.locator('input[type=file]').setInputFiles(resolve('public/stock/modern-residence.webp'));await uploadResponse;await ready();result.checks.push('A real uploaded exterior file produces a preview');
+  await page.route('**/api/visualizer/segment',route=>route.fulfill({status:503,contentType:'application/json',body:JSON.stringify({error:'The preview service needs billing to be enabled. Please contact CityBond.'})}));
+  await v.getByRole('button',{name:'House front',exact:true}).click();await expect(v.getByRole('alert')).toContainText('billing');await expect(v.getByRole('button',{name:'Download preview'})).toBeDisabled();
+  await page.unroute('**/api/visualizer/segment');await loadSample('House front','service-recovered');result.checks.push('Simulated provider failure disables stale export and recovers on retry');
+  const noOrigin=await context.request.post(base+'/api/visualizer/segment',{headers:{'Content-Type':'image/png'},data:Buffer.from('bad')});expect(noOrigin.status()).toBe(403);
+  const badFormat=await context.request.post(base+'/api/visualizer/segment',{headers:{Origin:base,'Content-Type':'image/svg+xml'},data:'<svg/>'});expect(badFormat.status()).toBe(415);
+  result.checks.push('API rejects cross-origin/missing-origin requests and unsupported formats');
+  await page.setViewportSize({width:390,height:844});
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+  await page.screenshot({path:out+'/mobile.png',fullPage:true});result.checks.push('390px mobile layout has no horizontal overflow');
+  result.apiRequests=calls.length;expect(errors).toEqual([]);result.pass=true;
+}catch(e){result.pass=false;result.failure=String(e);console.error(e);}
+finally{await page.screenshot({path:out+'/final.png',fullPage:true});const video=page.video();await context.close();result.video=await video.path();await browser.close();await writeFile(out+'/results.json',JSON.stringify(result,null,2));console.log(JSON.stringify(result,null,2));}
+if(!result.pass)process.exitCode=1;

@@ -21,7 +21,8 @@ import {
   getEditorState,
 } from "../src/lib/cms/content";
 import { detectFile, uploadFile, MAX_UPLOAD } from "../src/lib/cms/uploads";
-import { routes, legacyRoute } from "../src/lib/routes";
+import { resolveRoute, routes, legacyRoute } from "../src/lib/routes";
+import { resolveBlog } from "../src/lib/blog";
 let dir: string;
 before(async () => {
   dir = await mkdtemp(path.join(tmpdir(), "citybond-cms-test-"));
@@ -42,15 +43,15 @@ test("official seed validates, every image exists and editorial links resolve", 
   const { access } = await import("node:fs/promises");
   async function visit(v: unknown) {
     if (typeof v === "string") {
-      if (/^\/(citybond|images|stock)\//.test(v))
-        await access(path.join(process.cwd(), "public", v));
+      if (/^\/(citybond|images|stock|assets|blog\/wp-content|soffit-panels\/assets)\//.test(v))
+        await access(path.join(process.cwd(), "public", decodeURIComponent(v)));
       if (
         v.startsWith("/") &&
-        !/^\/(citybond|images|stock)\//.test(v) &&
+        !/^\/(citybond|images|stock|assets|blog\/wp-content|soffit-panels\/assets)\//.test(v) &&
         !v.includes("?") &&
         !v.includes("#")
       )
-        assert.ok(paths.has(v.slice(1)), v);
+        assert.ok(paths.has(v.slice(1)) || resolveRoute(v,c)!==null || resolveBlog(v,c), v);
     } else if (v && typeof v === "object")
       for (const child of Object.values(v)) await visit(child);
   }

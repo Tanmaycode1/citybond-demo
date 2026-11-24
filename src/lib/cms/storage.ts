@@ -126,11 +126,14 @@ export async function writeObject(
 export async function listObjects(prefix: string) {
   safeKey(prefix);
   if (cloud()) {
-    const result = await list({ prefix, limit: 1000 });
-    return result.blobs.map((b) => ({
-      key: b.pathname,
-      date: b.uploadedAt.toISOString(),
-    }));
+    const objects: {key:string;date:string}[] = [];
+    let cursor: string | undefined;
+    do {
+      const result = await list({ prefix, limit: 1000, ...(cursor ? {cursor} : {}) });
+      objects.push(...result.blobs.map(b => ({key:b.pathname,date:b.uploadedAt.toISOString()})));
+      cursor = result.hasMore ? result.cursor : undefined;
+    } while (cursor);
+    return objects;
   }
   if (process.env.VERCEL) throw new Error("Storage is not configured");
   try {

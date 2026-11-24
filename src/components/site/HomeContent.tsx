@@ -72,7 +72,7 @@ export function HomeContent({
                   alt={c.home.aboutImageAlt}
                   loading="lazy"
                 />
-                {!c.home.aboutImage.startsWith("/citybond/projects/") && <span className="home-photo-note">{c.ui.stockCaption}</span>}
+                {/^\/(stock|images)\//.test(c.home.aboutImage) && <span className="home-photo-note">{c.ui.stockCaption}</span>}
               </div>
               <div className="home-about-copy reveal">
                 <p className="eyebrow">{c.site.tagline}</p>
@@ -187,7 +187,7 @@ export function HomeContent({
               </div>
               <div className="home-industry-image reveal">
                 <img src={c.home.image} alt={c.home.imageAlt} loading="lazy" />
-                {!c.home.image.startsWith("/citybond/projects/") && <span className="home-photo-note">{c.ui.stockCaption}</span>}
+                {/^\/(stock|images)\//.test(c.home.image) && <span className="home-photo-note">{c.ui.stockCaption}</span>}
               </div>
             </section>
           );
@@ -268,6 +268,7 @@ export function HomeContent({
           return (
             <section className="home-awards wrap reveal" key={s.id}>
               <Heading section={s} />
+              {c.ui.homeAwardsImage && <img className="home-awards-image" src={c.ui.homeAwardsImage} alt={c.ui.homeAwardsImageAlt} loading="lazy"/>}
               <Copy section={s} />
               <Action href="/awards">{c.ui.viewAll}</Action>
             </section>
@@ -276,6 +277,7 @@ export function HomeContent({
           return (
             <section className="home-certifications wrap reveal" key={s.id}>
               <Heading section={s} />
+              {c.ui.homeCertificationsImage && <img className="home-certification-image" src={c.ui.homeCertificationsImage} alt={c.ui.homeCertificationsImageAlt} loading="lazy"/>}
               <Copy section={s} />
               <Action href="/infrastructure">
                 {c.pages.find((p) => p.slug === "about/infrastructure")

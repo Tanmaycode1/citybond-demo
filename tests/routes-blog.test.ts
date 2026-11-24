@@ -16,20 +16,20 @@ test('all 69 supplied non-blog addresses resolve without renaming', () => {
 test('public links preserve legacy spellings, suffixes, queries and fragments', () => {
   for(const [from,to] of [['/products/lamio-series','/lamio-series'],['/products/metacity','/metacity/'],['/about/clientele#client','/corporate#client'],['/resources/growth-magazine','/download-our-quatarly-acp-magazine'],['/blog/page/2?post_type=web-story','/blog/page/2/?post_type=web-story'],['/thank-you','/thankyou.php']]) assert.equal(canonicalHref(from),to);
 });
-test('blog pagination, archives and empty legacy pages use one template', () => {
+test('imported blog pagination and historical archives use one template', () => {
   const first=resolveBlog('blog',c), second=resolveBlog('blog/page/2',c);
   assert.ok(first?.kind==='index' && second?.kind==='index');
-  assert.equal(first.total,4); assert.equal(first.posts.length,2);
-  assert.equal(second.posts.length,2);
+  assert.equal(first.total,73); assert.equal(first.posts.length,8);assert.equal(first.totalPages,10);
+  assert.equal(second.posts.length,8);
   assert.ok(!first.posts.some(a=>second.posts.some(b=>a.slug===b.slug)));
-  for(const path of ['blog/page/7','blog/page/9','blog/author/b-k-narayanan/page/7','blog/2023/05','blog/web-stories/page/2']) {
-    const view=resolveBlog(path,c); assert.ok(view?.kind==='index',path); assert.equal(view.posts.length,0);
-  }
-  const author=resolveBlog('blog/author/citybond-editorial',c);
-  assert.ok(author?.kind==='index'); assert.equal(author.total,4);
-  assert.equal(resolveBlog('blog/page/0',c),null);
+  for(const path of ['blog/page/7','blog/page/9','blog/page/10','blog/author/b-k-narayanan/page/7','blog/2023/05','blog/web-stories/page/3']) assert.equal(resolveBlog(path,c)?.kind,'index',path);
+  const author=resolveBlog('blog/author/b-k-narayanan',c);assert.ok(author?.kind==='index');assert.equal(author.total,65);
+  const newerAuthor=resolveBlog('blog/author/bk-narayanan',c);assert.ok(newerAuthor?.kind==='index');assert.equal(newerAuthor.total,8);
+  assert.equal(resolveBlog('blog/page/0',c),null);assert.equal(resolveBlog('blog/page/9999',c),null);
   assert.equal(resolveBlog('blog/unprovided-legacy-article',c),null);
   assert.equal(blogPagePath('/blog/',2,'?post_type=we'),'/blog/page/2/?post_type=we');
+  const we=resolveBlog('blog',c,{post_type:'we'}),stories=resolveBlog('blog',c,{post_type:'web-story'});
+  assert.ok(we?.kind==='index' && stories?.kind==='index');assert.equal(we.total,73);assert.equal(stories.total,29);
 });
 test('portal-created posts route dynamically; drafts remain private and examples stay out of sitemap',()=>{
   const edited=structuredClone(c);
@@ -51,6 +51,6 @@ test('older content gains required pages and editable navigation without losing 
   const migrated=validateContent(old);
   assert.equal(migrated.home.title,'Owner headline');
   assert.equal(migrated.pages.length,seed.pages.length);
-  assert.equal(migrated.blogs.length,4);
+  assert.equal(migrated.blogs.length,seed.blogs.length);
   assert.ok(migrated.site.nav[0].children.length>10);
 });

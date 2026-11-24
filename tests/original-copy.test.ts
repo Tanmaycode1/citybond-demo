@@ -7,8 +7,8 @@ import { importOriginalCopy, importedHref } from "../src/lib/cms/original-copy";
 import { originalBlockSchema } from "../src/lib/cms/original-copy-schema";
 import { canonicalPath, resolveRoute } from "../src/lib/routes";
 const c = validateContent(seed);
-test("all 69 original source pages preserve extracted main-content text", () => {
-  assert.equal(captured.records.length, 69);
+test("all captured original source pages preserve extracted main-content text", () => {
+  assert.equal(captured.records.length, 70);
   for (const r of captured.records) {
     assert.equal(r.httpStatus, 200, r.sourceUrl);
     assert.equal(r.textParityVerified, true, r.sourceUrl);

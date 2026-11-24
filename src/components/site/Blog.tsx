@@ -15,9 +15,7 @@ const readTime = (post: BlogPost) =>
   Math.max(
     1,
     Math.ceil(
-      post.body
-        .map((b) => b.text)
-        .join(" ")
+      (post.contentHtml ? post.contentHtml.replace(/<[^>]+>/g, " ") : post.body.map((b) => b.text).join(" "))
         .split(/\s+/).length / 200,
     ),
   );
@@ -73,7 +71,8 @@ export function Blog({
             )}
           </aside>
           <div className="blog-body">
-            {p.body.map((b, i) => (
+            {p.contentHtml && <div className="article-rich-content" dangerouslySetInnerHTML={{ __html: p.contentHtml }} />}
+            {!p.contentHtml && p.body.map((b, i) => (
               <section id={`section-${i + 1}`} key={i}>
                 {b.title && <h2>{b.title}</h2>}
                 {b.text.split(/\n\s*\n/).map((para, j) => (
@@ -109,7 +108,8 @@ export function Blog({
         <h1>{view.title}</h1>
         <p>{c.blog.description}</p>
         <div className="blog-list-meta">
-          <Link href={href("/blog/")}>All stories</Link>
+          <Link href={href("/blog/")}>Articles</Link>
+          <Link href={href("/blog/web-stories/")}>Web stories</Link>
           <span>
             {view.total} {view.total === 1 ? "article" : "articles"}
             {view.page > 1 ? ` · Page ${view.page}` : ""}
@@ -119,10 +119,10 @@ export function Blog({
       <section className="wrap blog-grid" aria-label="Articles">
         {view.posts.map((p) => (
           <article className="blog-card" key={p.slug}>
-            <Link href={href(blogPath(p.slug))} className="blog-card-image">
+            <a href={href(blogPath(p.slug, p.kind))} className="blog-card-image">
               {p.image && <img src={p.image} alt={p.imageAlt} loading="lazy" />}
               <span aria-hidden="true">↗</span>
-            </Link>
+            </a>
             <div className="blog-meta">
               <span>{p.category}</span>
               {p.example && (
@@ -130,7 +130,7 @@ export function Blog({
               )}
             </div>
             <h2>
-              <Link href={href(blogPath(p.slug))}>{p.title}</Link>
+              <a href={href(blogPath(p.slug, p.kind))}>{p.title}</a>
             </h2>
             <p>{p.description}</p>
             <div className="blog-byline">

@@ -1,5 +1,6 @@
 import { z } from "zod";
 import seed from "@/data/site.json";
+import { cleanArticleHtml } from "./rich-text";
 import { originalPageSchema } from "./original-copy-schema";
 const text = z.string().max(12000);
 const short = z.string().max(300);
@@ -25,7 +26,7 @@ const image = z
   .refine(
     (v) =>
       !v ||
-      /^\/(?:citybond|images|stock|api\/media)\/[a-zA-Z0-9_./%-]+$/.test(v) ||
+      /^\/(?:citybond|images|stock|assets|blog\/wp-content|soffit-panels\/assets|api\/media)\/[a-zA-Z0-9_./%-]+$/.test(v) ||
       /^https:\/\/[^\s]+$/.test(v),
     "Use an uploaded image or an HTTPS image URL.",
   );
@@ -39,6 +40,16 @@ const navLink = link.extend({
 const stat = z.object({ value: short, label: short });
 const block = z.object({ title: short, text, image, imageAlt: short });
 export const blogSchema = z.object({
+  kind: z.enum(["article", "story"]).default("article"),
+  sourceId: z.number().int().nonnegative().default(0),
+  categories: z.array(z.object({name: short, slug: slug})).max(50).default([]),
+  tags: z.array(z.object({name: short, slug: slug})).max(100).default([]),
+  storyPages: z.array(z.object({id: short, contentHtml: z.string().max(50000).transform(cleanArticleHtml), image, imageAlt: z.string().max(2000), href: safeUrl.default("")})).max(50).default([]),
+  metaTitle: z.string().max(1000).default(""),
+  metaDescription: text.default(""),
+  modifiedAt: z.string().max(40).default(""),
+  source: safeUrl.default(""),
+  contentHtml: z.string().max(500000).transform(cleanArticleHtml).default(""),
   slug: z
     .string()
     .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/)
@@ -54,7 +65,7 @@ export const blogSchema = z.object({
   publishedAt: z.iso.date(),
   status: z.enum(["draft", "published"]),
   example: z.boolean(),
-  body: z.array(block).min(1).max(80),
+  body: z.array(block).max(200).default([]),
 });
 export const productSchema = z.object({
   slug,
@@ -94,12 +105,15 @@ export const pageSchema = z.object({
 });
 export const contentSchema = z.object({
   schemaVersion: z.literal(1),
+  sourceRevision: z.literal(1).default(1),
   routeRevision: z.literal(2).default(2),
   originalPages: z.array(originalPageSchema).max(150).default([]),
+  seoPages: z.array(z.object({path: z.string().max(2000), title: z.string().max(1000), description: text, canonical: safeUrl, robots: short.default("")})).max(1000).default([]),
   site: z.object({
     name: short,
     tagline: short,
     logo: image,
+    storyLogo: image.default("/citybond/story-logo.png"),
     footerLogo: image.default("/citybond/brand-lockup.svg"),
     headerStyle: z.enum(["white", "tinted"]).default("tinted"),
     phone: short,
@@ -268,10 +282,25 @@ export type Product = z.infer<typeof productSchema>;
 export type ContentPage = z.infer<typeof pageSchema>;
 export type BlogPost = z.infer<typeof blogSchema>;
 export function validateContent(input: unknown) {
-  const raw =
+  let raw =
     input && typeof input === "object"
       ? (input as Record<string, unknown>)
       : {};
+  // Existing published/draft revisions remain in storage as rollback evidence.
+  // Upgrade the earlier demo snapshot once; subsequent owner edits are preserved.
+  if (raw.sourceRevision !== 1) {
+    const merge = (key: "products" | "pages" | "resources" | "projects") => {
+      const previous = Array.isArray(raw[key]) ? raw[key] as {slug:string}[] : [];
+      return [...seed[key], ...previous.filter(p => !seed[key].some(s => s.slug === p.slug))];
+    };
+    const previousPosts = Array.isArray(raw.blogs) ? raw.blogs as {slug:string;kind?:string;example?:boolean}[] : [];
+    raw = {...raw, sourceRevision:1, originalPages:seed.originalPages, seoPages:seed.seoPages,
+      products:merge("products"), pages:merge("pages"), resources:merge("resources"),projects:merge("projects"),
+      blogs:[...seed.blogs,...previousPosts.filter(p => !p.example && !seed.blogs.some(s => s.slug===p.slug && s.kind===(p.kind || "article")))],
+      blog:{...(raw.blog && typeof raw.blog === "object" ? raw.blog : seed.blog),postsPerPage:8},
+      brands:seed.brands,testimonials:seed.testimonials,
+    };
+  }
   const c = contentSchema.parse({
     ...raw,
     ...(raw.routeRevision !== 2
@@ -306,6 +335,10 @@ export function validateContent(input: unknown) {
   for (const slug of requiredPages)
     if (!c.pages.some((p) => p.slug === slug))
       throw new Error(`Required page missing: ${slug}`);
+  for (const product of seed.products.filter(p => p.source))
+    if (!c.products.some(p => p.slug === product.slug)) throw new Error(`Required product URL missing: ${product.slug}`);
+  for (const post of seed.blogs.filter(p => !p.example && p.source))
+    if (!c.blogs.some(p => p.kind === post.kind && p.slug === post.slug && p.status === "published")) throw new Error(`Required original article URL missing: ${post.slug}`);
   for (const key of Object.keys(seed.ui))
     if (!(key in c.ui))
       throw new Error(`Required interface text missing: ${key}`);
@@ -324,7 +357,7 @@ export function validateContent(input: unknown) {
     "roles",
     "blogs",
   ] as const) {
-    const ids = c[name].map((item) => ("slug" in item ? item.slug : item.id));
+    const ids = c[name].map((item) => ("slug" in item ? ("kind" in item ? item.kind + ":" : "") + item.slug : item.id));
     if (new Set(ids).size !== ids.length)
       throw new Error(`Duplicate identifiers in ${name}.`);
   }
@@ -353,6 +386,7 @@ export const enquirySchema = z.object({
   type: z.enum(["contact", "dealer", "sample", "visualiser", "career", "quiz"]),
   product: z.string().max(200).default(""),
   message: z.string().max(4000).default(""),
+  context: z.record(z.string().max(100), z.string().max(1000)).refine(v => Object.keys(v).length <= 20).default({}),
   consent: z.literal(true),
   website: z.string().max(200).default(""),
 });

@@ -1,173 +1,107 @@
-# CityBond — Website & Content Portal
+# CityBond website and content portal
 
-Complete source code for the CityBond demo website, including the animated homepage, product and company pages, original SEO routes, dynamic blog, and authenticated content portal.
+[Public demo](https://citybond-studio-git-feat-legacy-route-c066f6-geekrooms-projects.vercel.app/) · [Public repository](https://github.com/Tanmaycode1/citybond-demo)
 
-**[Open the public demo](https://citybond-studio-git-feat-legacy-route-c066f6-geekrooms-projects.vercel.app/)** · **[Public repository](https://github.com/Tanmaycode1/citybond-demo)**
+The complete multipage website, original content migration, owner portal, enquiry storage and exterior material visualizer. The early prototype at `citybond-studio.vercel.app` and its palette comparison are a different deployment.
 
-The `main` branch contains the full multipage website and portal, including the redesigned homepage with the original CityBond copy. It is based on source revision `56e6796`, with standalone setup instructions and a local credential generator. The separately hosted early prototype and its `/version` palette comparison are not this application.
+## Local setup
 
-## Quick start
-
-Use Node.js 22 or 24 and npm.
+Use Node.js 24 and npm:
 
 ```sh
-git clone https://github.com/Tanmaycode1/citybond-demo.git
-cd citybond-demo
 npm ci
 npm run setup:local
 npm run dev
 ```
 
-- Website: **http://localhost:3001**
-- Content portal: **http://localhost:3001/studio-7c9e**
-- Your generated local password: **`.owner-access.txt`**
+Website: `http://localhost:3001`. Portal: `http://localhost:3001/studio-7c9e`. The setup command generates a unique password in `.owner-access.txt` and secrets in `.env.local`, both owner-readable and gitignored. It refuses to overwrite credentials. Drafts, publications, uploads and enquiries use `.data/`; `CMS_LOCAL_DIR` can select a different store. No Docker or database is required locally.
 
-The setup command creates unique credentials in `.env.local` and `.owner-access.txt`, with owner-only file permissions. Both files are gitignored. It refuses to overwrite existing credentials. Local drafts, publications, uploads and enquiries are stored in the gitignored `.data/` directory. The repository includes the website's seed content and images, so no database or cloud account is needed for local development.
+## Original content migration
 
-## Content portal
+The November 2026 source crawl imported 73 complete articles, 29 editable AMP stories, 130 original product finishes and 558 first-party media files. There are 62 canonical main-page records and 98 projects, including 66 original gallery entries. All 292 discovered working source addresses are covered, including aliases, query archives and pagination.
 
-Sign in at `/studio-7c9e`. The portal's address is not its security mechanism: content writes, draft previews, enquiry reads and private attachments require a signed HTTP-only session.
+Original spellings, PHP aliases and trailing slashes are retained. Articles use eight posts per page and ten original blog listing pages. The two original author slugs remain distinct. `/hpl-series` and the petrol-canopy alias retain their appropriate destination. Source links which were already broken are tracked separately from working routes.
 
-1. **Original Pages**: choose a page and edit the actual page title, introduction, SEO fields and content blocks. The homepage is `/`. Headings, paragraphs, links, lists and tables are editable.
-2. **Home, Products, Pages, Projects and Resources**: update images, alternate text, structured details and supporting sections. Home also controls the role selector, scroll story, statistics and contact section. Original Pages copy takes precedence over older fallback text fields.
-3. **Site → Nav**: edit the menu and dropdown links.
-4. **Blogs**: add articles, edit their content and images, and set their URL slugs. New articles start as drafts; published posts appear at `/blog/your-slug/`. **Blog** controls the listing page and pagination.
-5. **Save draft**, then **Open draft preview** to review privately. **Publish changes** makes the saved content live without a code deployment.
-6. **Publish history** restores an earlier revision into the draft. **Enquiry inbox** shows submitted forms and private attachments.
+- `content/migration-source-urls.txt`: working source URL baseline.
+- `content/migration-assets.json`: media URL paths, hashes and provenance.
+- `content/original-copy.json`: captured original page text.
+- `src/data/site.json`: initial editable content, metadata, products, rich article HTML and story slides.
 
-The homepage presents imported copy in designed sections rather than a continuous text block. Section layout uses stable content IDs, so changing a heading does not break its layout. Images and text are still supplied by the portal's data.
+Older content stores upgrade once through `sourceRevision: 1`, bringing imported records up to date while preserving unrelated custom records. Subsequent owner edits are preserved. Existing immutable publication revisions remain available for rollback.
 
-Product thickness filters on Products and Collections use the same supplied panel specifications as the detail pages. Edit the product's **Original Pages** specification table: the `Panel` column or an explicit `Thickness of Composite Panel (mm)`, `Panel Thickness`, or `ACP Thickness` row. Values must include `mm`. Coil/skin thickness, coating values, and panel lengths are excluded. For new products without an Original Pages record, use a structured product specification labelled `Panel thickness`, `ACP thickness`, `Published thickness`, or `Published thicknesses`. Original-page data takes precedence when present. Products without a documented thickness remain in the unfiltered listing. Draft preview and publication both derive the filter values from their respective content revisions; no per-product mapping needs updating in code.
+## Compact content portal
 
-## Included features
+Sign in at `/studio-7c9e`. The route itself is not the security mechanism: writes, enquiries, previews and private attachments require an authenticated HTTP-only session.
 
-Under **Site**, `headerStyle` accepts `tinted` (brand-tinted header with navy separator) or `white` (the original white alternative). Each footer link has an editable `group`; the footer renders those groups without dropping links. Its logo, tagline, description, contact details, and social links continue to use the Site content fields. The folded-panel artwork is decorative SVG and does not require an uploaded image.
+- **Pages:** original page copy, home sections, role journeys and supporting content.
+- **Products:** products, finishes, specifications, images and project relationships.
+- **Journal:** rich-text articles, images, SEO, drafts and editable web-story slides.
+- **Resources:** upload or link actual documents; request forms remain until files are supplied.
+- **Enquiries:** paginated submissions, structured context and authenticated attachments.
+- **Settings:** navigation, branding, shared labels, configuration and publication history.
 
-The homepage starts with role selection or **Explore CityBond** (`/?explore=1`). The six role journeys follow the supplied Customer Journey PDF; their section order, primary/secondary actions, and showcased project categories are editable under **Roles**. Internal browsing carries a validated `role` query parameter into forms, where the role can still be changed. Returning to the generic homepage clears that perspective. Project enquiry links carry a validated project slug separately from product selection.
+Search the record list and edit one record at a time using its content/image/SEO tabs. Use **Save draft**, **Open draft preview**, then **Publish changes**. Publication updates the site without redeployment. New articles route to `/blog/your-slug/`; new products render their own specifications. Original source routes are protected against accidental removal or renaming. Stale-edit checks prevent overwriting a newer revision.
 
-The product finder collects an enquiry before revealing its shortlist. It saves the chosen role and use case through the existing inbox endpoint; a failed submission keeps the form available for retry. Thirteen project/product associations were verified against supplied finish codes; their evidence is in `content/journey-project-links.json`.
+Original-page copy takes precedence over fallback fields. Product thickness filters read documented panel/ACP thickness in millimetres, excluding coil thickness and dimensions. Products without documented thickness remain in the unfiltered listing.
 
-- Responsive CityBond branding, six role journeys, scroll-driven image assembly, keyboard-accessible material tabs and reduced-motion support.
-- Product collections, finish data, project galleries, company pages, network directory, material finder, resources and contact forms.
-- Original URL aliases, canonical metadata, XML sitemap and editable dropdown navigation.
-- Draft/publish workflow, immutable revision history, stale-edit conflict protection, image/PDF uploads and private enquiry attachments.
-- A shared dynamic blog template, archive pages and four clearly labelled example articles.
-- Exact imported original-site copy, content provenance, stock-image attribution, and the full test suite.
+## Customer journey and forms
 
-## Exterior wall visualizer
+The six role journeys follow the supplied Website Customer Journey PDF. Validated role, product and project context carries into enquiries. Product-finder answers are stored separately from the user's message before the shortlist is revealed. Thirteen project/product relationships have evidence in `content/journey-project-links.json`; unverified gallery entries do not claim a particular finish.
 
-The home page (`/?explore=1`, after the collections) and `/visualiser` contain the wall visualizer. A visitor uploads an exterior building photo, taps a façade, and sees a CityBond product on that surface. Interior rooms are not supported. A product change is one WebGL draw in the browser, with no server call.
+Contact, dealership, samples, career applications, catalogue requests, magazine requests, product finder and visualizer enquiries use private server storage. Career attachments require authentication, and job applicants are not asked for a business role. Submissions appear in the portal inbox; email notifications are not configured.
 
-- **Where the code is**: `src/components/site/WallVisualizer.tsx` (screen), `src/lib/visualizer/worker.ts` (AI models, in a web worker), `src/lib/visualizer/masks.ts` (wall outlines), `src/lib/visualizer/geometry.ts` (wall directions and corners), `src/lib/visualizer/renderer.ts` (WebGL compositor), `src/lib/visualizer/materials.ts` (how each product is drawn).
-- **Models** (run in the visitor's browser with `@huggingface/transformers`, downloaded once from the Hugging Face CDN, about 130 MB in total): SegFormer-B2 ADE20K (says roughly where walls and buildings are), Depth Anything V2 Small (depth), SAM 2.1 Hiera Tiny (selects parts and objects for manual corrections). The photo does not leave the device.
-- **How a façade outline is made**: only the segmentation labels `building`, `house` and `skyscraper` are accepted; generic `wall` is excluded because it also includes interiors. A photo needs at least 2% confidently detected building area. Whole-face selection uses the building mask, estimated planes, edge snapping and opening removal. SAM powers Add part and Remove; every additive mask is clipped back to the building mask. The room example and indoor rendering path have been removed.
-- **Detection limits**: this is a conservative model gate, not a perfect indoor/outdoor classifier. A tightly cropped exterior wall may need a wider photo. Windows and doors are estimated, not guaranteed; use Remove to correct the preview. Sky and landscaping cannot be added unless the underlying model mistakenly labels them as building.
-- **Before production**: check the licence of each model for commercial use. The SegFormer weights were published under a research licence. The wall model sits behind one function in the worker, so it can be replaced.
-- **Products**: add or change a product look in `LOOKS` in `materials.ts`. Sheet images in `public/citybond/*-swatch.webp` are full 1220 x 2440 mm sheets. Products without a sheet image are not offered.
-- **Limits**: photos only (no video). Flat walls only. The panel size comes from one photo and is an estimate; the visitor can change it. `?gpu=1` turns on the WebGPU path, which is not tested on many devices yet.
+## Exterior visualizer
 
-## Routes and content coverage
+The active `NeutralWallVisualizer` uses the reviewed neutral facade preparation:
 
-`content/required-urls.txt` contains the 184 supplied legacy URLs. The implementation covers:
+1. Upload a building photo and choose a finish.
+2. Preparation starts while the visitor completes the compact contact form.
+3. A server-side Meta image edit creates neutral panels. Segmentation and coverage refinement protect openings and scene details.
+4. After the form, materials and colours are composed locally without another AI generation per selection.
+5. A comparison slider shows the original and result. A compact collection selector exposes all source finishes.
 
-| Coverage | Count |
-| --- | ---: |
-| Original non-blog URLs, rendered directly | 69 |
-| Editable original-page records (aliases share records) | 62 |
-| Original blog listing/archive URLs | 25 |
-| Original article/web-story URLs awaiting supplied content | 90 |
+Set the server-only `MODEL_API_KEY`. No local GPU is required. Uploaded photos are sent to the hosted provider and stored privately. Prepared results are cached by decoded pixel fingerprint and pipeline version, not filename. Three photos per submitted email and upload/retry rate limits are implemented; email ownership is not verified. New photos still require preparation, and mask/geometry quality can vary between buildings.
 
-Original spellings, PHP aliases and trailing-slash forms are retained, including `/vijyawada`. Public paths map to internal renderers in `src/data/canonical-paths.json` and `src/lib/routes.ts`.
+Main implementation: `NeutralWallVisualizer.tsx`, `neutral-server.ts`, `neutral-renderer.ts` and `neutral.worker.ts`. Older experimental renderers remain for comparison; the neutral workflow is active.
 
-The 90 original articles/web stories have not been migrated. Four sample posts demonstrate the blog workflow; samples and empty archives are excluded from search indexing. Preserve original article slugs when adding the real content.
+## Hosting and SEO
 
-`src/data/site.json` is the seed used until a store has its first published revision. `content/original-copy.json` holds the captured source text. The portal's **Import original website text** action restores that captured text to a draft while preserving images, navigation and blogs; review before publishing.
-
-## Hosting on Vercel
-
-Import this repository into a Vercel project with the Next.js framework preset. Connect a **private Vercel Blob store** and configure these server-only environment variables:
+Use a Next.js Vercel preview deployment and a connected **private Blob store**. A CPU VM can use `npm run build` and `npm start` with persistent local storage. Configure server-only variables:
 
 | Variable | Purpose |
 | --- | --- |
-| `BLOB_STORE_ID` | Added by the connected Blob store; deployment OIDC authenticates storage operations. |
-| `CMS_PASSWORD_HASH` | Salted scrypt password hash, in `salt:hexKey` format. |
-| `CMS_SESSION_SECRET` | Random session-signing secret of at least 32 characters. |
-| `SITE_URL` | Optional canonical origin; defaults to `https://citybond.in`. |
+| `BLOB_STORE_ID` | Private Vercel Blob store, authenticated with deployment OIDC. |
+| `CMS_PASSWORD_HASH` | Salted scrypt password hash generated by setup. |
+| `CMS_SESSION_SECRET` | Random session secret, at least 32 characters. |
+| `MODEL_API_KEY` | Meta image preparation and segmentation. |
+| `SITE_URL` | Canonical origin; defaults to `https://citybond.in`. |
+| `SITE_INDEXABLE` | Keep `false` on demos; set `true` only at final domain cutover. |
 
-The local setup command generates the two CMS values in `.env.local`. Transfer them using Vercel's secure environment-variable configuration, then redeploy. Never use `NEXT_PUBLIC_` prefixes for secrets. Use a separate Blob store for staging if publishing previews must not affect production content.
+Never use `NEXT_PUBLIC_` for secrets. Hosted storage and portal authentication fail closed when configuration is absent. Use separate stores if staging edits must not affect production content. Preserve the existing preview alias; deploying to the early prototype's production alias would replace that comparison.
 
-For a CLI deployment after signing in and linking the intended project:
-
-```sh
-npx vercel login
-npx vercel link
-node scripts/configure-vercel.mjs
-npx vercel --prod
-```
-
-The configuration helper passes the CMS secrets through stdin rather than command arguments or logs. It does not create the Blob store; connect storage first. Production deliberately fails closed if storage is absent, and portal sign-in fails closed if credentials are absent.
-
-**Hosted demo status:** the website link above is public. At this source handoff, the existing demo's live portal credentials still need configuration; the full portal is implemented and its edit/preview/publish flow has been tested locally. No live account credentials are included in this repository.
+Original titles, descriptions, terminology, article dates and canonical paths are imported. Published routes appear in the sitemap. Category/tag indexing follows original exclusions. Private paths are excluded and the Vercel demo defaults to noindex. Check final-domain redirects, robots and sitemap in Search Console at cutover; parity tests cannot guarantee rankings.
 
 ## Verification
 
 ```sh
 npm test
-npm run typecheck
+npm run lint
 npm run build
+node scripts/final-browser-qa.mjs
 ```
 
-With a local server running and `setup:local` completed, these integration checks exercise the actual portal endpoints:
+The final browser runner generates temporary credentials and an isolated store, starts the production build on port 3008 and records headless Chromium. It checks portal editing, seven form paths, the source routes, AMP stories and rendered content/SEO. Install Chromium using `npx playwright install chromium`. Source parity requires Python `beautifulsoup4` and the captured source snapshot; adjust source/output paths in the scripts for another checkout.
 
-```sh
-node scripts/check-local.mjs
-node scripts/check-content-flow.mjs
-node scripts/check-blog-local.mjs
-```
+Final local results: **87 tests passed**, lint and build passed, **292/292 routes**, **135/135 content/SEO comparisons**, **29/29 AMP stories**, portal create/upload/preview/publish and seven form submissions passed. Visualizer flow checks use a saved prepared image and controlled API timing; this run does not claim a fresh paid inference or provider availability.
 
-Run integration checks against a disposable local content store. They save/publish temporary test content and restore the starting content. The general integration check also creates a local test enquiry and uploaded image; it sends no email. The homepage content-flow check validates rendered HTML, not just React's serialized payload.
+`scripts/import-final-source.py` imports the captured crawl. Review regenerated data before applying it. Raw crawl files, recordings, private content stores and secrets are excluded from this repository.
 
-Optional route audit:
+## Remaining client inputs
 
-```sh
-AUDIT_OUTPUT=/tmp/citybond-routes.json node scripts/audit-required-urls.mjs
-```
+- Actual CAD/spec PDFs, installation guides, case-study files, corporate video and podcast links.
+- Seven additional 3D finishes if all eleven in the journey PDF are required; the source exposes four.
+- PVC/WPC catalogue information and more verified project/material relationships.
+- Dealer-specific addresses; 18 city pages currently use central contacts.
+- Licensed ND Logos/Bebas Neue Pro webfonts; review fallbacks remain.
 
-Optional source-copy verification and import require Python with `requests`, `beautifulsoup4` and `html5lib`:
-
-```sh
-python scripts/check-original-copy.py
-python scripts/import-original-copy.py
-```
-
-The importer fetches the original website and checks text parity. Raw HTML is excluded from Git. Review regenerated source data before importing or publishing it.
-
-## Project layout
-
-```text
-src/app/[[...path]]/        Public route entry point and metadata
-src/app/studio-7c9e/        Authenticated portal entry point
-src/app/api/studio/        Login, content, uploads, draft and publishing APIs
-src/app/api/enquiries/     Form submissions
-src/app/api/media/         Public uploaded media delivery
-src/components/site/      Website layouts, animation and navigation
-src/components/portal/    Content editor interface
-src/lib/cms/              Schemas, authentication, storage and revisions
-src/lib/routes.ts         Legacy URL resolution and canonical paths
-src/lib/blog.ts           Dynamic blog and archive routing
-src/data/                 Website seed content and canonical route map
-content/                  Imported copy, URL baseline and asset provenance
-public/                   Logos, imagery and stock placeholders
-scripts/                  Setup, source import and integration checks
-tests/                    CMS, routing, blog, content and motion tests
-```
-
-## Demo details
-
-The brand palette follows the supplied CityBond guide. Bebas Neue and Roboto Condensed are review fallbacks; the exact licensed ND Logos/Bebas Neue Pro webfont files were not supplied. Asset provenance is recorded in `content/assets.json` and `content/stock-assets.json`. Stock architecture photographs are labelled as inspiration rather than evidence of CityBond installations.
-
-Forms persist enquiries for review in the portal; they do not send email notifications. Third Eye View is a manual design-request workflow, not an AI rendering service. Live enquiries, attachments, passwords, sessions, private runtime storage and deployment credentials are excluded from this public source repository.
-
-### Recorded exterior verification
-
-Start the production build on port 3004, then run `npm run test:exterior` (requires `npx playwright install chromium`). Set `CHECK_BASE` and `QA_OUTPUT` to override the local server and recording folder. This uses real model downloads, checks exterior rendering/export, blocked sky selection, interior rejection, and recovery after rejection. It records a headless browser video and screenshots. No inference is mocked.
+Missing assets use enquiry/request actions where applicable. Original content is preserved while rebranding and customer journeys retain the new presentation.

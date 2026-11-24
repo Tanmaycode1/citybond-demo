@@ -1,4 +1,4 @@
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import type { Metadata } from "next";
 import { getEditorState, getPublicContent } from "@/lib/cms/content";
 import { isEditor } from "@/lib/cms/auth";
@@ -39,6 +39,8 @@ async function pageData({ params, searchParams }: Props) {
       : undefined,
     c: {
       ...c,
+      // Only the current article body is needed by the public renderer.
+      blogs: c.blogs.map(post => ({...post, contentHtml: "", body: [], storyPages: []})),
       originalPages: c.originalPages.filter((p) => p.route === route),
     },
     blog,
@@ -46,7 +48,7 @@ async function pageData({ params, searchParams }: Props) {
   };
 }
 export async function generateMetadata(props: Props): Promise<Metadata> {
-  const { route, c, blog, preview } = await pageData(props);
+  const { raw, route, c, blog, preview } = await pageData(props);
   const original = c.originalPages.find((p) => p.route === route);
   const item =
     c.pages.find((p) => p.slug === route) ||
@@ -65,26 +67,28 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
       : c.home.title + " " + c.home.accent;
   const canonical = blog
     ? blog.kind === "post"
-      ? blogPath(blog.post.slug)
+      ? blogPath(blog.post.slug, blog.post.kind)
       : blogPagePath(blog.base, blog.page, blog.query)
     : canonicalPath(route);
+  const sourceSeo = c.seoPages.find(p => p.path === (blog?.kind === "index" ? blogPagePath(blog.base, blog.page, blog.query) : "/" + raw + (raw.startsWith("blog/") ? "/" : "")));
   const noindex =
-    preview ||
+    process.env.SITE_INDEXABLE === "false" || (!!process.env.VERCEL && process.env.SITE_INDEXABLE !== "true") ||
+    preview || sourceSeo?.robots.includes("noindex") ||
     route === "thank-you" ||
     (blog &&
       (blog.kind === "post"
         ? blog.post.example || blog.post.status === "draft"
         : blog.posts.length === 0));
   return {
-    title: original?.metaTitle || `${title} | ${c.site.name}`,
+    title: (blog?.kind === "post" ? blog.post.metaTitle : blog ? sourceSeo?.title : original?.metaTitle || sourceSeo?.title) || `${title} | ${c.site.name}`,
     description:
-      original?.metaDescription ||
+      (blog?.kind === "post" ? blog.post.metaDescription : blog ? sourceSeo?.description : original?.metaDescription || sourceSeo?.description) ||
       (blog
         ? blog.kind === "post"
           ? blog.post.description
           : c.blog.description
         : item?.description || c.home.description),
-    alternates: { canonical },
+    alternates: { canonical: sourceSeo?.canonical || canonical },
     ...(noindex ? { robots: { index: false, follow: !preview } } : {}),
     ...(blog?.kind === "post"
       ? {
@@ -93,6 +97,8 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
             title: blog.post.title,
             description: blog.post.description,
             publishedTime: blog.post.publishedAt,
+            modifiedTime: blog.post.modifiedAt || undefined,
+            url: canonical,
             ...(blog.post.image
               ? { images: [{ url: blog.post.image, alt: blog.post.imageAlt }] }
               : {}),
@@ -104,6 +110,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
 export default async function Page(props: Props) {
   const { raw, q, preview, c, blog, route, catalogueThicknesses } = await pageData(props);
   const p = blog?.kind === "post" ? blog.post : null;
+  if (p?.kind === "story") redirect(blogPath(p.slug, "story") + (preview ? "?preview=1" : ""));
   return (
     <>
       {p && (
@@ -116,13 +123,15 @@ export default async function Page(props: Props) {
               headline: p.title,
               description: p.description,
               datePublished: p.publishedAt,
+              ...(p.modifiedAt ? {dateModified:p.modifiedAt} : {}),
+              publisher: {"@type":"Organization",name:c.site.name,logo:{"@type":"ImageObject",url:new URL(c.site.logo,process.env.SITE_URL || "https://citybond.in").href}},
               author: {
                 "@type":
                   p.author === "CityBond Editorial" ? "Organization" : "Person",
                 name: p.author,
               },
               mainEntityOfPage: new URL(
-                blogPath(p.slug),
+                blogPath(p.slug, p.kind),
                 process.env.SITE_URL || "https://citybond.in",
               ).href,
               ...(p.image
@@ -139,7 +148,7 @@ export default async function Page(props: Props) {
       )}
       <Website
         key={raw + JSON.stringify(q)}
-        content={c}
+        content={{...c,seoPages:[]}}
         catalogueThicknesses={catalogueThicknesses}
         journeyRole={resolveJourneyRole(route, q.role, c.roles)}
         exploreHome={q.explore === "1"}

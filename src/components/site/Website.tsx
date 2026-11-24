@@ -15,12 +15,13 @@ import type { SiteContent, ContentPage, Product } from "@/lib/cms/schema";
 import { EnquiryForm } from "./forms";
 import { Blog } from "./Blog";
 import { HomeContent } from "./HomeContent";
-import { WallVisualizer } from "./WallVisualizer";
+import { NeutralWallVisualizer as WallVisualizer } from "./NeutralWallVisualizer";
 import type { BlogView } from "@/lib/blog";
 import { canonicalPath, sitemapPaths } from "@/lib/routes";
 import { emptyProductFilters, filterCatalogue } from "@/lib/product-filters";
 import { JourneyRoleContext } from "./JourneyContext";
 import { useInnerMotion } from "./useInnerMotion";
+import networkBoundary from "@/data/network-map.json";
 import {
   OriginalCopy,
   OriginalBlocks,
@@ -1110,6 +1111,7 @@ function ProductDetail({ p }: { p: Product }) {
         </section>
       )}
       </div>
+      {!original && p.specs.length > 0 && <section className="wrap section product-specs"><h2>{c.ui.technical}</h2><div className="original-table"><table><tbody>{p.specs.map((spec,i)=><tr key={i}><th scope="row">{spec.label}</th><td>{spec.value}</td></tr>)}</tbody></table></div></section>}
       {p.finishes.length > 0 && (
         <section className="finish-section section" id="product-finishes">
           <div className="wrap finish-inner">
@@ -1189,7 +1191,7 @@ function Projects() {
           {c.projects
             .filter((p) => filter === "all" || p.category === filter)
             .map((p) => (
-              <ProjectCard key={p.slug} p={p} />
+              <div key={p.slug}><ProjectCard p={p} />{p.source === "https://citybond.in/projects" && <a className="project-original-image" href={p.image} target="_blank" rel="noreferrer">{c.ui.viewFullImage}</a>}</div>
             ))}
         </div>
       </section>
@@ -1267,6 +1269,8 @@ function Resources() {
 function ResourceDetail({ r }: { r: SiteContent["resources"][number] }) {
   const c = useContent();
   const original = useOriginalPage();
+  const isRequest = ["catalogue", "magazine", "report"].includes(r.type);
+  const isFile = /\.(pdf|zip)(?:[?#]|$)/i.test(r.href);
   const presenceIndex = original?.blocks.findIndex(block => block.type === "heading" && block.text === "Our Presence") ?? -1;
   const presenceEnd = presenceIndex >= 0 ? original!.blocks.findIndex((block, index) => index > presenceIndex && (block.type === "heading" || block.text === "Buying Options")) : -1;
   return (
@@ -1277,7 +1281,7 @@ function ResourceDetail({ r }: { r: SiteContent["resources"][number] }) {
           <p className="eyebrow">{r.type}</p>
           <h1>{r.title}</h1>
           <p className="resource-description">{r.description}</p>
-          {r.href && <Button href={r.href}>{c.ui.source}</Button>}
+          {r.href && (!isRequest || isFile) && <Button href={r.href}>{isFile ? "Download " + r.type : c.ui.source}</Button>}
         </div>
         <Photo src={r.image} alt={r.imageAlt} eager />
       </section>
@@ -1297,6 +1301,7 @@ function ResourceDetail({ r }: { r: SiteContent["resources"][number] }) {
           {presenceEnd >= 0 && <OriginalBlocks blocks={original.blocks.slice(presenceEnd)} title={r.title} />}
         </> : <OriginalBlocks blocks={original.blocks} title={r.title} /> : r.body.map((text, i) => <p key={i}>{text}</p>)}
       </div>
+      {isRequest && !isFile && <section className="wrap section resource-request"><div><p className="eyebrow">{r.type}</p><h2>Request your copy.</h2><p>Leave your details and the CityBond team will help you with {r.title}.</p></div><EnquiryForm c={c} type="contact" message={`Please send me ${r.title}.`} context={{resource:r.slug,request:r.type}} /></section>}
       <ResourcesSection />
     </div>
   );
@@ -1330,7 +1335,7 @@ function Network({ embedded = false }: { embedded?: boolean } = {}) {
       <section className="wrap network-layout">
         <div className="network-map">
           <svg viewBox="0 0 100 100" aria-hidden="true">
-            <path d="M32 7 39 4 43 12 40 17 47 21 50 28 60 32 72 34 76 31 84 33 92 26 95 31 89 40 79 44 73 49 66 57 58 61 53 70 49 81 43 96 38 90 33 76 28 63 24 54 17 47 13 38 24 35 25 25 29 20 25 13Z" />
+            <path d={networkBoundary.path} />
           </svg>
           {offices.map((o) => (
             <button
@@ -1606,7 +1611,7 @@ function SitemapPage({ page }: { page: ContentPage }) {
   c.projects.forEach(p => register(`projects/${p.slug}`, p.name, "Projects"));
   c.resources.forEach(r => register(`resources/${r.slug}`, r.title, "Resources"));
   c.roles.forEach(r => register(`for/${r.id}`, r.label, "Planning tools & partners"));
-  c.blogs.forEach(b => register(`blog/${b.slug}`, b.title, "Resources"));
+  c.blogs.forEach(b => register(`blog/${b.kind === "story" ? "web-stories/" : ""}${b.slug}`, b.title, "Resources"));
   c.originalPages.find(p => p.route === "site-map")?.blocks.forEach(block => {
     if (block.type === "link" && block.href && block.href !== "/sitemap.html") labels.set(canonicalPath(block.href.replace(/^\/+|\/+$/g, "")), block.text);
   });
@@ -1624,12 +1629,14 @@ function SitemapPage({ page }: { page: ContentPage }) {
   sitemapPaths(c).forEach(href => groups.get(categories.get(href) || "Explore")!.push({ href, label: labels.get(href) || href }));
   return <div className="sitemap-page">
     <Intro page={page} />
-    <nav className="wrap sitemap-groups" aria-label="All website pages">
+    <div className="sitemap-original"><OriginalCopy /></div>
+    <details className="wrap sitemap-additional"><summary>All pages, articles & archives</summary>
+    <nav className="sitemap-groups" aria-label="All website pages">
       {[...groups].filter(([, links]) => links.length).map(([title, links]) => <section key={title}>
         <h2>{title}</h2>
         <ul>{links.map(link => <li key={link.href}><Link href={link.href}>{link.label}</Link></li>)}</ul>
       </section>)}
-    </nav>
+    </nav></details>
   </div>;
 }
 function ContactPage({
@@ -1827,47 +1834,16 @@ export function Website({
 function Visualiser() {
   const c = useContent();
   const original = useOriginalPage();
-  const [product, setProduct] = useState(c.products[0].slug);
-  const selected = c.products.find((p) => p.slug === product)!;
   return (
     <div className="planning-page visualiser-page">
       <Intro page={c.pages.find((p) => p.slug === "visualiser")!} />
       {original && <div className="original-copy wrap planning-introduction"><OriginalBlocks blocks={original.blocks.slice(0, 2)} title={original.title} /></div>}
       <WallVisualizer content={c} heading={false} />
-      <section className="wrap visualiser-layout section no-top">
-        <div>
-          {original && <div className="original-copy planning-instructions"><OriginalBlocks blocks={original.blocks.slice(2, 7)} title={original.title} /></div>}
-          <div className="visualiser-image">
-            <Photo src={selected.image} alt={selected.imageAlt} />
-            <span className="image-label">
-              {c.ui.concept} / {selected.name}
-            </span>
-          </div>
-          <div className="visualiser-swatches">
-            {c.products
-              .filter((p) => p.finishes.length)
-              .map((p) => (
-                <button
-                  aria-label={p.name}
-                  aria-pressed={p.slug === product}
-                  onClick={() => setProduct(p.slug)}
-                  key={p.slug}
-                  title={p.name}
-                ><span style={{ background: p.finishes[0].hex }} aria-hidden="true" />{p.name}</button>
-              ))}
-          </div>
-          <h3>{selected.name}</h3>
-          <p>{c.ui.visualiserNote}</p>
-        </div>
-        <div className="planning-form-column">
-          {original && <div className="original-copy planning-form-title"><OriginalBlocks blocks={original.blocks.slice(7, 8)} title={original.title} /></div>}
-          <EnquiryForm c={c} type="visualiser" product={product} />
-          {original && <div className="original-copy planning-support"><OriginalBlocks blocks={original.blocks.slice(8)} title={original.title} /></div>}
-        </div>
-      </section>
+      {original && <details className="wrap original-copy section"><summary>{c.ui.visualizerInstructions}</summary><OriginalBlocks blocks={original.blocks.slice(2)} title={original.title} /></details>}
     </div>
   );
 }
+
 function Quiz() {
   const c = useContent();
   const [step, setStep] = useState(0);
@@ -1937,7 +1913,7 @@ function Quiz() {
         ) : !reference ? (
           <div className="quiz-enquiry">
             <h2>{c.ui.quizLeadTitle}</h2><p>{c.ui.quizLeadDescription}</p>
-            <EnquiryForm c={c} type="quiz" product={matches[0]?.slug} message={answers.map(answer => c.ui[answer]).join(" / ")} onSuccess={setReference} />
+            <EnquiryForm c={c} type="quiz" product={matches[0]?.slug} message={answers.map(answer => c.ui[answer]).join(" / ")} context={{segment: answers[0], application: answers[1], finish: answers[2]}} onSuccess={setReference} />
             <button className="text-link" onClick={() => setStep(2)}>{c.ui.previous}</button>
           </div>
         ) : (

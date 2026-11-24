@@ -1,9 +1,10 @@
 import type { SiteContent } from "./cms/schema";
 import canonicalPaths from "@/data/canonical-paths.json";
-import { blogPath, blogRoutes } from "./blog";
+import { blogPath, blogRoutes, resolveBlog } from "./blog";
 const paths: Record<string, string> = canonicalPaths;
 const duplicates: Record<string, string> = {
   index: "",
+  "hpl-series": "products/hpl-sheet",
   "index.php": "",
   "contact.php": "contact",
   "network.php": "network",
@@ -66,7 +67,7 @@ export function routes(
       ...blogRoutes(c),
       ...c.blogs
         .filter((p) => options.includeDrafts || p.status === "published")
-        .map((p) => blogPath(p.slug).slice(1)),
+        .map((p) => blogPath(p.slug, p.kind).slice(1)),
     ]),
   ];
 }
@@ -76,10 +77,10 @@ export function sitemapPaths(c: SiteContent) {
       ...contentRoutes(c)
         .filter((r) => !["thank-you", "site-map"].includes(r))
         .map(canonicalPath),
-      "/blog/",
+      ...blogRoutes(c).filter(path => { const view = resolveBlog(path, c); return view?.kind === "index" && view.posts.length > 0; }).map(path => "/" + path),
       ...c.blogs
         .filter((p) => p.status === "published" && !p.example)
-        .map((p) => blogPath(p.slug)),
+        .map((p) => blogPath(p.slug, p.kind)),
     ]),
   ];
 }

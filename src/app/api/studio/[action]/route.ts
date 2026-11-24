@@ -30,7 +30,7 @@ const json = (data: unknown, status = 200) =>
   NextResponse.json(data, { status, headers: { "Cache-Control": "no-store" } });
 async function body(request: Request) {
   const value = await request.text();
-  if (value.length > 1_500_000) throw new Error("Content is too large");
+  if (value.length > 4_000_000) throw new Error("Content is too large");
   return JSON.parse(value);
 }
 export async function GET(
@@ -48,13 +48,14 @@ export async function GET(
       });
     if (action === "revisions") return json({ revisions: await revisions() });
     if (action === "enquiries") {
-      const items = (await listObjects("enquiries/"))
-        .sort((a, b) => b.key.localeCompare(a.key))
-        .slice(0, 100);
+      const query = new URL(request.url).searchParams;
+      const page = Math.max(1, Math.min(100000, Number(query.get("page")) || 1));
+      const all = (await listObjects("enquiries/")).sort((a,b) => b.key.localeCompare(a.key));
+      const items = all.slice((page-1)*50,page*50);
       const enquiries = await Promise.all(
         items.map(async (item) => (await readObject(item.key))?.data),
       );
-      return json({ enquiries: enquiries.filter(Boolean) });
+      return json({ enquiries: enquiries.filter(Boolean), page, total: all.length, totalPages: Math.max(1,Math.ceil(all.length/50)) });
     }
     if (action === "attachment") {
       const key = new URL(request.url).searchParams.get("key") || "";

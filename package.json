@@ -10,14 +10,19 @@
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
     "test": "tsx --test tests/*.test.ts",
-    "test:exterior": "node scripts/check-exterior.mjs"
+    "test:exterior": "node scripts/check-exterior.mjs",
+    "test:fast-visualizer": "node scripts/check-fast-visualizer.mjs",
+    "test:quality-visualizer": "node scripts/check-quality-visualizer.mjs"
   },
   "dependencies": {
     "@huggingface/transformers": "^4.3.2",
+    "@meta-sam/parser": "^0.1.0",
     "@vercel/blob": "^2.8.2",
     "next": "^16.4.5",
     "react": "19.2.8",
     "react-dom": "19.2.8",
+    "sanitize-html": "^2.18.2",
+    "sharp": "^0.35.5",
     "zod": "^4.6.7"
   },
   "devDependencies": {
@@ -26,10 +31,17 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/sanitize-html": "^2.16.2",
+    "amphtml-validator": "^1.0.38",
     "eslint": "^9",
     "eslint-config-next": "^16.4.5",
     "tailwindcss": "^4",
     "tsx": "^4.23.15",
     "typescript": "^5"
+  },
+  "overrides": {
+    "@vercel/cli-config": {
+      "zod": "$zod"
+    }
   }
 }

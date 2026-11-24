@@ -52,3 +52,5 @@ content/photography-audit.json
 content/raw/
 
 /test-results/
+__pycache__/
+*.pyc
