@@ -2,6 +2,11 @@ import type { NextConfig } from "next";
 const config: NextConfig = {
   devIndicators: false,
   skipTrailingSlashRedirect: true,
+  // The optional renderer reads local swatches, never journal or Metacity media.
+  // Keep those static assets outside its serverless bundle.
+  outputFileTracingExcludes: {
+    "/api/visualizer/render": ["public/blog/**/*", "public/metacity/**/*"],
+  },
   async headers() {
     return [
       {
