@@ -36,6 +36,7 @@ Sign in at `/studio-7c9e`. The route itself is not the security mechanism: write
 - **Pages:** original page copy, home sections, role journeys and supporting content.
 - **Products:** products, finishes, specifications, images and project relationships.
 - **Journal:** rich-text articles, images, SEO, drafts and editable web-story slides.
+- Select an image inside an article to replace its address or upload a replacement and edit alternative text. Use the Image toolbar action to insert a new illustration.
 - **Resources:** upload or link actual documents; request forms remain until files are supplied.
 - **Enquiries:** paginated submissions, structured context and authenticated attachments.
 - **Settings:** navigation, branding, shared labels, configuration and publication history.
@@ -76,6 +77,7 @@ Use a Next.js Vercel preview deployment and a connected **private Blob store**. 
 | `MODEL_API_KEY` | Meta image preparation and segmentation. |
 | `SITE_URL` | Canonical origin; defaults to `https://citybond.in`. |
 | `SITE_INDEXABLE` | Keep `false` on demos; set `true` only at final domain cutover. |
+| `ONNXRUNTIME_NODE_INSTALL` | Set `skip` during hosted installation to avoid downloading unused server CUDA binaries. |
 
 Never use `NEXT_PUBLIC_` for secrets. Hosted storage and portal authentication fail closed when configuration is absent. Use separate stores if staging edits must not affect production content. Preserve the existing preview alias; deploying to the early prototype's production alias would replace that comparison.
 
