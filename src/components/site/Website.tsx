@@ -13,6 +13,7 @@ import {
 } from "react";
 import type { SiteContent, ContentPage, Product } from "@/lib/cms/schema";
 import { EnquiryForm } from "./forms";
+import { SurfaceWaves } from "./SurfaceWaves";
 import { Blog } from "./Blog";
 import { HomeContent } from "./HomeContent";
 import { NeutralWallVisualizer as WallVisualizer } from "./NeutralWallVisualizer";
@@ -580,7 +581,8 @@ function ProductSection({
   if (!picks.length) return null;
   const selected = picks[Math.min(active, picks.length - 1)];
   return (
-    <section className="material-edit wrap section" id="materials">
+    <section className="material-edit palette-surface wrap section" id="materials">
+      <SurfaceWaves />
       {!hideHeading && (
         <SectionHead
           eyebrow={c.ui.materialLibrary}
@@ -884,12 +886,26 @@ function AudienceCopy({ part }: { part: "intro" | "benefits" | "stories" | "call
 }
 function AudienceProducts() {
   const c = useContent();
-  return <section className="wrap section audience-products">
-    <SectionHead title={c.home.productsTitle} description={c.home.productsDescription} />
-    <div>{[...new Set(c.products.map(product => product.category))].map(category => <section key={category}>
-      <h3>{category}</h3>
-      <ul>{c.products.filter(product => product.category === category).map(product => <li key={product.slug}><Link href={`/products/${product.slug}`}>{product.name}<Arrow /></Link></li>)}</ul>
-    </section>)}</div>
+  const categories = [...new Set(c.products.map(product => product.category))];
+  const [selected, setSelected] = useState("");
+  const category = categories.includes(selected) ? selected : categories[0];
+  const products = c.products.filter(product => product.category === category);
+  return <section className="wrap section audience-products palette-surface">
+    <SurfaceWaves />
+    <SectionHead eyebrow={c.ui.materialLibrary} title={c.home.productsTitle} description={c.home.productsDescription} href="/products" />
+    <div className="palette-filters" role="group" aria-label={c.ui.materialLibrary}>
+      {categories.map(item => <button key={item} type="button" aria-pressed={category === item} onClick={() => setSelected(item)}>{item}<span>{c.products.filter(product => product.category === item).length}</span></button>)}
+    </div>
+    <div className={`palette-gallery${products.length === 1 ? " palette-gallery-single" : ""}`} key={category}>
+      {products.map(product => <Link className="palette-card" key={product.slug} href={`/products/${product.slug}`}>
+        <div className="palette-card-image"><Photo src={product.image} alt={product.imageAlt} />
+          <span className="palette-card-action" aria-hidden="true"><Arrow /></span>
+        </div>
+        <div className="palette-card-copy"><p>{product.collection}</p><h3>{product.name}</h3>
+          <div className="palette-card-finishes" aria-hidden="true">{product.finishes.slice(0, 5).map(finish => <span key={finish.name} style={{background:finish.hex}} />)}</div>
+        </div>
+      </Link>)}
+    </div>
   </section>;
 }
 function AudienceTechnical() {
@@ -1710,7 +1726,7 @@ function ContactPage({
     </div>;
   }
   return (
-    <div className={type === "sample" ? "planning-page samples-page" : type === "contact" || type === "career" ? "planning-page company-form-page" : undefined}>
+    <div className={type === "sample" ? "planning-page samples-page" : "planning-page company-form-page"}>
       <Intro page={page} />
       <OriginalCopy />
       <section className="wrap enquiry-layout section no-top">

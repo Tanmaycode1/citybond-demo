@@ -191,3 +191,55 @@ test('Mobile: Explore, role entry and contact form fit a narrow screen',async({p
   await page.getByRole('button',{name:'Send your request'}).click();await expect(page.getByRole('status')).toContainText('Your request has been received');
   await page.screenshot({path:info.outputPath('mobile-form.png')});
 });
+
+test('Palette categories expose every product across customer journeys', async ({page}) => {
+  await login(page);
+  const {content} = await api(page, 'content');
+  const productsInPortal: typeof seed.products = content.products;
+  const categories = [...new Set(productsInPortal.map(product => product.category))];
+  for (const role of seed.roles) {
+    await page.goto(`/for/${role.id}`);
+    const palette = page.locator('.audience-products');
+    await palette.scrollIntoViewIfNeeded();
+    for (const category of categories) {
+      const filter = palette.getByRole('button', {name: new RegExp(`^${category}`)});
+      await filter.click();
+      await expect(filter).toHaveAttribute('aria-pressed', 'true');
+      const products = productsInPortal.filter(product => product.category === category);
+      await expect(palette.locator('.palette-card')).toHaveCount(products.length);
+      for (const product of products) {
+        const href = await palette.locator('.palette-card').filter({has: page.getByRole('heading', {name: product.name, exact: true})}).getAttribute('href');
+        const destination = new URL(href!, base);
+        expect(destination.pathname).toBe(canonicalHref(`/products/${product.slug}`));
+        expect(destination.searchParams.get('role')).toBe(role.id);
+      }
+    }
+    // A one-product category uses the full gallery width, rather than an empty grid.
+    const gallery = await palette.locator('.palette-gallery').boundingBox();
+    const card = await palette.locator('.palette-card').first().boundingBox();
+    expect(card!.width).toBeGreaterThan(gallery!.width * .95);
+  }
+});
+
+test('Enquiry and palette layouts adapt to mobile and reduced motion', async ({page}, info) => {
+  await page.emulateMedia({reducedMotion: 'reduce'});
+  for (const width of [390, 768, 1440]) {
+    await page.setViewportSize({width, height: 1000});
+    await page.goto('/for/dealer');
+    const form = page.locator('.audience-enquiry .enquiry-form');
+    await form.scrollIntoViewIfNeeded();
+    const section = await page.locator('.audience-enquiry').boundingBox();
+    const formBox = await form.boundingBox();
+    expect(formBox!.width).toBeGreaterThan(section!.width * .95);
+    for (const control of await form.locator('input:not([name="website"]), select, textarea, button').all()) {
+      const box = await control.boundingBox();
+      expect(box!.x).toBeGreaterThanOrEqual(0);
+      expect(box!.x + box!.width).toBeLessThanOrEqual(width + 1);
+    }
+    await expect(form.locator('.surface-wave').first()).toHaveCSS('animation-name', 'none');
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    await form.screenshot({path:info.outputPath(`enquiry-${width}.png`)});
+    await page.locator('.audience-products').scrollIntoViewIfNeeded();
+    await page.locator('.audience-products').screenshot({path:info.outputPath(`palette-${width}.png`)});
+  }
+});

@@ -2,6 +2,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { useEffect, useId, useRef, useState, type FormEvent } from "react";
 import Link from "./SiteLink";
+import { SurfaceWaves } from "./SurfaceWaves";
 import type { SiteContent } from "@/lib/cms/schema";
 import { useJourneyRole } from "./JourneyContext";
 export function EnquiryForm({
@@ -91,7 +92,8 @@ export function EnquiryForm({
     }
   }
   return (
-    <form className="enquiry-form" onSubmit={submit}>
+    <form className="enquiry-form enquiry-surface" onSubmit={submit} aria-busy={busy}>
+      <SurfaceWaves />
       <div className="form-grid">
         {(["name", "email", "phone", "city"] as const).map((name) => (
           <label key={name}>
@@ -121,6 +123,7 @@ export function EnquiryForm({
           </label>
         ))}
       </div>
+      <div className="form-grid form-preferences">
       {type !== "career" && <label>
         {c.ui.role}
         <select name="role" aria-label={c.ui.role} required defaultValue={selectedRole} aria-invalid={!!errors.role} aria-describedby={errors.role ? `${id}-role` : undefined}>
@@ -149,11 +152,12 @@ export function EnquiryForm({
           {errors.product && <small className="field-error">{errors.product}</small>}
         </label>
       )}
+      </div>
       <label>
         {c.ui.message}
         <textarea
           name="message"
-          rows={4}
+          rows={3}
           maxLength={4000}
           defaultValue={message}
         />
@@ -192,6 +196,7 @@ export function EnquiryForm({
         Website
         <input name="website" tabIndex={-1} autoComplete="off" />
       </label>
+      <div className="enquiry-submit-row">
       <label className="consent">
         <input type="checkbox" name="consent" required />
         <span>
@@ -205,6 +210,7 @@ export function EnquiryForm({
         {busy ? c.ui.sending : c.ui.submit}
         <span aria-hidden="true">↗</span>
       </button>
+      </div>
       {status && (
         <p className="form-status" role={failed ? "alert" : "status"}>
           {status}

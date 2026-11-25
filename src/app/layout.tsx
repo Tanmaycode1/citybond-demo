@@ -19,6 +19,7 @@ import "./header-footer.css";
 import "./visualizer.css";
 import "./fast-visualizer.css";
 import "./neutral-visualizer.css";
+import "./surfaces.css";
 
 // Review fallbacks: replace with the supplied ND Logos / Bebas Neue Pro
 // webfonts when those separate licensed files are available.
