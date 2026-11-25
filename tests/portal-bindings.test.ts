@@ -93,3 +93,23 @@ test("every portal journey option validates and renders on an owner-edited role 
     assert.ok(html.includes(`data-journey-section="${section}"`), section);
   assert.ok(html.includes('class="contact-band"'), "Contact remains the final shared section");
 });
+
+test("all material information pages render one real enquiry form beneath editable imported copy", () => {
+  for (const route of ["3mm-acp-sheet", "4mm-acp-sheet", "6mm-acp-sheet", "fire-retardent", "low-density-poly-ethylene", "exterior-facade", "interior-design", "brand-identity"]) {
+    const content = validateContent(seed);
+    const page = content.originalPages.find(page => page.route === route)!;
+    const heading = page.blocks.find(block => block.text === "Have a Message For Us?")!;
+    const description = page.blocks.find(block => block.text.startsWith("Use this form"))!;
+    heading.text = "An edited enquiry heading";
+    description.text = "An edited enquiry introduction";
+    page.blocks.unshift({...description, id:"owner-note", type:"paragraph", text:"Owner-added material information"});
+    const html = render(content, route);
+    assert.equal((html.match(/<form\b/g) || []).length, 1, route);
+    assert.ok(html.includes('name="email"'), route);
+    assert.ok(html.includes('name="consent"'), route);
+    assert.equal((html.match(/An edited enquiry heading/g) || []).length, 1, route);
+    assert.equal((html.match(/An edited enquiry introduction/g) || []).length, 1, route);
+    assert.ok(html.includes('id="material-enquiry-title">An edited enquiry heading</h2>'), route);
+    assert.ok(html.includes('Owner-added material information'), route);
+  }
+});

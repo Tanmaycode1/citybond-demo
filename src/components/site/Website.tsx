@@ -1453,10 +1453,13 @@ function MaterialInfoPage({ page }: { page: ContentPage }) {
   const isCore = ["fire-retardent", "low-density-poly-ethylene"].includes(page.slug);
   const isApplication = ["exterior-facade", "interior-design", "brand-identity"].includes(page.slug);
   const brandHeading = page.slug === "brand-identity" ? original?.blocks.find(block => block.type === "heading" && block.text === "Approved By Leading Brands") : undefined;
-  const blocks = (original?.blocks || []).filter(block => !isApplication || ![
-    "Have a Message For Us?",
-    "Use this form to send your message. We will get back within 24 hours.",
-  ].includes(block.text.trim()));
+  // Bind the imported form introduction by stable IDs so portal copy edits
+  // cannot disconnect the form or duplicate its heading in the article.
+  const enquiryIndex = page.slug === "brand-identity" ? 3 : page.slug === "fire-retardent" ? 4 : page.slug === "low-density-poly-ethylene" ? 5 : 2;
+  const enquiryBlockIds = [enquiryIndex, enquiryIndex + 1].map(index => `original-${String(index).padStart(4, "0")}`);
+  const enquiryTitle = original?.blocks.find(block => block.id === enquiryBlockIds[0])?.text ?? content.ui.contact;
+  const enquiryDescription = original?.blocks.find(block => block.id === enquiryBlockIds[1])?.text ?? "";
+  const blocks = (original?.blocks || []).filter(block => !enquiryBlockIds.includes(block.id));
   return <div className="thickness-page">
     <section className="wrap thickness-hero">
       <div>
@@ -1469,7 +1472,7 @@ function MaterialInfoPage({ page }: { page: ContentPage }) {
       {page.image && <Photo src={page.image} alt={page.imageAlt} eager />}
     </section>
     <div className="wrap thickness-content">
-      {isCore ? <OriginalCopy groupFinishLists /> : <div className="original-copy">
+      {isCore ? <OriginalCopy groupFinishLists excludeBlockIds={enquiryBlockIds} /> : <div className="original-copy">
         <OriginalBlocks blocks={blocks.filter(block => block !== brandHeading)} title={page.title} />
       </div>}
     </div>
@@ -1479,6 +1482,13 @@ function MaterialInfoPage({ page }: { page: ContentPage }) {
         {brand.image ? <Photo src={brand.image} alt={brand.imageAlt} /> : brand.name}
       </span>)}</div>
     </section>}
+    <section className="wrap section material-enquiry" aria-labelledby="material-enquiry-title">
+      <div className="material-enquiry-intro">
+        <h2 id="material-enquiry-title">{enquiryTitle}</h2>
+        {enquiryDescription && <p>{enquiryDescription}</p>}
+      </div>
+      <EnquiryForm c={content} type="contact" useCase={original?.title || page.title} context={{page: page.slug}} />
+    </section>
     <ContactSection />
   </div>;
 }

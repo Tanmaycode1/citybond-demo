@@ -9,11 +9,12 @@ export const OriginalPageContext = createContext<OriginalPage | undefined>(
   undefined,
 );
 export const useOriginalPage = () => useContext(OriginalPageContext);
-export function OriginalCopy({ groupFinishLists = false }: { groupFinishLists?: boolean } = {}) {
+export function OriginalCopy({ groupFinishLists = false, excludeBlockIds = [] }: { groupFinishLists?: boolean; excludeBlockIds?: string[] } = {}) {
   const page = useOriginalPage();
   if (!page?.blocks.length) return null;
+  const blocks = page.blocks.filter(block => !excludeBlockIds.includes(block.id));
   const groups: OriginalBlock[][] = [];
-  for (const block of page.blocks) {
+  for (const block of blocks) {
     // The imported product copy references a form that is not present here.
     if ((page.route.startsWith("products/") || ["fire-retardent", "low-density-poly-ethylene"].includes(page.route)) && (
       block.text.trim() === "Have a Message For Us?" ||
@@ -45,7 +46,7 @@ export function OriginalCopy({ groupFinishLists = false }: { groupFinishLists?: 
             })}
           </div>
         ) : first.type === "table" ? <ProductSpecificationTable key={first.id} block={first} title={page.title} /> : <OriginalBlocks key={first.id} blocks={blocks} title={page.title} />;
-      }) : <OriginalBlocks blocks={page.blocks} title={page.title} />}
+      }) : <OriginalBlocks blocks={blocks} title={page.title} />}
     </div>
   );
 }

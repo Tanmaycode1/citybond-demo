@@ -243,3 +243,27 @@ test('Enquiry and palette layouts adapt to mobile and reduced motion', async ({p
     await page.locator('.audience-products').screenshot({path:info.outputPath(`palette-${width}.png`)});
   }
 });
+
+test('Material pages show an inline enquiry form and preserve its page context in the inbox', async ({page}, info) => {
+  for (const path of ['3mm-acp-sheet','4mm-acp-sheet','6mm-acp-sheet','fire-retardent','low-density-poly-ethylene','exterior-facade','interior-design','brand-identity']) {
+    await page.goto('/'+path+'?role=architect');
+    await expect(page.locator('.material-enquiry form')).toHaveCount(1);
+    await expect(page.getByRole('heading',{name:'Have a Message For Us?',exact:true})).toHaveCount(1);
+    await expect(page.locator('.thickness-content')).not.toContainText('Use this form');
+  }
+  await page.goto('/4mm-acp-sheet?role=architect');
+  const marker=`QA material ${Date.now()}`;
+  await fillForm(page,marker);
+  await expect(page.getByRole('combobox',{name:'I am a',exact:true})).toHaveValue('Architect');
+  await page.getByRole('button',{name:'Send your request',exact:true}).click();
+  await expect(page.getByRole('status')).toContainText('Your request has been received');
+  await page.locator('.material-enquiry').screenshot({path:info.outputPath('4mm-form-submitted.png')});
+  await login(page);
+  const saved=(await api(page,'enquiries')).enquiries.find((item:{name:string})=>item.name===marker);
+  expect(saved.type).toBe('contact');expect(saved.source).toBe('/4mm-acp-sheet');
+  expect(saved.context.page).toBe('4mm-acp-sheet');expect(saved.useCase).toContain('4mm');
+  await page.setViewportSize({width:390,height:844});await page.goto('/4mm-acp-sheet');
+  await page.locator('.material-enquiry').scrollIntoViewIfNeeded();
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+  await page.locator('.material-enquiry').screenshot({path:info.outputPath('4mm-form-mobile.png')});
+});
