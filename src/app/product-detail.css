@@ -126,3 +126,4 @@
   .thickness-content { padding-bottom: 28px; }
   .thickness-page .home-brands { padding-bottom: 40px; }
 }
+.product-template :is(h1,p,dt,dd){overflow-wrap:anywhere}

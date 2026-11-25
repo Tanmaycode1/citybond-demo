@@ -24,3 +24,12 @@ export function storyProgress(
     chapter: Math.min(2, Math.floor(progress * 3)),
   };
 }
+/** Keep authenticated draft navigation in the same revision without altering downloads. */
+export function previewHref(href: string, preview: boolean) {
+  if (!preview || !href.startsWith("/") || href.startsWith("//")) return href;
+  const url = new URL(href, "https://preview.local");
+  if (/^\/(?:api|studio-7c9e|assets|stock|images|citybond)(?:\/|$)/.test(url.pathname)
+    || /\.(?:pdf|zip|jpg|jpeg|png|webp|avif|svg)$/i.test(url.pathname)) return href;
+  url.searchParams.set("preview", "1");
+  return url.pathname + url.search + url.hash;
+}

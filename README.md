@@ -43,6 +43,8 @@ Sign in at `/studio-7c9e`. The route itself is not the security mechanism: write
 
 Search the record list and edit one record at a time using its content/image/SEO tabs. Use **Save draft**, **Open draft preview**, then **Publish changes**. Publication updates the site without redeployment. New articles route to `/blog/your-slug/`; new products render their own specifications. Original source routes are protected against accidental removal or renaming. Stale-edit checks prevent overwriting a newer revision.
 
+For products, choose **Menu category** on the Content tab, or choose **Create new category** in that dropdown. Categories remain available for other products even when unused. The Products menu follows product records automatically while retaining the original informational links and URL aliases. **Preview product** opens the selected saved draft directly; links within that preview retain draft mode. The **Draft only** / **Published product** indicator distinguishes visibility. **Publish changes** makes the product page, catalogue, menu and sitemap available together, without another deployment.
+
 Original-page copy takes precedence over fallback fields. Product thickness filters read documented panel/ACP thickness in millimetres, excluding coil thickness and dimensions. Products without documented thickness remain in the unfiltered listing.
 
 ## Customer journey and forms

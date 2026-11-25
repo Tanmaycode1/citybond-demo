@@ -72,6 +72,7 @@ export const productSchema = z.object({
   slug,
   name: short,
   category: short,
+  menuCategory: short.trim().default(""),
   collection: short,
   description: text,
   image,
@@ -108,6 +109,7 @@ export const contentSchema = z.object({
   schemaVersion: z.literal(1),
   sourceRevision: z.literal(1).default(1),
   routeRevision: z.literal(2).default(2),
+  productMenuCategories: z.array(short.trim().min(1)).max(80).default([]),
   originalPages: z.array(originalPageSchema).max(150).default([]),
   seoPages: z.array(z.object({path: z.string().max(2000), title: z.string().max(1000), description: text, canonical: safeUrl, robots: short.default("")})).max(1000).default([]),
   site: z.object({

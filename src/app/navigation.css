@@ -32,7 +32,7 @@
 .nav-group + .nav-group { border-left: 1px solid #ecebf2; padding-left: 24px; }
 .grouped-header .nav-group h2 { font: 600 12px var(--font-sans), sans-serif; color: #656379; text-transform: uppercase; letter-spacing: .1em; margin: 0 0 15px; }
 .nav-group ul { list-style: none; padding: 0; margin: 0; }
-.grouped-header .nav-group a { display: block; font-size: 15px; line-height: 1.4; padding: 9px 0; }
+.grouped-header .nav-group a { display: block; font-size: 15px; line-height: 1.4; padding: 9px 0; overflow-wrap: anywhere; }
 .grouped-header .nav-group a::after { display: none; }
 .grouped-header .nav-group a:hover { color: var(--brand-red); }
 .nav-group:has(.nav-city-list) { flex: 4; }

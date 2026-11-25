@@ -1,8 +1,10 @@
 "use client";
 /* eslint-disable @next/next/no-img-element */
-import { useEffect, useRef, useState, type FormEvent } from "react";
+import { createContext, useContext, useEffect, useRef, useState, type FormEvent } from "react";
 import type { SiteContent } from "@/lib/cms/schema";
 import { RichEditor } from "./RichEditor";
+import { ProductMenuCategory } from "./ProductMenuCategory";
+import { productPath } from "@/lib/product-navigation";
 import Link from "next/link";
 import { routes, canonicalPath } from "@/lib/routes";
 import { roleSections } from "@/lib/role-sections";
@@ -16,7 +18,9 @@ type State = {
   updatedAt: string | null;
   publishedAt: string | null;
   storageReady: boolean;
+  publishedProductSlugs: string[];
 };
+const EditorContext = createContext<{content:SiteContent|null;dirty:boolean;publishedProductSlugs:string[];createMenuCategory:(slug:string,name:string)=>void}>({content:null,dirty:false,publishedProductSlugs:[],createMenuCategory:()=>{}});
 type Enquiry = {
   id: string;
   name: string;
@@ -85,7 +89,7 @@ function emptyTemplate(path: string, value: Value): Value {
       href: "",
     };
   const templates: Record<string, Value> = {
-    products: { slug: "new-product-" + Date.now().toString(36), name: "Untitled product", category: "ACP", collection: "ACP Series", description: "", image: "", imageAlt: "", body: [""], applications: [], segments: ["residential", "commercial"], specs: [], finishes: [], source: "" },
+    products: { slug: "new-product-" + Date.now().toString(36), name: "Untitled product", category: "ACP", menuCategory: "ACP", collection: "ACP Series", description: "", image: "", imageAlt: "", body: [""], applications: [], segments: ["residential", "commercial"], specs: [], finishes: [], source: "" },
     blogs: {
       kind: "article", sourceId: 0, categories: [], tags: [], storyPages: [], metaTitle: "", metaDescription: "", modifiedAt: "", source: "", contentHtml: "<p>Write your article here.</p>",
       slug: "new-article-" + Date.now().toString(36),
@@ -149,6 +153,7 @@ function Field({
   visibleKeys?: string[];
 }) {
   const key = path.split(".").pop() || path;
+  const editor = useContext(EditorContext);
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState("");
   const input = useRef<HTMLInputElement>(null);
@@ -170,6 +175,7 @@ function Field({
   }
   if (Array.isArray(value) && !path.includes(".")) return <CollectionEditor value={value} path={path} onChange={onChange} />;
   if (key === "contentHtml") return <RichEditor value={String(value || "")} onChange={onChange} />;
+  if (key === "menuCategory" && path.startsWith("products.") && editor.content) { const product=editor.content.products[Number(path.split(".")[1])];return <ProductMenuCategory product={product} content={editor.content} onChange={onChange} onCreate={name=>editor.createMenuCategory(product.slug,name)} />; }
   if (Array.isArray(value))
     return (
       <section className="editor-array">
@@ -422,13 +428,14 @@ function RecordEditor({value,path,onChange}:{value:Value;path:string;onChange:(v
   const type=path.split(".")[0],record=value as Record<string,Value>;
   const config: Record<string,Record<string,string[]>> = {
     blogs: {Content:["title","slug","status","description",...(record.kind === "story" ? ["storyPages"] : ["contentHtml", "body"])],"Images & details":["image","imageAlt","kind","author","authorSlug","publishedAt","modifiedAt","category","categorySlug","categories","tags"],SEO:["metaTitle","metaDescription","source","sourceId"]},
-    products: {Content:["name","slug","description","body"],"Images & details":["image","imageAlt","finishes","category","collection","segments","applications","specs"],Source:["source"]},
+    products: {Content:["name","slug","menuCategory","description","body"],"Images & details":["image","imageAlt","finishes","category","collection","segments","applications","specs"],Source:["source"]},
     originalPages: {Content:["title","description","blocks"],SEO:["metaTitle","metaDescription"],Source:["route","sourceUrl","importedAt"]},
   };
   const tabs=config[type];
   return <>{tabs && <div className="record-tabs" role="tablist" aria-label="Editing options">{Object.keys(tabs).map(name=><button type="button" role="tab" aria-selected={section===name} key={name} onClick={()=>setSection(name)}>{name}</button>)}</div>}<Field value={value} path={path} onChange={onChange} visibleKeys={tabs?.[section]} /></>;
 }
 function CollectionEditor({value,path,onChange}: {value: Value[]; path: string; onChange:(v:Value)=>void}) {
+  const editor = useContext(EditorContext);
   const [selected,setSelected] = useState(0);
   const [search,setSearch] = useState("");
   const item = value[selected];
@@ -442,6 +449,7 @@ function CollectionEditor({value,path,onChange}: {value: Value[]; path: string; 
       <div className="collection-rows">{entries.map(r=><button type="button" key={r.index} aria-pressed={selected===r.index} onClick={()=>setSelected(r.index)}><strong>{r.name}</strong><small>{path === "originalPages" ? canonicalPath(r.subtitle) : r.subtitle}{r.kind === "story" ? " · Web story" : ""}</small></button>)}</div>
     </div>
     <div className="collection-detail">
+      {path === "products" && item && <div className="product-publication"><div><strong>{editor.publishedProductSlugs.includes(String((item as Record<string,Value>).slug))?"Published product":"Draft only"}</strong><code>{productPath({slug:String((item as Record<string,Value>).slug)})}</code></div><div><a href={`${productPath({slug:String((item as Record<string,Value>).slug)})}?preview=1`} target="_blank" rel="noreferrer" aria-disabled={editor.dirty} onClick={e=>{if(editor.dirty)e.preventDefault();}}>Preview product</a>{editor.publishedProductSlugs.includes(String((item as Record<string,Value>).slug))&&<a href={productPath({slug:String((item as Record<string,Value>).slug)})} target="_blank" rel="noreferrer">View live product</a>}</div><small>{editor.dirty?"Save your draft to preview this product. ":"Preview includes saved draft changes. "}Publish changes to update its public page, catalogue and menu together.</small></div>}
       {item ? <><div className="collection-detail-heading"><span>{label(path)} / Edit</span>{!protectedItem && <button type="button" className="danger" onClick={()=>{if(confirm("Remove this item from the draft?")){onChange(value.filter((_,i)=>i!==selected));setSelected(Math.max(0,selected-1));}}}>Remove</button>}</div><RecordEditor key={`${path}-${selected}`} path={`${path}.${selected}`} value={item} onChange={v=>onChange(value.map((old,i)=>i===selected?v:old))} /></> : <p>Select an item or add your first one.</p>}
     </div>
   </section>;
@@ -459,6 +467,17 @@ export function Portal({ authenticated }: { authenticated: boolean }) {
   const [inboxPage,setInboxPage] = useState(1);
   const [inboxTotal,setInboxTotal] = useState(0);
   async function loadInbox(page=1) { const result=await api(`enquiries?page=${page}`);setEnquiries(result.enquiries);setInboxPage(result.page);setInboxTotal(result.total); }
+  function createMenuCategory(slug: string, name: string) {
+    setState(previous => previous ? {
+      ...previous,
+      content: {
+        ...previous.content,
+        productMenuCategories: [...new Set([...previous.content.productMenuCategories, name])],
+        products: previous.content.products.map(product => product.slug === slug ? {...product, menuCategory: name} : product),
+      },
+    } : previous);
+    setDirty(true);
+  }
   const [history, setHistory] = useState<{ key: string; date: string }[]>([]);
   const [filter, setFilter] = useState("all");
   async function load() {
@@ -570,6 +589,7 @@ export function Portal({ authenticated }: { authenticated: boolean }) {
       </main>
     );
   return (
+    <EditorContext.Provider value={{content:state?.content||null,dirty,publishedProductSlugs:state?.publishedProductSlugs||[],createMenuCategory}}>
     <div className="portal">
       <header className="portal-header">
         <Link href="/" className="portal-brand">
@@ -815,5 +835,6 @@ export function Portal({ authenticated }: { authenticated: boolean }) {
         )}
       </main>
     </div>
+    </EditorContext.Provider>
   );
 }

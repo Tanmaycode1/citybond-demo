@@ -26,6 +26,7 @@ export async function getEditorState() {
     publishedEtag: head?.etag ?? null,
     updatedAt: draft?.data.updatedAt ?? null,
     publishedAt: head?.data.updatedAt ?? null,
+    publishedProductSlugs: (await getPublicContent()).products.map(product => product.slug),
   };
 }
 export async function saveDraft(input: unknown, expected: string | null) {
@@ -53,7 +54,7 @@ export async function publishDraft(
     { revision, updatedAt },
     publishedEtag,
   );
-  return { publishedEtag: etag, publishedAt: updatedAt };
+  return { publishedEtag: etag, publishedAt: updatedAt, publishedProductSlugs: content.products.map(product => product.slug) };
 }
 export async function revisions() {
   return (await listObjects("revisions/"))

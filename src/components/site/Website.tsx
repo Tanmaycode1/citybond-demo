@@ -19,7 +19,8 @@ import { NeutralWallVisualizer as WallVisualizer } from "./NeutralWallVisualizer
 import type { BlogView } from "@/lib/blog";
 import { canonicalPath, sitemapPaths } from "@/lib/routes";
 import { emptyProductFilters, filterCatalogue } from "@/lib/product-filters";
-import { JourneyRoleContext } from "./JourneyContext";
+import { JourneyRoleContext, DraftPreviewContext } from "./JourneyContext";
+import { navigationWithProducts } from "@/lib/product-navigation";
 import { useInnerMotion } from "./useInnerMotion";
 import networkBoundary from "@/data/network-map.json";
 import { useHomeExplore } from "./useHomeExplore";
@@ -81,6 +82,7 @@ export function Photo({
 }
 function Header() {
   const c = useContent();
+  const navigation = navigationWithProducts(c);
   const [open, setOpen] = useState(false);
   const [dropdown, setDropdown] = useState<string | null>(null);
   const [mobileGroup, setMobileGroup] = useState<string | null>(null);
@@ -94,7 +96,7 @@ function Header() {
           <img className="logo" src={c.site.logo} alt={c.site.name} />
         </Link>
         <nav id="primary-navigation" aria-label={c.ui.menu} className={open ? "open" : ""}>
-          {c.site.nav.map((l) =>
+          {navigation.map((l) =>
             l.children?.length ? (
               <div
                 className="nav-item"
@@ -112,7 +114,7 @@ function Header() {
               >
                 <button
                   aria-expanded={dropdown === l.label}
-                  aria-controls={`nav-${c.site.nav.indexOf(l)}`}
+                  aria-controls={`nav-${navigation.indexOf(l)}`}
                   onClick={() => {
                     setDropdown(dropdown === l.label ? null : l.label);
                     setMobileGroup(null);
@@ -126,15 +128,15 @@ function Header() {
                 {dropdown === l.label && (
                   <div
                     className="nav-dropdown grouped-dropdown"
-                    id={`nav-${c.site.nav.indexOf(l)}`}
+                    id={`nav-${navigation.indexOf(l)}`}
                   >
                     {Array.from(new Set(l.children.map((child) => child.group || "Explore"))).map((group) => (
                       <section className={`nav-group ${mobileGroup === group ? "group-expanded" : ""}`} key={group} aria-label={group}>
                         <h2 className="desktop-group-title">{group}</h2>
-                        <button className="mobile-group-toggle" aria-expanded={mobileGroup === group} aria-controls={`nav-${c.site.nav.indexOf(l)}-group-${l.children.findIndex(child => (child.group || "Explore") === group)}`} onClick={() => setMobileGroup(mobileGroup === group ? null : group)}>
+                        <button className="mobile-group-toggle" aria-expanded={mobileGroup === group} aria-controls={`nav-${navigation.indexOf(l)}-group-${l.children.findIndex(child => (child.group || "Explore") === group)}`} onClick={() => setMobileGroup(mobileGroup === group ? null : group)}>
                           {group}<span aria-hidden="true">{mobileGroup === group ? "−" : "+"}</span>
                         </button>
-                        <ul id={`nav-${c.site.nav.indexOf(l)}-group-${l.children.findIndex(child => (child.group || "Explore") === group)}`} className={group === "Cities" ? "nav-city-list" : undefined}>
+                        <ul id={`nav-${navigation.indexOf(l)}-group-${l.children.findIndex(child => (child.group || "Explore") === group)}`} className={group === "Cities" ? "nav-city-list" : undefined}>
                     {l.children.filter((child) => (child.group || "Explore") === group).map((child) => (
                       <li key={child.href}>
                       <Link
@@ -1838,6 +1840,7 @@ export function Website({
   else if (p) body = <GenericPage page={p} />;
   return (
     <JourneyRoleContext.Provider value={journeyRole}>
+    <DraftPreviewContext.Provider value={preview}>
     <Context.Provider value={c}>
       <OriginalPageContext.Provider value={original}>
         <div className="site-shell">
@@ -1853,6 +1856,7 @@ export function Website({
         </div>
       </OriginalPageContext.Provider>
     </Context.Provider>
+    </DraftPreviewContext.Provider>
     </JourneyRoleContext.Provider>
   );
 }
